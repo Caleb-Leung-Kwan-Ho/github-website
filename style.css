@@ -1,0 +1,9 @@
+.max-width-container {
+    max-width: 500px; /* Adjust the value as per your requirement */
+    margin: 0 auto; /* Center the container horizontally */
+  }
+
+.center {
+    text-align: center;
+    border: 3px solid rgb(0, 109, 128);
+}

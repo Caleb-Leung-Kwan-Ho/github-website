@@ -22,6 +22,20 @@
 				font-size: 0.85em;
 				line-height: 1.6;
 			}
+			a.skill-link {
+				text-decoration: none;
+			}
+			a.skill-link::after {
+				content: " [Course Page]";
+				font-size: 0.78em;
+				opacity: 0.8;
+			}
+			a.skill-link:hover,
+			a.skill-link:focus-visible {
+				text-decoration: underline;
+				border-color: rgba(255, 255, 255, 0.4);
+				background: rgba(255, 255, 255, 0.12);
+			}
 			#skills ul li { margin-bottom: 0.6em; }
 			#header .content { background-color: rgba(27, 31, 34, 0.85); }
 		</style>
@@ -75,6 +89,7 @@
 										<span class="skill">Python</span>
 										<span class="skill">C++</span>
 										<span class="skill">JavaScript/TypeScript</span>
+										<span class="skill">Elixir</span>
 										<span class="skill">SQL</span>
 										<span class="skill">HTML/CSS</span>
 									</li>
@@ -103,6 +118,8 @@
 										<span class="skill">Distributed Systems</span>
 										<span class="skill">RESTful API Design</span>
 										<span class="skill">Microservices</span>
+										<span class="skill">Functional Programming</span>
+										<a class="skill skill-link" href="https://omscs.gatech.edu/isye-6420-bayesian-statistics">Bayesian Statistics</a>
 										<span class="skill">Data Structures &amp; Algorithms</span>
 										<span class="skill">OOP</span>
 										<span class="skill">ETL / Data Pipelines</span>
@@ -124,8 +141,9 @@
 									<li>AWS &mdash; going deeper</li>
 									<li>ETL / Data Pipelines &mdash; going deeper</li>
 									<li>System Design / Distributed Systems &mdash; life long learning</li>
-									<li>Elixir and Elixir Phoenix Framework</li>
-									<li>Functional programming &mdash; via Elixir and Phoenix, with Erlang fundamentals as a foundation</li>
+									<li>Erlang fundamentals &mdash; building deeper OTP knowledge through the Elixir ecosystem</li>
+									<li>Oban and Phoenix Framework &mdash; building production-ready SFTP, backend, and pipeline workflows</li>
+									<li>Computer Networks &mdash; OMSCS CS 6250 (<a href="https://omscs.gatech.edu/cs-6250-computer-networks">course page</a>)</li>
 									<li>Japanese &mdash; working toward N4</li>
 								</ul>
 							</article>

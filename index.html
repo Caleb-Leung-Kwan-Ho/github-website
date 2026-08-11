@@ -1,437 +1,189 @@
 <!DOCTYPE HTML>
-<!--
-	Dimension by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
+<html lang="en">
 	<head>
 		<title>Caleb(Kwan Ho) Leung Bio Page</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="The professional profile of Caleb Leung, a software engineer focused on distributed systems, data pipelines, and cloud computing." />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/one-page.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<style>
-			.skill {
-				display: inline-block;
-				padding: 0.25em 0.7em;
-				margin: 0.2em 0.15em;
-				background: rgba(255, 255, 255, 0.075);
-				border: solid 1px rgba(255, 255, 255, 0.15);
-				border-radius: 4px;
-				font-size: 0.85em;
-				line-height: 1.6;
-			}
-			a.skill-link {
-				text-decoration: none;
-			}
-			a.skill-link::after {
-				content: " [Course Page]";
-				font-size: 0.78em;
-				opacity: 0.8;
-			}
-			a.skill-link:hover,
-			a.skill-link:focus-visible {
-				text-decoration: underline;
-				border-color: rgba(255, 255, 255, 0.4);
-				background: rgba(255, 255, 255, 0.12);
-			}
-			#skills ul li { margin-bottom: 0.6em; }
-			#header .content { background-color: rgba(27, 31, 34, 0.85); }
-		</style>
 	</head>
 	<body class="is-preload">
+		<a class="skip-link" href="#intro">Skip to main content</a>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+		<div id="wrapper">
+			<header id="header">
+				<a class="logo" href="#intro" aria-label="Back to introduction">
+					<span class="icon fa-gem" aria-hidden="true"></span>
+				</a>
 
-				<!-- Header -->
-					<header id="header">
-						<div class="logo">
-							<span class="icon fa-gem"></span>
-						</div>
-						<div class="content">
-							<div class="inner">
-								<h1>Caleb Leung</h1>
-								<p>I am a software engineer with experience in distributed systems, data pipelines, and cloud computing. My interests are in distributed systems, data pipelines, physics, and anywhere those three overlap!</p>
-							</div>
-						</div>
-						<nav>
-							<ul>
-								<li><a href="#intro">Intro</a></li>
-								<li><a href="https://drive.google.com/file/d/1izw75qJofqoQvkoXxQGSsfDgSRhDXDW4/view?usp=sharing">Resume</a></li>
-								<li><a href="#skills">Skills</a></li>
-								<li><a href="#beyond">Beyond Tech</a></li>
-								<li><a href="#contact">Contact</a></li>							
-							</ul>
-						</nav>
-					</header>
+				<div class="content">
+					<div class="inner">
+						<p class="site-name">Caleb Leung</p>
+						<p class="site-role">Software Engineer · AI Systems · Data Pipelines</p>
+					</div>
+				</div>
 
-				<!-- Main -->
-					<div id="main">
+				<nav id="site-nav" aria-label="Primary navigation">
+					<ul>
+						<li><a href="#intro">Intro</a></li>
+						<li><a href="#resume">Resume</a></li>
+						<li><a href="#skills">Skills</a></li>
+						<li><a href="#beyond">Beyond Tech</a></li>
+						<li><a href="#contact">Contact</a></li>
+					</ul>
+				</nav>
+			</header>
 
-						<!-- Intro -->
-							<article id="intro">
-								<h2 class="major">Intro</h2>
-								<span class="image main"><img src="images/pic01.jpeg" alt="" /></span>
-								<p>Hi there! I am a first-generation graduate with a Mathematics bachelor's degree and a minor in Economics. As a software engineer, I am committed to the field of computer science and continually striving to enhance my skills. I am also pursuing a master's degree at the Georgia Institute of Technology on weekends to further improve myself.</p>
-								<p>Through my diverse experiences, I have gained a unique perspective that I bring to my work as a software engineer. I am committed to 
-									leveraging both my technical and soft skills to contribute effectively to any team or project I am part of.</p>
-							</article>
-  
-						<!-- Skills -->
-							<article id="skills">
-								<h2 class="major">Skills</h2>
+			<main id="main">
+				<section id="intro" class="profile-section profile-hero" aria-labelledby="intro-title">
+					<div class="section-copy">
+						<p class="eyebrow">Introduction</p>
+						<h1 id="intro-title">Software engineer working across AI and data systems.</h1>
+						<p>I am a software engineer interested in AI and working across the agent and data layers of production systems. My work focuses on backend engineering, distributed processing, and reliable data pipelines.</p>
+						<p>At IntellPro, I own three stages—text extraction, chunking, and distributed embedding—within a production document-processing pipeline that handles approximately 3,000 documents per day across more than 10 integrations. I developed its custom chunking algorithm and built the embedding stage’s rate limiting, retries, worker orchestration, concurrency control, dead-letter handling, and state-machine-based job coordination. I have also applied agent workflows specifically to metadata extraction.</p>
+						<p>As a first-generation college graduate, I earned a B.S. in Mathematics with a concentration in Financial Mathematics and a minor in Economics from Baruch College. I am currently pursuing an M.S. in Computer Science from Georgia Tech.</p>
+					</div>
+					<figure class="image main profile-image">
+						<img src="images/pic01.jpeg" alt="Caleb Leung" />
+					</figure>
+				</section>
 
-								<h3>Familiar with</h3>
-								<ul>
-									<li><b>Programming Languages:</b><br>
-										<span class="skill">Python</span>
-										<span class="skill">C++</span>
-										<span class="skill">JavaScript/TypeScript</span>
-										<span class="skill">Elixir</span>
-										<span class="skill">SQL</span>
-										<span class="skill">HTML/CSS</span>
-									</li>
-									<li><b>Frameworks &amp; Libraries:</b><br>
-										<span class="skill">FastAPI</span>
-										<span class="skill">Django</span>
-										<span class="skill">Next.js</span>
-										<span class="skill">Pytest</span>
-										<span class="skill">Pandas</span>
-										<span class="skill">NumPy</span>
-										<span class="skill">SQLAlchemy</span>
-										<span class="skill">Pydantic</span>
-										<span class="skill">Poetry</span>
-										<span class="skill">Oban Pro</span>
-									</li>
-									<li><b>Infrastructure &amp; Tools:</b><br>
-										<span class="skill">AWS (ECS, S3, SQS)</span>
-										<span class="skill">Docker</span>
-										<span class="skill">Git</span>
-										<span class="skill">GitHub Actions</span>
-										<span class="skill">PostgreSQL</span>
-										<span class="skill">OpenSearch</span>
-										<span class="skill">DBeaver</span>
-										<span class="skill">Datadog</span>
-									</li>
-									<li><b>Concepts:</b><br>
-										<span class="skill">Distributed Systems</span>
-										<span class="skill">RESTful API Design</span>
-										<span class="skill">Microservices</span>
-										<span class="skill">Functional Programming</span>
-										<a class="skill skill-link" href="https://omscs.gatech.edu/isye-6420-bayesian-statistics">Bayesian Statistics</a>
-										<a class="skill skill-link" href="https://omscs.gatech.edu/cs-6250-computer-networks">Computer Networks</a>
-										<a class="skill skill-link" href="https://omscs.gatech.edu/cs-7641-machine-learning">Machine Learning</a>
-										<span class="skill">Data Structures &amp; Algorithms</span>
-										<span class="skill">OOP</span>
-										<span class="skill">ETL / Data Pipelines</span>
-										<span class="skill">Agentic AI</span>
-										<span class="skill">RAG</span>
-										<span class="skill">Vector Database</span>
-										<span class="skill">Event-Driven Architecture</span>
-										<span class="skill">Web Application Security</span>
-									</li>
-									<li><b>Languages:</b><br>
-										<span class="skill">English (Fluent)</span>
-										<span class="skill">Cantonese (Native)</span>
-										<span class="skill">Mandarin (Professional)</span>
-										<span class="skill">Japanese (~N5)</span>
-									</li>
-								</ul>
-
-								<h3>Currently learning</h3>
-								<ul>
-									<li>AWS &mdash; going deeper</li>
-									<li>ETL / Data Pipelines &mdash; going deeper</li>
-									<li>System Design / Distributed Systems &mdash; life long learning</li>
-									<li>Erlang fundamentals &mdash; building deeper OTP knowledge through the Elixir ecosystem</li>
-									<li>Phoenix Framework &mdash; building production-ready SFTP, backend, and pipeline workflows</li>
-									<li>Deep Learning &mdash; CS 7643 (<a href="https://omscs.gatech.edu/cs-7643-deep-learning">course page</a>)</li>
-									<li>Japanese &mdash; working toward N4</li>
-								</ul>
-							</article>
-
-						<!-- Beyond Tech -->
-							<article id="beyond">
-								<h2 class="major">Beyond Tech</h2>
-								<p>Beyond my technical expertise, I bring a wealth of valuable soft skills acquired from my professional experience spanning over 4 
-									years in luxury/retail and 1 year in dining. I have consistently been a top seller in each retail position, working with renowned 
-									brands such as Giorgio Armani, AllSaints, and The North Face UE (Hong Kong location). During my tenure, I had the opportunity to 
-									work on crossover collections with Mastermind Japan, Sacai, and THE NORTH FACE Japan (Goldwin) collections. Through these experiences, 
-									I have honed my customer service, sales, team collaboration, adaptability, problemsolving, and effective communication skills.</p>
-							</article>
-
-						<!-- Contact -->
-							<article id="contact">
-								<h2 class="major">Contact</h2>
-								<p>I'm a software engineer eager to connect with fellow enthusiasts and learn from their valuable experiences. Excited to be part of this coding community! Let's connect, learn, and grow together! 🌱</p>
-								<ul class="icons">
-									<li><a href="https://www.linkedin.com/in/caleb-kwan-ho-leung-a67b74168/" class="icon brands fa-linkedin"><span class="label">linkedin</span></a></li>
-									<li><a href="https://github.com/Caleb-Leung-Kwan-Ho" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</article>
-
-						<!-- Elements -->
-							<article id="elements">
-								<h2 class="major">Elements</h2>
-
-								<section>
-									<h3 class="major">Text</h3>
-									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-									<hr />
-									<h2>Heading Level 2</h2>
-									<h3>Heading Level 3</h3>
-									<h4>Heading Level 4</h4>
-									<h5>Heading Level 5</h5>
-									<h6>Heading Level 6</h6>
-									<hr />
-									<h4>Blockquote</h4>
-									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-									<h4>Preformatted</h4>
-									<pre><code>i = 0;
-
-while (!deck.isInOrder()) {
-    print 'Iteration ' + i;
-    deck.shuffle();
-    i++;
-}
-
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
-								</section>
-
-								<section>
-									<h3 class="major">Lists</h3>
-
-									<h4>Unordered</h4>
-									<ul>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
-
-									<h4>Alternate</h4>
-									<ul class="alt">
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
-
-									<h4>Ordered</h4>
-									<ol>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis viverra.</li>
-										<li>Felis enim feugiat.</li>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis lorem.</li>
-										<li>Felis enim et feugiat.</li>
-									</ol>
-									<h4>Icons</h4>
-									<ul class="icons">
-										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-									</ul>
-
-									<h4>Actions</h4>
-									<ul class="actions">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions stacked">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-								</section>
-
-								<section>
-									<h3 class="major">Table</h3>
-									<h4>Default</h4>
-									<div class="table-wrapper">
-										<table>
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Price</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Three</td>
-													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Four</td>
-													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Five</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-													<td>100.00</td>
-												</tr>
-											</tfoot>
-										</table>
-									</div>
-
-									<h4>Alternate</h4>
-									<div class="table-wrapper">
-										<table class="alt">
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Price</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Three</td>
-													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Four</td>
-													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Five</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-													<td>100.00</td>
-												</tr>
-											</tfoot>
-										</table>
-									</div>
-								</section>
-
-								<section>
-									<h3 class="major">Buttons</h3>
-									<ul class="actions">
-										<li><a href="#" class="button primary">Primary</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button">Default</a></li>
-										<li><a href="#" class="button small">Small</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-										<li><a href="#" class="button icon solid fa-download">Icon</a></li>
-									</ul>
-									<ul class="actions">
-										<li><span class="button primary disabled">Disabled</span></li>
-										<li><span class="button disabled">Disabled</span></li>
-									</ul>
-								</section>
-
-								<section>
-									<h3 class="major">Form</h3>
-									<form method="post" action="#">
-										<div class="fields">
-											<div class="field half">
-												<label for="demo-name">Name</label>
-												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
-											</div>
-											<div class="field half">
-												<label for="demo-email">Email</label>
-												<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
-											</div>
-											<div class="field">
-												<label for="demo-category">Category</label>
-												<select name="demo-category" id="demo-category">
-													<option value="">-</option>
-													<option value="1">Manufacturing</option>
-													<option value="1">Shipping</option>
-													<option value="1">Administration</option>
-													<option value="1">Human Resources</option>
-												</select>
-											</div>
-											<div class="field half">
-												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-												<label for="demo-priority-low">Low</label>
-											</div>
-											<div class="field half">
-												<input type="radio" id="demo-priority-high" name="demo-priority">
-												<label for="demo-priority-high">High</label>
-											</div>
-											<div class="field half">
-												<input type="checkbox" id="demo-copy" name="demo-copy">
-												<label for="demo-copy">Email me a copy</label>
-											</div>
-											<div class="field half">
-												<input type="checkbox" id="demo-human" name="demo-human" checked>
-												<label for="demo-human">Not a robot</label>
-											</div>
-											<div class="field">
-												<label for="demo-message">Message</label>
-												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-											</div>
-										</div>
-										<ul class="actions">
-											<li><input type="submit" value="Send Message" class="primary" /></li>
-											<li><input type="reset" value="Reset" /></li>
-										</ul>
-									</form>
-								</section>
-
-							</article>
-
+				<section id="resume" class="profile-section" aria-labelledby="resume-title">
+					<div class="section-heading">
+						<p class="eyebrow">Professional snapshot</p>
+						<h2 id="resume-title">Resume</h2>
 					</div>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<p class="copyright">&copy;Caleb(Kwan Ho) Leung 2026</p>
-					</footer>
+					<a class="resume-document" href="https://drive.google.com/file/d/1izw75qJofqoQvkoXxQGSsfDgSRhDXDW4/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Open Caleb Leung's resume PDF in a new browser tab">
+						<img src="https://drive.google.com/thumbnail?id=1izw75qJofqoQvkoXxQGSsfDgSRhDXDW4&amp;sz=w2000" alt="Preview of Caleb Leung's resume. Click to open the full PDF in a new browser tab." loading="lazy" decoding="async" />
+					</a>
+				</section>
 
-			</div>
+				<section id="skills" class="profile-section" aria-labelledby="skills-title">
+					<div class="section-heading">
+						<p class="eyebrow">Technical toolkit</p>
+						<h2 id="skills-title">Skills</h2>
+						<p>A practical mix of languages, frameworks, infrastructure, and systems knowledge used to build and support software.</p>
+					</div>
 
-		<!-- BG -->
-			<div id="bg"></div>
+					<div class="skill-groups">
+						<div class="skill-group">
+							<h3>Programming languages</h3>
+							<div class="skill-list">
+								<span class="skill">Python</span>
+								<span class="skill">C++</span>
+								<span class="skill">JavaScript/TypeScript</span>
+								<span class="skill">Elixir</span>
+								<span class="skill">SQL</span>
+								<span class="skill">HTML/CSS</span>
+							</div>
+						</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+						<div class="skill-group">
+							<h3>Frameworks &amp; libraries</h3>
+							<div class="skill-list">
+								<span class="skill">FastAPI</span>
+								<span class="skill">Django</span>
+								<span class="skill">Next.js</span>
+								<span class="skill">Pytest</span>
+								<span class="skill">Pandas</span>
+								<span class="skill">NumPy</span>
+								<span class="skill">SQLAlchemy</span>
+								<span class="skill">Pydantic</span>
+								<span class="skill">Poetry</span>
+								<span class="skill">Oban Pro</span>
+							</div>
+						</div>
 
+						<div class="skill-group">
+							<h3>Infrastructure &amp; tools</h3>
+							<div class="skill-list">
+								<span class="skill">AWS (ECS, S3, SQS)</span>
+								<span class="skill">Docker</span>
+								<span class="skill">Git</span>
+								<span class="skill">GitHub Actions</span>
+								<span class="skill">PostgreSQL</span>
+								<span class="skill">OpenSearch</span>
+								<span class="skill">DBeaver</span>
+								<span class="skill">Datadog</span>
+							</div>
+						</div>
+
+						<div class="skill-group">
+							<h3>Concepts</h3>
+							<div class="skill-list">
+								<span class="skill">Distributed Systems</span>
+								<span class="skill">RESTful API Design</span>
+								<span class="skill">Microservices</span>
+								<span class="skill">Functional Programming</span>
+								<a class="skill skill-link" href="https://omscs.gatech.edu/isye-6420-bayesian-statistics" target="_blank" rel="noopener noreferrer">Bayesian Statistics</a>
+								<a class="skill skill-link" href="https://omscs.gatech.edu/cs-6250-computer-networks" target="_blank" rel="noopener noreferrer">Computer Networks</a>
+								<a class="skill skill-link" href="https://omscs.gatech.edu/cs-7641-machine-learning" target="_blank" rel="noopener noreferrer">Machine Learning</a>
+								<span class="skill">Data Structures &amp; Algorithms</span>
+								<span class="skill">OOP</span>
+								<span class="skill">ETL / Data Pipelines</span>
+								<span class="skill">Agentic AI</span>
+								<span class="skill">RAG</span>
+								<span class="skill">Vector Database</span>
+								<span class="skill">Event-Driven Architecture</span>
+								<span class="skill">Web Application Security</span>
+							</div>
+						</div>
+
+						<div class="skill-group">
+							<h3>Languages</h3>
+							<div class="skill-list">
+								<span class="skill">English (Fluent)</span>
+								<span class="skill">Cantonese (Native)</span>
+								<span class="skill">Mandarin (Professional)</span>
+								<span class="skill">Japanese (~N5)</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="learning-block">
+						<h3>Currently learning</h3>
+						<ul>
+							<li>AWS &mdash; going deeper</li>
+							<li>ETL / Data Pipelines &mdash; going deeper</li>
+							<li>System Design / Distributed Systems &mdash; lifelong learning</li>
+							<li>Erlang fundamentals &mdash; building deeper OTP knowledge through the Elixir ecosystem</li>
+							<li>Phoenix Framework &mdash; building production-ready SFTP, backend</li>
+							<li>Deep Learning &mdash; CS 7643 (<a href="https://omscs.gatech.edu/cs-7643-deep-learning" target="_blank" rel="noopener noreferrer">course page</a>)</li>
+							<li>Japanese &mdash; working toward N4</li>
+						</ul>
+					</div>
+				</section>
+
+				<section id="beyond" class="profile-section" aria-labelledby="beyond-title">
+					<div class="section-heading">
+						<p class="eyebrow">Additional perspective</p>
+						<h2 id="beyond-title">Beyond Tech</h2>
+					</div>
+					<p>Beyond my technical expertise, I bring a wealth of valuable soft skills acquired from my professional experience spanning over 4 years in luxury/retail and 1 year in dining. I have consistently been a top seller in each retail position, working with renowned brands such as Giorgio Armani, AllSaints, and The North Face UE (Hong Kong location). During my tenure, I had the opportunity to work on crossover collections with Mastermind Japan, Sacai, and THE NORTH FACE Japan (Goldwin) collections. Through these experiences, I have honed my customer service, sales, team collaboration, adaptability, problem-solving, and effective communication skills.</p>
+				</section>
+
+				<section id="contact" class="profile-section contact-section" aria-labelledby="contact-title">
+					<div class="section-heading">
+						<p class="eyebrow">Let&rsquo;s connect</p>
+						<h2 id="contact-title">Contact</h2>
+					</div>
+					<p>I'm a software engineer eager to connect with fellow enthusiasts and learn from their valuable experiences. Excited to be part of this coding community! Let's connect, learn, and grow together! 🌱</p>
+					<ul class="icons" aria-label="Social links">
+						<li><a href="https://www.linkedin.com/in/caleb-kwan-ho-leung-a67b74168/" class="icon brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span class="label">LinkedIn</span></a></li>
+						<li><a href="https://github.com/Caleb-Leung-Kwan-Ho" class="icon brands fa-github" target="_blank" rel="noopener noreferrer"><span class="label">GitHub</span></a></li>
+					</ul>
+				</section>
+			</main>
+
+			<footer id="footer">
+				<p class="copyright">&copy; Caleb Leung 2026</p>
+			</footer>
+		</div>
+
+		<div id="bg" aria-hidden="true"></div>
+		<script src="assets/js/main.js"></script>
 	</body>
 </html>

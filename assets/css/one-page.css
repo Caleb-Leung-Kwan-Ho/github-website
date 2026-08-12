@@ -709,3 +709,164 @@ a.skill-link:focus-visible {
 		background: var(--glass-surface-strong);
 	}
 }
+
+/* Header language selector. */
+
+html:lang(ja) body {
+	font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Hiragino Sans", "Yu Gothic", "Source Sans Pro", sans-serif;
+}
+
+html:lang(zh-Hant-HK) body {
+	font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang TC", "Noto Sans CJK TC", "Source Sans Pro", sans-serif;
+}
+
+#header .header-actions {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 0.65rem;
+	min-width: 0;
+}
+
+#header .header-actions nav {
+	flex: 1 1 auto;
+}
+
+#header .language-switcher {
+	display: flex;
+	align-items: center;
+	gap: 0.45rem;
+	flex: 0 0 auto;
+}
+
+#header .language-switcher__label {
+	color: rgba(255, 255, 255, 0.62);
+	font-size: 0.6rem;
+	font-weight: 600;
+	letter-spacing: 0.08rem;
+	line-height: 1;
+	text-transform: uppercase;
+}
+
+#header .language-options {
+	display: flex;
+	gap: 0.2rem;
+	max-width: 100%;
+	padding: 0.2rem;
+	background:
+		linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent 38%),
+		rgba(0, 8, 16, 0.2);
+	border: 1px solid var(--glass-edge-soft);
+	border-radius: 999px;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 0.45rem 1.1rem rgba(0, 8, 16, 0.16);
+	backdrop-filter: blur(1rem) saturate(1.25);
+	-webkit-backdrop-filter: blur(1rem) saturate(1.25);
+}
+
+#header .language-option {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 2rem;
+	padding: 0 0.65rem;
+	border: 1px solid transparent;
+	border-radius: 999px;
+	background: transparent;
+	color: #ffffff;
+	font: inherit;
+	font-size: 0.62rem;
+	font-weight: 600;
+	line-height: 1.2;
+	white-space: nowrap;
+	cursor: pointer;
+	transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#header .language-option__native {
+	font-size: inherit;
+	letter-spacing: 0.01rem;
+}
+
+#header .language-option:hover,
+#header .language-option:focus-visible {
+	border-color: rgba(255, 255, 255, 0.28);
+	background: rgba(255, 255, 255, 0.1);
+	transform: translateY(-1px);
+}
+
+#header .language-option:focus-visible {
+	outline: 2px solid rgba(174, 232, 255, 0.8);
+	outline-offset: 2px;
+}
+
+#header .language-option:active {
+	transform: scale(0.98);
+}
+
+#header .language-option.is-active {
+	border-color: rgba(174, 232, 255, 0.68);
+	background:
+		linear-gradient(145deg, rgba(174, 232, 255, 0.22), rgba(255, 255, 255, 0.07)),
+		rgba(114, 188, 226, 0.12);
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.34),
+		0 0.3rem 0.8rem rgba(62, 157, 204, 0.16);
+}
+
+@media (max-width: 980px) {
+	#header .header-actions {
+		grid-column: 1 / -1;
+		width: 100%;
+	}
+}
+
+@media (max-width: 736px) {
+	#header .header-actions {
+		align-items: stretch;
+		flex-direction: column;
+		gap: 0.55rem;
+	}
+
+	#header .language-switcher {
+		justify-content: flex-end;
+		order: -1;
+	}
+
+	#header .language-options {
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	#header .language-option {
+		flex: 0 0 auto;
+	}
+}
+
+@media (max-width: 480px) {
+	#header .language-switcher {
+		justify-content: flex-start;
+	}
+
+	#header .language-switcher__label {
+		display: none;
+	}
+
+	#header .language-options {
+		width: 100%;
+		justify-content: flex-start;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	#header .language-option {
+		transition: none;
+	}
+}
+
+@media (prefers-reduced-transparency: reduce) {
+	#header .language-options {
+		backdrop-filter: none;
+		-webkit-backdrop-filter: none;
+		background: var(--glass-surface-strong);
+	}
+}

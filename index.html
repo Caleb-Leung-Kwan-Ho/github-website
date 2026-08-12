@@ -1,49 +1,66 @@
 <!DOCTYPE HTML>
 <html lang="en">
 	<head>
-		<title>Caleb(Kwan Ho) Leung Bio Page</title>
+		<title data-i18n="meta.title">Caleb(Kwan Ho) Leung Bio Page</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="description" content="The professional profile of Caleb Leung, a software engineer focused on distributed systems, data pipelines, and cloud computing." />
+		<meta id="page-description" name="description" data-i18n-content="meta.description" content="The professional profile of Caleb Leung, a software engineer focused on distributed systems, data pipelines, and cloud computing." />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/one-page.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
-		<a class="skip-link" href="#intro">Skip to main content</a>
+		<a class="skip-link" href="#intro" data-i18n="accessibility.skip">Skip to main content</a>
 
 		<div id="wrapper">
 			<header id="header">
-				<a class="logo" href="#intro" aria-label="Back to introduction">
+				<a class="logo" href="#intro" aria-label="Back to introduction" data-i18n-aria-label="accessibility.logo">
 					<span class="icon fa-gem" aria-hidden="true"></span>
 				</a>
 
 				<div class="content">
 					<div class="inner">
 						<p class="site-name">Caleb Leung</p>
-						<p class="site-role">Software Engineer · AI Systems · Data Pipelines</p>
+						<p class="site-role" data-i18n="header.role">Software Engineer · AI Systems · Data Pipelines</p>
 					</div>
 				</div>
 
-				<nav id="site-nav" aria-label="Primary navigation">
-					<ul>
-						<li><a href="#intro">Intro</a></li>
-						<li><a href="#resume">Resume</a></li>
-						<li><a href="#skills">Skills</a></li>
-						<li><a href="#beyond">Beyond Tech</a></li>
-						<li><a href="#contact">Contact</a></li>
-					</ul>
-				</nav>
+				<div class="header-actions">
+					<nav id="site-nav" aria-label="Primary navigation" data-i18n-aria-label="navigation.primary">
+						<ul>
+							<li><a href="#intro" data-i18n="navigation.intro">Intro</a></li>
+							<li><a href="#resume" data-i18n="navigation.resume">Resume</a></li>
+							<li><a href="#skills" data-i18n="navigation.skills">Skills</a></li>
+							<li><a href="#beyond" data-i18n="navigation.beyond">Beyond Tech</a></li>
+							<li><a href="#contact" data-i18n="navigation.contact">Contact</a></li>
+						</ul>
+					</nav>
+
+					<div class="language-switcher">
+						<span class="language-switcher__label" data-i18n="language.title">Language</span>
+						<div class="language-options" role="group" aria-label="Page language" data-i18n-aria-label="language.optionsLabel">
+							<button class="language-option is-active" type="button" data-language="en" aria-pressed="true">
+								<span class="language-option__native" lang="en">English</span>
+							</button>
+							<button class="language-option" type="button" data-language="ja" aria-pressed="false">
+								<span class="language-option__native" lang="ja">日本語</span>
+							</button>
+							<button class="language-option" type="button" data-language="zh-HK" aria-pressed="false">
+								<span class="language-option__native" lang="zh-Hant-HK">繁體中文（香港）</span>
+							</button>
+						</div>
+					</div>
+				</div>
 			</header>
 
 			<main id="main">
 				<section id="intro" class="profile-section profile-hero" aria-labelledby="intro-title">
 					<div class="section-copy">
-						<p class="eyebrow">Introduction</p>
-						<h1 id="intro-title">Software engineer working across AI and data systems.</h1>
-						<p>I am a software engineer interested in AI and working across the agent and data layers of production systems. My work focuses on backend engineering, distributed processing, and reliable data pipelines.</p>
-						<p>At IntellPro, I own three stages—text extraction, chunking, and distributed embedding—within a production document-processing pipeline that handles approximately 3,000 documents per day across more than 10 integrations. I developed its custom chunking algorithm and built the embedding stage’s rate limiting, retries, worker orchestration, concurrency control, dead-letter queue handling, and state-machine-based job coordination. I have also applied agent workflows specifically to metadata extraction.</p>
-						<p>As a first-generation college graduate, I earned a B.S. in Mathematics with a concentration in Financial Mathematics and a minor in Economics from Baruch College. I am currently pursuing an M.S. in Computer Science from Georgia Tech.</p>
+						<p class="eyebrow" data-i18n="intro.eyebrow">Introduction</p>
+						<h1 id="intro-title" data-i18n="intro.title">Software engineer working across AI and data systems.</h1>
+						<p data-i18n="intro.body1">I am a software engineer interested in AI and working across the agent and data layers of production systems. My work focuses on backend engineering, distributed processing, and reliable data pipelines.</p>
+						<p data-i18n="intro.body2">At IntellPro, I own three stages—text extraction, chunking, and distributed embedding—within a production document-processing pipeline that handles approximately 3,000 documents per day across more than 10 integrations. I developed its custom chunking algorithm and built the embedding stage’s rate limiting, retries, worker orchestration, concurrency control, dead-letter queue handling, and state-machine-based job coordination. I have also applied agent workflows specifically to metadata extraction.</p>
+						<p data-i18n="intro.body3">As a first-generation college graduate, I earned a B.S. in Mathematics with a concentration in Financial Mathematics and a minor in Economics from Baruch College. I am currently pursuing an M.S. in Computer Science from Georgia Tech.</p>
 					</div>
 					<figure class="image main profile-image">
 						<img src="images/pic01.jpeg" alt="Caleb Leung" />
@@ -52,25 +69,25 @@
 
 				<section id="resume" class="profile-section" aria-labelledby="resume-title">
 					<div class="section-heading">
-						<p class="eyebrow">Professional snapshot</p>
-						<h2 id="resume-title">Resume</h2>
+						<p class="eyebrow" data-i18n="resume.eyebrow">Professional snapshot</p>
+						<h2 id="resume-title" data-i18n="resume.title">Resume</h2>
 					</div>
 
-					<a class="resume-document" href="https://drive.google.com/file/d/1izw75qJofqoQvkoXxQGSsfDgSRhDXDW4/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Open Caleb Leung's resume PDF in a new browser tab">
-						<img src="https://drive.google.com/thumbnail?id=1izw75qJofqoQvkoXxQGSsfDgSRhDXDW4&amp;sz=w2000" alt="Preview of Caleb Leung's resume. Click to open the full PDF in a new browser tab." loading="lazy" decoding="async" />
+					<a class="resume-document" href="https://drive.google.com/file/d/1izw75qJofqoQvkoXxQGSsfDgSRhDXDW4/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Open Caleb Leung's resume PDF in a new browser tab" data-i18n-aria-label="resume.linkLabel">
+						<img src="https://drive.google.com/thumbnail?id=1izw75qJofqoQvkoXxQGSsfDgSRhDXDW4&amp;sz=w2000" alt="Preview of Caleb Leung's resume. Click to open the full PDF in a new browser tab." data-i18n-alt="resume.imageAlt" loading="lazy" decoding="async" />
 					</a>
 				</section>
 
 				<section id="skills" class="profile-section" aria-labelledby="skills-title">
 					<div class="section-heading">
-						<p class="eyebrow">Technical toolkit</p>
-						<h2 id="skills-title">Skills</h2>
-						<p>A practical mix of languages, frameworks, infrastructure, and systems knowledge used to build and support software.</p>
+						<p class="eyebrow" data-i18n="skills.eyebrow">Technical toolkit</p>
+						<h2 id="skills-title" data-i18n="skills.title">Skills</h2>
+						<p data-i18n="skills.description">A practical mix of languages, frameworks, infrastructure, and systems knowledge used to build and support software.</p>
 					</div>
 
 					<div class="skill-groups">
 						<div class="skill-group">
-							<h3>Programming languages</h3>
+							<h3 data-i18n="skills.programming">Programming languages</h3>
 							<div class="skill-list">
 								<span class="skill">Python</span>
 								<span class="skill">C++</span>
@@ -82,7 +99,7 @@
 						</div>
 
 						<div class="skill-group">
-							<h3>Frameworks &amp; libraries</h3>
+							<h3 data-i18n="skills.frameworks">Frameworks &amp; libraries</h3>
 							<div class="skill-list">
 								<span class="skill">FastAPI</span>
 								<span class="skill">Django</span>
@@ -98,7 +115,7 @@
 						</div>
 
 						<div class="skill-group">
-							<h3>Infrastructure &amp; tools</h3>
+							<h3 data-i18n="skills.infrastructure">Infrastructure &amp; tools</h3>
 							<div class="skill-list">
 								<span class="skill">AWS (ECS, S3, SQS)</span>
 								<span class="skill">Docker</span>
@@ -112,7 +129,7 @@
 						</div>
 
 						<div class="skill-group">
-							<h3>Concepts</h3>
+							<h3 data-i18n="skills.concepts">Concepts</h3>
 							<div class="skill-list">
 								<span class="skill">Distributed Systems</span>
 								<span class="skill">RESTful API Design</span>
@@ -133,7 +150,7 @@
 						</div>
 
 						<div class="skill-group">
-							<h3>Languages</h3>
+							<h3 data-i18n="skills.spokenLanguages">Spoken Languages</h3>
 							<div class="skill-list">
 								<span class="skill">English (Fluent)</span>
 								<span class="skill">Cantonese (Native)</span>
@@ -144,34 +161,34 @@
 					</div>
 
 					<div class="learning-block">
-						<h3>Currently learning</h3>
+						<h3 data-i18n="learning.title">Currently learning</h3>
 						<ul>
-							<li>AWS &mdash; going deeper</li>
-							<li>ETL / Data Pipelines &mdash; going deeper</li>
-							<li>System Design / Distributed Systems &mdash; lifelong learning</li>
-							<li>Erlang fundamentals &mdash; building deeper OTP knowledge through the Elixir ecosystem</li>
-							<li>Phoenix Framework &mdash; building production-ready SFTP, backend</li>
-							<li>Deep Learning &mdash; CS 7643 (<a href="https://omscs.gatech.edu/cs-7643-deep-learning" target="_blank" rel="noopener noreferrer">course page</a>)</li>
-							<li>Japanese &mdash; working toward N4</li>
+							<li><span data-i18n="learning.aws">AWS &mdash; going deeper</span></li>
+							<li><span data-i18n="learning.etl">ETL / Data Pipelines &mdash; going deeper</span></li>
+							<li><span data-i18n="learning.systemDesign">System Design / Distributed Systems &mdash; lifelong learning</span></li>
+							<li><span data-i18n="learning.erlang">Erlang fundamentals &mdash; building deeper OTP knowledge through the Elixir ecosystem</span></li>
+							<li><span data-i18n="learning.phoenix">Phoenix Framework &mdash; building production-ready SFTP, backend</span></li>
+							<li><span data-i18n="learning.deepLearning">Deep Learning &mdash; CS 7643 (</span><a href="https://omscs.gatech.edu/cs-7643-deep-learning" target="_blank" rel="noopener noreferrer" data-i18n="links.coursePage">course page</a><span data-i18n="learning.deepLearningClose">)</span></li>
+							<li><span data-i18n="learning.japanese">Japanese &mdash; working toward N4</span></li>
 						</ul>
 					</div>
 				</section>
 
 				<section id="beyond" class="profile-section" aria-labelledby="beyond-title">
 					<div class="section-heading">
-						<p class="eyebrow">Additional perspective</p>
-						<h2 id="beyond-title">Beyond Tech</h2>
+						<p class="eyebrow" data-i18n="beyond.eyebrow">Additional perspective</p>
+						<h2 id="beyond-title" data-i18n="beyond.title">Beyond Tech</h2>
 					</div>
-					<p>Beyond my technical expertise, I bring a wealth of valuable soft skills acquired from my professional experience spanning over 4 years in luxury/retail and 1 year in dining. I have consistently been a top seller in each retail position, working with renowned brands such as Giorgio Armani, AllSaints, and The North Face UE (Hong Kong location). During my tenure, I had the opportunity to work on crossover collections with Mastermind Japan, Sacai, and THE NORTH FACE Japan (Goldwin) collections. Through these experiences, I have honed my customer service, sales, team collaboration, adaptability, problem-solving, and effective communication skills.</p>
+					<p data-i18n="beyond.body">Beyond my technical expertise, I bring a wealth of valuable soft skills acquired from my professional experience spanning over 4 years in luxury/retail and 1 year in dining. I have consistently been a top seller in each retail position, working with renowned brands such as Giorgio Armani, AllSaints, and The North Face UE (Hong Kong location). During my tenure, I had the opportunity to work on crossover collections with Mastermind Japan, Sacai, and THE NORTH FACE Japan (Goldwin) collections. Through these experiences, I have honed my customer service, sales, team collaboration, adaptability, problem-solving, and effective communication skills.</p>
 				</section>
 
 				<section id="contact" class="profile-section contact-section" aria-labelledby="contact-title">
 					<div class="section-heading">
-						<p class="eyebrow">Let&rsquo;s connect</p>
-						<h2 id="contact-title">Contact</h2>
+						<p class="eyebrow" data-i18n="contact.eyebrow">Let&rsquo;s connect</p>
+						<h2 id="contact-title" data-i18n="contact.title">Contact</h2>
 					</div>
-					<p>I'm always interested in discussing software engineering, AI systems, and distributed systems. Feel free to connect with me on LinkedIn or GitHub.</p>
-					<ul class="icons" aria-label="Social links">
+					<p data-i18n="contact.body">I'm always interested in discussing software engineering, AI systems, and distributed systems. Feel free to connect with me on LinkedIn or GitHub.</p>
+					<ul class="icons" aria-label="Social links" data-i18n-aria-label="contact.socialLinks">
 						<li><a href="https://www.linkedin.com/in/caleb-kwan-ho-leung-a67b74168/" class="icon brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span class="label">LinkedIn</span></a></li>
 						<li><a href="https://github.com/Caleb-Leung-Kwan-Ho" class="icon brands fa-github" target="_blank" rel="noopener noreferrer"><span class="label">GitHub</span></a></li>
 					</ul>

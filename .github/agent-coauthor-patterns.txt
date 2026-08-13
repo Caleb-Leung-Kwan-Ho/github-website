@@ -1,0 +1,24 @@
+# Case-insensitive regular expressions matched against the complete identity
+# in each Co-authored-by trailer. Keep patterns specific enough to avoid
+# matching ordinary human co-authors. Add exact names or email domains when a
+# new agent identity is observed.
+\b(?:codex|chatgpt|gpt(?:[- ]?\d+(?:\.\d+)?)?)\b
+\bopenai\b
+\b(?:claude|anthropic)\b
+\b(?:copilot|github[- ]copilot|microsoft[- ]copilot)\b
+\bcursor\b
+\b(?:windsurf|codeium)\b
+\b(?:devin ai|cognition labs)\b
+\breplit(?:[- ]agent)?\b
+\b(?:gemini(?:[- ]code[- ]assist)?|google code assist)\b
+\bamazon[- ]q\b
+\btabnine\b
+\bsourcegraph(?:[- ]cody)?\b
+\baider\b
+\b(?:cline|roo[- ]code)\b
+\bgoose\b
+\bqodo\b
+\bsupermaven\b
+\bswe[- ]agent\b
+\[bot\]
+\bgithub[- ]actions?\b

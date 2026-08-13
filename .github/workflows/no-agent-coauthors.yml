@@ -1,0 +1,57 @@
+name: Block agent co-authors
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  check-agent-coauthors:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out trusted repository instructions
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.base.sha || github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Fetch pull request head
+        if: github.event_name == 'pull_request_target'
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          EXPECTED_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin \
+            "+refs/pull/${PR_NUMBER}/head:refs/remotes/origin/agent-check"
+          ACTUAL_HEAD_SHA="$(git rev-parse refs/remotes/origin/agent-check)"
+          if [ "$ACTUAL_HEAD_SHA" != "$EXPECTED_HEAD_SHA" ]; then
+            echo "Pull request head changed while this check was starting; retrying is required." >&2
+            exit 1
+          fi
+
+      - name: Run checker tests
+        run: python3 -m unittest discover -s .github/scripts -p 'test_*.py'
+
+      - name: Check commit attribution
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -euo pipefail
+          if [ "$EVENT_NAME" = "pull_request_target" ]; then
+            COMMIT_RANGE="${BASE_SHA}..refs/remotes/origin/agent-check"
+          elif [ "$BEFORE_SHA" = "0000000000000000000000000000000000000000" ]; then
+            COMMIT_RANGE="$CURRENT_SHA"
+          else
+            COMMIT_RANGE="${BEFORE_SHA}..${CURRENT_SHA}"
+          fi
+          python3 .github/scripts/check_agent_coauthors.py --range "$COMMIT_RANGE"

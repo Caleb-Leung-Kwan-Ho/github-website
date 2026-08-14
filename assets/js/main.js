@@ -2,6 +2,7 @@
 	'use strict';
 
 	var body = document.body;
+	// The navigation href-to-section mapping is the source of truth for the active link.
 	var navLinks = Array.prototype.slice.call(document.querySelectorAll('#site-nav a[href^="#"]'));
 	var sections = navLinks
 		.map(function (link) {

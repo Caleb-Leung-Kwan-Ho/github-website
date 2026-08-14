@@ -1,4 +1,7 @@
-/* Single-page browsing overrides for the Dimension base theme. */
+/*
+ * Site-specific structure for the Dimension base theme.
+ * Keep this stylesheet after main.css; the glass rules below intentionally refine these surfaces.
+ */
 
 html {
 	scroll-behavior: smooth;
@@ -468,7 +471,10 @@ a.skill-link:focus-visible {
 	}
 }
 
-/* Liquid glass treatment. */
+/*
+ * Visual layer: intentionally follows the structural rules above.
+ * Reuse the --glass-* values for repeated surface treatments.
+ */
 
 :root {
 	color-scheme: dark;

@@ -1,0 +1,55 @@
+name: Security invariants
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+# Validation reads source; it does not need repository write access.
+permissions:
+  contents: read
+
+concurrency:
+  group: security-invariants-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  security-invariants:
+    name: Security invariants
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out reviewed revision
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0 # Whitespace checks need the base and head history.
+          persist-credentials: false
+
+      - name: Run checker unit tests
+        run: python3 -m unittest discover -s .github/scripts -p 'test_*.py'
+
+      - name: Check site security invariants
+        run: python3 .github/scripts/check_site_security.py
+
+      - name: Check JavaScript syntax
+        run: node --check assets/js/main.js
+
+      - name: Check changed lines for whitespace errors
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            git diff --check "$BASE_SHA...$HEAD_SHA"
+          elif [ "$BEFORE_SHA" = "0000000000000000000000000000000000000000" ]; then
+            git show --check --format= "$CURRENT_SHA"
+          else
+            git diff --check "$BEFORE_SHA...$CURRENT_SHA"
+          fi

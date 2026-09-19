@@ -1,6 +1,6 @@
 # Personal Website
 
-Caleb Leung's static, single-page personal website, presented as a Windows XP-era desktop and built with HTML, CSS, and vanilla JavaScript on the HTML5 UP Dimension base theme. The page includes an introduction, work, a projects placeholder, resume, skills, interests, contact links, and separate simulated windows for the research notebook and personal hobbies website.
+Caleb Leung's static, single-page personal website, presented as a retro Windows-style desktop and built with HTML, CSS, and vanilla JavaScript on the HTML5 UP Dimension base theme. The portfolio includes an introduction, work, Projects & Research, resume, skills, interests, and contact links. A separate simulated window contains the personal hobbies website.
 
 ## Preview locally
 
@@ -28,6 +28,7 @@ Open [http://localhost:8000](http://localhost:8000). Stop the server with `Ctrl-
 | [`.github/scripts/check_site_security.py`](.github/scripts/check_site_security.py) | Checks security boundaries and repository rules, and prints JavaScript review advisories. |
 | [`.github/workflows/security-invariants.yml`](.github/workflows/security-invariants.yml) | Runs the security checks for pull requests and pushes to `main`. |
 | [`LICENSE.txt`](LICENSE.txt) | Theme license and attribution requirements. |
+| [`ARTWORK_TERMS.md`](ARTWORK_TERMS.md) | Separate terms for the custom pixel-art decorations; third-party artwork retains its own rights. |
 
 ## Assets and external services
 
@@ -40,26 +41,34 @@ Open [http://localhost:8000](http://localhost:8000). Stop the server with `Ctrl-
 
 The four featured folders lead to Work, Projects, Resume, and Skills. Hobbies remains available from the desktop, sidebar, Start menu, and File menu.
 
-All three windows share File, Edit, View, and Help disclosures. Tab and Enter operate the menus; arrow keys navigate commands and Escape dismisses a menu before closing an auxiliary window. Copy commands write only after a click and report clipboard failure with selectable text. Hobbies language choices stay synchronized with the controls inside its page.
+The portfolio and hobbies windows share File, Edit, View, and Help disclosures. Tab and Enter operate the menus; arrow keys navigate commands and Escape dismisses a menu before closing an auxiliary window. Copy commands write only after a click and report clipboard failure with selectable text. Hobbies language choices stay synchronized with the controls inside its page.
 
 On screens wider than 736px, drag a restored window by its title bar, or choose View → Move window and use the arrow keys (Shift moves farther). Enter commits and Escape cancels a keyboard move. View → Reset position restores the default layout. Maximized and mobile windows stay fixed; resizing the viewport resets custom positions to keep controls reachable. Drag updates use one animation frame at a time, with no library, network requests, persistent storage, or background animation loop.
 
-Portfolio Back and Forward traverse portfolio destinations in the current page session using browser history. Browser Back/Forward also restore hobbies and notebook destinations. Starting a new navigation after going back discards the forward branch. Reloading starts a fresh in-page history boundary, so the toolbar never navigates away from the site.
+Portfolio Back and Forward traverse portfolio destinations in the current page session using browser history. Browser Back/Forward also restore the hobbies destination. Starting a new navigation after going back discards the forward branch. Reloading starts a fresh in-page history boundary, so the toolbar never navigates away from the site.
 
-## Research notebook
+## Projects & Research
 
-The desktop shortcut, Portfolio Tasks sidebar, and Start menu open a Notepad-style research window. `#research-notebook` also opens it directly. It supports the existing minimize, maximize, close, taskbar, and keyboard controls; its content remains readable without JavaScript.
+Projects and the former research notebook are combined in the portfolio's Projects & Research section. Anime MCP is marked as in development, with its retrieval work and expandable research reading kept together. No published demo or project website is implied.
 
-The notebook is a static summary of the September 2026 [GitHub profile notes](https://github.com/Caleb-Leung-Kwan-Ho/Caleb-Leung-Kwan-Ho/blob/main/README.md#currently-investigating), including Anime MCP's current evaluation and lexical-retrieval work, the hybrid-fusion research question, planned calibration and query-adaptive fusion, and four paper links. These are user-initiated external links, not embeds or automatic requests. Update the notebook text and date when the source notes change.
+The research content summarizes Anime MCP's evaluation and lexical-retrieval work, the hybrid-fusion question, and planned calibration and query-adaptive fusion. Paper links are user-initiated external links, not embeds or automatic requests. Update this content when the project or research notes change. The Work section emphasizes Caleb's chunking and embedding contributions without claiming sole ownership of the broader ingestion pipeline. Skills include Graphite.
 
 ## Personal hobbies website
 
-The hobbies window follows the supplied desktop and mobile references, with English, Japanese, and Hong Kong Traditional Chinese versions. Its English content remains readable without JavaScript. Links within the hobbies document scroll its own pane; the return link opens the portfolio.
+The hobbies window follows the supplied desktop and mobile references, with English, Japanese, and conversational Hong Kong Cantonese written in Traditional Chinese. Its English content remains readable without JavaScript. Links within the hobbies document scroll its own pane; the return link opens the portfolio.
 
 - Decorative originals live in `images/hobbies/decorations/`; their manifest records original dimensions and hashes. CSS crops transparent margins and displays the artwork proportionally with pixelated rendering. The originals are preserved; web-size optimization is a separate task.
 - The 16 locally served title thumbnails and their official sources are documented in [`images/hobbies/THUMBNAIL_SOURCES.md`](images/hobbies/THUMBNAIL_SOURCES.md). The source artwork may differ from the mockup's illustrative placeholders.
-- Personal notes and the workout routine are still awaiting Caleb's writing; no PDF download is shown before a file exists. The Reze arc and Fate/Zero choices remain tentative, and the supplied “Gundam Extreme Maxiboost ON 2” label is retained pending clarification.
+- Advice for International Students contains three topics: choosing a degree with career goals in mind, deciding why to study in America, and preparing before arrival. It includes links to official guidance and a note that more writing will follow.
+- Training shows the weekly routine and a brief elbow-injury note. Private medical/PT details, personal training logs, and the source workbook are not published or linked. No PDF download is shown before a public program-only file exists.
+- The Hong Kong introduction identifies Sha Tin, 芝士鮮魷, 大排檔, and 茶餐廳, with an invitation to email restaurant recommendations. Games retains the May–November 2025 period. Other supplied years stay unchanged; the game title is corrected to “Mobile Suit Gundam Extreme VS. Maxiboost ON” without an extra “2.” The Reze arc and Fate/Zero choices remain tentative.
 - Language buttons replace text from fixed local dictionaries, without network calls or stored preferences. The brand and supplied proper names stay consistent.
+
+## Artwork and licensing
+
+The HTML5 UP Dimension theme remains under the Creative Commons Attribution 3.0 license in [`LICENSE.txt`](LICENSE.txt), with its attribution intact. The custom pixel-art decorations have separate, scoped [artwork terms](ARTWORK_TERMS.md): ask Caleb before reusing them. This does not revoke any valid license already granted or restrict uses permitted by law. AI generation alone is not a claim of copyright ownership over every element.
+
+Anime, manga, and game thumbnails belong to their respective rights holders. Their [source ledger](images/hobbies/THUMBNAIL_SOURCES.md) records provenance; neither the theme license nor the custom artwork notice grants reuse rights to third-party images.
 
 ## Maintenance
 

@@ -52,9 +52,8 @@
 		min-height: 0;
 	}
 
-	/* Keep both auxiliary documents readable without simulated-window behavior. */
-	.hobbies-window[hidden],
-	.notebook-window[hidden] {
+	/* Keep the hobbies document readable without simulated-window behavior. */
+	.hobbies-window[hidden] {
 		position: relative;
 		display: flex !important;
 		top: auto;
@@ -68,7 +67,6 @@
 		transform: none;
 	}
 
-	.hobbies-window-body,
-	.notebook-page {
+	.hobbies-window-body {
 		overflow: visible;
 	}

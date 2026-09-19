@@ -12,7 +12,6 @@
 		})
 		.filter(Boolean);
 	var portfolioWindow = document.querySelector('[data-window="portfolio"]');
-	var notebookWindow = document.querySelector('[data-window="notebook"]');
 	var explorerContent = document.querySelector('.explorer-content');
 	var hobbiesSite = document.querySelector('.hobbies-site');
 	var hobbiesContent = document.querySelector('.hobbies-window-body');
@@ -245,9 +244,7 @@
 
 	function navigateToFragment(id) {
 		var target = document.getElementById(id);
-		if (notebookWindow && target === notebookWindow) {
-			openWindow('notebook', null, false);
-		} else if (isHobbyTarget(target)) {
+		if (isHobbyTarget(target)) {
 			navigateToHobby(target, false, false);
 		} else if (sections.indexOf(target) !== -1) {
 			navigateToSection(id, false);
@@ -261,15 +258,10 @@
 			if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || !target) {
 				return;
 			}
-			if (target !== notebookWindow && !isHobbyTarget(target) && sections.indexOf(target) === -1) {
+			if (!isHobbyTarget(target) && sections.indexOf(target) === -1) {
 				return;
 			}
 			event.preventDefault();
-			if (target === notebookWindow) {
-				openWindow('notebook', link, event.detail === 0);
-				recordNavigation(id);
-				return;
-			}
 			if (isHobbyTarget(target)) {
 				navigateToHobby(target, true, event.detail === 0);
 				return;
@@ -296,34 +288,72 @@
 				navAnticipated: '楽しみな作品',
 				navTraining: 'トレーニング',
 				navHongKong: '香港',
-				navNotes: '暮らしのメモ',
+				navNotes: '留学生へ',
 				animeLabel: '好きなアニメ ベスト5',
 				mangaLabel: 'いちばん好きな漫画',
 				gemLabel: 'もっと知られてほしい作品',
-				gamesLabel: '遊んだゲーム',
+				gamesLabel: 'ゲーム',
 				watchingLabel: '今見ているアニメ',
 				latelyLabel: '最近のこと',
 				anticipatedLabel: '楽しみにしているアニメ',
 				trainingLabel: 'トレーニングメニュー',
 				hongKongLabel: '地元・香港のこと',
-				notesLabel: 'アメリカで暮らすこと',
+				notesLabel: '留学生へのアドバイス',
 				personalPending: '感想は後日追加予定。',
 				favoriteManga: 'いちばん好きな漫画はBerserkです。',
 				hiddenGem: 'もっと知られてほしい作品はGundam Thunderboltです。',
-				gamesNote: 'ゲームで遊んでいたのは、2025年5月から11月までの間だけです。しばらくは遊べませんが、いつかまた楽しめたらと思っています。',
-				musicNote: 'どちらの作品も音楽が大好きです。',
-				latelyNote: '最近はAnime MCPにも取り組んでいます。',
+				gamesNote: '2025年5月から11月にかけて遊んでいたゲームです。今は忙しくて遊ぶ時間がありませんが、どれもおすすめなので、ぜひ遊んでみてください。いつかまたゲームを楽しめたらと思っています。',
+				musicNote: 'この2作品を楽しみにしています。どちらも音楽が大好きです。',
+				animeNotesPending: '詳しいコメントはまた後日。',
+				latelyNote: '最近はAnime MCPの開発で忙しくしています。',
 				trainingPending: 'メニューは後日追加予定。',
-				trainingDescription: '週間メニューと、必要に応じて印刷用PDFを追加予定。',
-				hongKongNote: '香港出身で、2019年から帰っていません。芝士鮮魷がとても恋しいです。茶餐廳も大好きです。',
-				notesTitle: 'アメリカへの引っ越し',
-				notesPending: 'ノートは後日追加予定。',
+				trainingIntro: '上半身を鍛えることと、ジャンプ力を伸ばすことが目標です。週に5回筋トレをして、日曜日はジャンプ練習、水曜日は休養にしています。',
+				trainingInjury: '今は肘のけがに合わせてメニューを調整しています。一部の種目は控えています。',
+				trainingDetails: '1週間のメニューを見る',
+				dayMonday: '月曜日',
+				dayTuesday: '火曜日',
+				dayWednesday: '水曜日',
+				dayThursday: '木曜日',
+				dayFriday: '金曜日',
+				daySaturday: '土曜日',
+				daySunday: '日曜日',
+				workoutMonday: '上半身（短め）',
+				workoutTuesday: '下半身の維持',
+				workoutWednesday: '休養',
+				workoutThursday: '上半身（中くらいの長さ）',
+				workoutFriday: '背中',
+				workoutSaturday: '上半身（長め）',
+				workoutSunday: 'ジャンプ・ダンク練習',
+				exerciseMonday: 'マシンショルダープレス、マシンチェストプレス、チェストサポート式マシンロウ、シーテッドダンベルサイドレイズ、リバースペックデック。',
+				exerciseTuesday: 'フロントスクワット、ブルガリアンスクワット、バックエクステンション、片脚レッグプレス、片脚シーテッドレッグカール、カーフレイズ。',
+				exerciseWednesday: '休養日。',
+				exerciseThursday: 'マシンチェストプレスとショルダープレス、ジロンダ式サイドレイズとシーテッドダンベルサイドレイズ、片腕インクラインマシンプレス、ペックデック、リバースペックデック。',
+				exerciseFriday: 'チェストサポート式マシンロウ、斜め方向へのプルダウン／ハイロウ、リバースペックデック。',
+				exerciseSaturday: 'マシンショルダープレスとチェストプレス、ジロンダ式サイドレイズ、片腕インクラインマシンプレス、ペックデック、リバースペックデック、マシンアブクランチ。',
+				exerciseSunday: '片脚踏み切りジャンプの段階的な練習。',
+				trainingDescription: '詳しいトレーニング内容は後日追加予定です。',
+				hongKongNote: '香港の沙田出身で、2019年から香港に帰っていません。芝士鮮魷が大好きです。大排檔や茶餐廳も大好きです。',
+				hongKongEmail: 'おすすめの大排檔があれば、ぜひメールで教えてください。',
+				notesTitle: '留学生へのアドバイス',
+				notesIntro: 'アメリカへの留学や、その先のキャリアに向けて、今ならこう準備すると思うことをまとめました。私個人の考えなので、自分の目標や予算に合わせて参考にしてください。',
+				adviceOneTitle: '卒業後の進路を考えて専攻を選ぶ',
+				adviceOneBody: 'アメリカで働くことが目標なら、自分の興味や目指す仕事に合うSTEM対象のプログラムを検討します。選んだプログラムがSTEM OPTの対象になるかを学校に確認し、OPTや雇用主によるH-1B申請の可能性について早めに調べておきましょう。学位やSTEM OPTがあっても、就職や長期の在留資格が保証されるわけではありません。純粋数学など理論中心の分野を選ぶなら、研究に進むのか、知識を実務にどうつなげるのかを考えてから決めるのがおすすめです。',
+				adviceTwoTitle: '留学する目的をはっきりさせる',
+				adviceTwoBody: '文化交流を目的に1年間過ごすだけでも、価値のある経験になると思います。英語を学ぶことが主な目的なら、アメリカの学校にお金を払う前に、イギリスやオーストラリアの選択肢も比較します。どの国が必ず安いと決めつけず、授業料、住居費、受講期間を比べましょう。海外でキャリアを築きたいなら、入学を決める前に、教育内容、就職市場、働くために必要な資格や条件を調べておきたいところです。',
+				adviceThreeTitle: '渡航前から準備を始める',
+				adviceThreeBody: '私なら、大学に入る前に実践的なプログラミングを学びます。物理、化学、数学を専攻する場合でも、母国で費用を抑えて受けられる短期のプログラミング講座などを検討します。費用と内容の両方を比べて選びましょう。修了証は学位ではなく、就職を保証するものでもありません。LinkedInのアカウントを早めに作り、自分で何かを作り、人とつながり、インターンの募集時期を調べる。卒業まで待たずに始めておきたいです。',
+				notesPending: 'アドバイスは少しずつ追加していきます。',
+				notesSourcesLabel: '最新の要件を確認する',
+				optSourceLabel: 'STEM OPT',
+				h1bSourceLabel: 'H-1B',
 				thanks: '遊びに来てくれてありがとう！',
 				return: 'メインサイトへ戻る',
 				top: 'ページの先頭へ',
 				artNote: '作品の権利は各権利者に帰属します。非公式のファンページであり、CD PROJEKT REDの承認・推奨を受けたものではありません。',
+				artReuseNote: 'このサイト用に制作したピクセルアートは、許可なく再利用しないでください。',
+				artTermsLabel: 'アートワークの利用について',
 				nierTitle: 'NieR:Automata — シーズン2',
-				grandBlueTitle: 'Grand Blue — シーズン3',
+				grandBlueTitle: 'ぐらんぶる — シーズン3',
 				edgerunnersTitle: 'Cyberpunk: Edgerunners — シーズン2',
 				strangeFakeTitle: 'Fate/strange Fake — シーズン2',
 				languageLabel: '表示言語',
@@ -332,41 +362,79 @@
 				returnNavLabel: '戻るリンク'
 			},
 			'zh-HK': {
-				subtitle: '動畫、漫畫、遊戲，還有一點香港的事。',
-				welcomeLabel: '歡迎！',
-				welcomeText: '你好，我是 Caleb。歡迎來到這個分享我喜歡的事物的小天地。',
+				subtitle: '動畫、漫畫、遊戲，同埋少少香港嘅事。',
+				welcomeLabel: '歡迎歡迎！',
+				welcomeText: '我係 Caleb。歡迎嚟到我嘅小網頁！呢度會分享我嘅嗜好，同埋我鍾意嘅嘢。',
 				navAnime: '動畫',
 				navManga: '漫畫',
 				navGames: '遊戲',
 				navAnticipated: '期待中的作品',
 				navTraining: '健身',
 				navHongKong: '香港',
-				navNotes: '生活筆記',
-				animeLabel: '最喜歡的五部動畫',
-				mangaLabel: '最喜歡的漫畫',
-				gemLabel: '想推薦給更多人的作品',
-				gamesLabel: '玩過的遊戲',
-				watchingLabel: '最近在追的動畫',
+				navNotes: '留學生小貼士',
+				animeLabel: '我最鍾意嘅五部動畫',
+				mangaLabel: '我最鍾意嘅漫畫',
+				gemLabel: '想推薦畀更多人嘅作品',
+				gamesLabel: '遊戲',
+				watchingLabel: '最近追緊嘅動畫',
 				latelyLabel: '近況',
 				anticipatedLabel: '期待中的動畫',
 				trainingLabel: '健身計劃',
-				hongKongLabel: '我的家鄉：香港',
-				notesLabel: '搬到美國的生活筆記',
-				personalPending: '個人感想稍後補上。',
-				favoriteManga: '我最喜歡的漫畫是 Berserk。',
-				hiddenGem: '我想推薦給更多人的作品是 Gundam Thunderbolt。',
-				gamesNote: '我只在 2025 年 5 月至 11 月期間玩過遊戲。暫時沒辦法再玩，希望將來有機會再玩。',
-				musicNote: '我很喜歡這兩部動畫的音樂。',
-				latelyNote: '最近也在做 Anime MCP。',
-				trainingPending: '訓練內容稍後補上。',
-				trainingDescription: '每週計劃稍後補上，亦可能提供可列印的 PDF。',
-				hongKongNote: '我來自香港，自 2019 年起一直沒有回去。我很掛念芝士鮮魷，也很喜歡茶餐廳。',
-				notesTitle: '搬到美國',
-				notesPending: '生活筆記稍後補上。',
-				thanks: '多謝到訪！',
-				return: '返回我的主網站',
-				top: '返回頁首',
+				hongKongLabel: '我嘅家鄉：香港',
+				notesLabel: '留學生小貼士',
+				personalPending: '感想遲啲再寫。',
+				favoriteManga: '我最鍾意嘅漫畫係 Berserk。',
+				hiddenGem: '我想推薦畀更多人嘅作品係 Gundam Thunderbolt。',
+				gamesNote: '呢幾隻都係我喺 2025 年 5 月至 11 月嗰陣玩嘅遊戲。而家真係太忙，冇時間玩住。不過呢幾隻都唔錯，值得你試吓！希望將來有時間再玩返。',
+				musicNote: '我好期待呢兩部動畫，兩部嘅音樂我都好鍾意。',
+				animeNotesPending: '更多感想遲啲再寫。',
+				latelyNote: '最近忙緊做 Anime MCP。',
+				trainingPending: '訓練內容遲啲再補。',
+				trainingIntro: '目標係練好上半身，同埋提升彈跳力。每星期五日做重量訓練，星期日練跳，星期三休息。',
+				trainingInjury: '而家因為手踭受傷，暫時調整咗訓練，有啲動作做唔到住。',
+				trainingDetails: '睇吓每星期嘅訓練',
+				dayMonday: '星期一',
+				dayTuesday: '星期二',
+				dayWednesday: '星期三',
+				dayThursday: '星期四',
+				dayFriday: '星期五',
+				daySaturday: '星期六',
+				daySunday: '星期日',
+				workoutMonday: '上半身（短時間）',
+				workoutTuesday: '下半身維持訓練',
+				workoutWednesday: '休息',
+				workoutThursday: '上半身（中等長度）',
+				workoutFriday: '背部',
+				workoutSaturday: '上半身（長時間）',
+				workoutSunday: '彈跳同入樽練習',
+				exerciseMonday: '器械肩推、器械胸推、胸托式划船機、坐姿啞鈴側平舉、反向蝴蝶機。',
+				exerciseTuesday: '前蹲、保加利亞分腿蹲、背部伸展、單腳腿推、坐姿單腳腿彎舉、提踵。',
+				exerciseWednesday: '休息一日。',
+				exerciseThursday: '器械胸推同肩推、Gironda 式同坐姿啞鈴側平舉、單手上斜器械推舉、蝴蝶機夾胸、反向蝴蝶機。',
+				exerciseFriday: '胸托式划船機、斜向下拉／高位划船、反向蝴蝶機。',
+				exerciseSaturday: '器械肩推同胸推、Gironda 式側平舉、單手上斜器械推舉、蝴蝶機夾胸、反向蝴蝶機、器械捲腹。',
+				exerciseSunday: '循序漸進嘅單腳起跳訓練。',
+				trainingDescription: '詳細訓練內容遲啲再補。',
+				hongKongNote: '我嚟自香港沙田，2019 年之後就冇返過香港。我好鍾意食芝士鮮魷，大排檔同茶餐廳都係我嘅至愛。',
+				hongKongEmail: '有咩大排檔好介紹？歡迎 email 話我知！',
+				notesTitle: '留學生小貼士',
+				notesIntro: '如果可以再揀一次，為咗去美國讀書同發展事業，我會點樣準備？呢度係我嘅個人建議，大家嘅目標同預算可能唔同，揀適合自己嘅方向就好。',
+				adviceOneTitle: '諗清楚出路，再揀主修',
+				adviceOneBody: '如果你想喺美國工作，我會考慮揀一個符合 STEM 資格，又配合自己興趣同目標工作嘅課程。報讀之前，同學校確認清楚嗰個課程係咪符合 STEM OPT 資格，亦要及早了解 OPT 同僱主幫你申請 H-1B 嘅可能性。有學位或者 STEM OPT，唔代表一定搵到工或者可以長期留低。如果想讀純數學呢類比較理論性嘅科目，最好先諗清楚之後係想做研究，定係點樣將所學用喺實際工作上。',
+				adviceTwoTitle: '諗清楚自己點解想去',
+				adviceTwoBody: '去一年做文化交流，本身都可以係好值得嘅經歷。如果主要係想學英文，我會喺畀錢讀美國嘅課程之前，比較埋英國同澳洲嘅選擇。唔好假設某個國家一定平啲，要一齊比較學費、住宿同課程長度。如果目標係喺海外發展事業，入學之前就要做好功課，了解課程、就業市場，同埋合法工作需要符合嘅條件。',
+				adviceThreeTitle: '未出發就開始準備',
+				adviceThreeBody: '如果係我，我會喺入大學之前先學實用嘅編程技巧。即使打算讀物理、化學或者數學，都可以考慮喺自己住嘅地方讀一個負擔得起嘅短期 coding bootcamp。記得比較價錢同質素；修業證書唔係學位，亦唔保證搵到工。早啲開 LinkedIn、做自己嘅項目、識多啲人，同埋了解實習幾時開始請人，唔好等到畢業先開始。',
+				notesPending: '更多留學小貼士，遲啲再寫。',
+				notesSourcesLabel: '睇吓最新要求',
+				optSourceLabel: 'STEM OPT',
+				h1bSourceLabel: 'H-1B',
+				thanks: '多謝你嚟睇！',
+				return: '返去我嘅主網站',
+				top: '返去頁頂',
 				artNote: '作品版權屬於各自的權利人。本網站為非官方粉絲網頁，未經 CD PROJEKT RED 認可或支持。',
+				artReuseNote: '未經同意，請勿重用呢個網站專屬嘅像素插畫。',
+				artTermsLabel: '插畫使用條款',
 				nierTitle: 'NieR:Automata — 第二季',
 				grandBlueTitle: 'Grand Blue — 第三季',
 				edgerunnersTitle: 'Cyberpunk: Edgerunners — 第二季',
@@ -708,7 +776,7 @@
 				copyWindowText(windowElement, 'caleb.leungkwanho@gmail.com');
 			} else if (action === 'copy-link') {
 				var url = new URL(window.location.href);
-				url.hash = name === 'portfolio' ? activeSectionId : name === 'notebook' ? 'research-notebook' : 'hobby-top';
+				url.hash = name === 'portfolio' ? activeSectionId : 'hobby-top';
 				copyWindowText(windowElement, url.href);
 			} else if (action === 'top') {
 				if (name === 'portfolio') {
@@ -716,10 +784,6 @@
 					focusAnchorTarget(document.getElementById('intro'));
 				} else if (name === 'hobbies') {
 					navigateToHobby(document.getElementById('hobby-top'), true, true);
-				} else {
-					var page = windowElement.querySelector('.notebook-page');
-					page.scrollTo({ top: 0 });
-					page.focus({ preventScroll: true });
 				}
 			}
 		});
@@ -838,8 +902,12 @@
 
 	window.addEventListener('popstate', function (event) {
 		var id = window.location.hash.slice(1) || 'intro';
+		if (id === 'research-notebook') {
+			id = 'projects';
+			window.history.replaceState(event.state, '', '#projects');
+		}
 		var target = document.getElementById(id);
-		if (target !== notebookWindow && !isHobbyTarget(target) && sections.indexOf(target) === -1) {
+		if (!isHobbyTarget(target) && sections.indexOf(target) === -1) {
 			id = 'intro';
 			target = document.getElementById(id);
 			window.history.replaceState(event.state, '', '#' + id);
@@ -890,8 +958,10 @@
 	}
 
 	var initialId = window.location.hash.slice(1);
+	// Preserve links to the research window now that its content lives with the project.
+	if (initialId === 'research-notebook') { initialId = 'projects'; }
 	var initialTarget = document.getElementById(initialId);
-	if ((!notebookWindow || initialTarget !== notebookWindow) && !isHobbyTarget(initialTarget) && sections.indexOf(initialTarget) === -1) {
+	if (!isHobbyTarget(initialTarget) && sections.indexOf(initialTarget) === -1) {
 		initialId = 'intro';
 	}
 	navigationEntries = [initialId];

@@ -9,10 +9,10 @@
 			content="default-src 'none'; base-uri 'none'; object-src 'none'; form-action 'none'; script-src 'self'; script-src-attr 'none'; style-src 'self' https://fonts.googleapis.com; style-src-attr 'none'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://drive.google.com https://lh3.googleusercontent.com; connect-src 'none'; frame-src 'none'; media-src 'none'; manifest-src 'none'; worker-src 'none'"
 		/>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="description" content="The professional portfolio of Caleb Leung, a software engineer focused on AI systems, distributed systems, and data pipelines." />
+		<meta name="description" content="The professional portfolio of Caleb Leung, a software and AI engineer focused on document chunking, distributed embeddings, and retrieval systems." />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!-- Keep this order: site-specific styles intentionally override the base theme. -->
-		<link rel="stylesheet" href="assets/css/one-page.css?v=20260919-desktop-controls-2" />
+		<link rel="stylesheet" href="assets/css/one-page.css?v=20260919-content-3" />
 		<link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
@@ -39,10 +39,10 @@
 					<span class="shortcut-icon icon solid fa-gamepad" aria-hidden="true"></span>
 					<span>Personal Hobbies</span>
 				</button>
-				<button class="desktop-shortcut" type="button" data-open-window="notebook" aria-controls="research-notebook" aria-haspopup="dialog">
+				<a class="desktop-shortcut" href="#projects" data-open-portfolio>
 					<span class="shortcut-icon document-icon icon solid fa-book-open" aria-hidden="true"></span>
-					<span>Research Notebook</span>
-				</button>
+					<span>Projects &amp; Research</span>
+				</a>
 			</nav>
 
 			<section class="os-window explorer-window is-active" data-window="portfolio" aria-labelledby="portfolio-window-title">
@@ -63,7 +63,7 @@
 						<summary>File</summary>
 						<div class="window-menu-panel">
 							<a href="#intro">Open Portfolio</a>
-							<a href="#research-notebook">Open Research Notebook</a>
+							<a href="#projects">Open Projects &amp; Research</a>
 							<a href="#hobby-top">Open Personal Hobbies</a>
 							<button type="button" data-window-action="close">Close window</button>
 						</div>
@@ -106,7 +106,7 @@
 						<span>Forward</span>
 					</button>
 					<span class="toolbar-separator" aria-hidden="true"></span>
-					<a class="toolbar-button home-button" href="#intro" data-open-portfolio>
+					<a class="toolbar-button home-button" href="#intro" data-open-portfolio aria-label="Portfolio home">
 						<span class="up-folder icon solid fa-folder-open" aria-hidden="true"></span>
 						<span>Home</span>
 					</a>
@@ -126,8 +126,7 @@
 							<ul>
 								<li><a href="#intro"><span class="icon solid fa-info-circle" aria-hidden="true"></span>About</a></li>
 									<li><a href="#work"><span class="icon solid fa-folder" aria-hidden="true"></span>Work</a></li>
-									<li><button class="sidebar-window-button" type="button" data-open-window="notebook" aria-controls="research-notebook" aria-haspopup="dialog"><span class="icon solid fa-book-open" aria-hidden="true"></span>Notebook</button></li>
-								<li><a href="#projects"><span class="icon solid fa-code" aria-hidden="true"></span>Projects</a></li>
+								<li><a href="#projects"><span class="icon solid fa-code" aria-hidden="true"></span>Projects &amp; Research</a></li>
 								<li><a href="#resume"><span class="icon solid fa-file-alt" aria-hidden="true"></span>Resume</a></li>
 								<li><a href="#skills"><span class="icon solid fa-tools" aria-hidden="true"></span>Skills</a></li>
 								<li><a href="#beyond"><span class="icon solid fa-star" aria-hidden="true"></span>Beyond Tech</a></li>
@@ -155,17 +154,17 @@
 								<div>
 									<p class="eyebrow">Welcome to my portfolio</p>
 									<h2 id="intro-title">Caleb (Kwan Ho) Leung</h2>
-									<p class="hero-role">Software Engineer · AI Systems · Data Pipelines</p>
-									<p class="hero-detail">Backend engineering, distributed processing, and reliable production systems.</p>
+									<p class="hero-role">Software / AI Engineer · Chunking, Embeddings &amp; Retrieval</p>
+									<p class="hero-detail">Building the systems that prepare and retrieve information for AI applications.</p>
 								</div>
 							</div>
 							<div class="section-rule" aria-hidden="true"></div>
-							<p>I am a software engineer interested in AI and working across the agent and data layers of production systems. My work focuses on backend engineering, distributed processing, and reliable data pipelines.</p>
+							<p>My production work focuses on document chunking and distributed embedding infrastructure. Through Anime MCP, I’m also developing retrieval, ranking, and context expansion for anime-character information.</p>
 							<p>As a first-generation college graduate, I earned a B.S. in Mathematics with a concentration in Financial Mathematics and a minor in Economics from Baruch College. I am currently pursuing an M.S. in Computer Science from Georgia Tech.</p>
 
 							<div class="folder-grid quick-folders" aria-label="Featured portfolio folders">
 								<a class="folder-tile" href="#work"><span class="large-folder folder-icon" aria-hidden="true"></span><span><strong>Work</strong><small>Production engineering</small></span></a>
-								<a class="folder-tile" href="#projects"><span class="large-folder folder-icon" aria-hidden="true"></span><span><strong>Projects</strong><small>Work in progress</small></span></a>
+								<a class="folder-tile" href="#projects"><span class="large-folder folder-icon" aria-hidden="true"></span><span><strong>Projects &amp; Research</strong><small>Anime MCP · In development</small></span></a>
 								<a class="folder-tile" href="#resume"><span class="large-folder folder-icon" aria-hidden="true"></span><span><strong>Resume</strong><small>Professional experience</small></span></a>
 								<a class="folder-tile" href="#skills"><span class="large-folder folder-icon" aria-hidden="true"></span><span><strong>Skills</strong><small>Technical toolkit</small></span></a>
 							</div>
@@ -174,15 +173,29 @@
 						<section id="work" class="profile-section" aria-labelledby="work-title" data-section-name="Work">
 							<header class="section-heading"><span class="heading-folder folder-icon" aria-hidden="true"></span><div><p class="eyebrow">Selected experience</p><h2 id="work-title">Work</h2></div></header>
 							<div class="xp-detail-card">
-								<div class="detail-card-heading"><span class="large-folder folder-icon" aria-hidden="true"></span><div><h3>Production document systems</h3><p>IntellPro · Production engineering</p></div></div>
-								<p>I contribute across a production document-processing pipeline that handles approximately 3,000 documents per day across more than 10 integrations. My work includes scalable text-extraction and document-transformation services, a custom financial-document chunking algorithm and supporting library, and ownership of the distributed embedding stage.</p>
-								<p>That work includes rate limiting, retries, worker orchestration, concurrency control, dead-letter queue handling, state-machine-based job coordination, and agent workflows for metadata extraction.</p>
+								<div class="detail-card-heading"><span class="large-folder folder-icon" aria-hidden="true"></span><div><h3>Document chunking &amp; distributed embeddings</h3><p>IntellPro · Production engineering</p></div></div>
+								<p>At IntellPro, I designed a financial-document chunking algorithm and supporting library, and I own the distributed embedding stage. My work includes rate limiting, retries, worker orchestration, and concurrency control to make embedding jobs reliable.</p>
+								<p>These components are part of a broader document-processing pipeline that I contribute to alongside the team.</p>
 							</div>
 						</section>
 
-						<section id="projects" class="profile-section" aria-labelledby="projects-title" data-section-name="Projects">
-							<header class="section-heading"><span class="heading-folder folder-icon" aria-hidden="true"></span><div><p class="eyebrow">Personal projects</p><h2 id="projects-title">Projects</h2></div></header>
-							<div class="coming-soon-card"><span class="large-folder folder-icon" aria-hidden="true"></span><div><p class="status-label">Work in progress</p><h3>New projects are being prepared.</h3><p>This section is ready for project details, screenshots, and links as they become available.</p></div></div>
+						<section id="projects" class="profile-section" aria-labelledby="projects-title" data-section-name="Projects &amp; Research">
+							<header class="section-heading"><span class="heading-folder folder-icon" aria-hidden="true"></span><div><p class="eyebrow">Personal projects</p><h2 id="projects-title">Projects &amp; Research</h2></div></header>
+							<div class="xp-detail-card">
+								<p class="status-label">In development</p>
+								<h3>Anime MCP</h3>
+								<p>I’m building a retrieval system for anime-character information, exposed through an MCP server. My current focus is indexing and retrieval, with ranking, hybrid fusion, and context expansion as areas of development and evaluation.</p>
+								<details class="project-research">
+									<summary>Research questions &amp; reading</summary>
+									<p>How should lexical and semantic scores be combined when their score distributions differ? I’m studying score normalization and hybrid fusion, with relevance calibration and query-adaptive weighting as follow-up questions.</p>
+									<ul>
+										<li><a href="https://arxiv.org/abs/2210.11934" target="_blank" rel="noopener noreferrer">An Analysis of Fusion Functions for Hybrid Retrieval</a></li>
+										<li><a href="https://dl.acm.org/doi/10.1145/1835449.1835491" target="_blank" rel="noopener noreferrer">Score distribution models: assumptions, intuition, and robustness to score manipulation</a></li>
+										<li><a href="https://arxiv.org/abs/2112.10327" target="_blank" rel="noopener noreferrer">Classifier Calibration: A survey on how to assess and improve predicted class probabilities</a></li>
+										<li><a href="https://arxiv.org/abs/2302.09947" target="_blank" rel="noopener noreferrer">Query Performance Prediction for Neural IR: Are We There Yet?</a></li>
+									</ul>
+								</details>
+							</div>
 						</section>
 
 						<section id="resume" class="profile-section" aria-labelledby="resume-title" data-section-name="Resume">
@@ -198,7 +211,7 @@
 							<div class="skill-groups">
 								<div class="skill-group"><h3>Programming languages</h3><div class="skill-list"><span>Python</span><span>C++</span><span>JavaScript/TypeScript</span><span>Elixir</span><span>SQL</span><span>HTML/CSS</span></div></div>
 								<div class="skill-group"><h3>Frameworks &amp; libraries</h3><div class="skill-list"><span>FastAPI</span><span>Django</span><span>Next.js</span><span>Pytest</span><span>Pandas</span><span>NumPy</span><span>SQLAlchemy</span><span>Pydantic</span><span>Poetry</span><span>Oban Pro</span></div></div>
-								<div class="skill-group"><h3>Infrastructure &amp; tools</h3><div class="skill-list"><span>AWS (ECS, S3, SQS)</span><span>Docker</span><span>Git</span><span>GitHub Actions</span><span>PostgreSQL</span><span>OpenSearch</span><span>DBeaver</span><span>Datadog</span></div></div>
+								<div class="skill-group"><h3>Infrastructure &amp; tools</h3><div class="skill-list"><span>AWS (ECS, S3, SQS)</span><span>Docker</span><span>Git</span><span>Graphite</span><span>GitHub Actions</span><span>PostgreSQL</span><span>OpenSearch</span><span>DBeaver</span><span>Datadog</span></div></div>
 								<div class="skill-group"><h3>Concepts</h3><div class="skill-list"><span>Distributed Systems</span><span>RESTful API Design</span><span>Microservices</span><span>Functional Programming</span><a href="https://omscs.gatech.edu/isye-6420-bayesian-statistics" target="_blank" rel="noopener noreferrer">Bayesian Statistics</a><a href="https://omscs.gatech.edu/cs-6250-computer-networks" target="_blank" rel="noopener noreferrer">Computer Networks</a><a href="https://omscs.gatech.edu/cs-7641-machine-learning" target="_blank" rel="noopener noreferrer">Machine Learning</a><span>Data Structures &amp; Algorithms</span><span>OOP</span><span>ETL / Data Pipelines</span><span>Agentic AI</span><span>RAG</span><span>Vector Database</span><span>Event-Driven Architecture</span><span>Web Application Security</span></div></div>
 								<div class="skill-group"><h3>Languages</h3><div class="skill-list"><span>English (Fluent)</span><span>Cantonese (Native)</span><span>Mandarin (Professional)</span><span>Japanese (~N5)</span></div></div>
 							</div>
@@ -223,7 +236,7 @@
 
 						<section id="hobbies" class="profile-section hobbies-section" aria-labelledby="hobbies-title" data-section-name="Personal Hobbies Website">
 							<header class="section-heading"><span class="heading-folder folder-icon" aria-hidden="true"></span><div><p class="eyebrow">New desktop app</p><h2 id="hobbies-title">Personal Hobbies Website</h2></div></header>
-							<div class="coming-soon-card"><span class="large-folder folder-icon" aria-hidden="true"></span><div><p class="status-label">A little corner of the web</p><h3>Anime, manga &amp; everyday things.</h3><p>Visit my personal homepage for favorites, games, and a few notes from my life.</p><a class="xp-action-button" href="#hobby-top">Open Hobbies Website</a></div></div>
+							<div class="coming-soon-card"><span class="large-folder folder-icon" aria-hidden="true"></span><div><p class="status-label">A little corner of the web</p><h3>Anime, manga &amp; everyday things.</h3><p>Visit my personal homepage for anime, games, training, Hong Kong, and advice for international students.</p><a class="xp-action-button" href="#hobby-top">Open Hobbies Website</a></div></div>
 						</section>
 
 						<footer class="content-footer"><p>&copy; Caleb Leung 2026</p></footer>
@@ -242,7 +255,7 @@
 						<summary>File</summary>
 						<div class="window-menu-panel">
 							<a href="#intro">Open Portfolio</a>
-							<a href="#research-notebook">Open Research Notebook</a>
+							<a href="#projects">Open Projects &amp; Research</a>
 							<a href="#hobby-top">Open Personal Hobbies</a>
 							<button type="button" data-window-action="close">Close window</button>
 						</div>
@@ -280,38 +293,38 @@
 				<div class="hobbies-window-body">
 					<div class="hobbies-site" lang="en" role="document">
 						<header id="hobby-top" class="hobby-masthead" tabindex="-1">
-							<img class="hobby-computer" src="images/hobbies/decorations/03_computer_mascot.png" width="1254" height="1254" alt="" />
-							<img class="hobby-branch hobby-branch-left" src="images/hobbies/decorations/04_blossom_branch.png" width="1774" height="887" alt="" />
+							<img class="hobby-computer" src="images/hobbies/decorations/03_computer_mascot.png" width="1254" height="1254" alt="" loading="lazy" />
+							<img class="hobby-branch hobby-branch-left" src="images/hobbies/decorations/04_blossom_branch.png" width="1774" height="887" alt="" loading="lazy" />
 							<div class="hobby-brand"><h2>Caleb’s Personal<br />Hobbies Website</h2><p data-hobby-text="subtitle">Anime, manga, games &amp; a little Hong Kong.</p></div>
-							<img class="hobby-branch hobby-branch-right" src="images/hobbies/decorations/04_blossom_branch.png" width="1774" height="887" alt="" />
+							<img class="hobby-branch hobby-branch-right" src="images/hobbies/decorations/04_blossom_branch.png" width="1774" height="887" alt="" loading="lazy" />
 						</header>
 						<div class="hobbies-language-controls" role="group" aria-label="Page language" data-hobby-aria="languageLabel" hidden>
 							<button type="button" lang="en" data-hobby-language="en" aria-pressed="true">English</button><span aria-hidden="true">|</span><button type="button" lang="ja" data-hobby-language="ja" aria-pressed="false">日本語</button><span aria-hidden="true">|</span><button type="button" lang="zh-HK" data-hobby-language="zh-HK" aria-pressed="false">繁體中文（香港）</button>
 						</div>
 						<nav class="hobby-top-nav" aria-label="Hobby sections" data-hobby-aria="navLabel">
-							<a href="#hobby-anime" data-hobby-text="navAnime">Anime</a><a href="#hobby-manga" data-hobby-text="navManga">Manga</a><a href="#hobby-games" data-hobby-text="navGames">Games</a><a href="#hobby-anticipated" data-hobby-text="navAnticipated">Looking forward</a><a href="#hobby-training" data-hobby-text="navTraining">Training</a><a href="#hobby-hong-kong" data-hobby-text="navHongKong">Hong Kong</a><a href="#hobby-notes" data-hobby-text="navNotes">Notes</a>
+							<a href="#hobby-anime" data-hobby-text="navAnime">Anime</a><a href="#hobby-manga" data-hobby-text="navManga">Manga</a><a href="#hobby-games" data-hobby-text="navGames">Games</a><a href="#hobby-anticipated" data-hobby-text="navAnticipated">Looking forward</a><a href="#hobby-training" data-hobby-text="navTraining">Training</a><a href="#hobby-hong-kong" data-hobby-text="navHongKong">Hong Kong</a><a href="#hobby-notes" data-hobby-text="navNotes">Student advice</a>
 						</nav>
 						<div class="hobby-star-divider" aria-hidden="true"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
 						<div class="hobby-layout">
 							<aside class="hobby-sidebar">
 								<nav class="hobby-side-nav" aria-label="Hobbies menu" data-hobby-aria="sideNavLabel">
-									<a href="#hobby-anime"><img src="images/hobbies/decorations/17_icon_television.png" width="1254" height="1254" alt="" /><span data-hobby-text="navAnime">Anime</span></a>
-									<a href="#hobby-manga"><img src="images/hobbies/decorations/18_icon_book.png" width="1254" height="1254" alt="" /><span data-hobby-text="navManga">Manga</span></a>
-									<a href="#hobby-games"><img src="images/hobbies/decorations/19_icon_controller.png" width="1254" height="1254" alt="" /><span data-hobby-text="navGames">Games</span></a>
-									<a href="#hobby-training"><img src="images/hobbies/decorations/20_icon_dumbbell.png" width="1254" height="1254" alt="" /><span data-hobby-text="navTraining">Training</span></a>
-									<a href="#hobby-hong-kong"><img src="images/hobbies/decorations/21_icon_teacup.png" width="1254" height="1254" alt="" /><span data-hobby-text="navHongKong">Hong Kong</span></a>
-									<a href="#hobby-anticipated"><img src="images/hobbies/decorations/22_icon_star.png" width="1254" height="1254" alt="" /><span data-hobby-text="navAnticipated">Looking forward</span></a>
-									<a href="#hobby-notes"><img src="images/hobbies/decorations/23_icon_notepad.png" width="1254" height="1254" alt="" /><span data-hobby-text="navNotes">Notes</span></a>
+									<a href="#hobby-anime"><img src="images/hobbies/decorations/17_icon_television.png" width="1254" height="1254" alt="" loading="lazy" /><span data-hobby-text="navAnime">Anime</span></a>
+									<a href="#hobby-manga"><img src="images/hobbies/decorations/18_icon_book.png" width="1254" height="1254" alt="" loading="lazy" /><span data-hobby-text="navManga">Manga</span></a>
+									<a href="#hobby-games"><img src="images/hobbies/decorations/19_icon_controller.png" width="1254" height="1254" alt="" loading="lazy" /><span data-hobby-text="navGames">Games</span></a>
+									<a href="#hobby-training"><img src="images/hobbies/decorations/20_icon_dumbbell.png" width="1254" height="1254" alt="" loading="lazy" /><span data-hobby-text="navTraining">Training</span></a>
+									<a href="#hobby-hong-kong"><img src="images/hobbies/decorations/21_icon_teacup.png" width="1254" height="1254" alt="" loading="lazy" /><span data-hobby-text="navHongKong">Hong Kong</span></a>
+									<a href="#hobby-anticipated"><img src="images/hobbies/decorations/22_icon_star.png" width="1254" height="1254" alt="" loading="lazy" /><span data-hobby-text="navAnticipated">Looking forward</span></a>
+									<a href="#hobby-notes"><img src="images/hobbies/decorations/23_icon_notepad.png" width="1254" height="1254" alt="" loading="lazy" /><span data-hobby-text="navNotes">Student advice</span></a>
 								</nav>
 								<span class="hobby-crop hobby-sidebar-sprig" aria-hidden="true"><img src="images/hobbies/decorations/10_sidebar_flower_sprig.png" width="1254" height="1254" loading="lazy" alt="" /></span>
 							</aside>
 							<div class="hobby-content">
 								<section class="hobby-panel hobby-welcome" aria-labelledby="hobby-welcome-title">
-									<header class="hobby-panel-heading"><img src="images/hobbies/decorations/24_icon_flower.png" width="1254" height="1254" alt="" /><span class="hobby-japanese" lang="ja" aria-hidden="true">ようこそ</span><h3 id="hobby-welcome-title" data-hobby-text="welcomeLabel">Welcome!</h3></header>
-									<div class="hobby-panel-body"><p data-hobby-text="welcomeText">Hi, I’m Caleb. Welcome to my little corner for the things I enjoy.</p><span class="hobby-crop hobby-welcome-cat" aria-hidden="true"><img src="images/hobbies/decorations/08_welcome_cat.png" width="1774" height="887" alt="" /></span></div>
+									<header class="hobby-panel-heading"><img src="images/hobbies/decorations/24_icon_flower.png" width="1254" height="1254" alt="" loading="lazy" /><span class="hobby-japanese" lang="ja" aria-hidden="true">ようこそ</span><h3 id="hobby-welcome-title" data-hobby-text="welcomeLabel">Welcome!</h3></header>
+									<div class="hobby-panel-body"><p data-hobby-text="welcomeText">Hi, I’m Caleb. Welcome to my little corner for the things I enjoy.</p><span class="hobby-crop hobby-welcome-cat" aria-hidden="true"><img src="images/hobbies/decorations/08_welcome_cat.png" width="1774" height="887" alt="" loading="lazy" /></span></div>
 								</section>
 								<section id="hobby-anime" class="hobby-panel hobby-anime" aria-labelledby="hobby-anime-title" tabindex="-1">
-									<header class="hobby-panel-heading"><img src="images/hobbies/decorations/22_icon_star.png" width="1254" height="1254" alt="" /><span class="hobby-japanese" lang="ja" aria-hidden="true">好きなアニメ ベスト5</span><h3 id="hobby-anime-title" data-hobby-text="animeLabel">Top 5 anime</h3></header>
+									<header class="hobby-panel-heading"><img src="images/hobbies/decorations/22_icon_star.png" width="1254" height="1254" alt="" loading="lazy" /><span class="hobby-japanese" lang="ja" aria-hidden="true">好きなアニメ ベスト5</span><h3 id="hobby-anime-title" data-hobby-text="animeLabel">Top 5 anime</h3></header>
 									<ol class="hobby-anime-list">
 										<li><img src="images/hobbies/thumbnails/end-of-evangelion.jpg" width="1920" height="1080" alt="The End of Evangelion" loading="lazy" /><a href="https://gkids.com/films/end-of-evangelion/" target="_blank" rel="noopener noreferrer">The End of Evangelion</a></li>
 										<li><img src="images/hobbies/thumbnails/kara-no-kyoukai-chapter-1.jpg" width="608" height="857" alt="空の境界1" loading="lazy" /><a href="https://www.karanokyoukai.com/" target="_blank" rel="noopener noreferrer" lang="ja">空の境界1</a></li>
@@ -319,135 +332,84 @@
 										<li><img src="images/hobbies/thumbnails/gundam-thunderbolt.png" width="900" height="1260" alt="Gundam Thunderbolt" loading="lazy" /><a href="https://gundam-official.com/series/thunderbolt" target="_blank" rel="noopener noreferrer">Gundam Thunderbolt</a></li>
 										<li><img src="images/hobbies/thumbnails/fate-zero.jpg" width="1006" height="1439" alt="Fate/Zero" loading="lazy" /><a href="https://www.fate-zero.jp/" target="_blank" rel="noopener noreferrer">Fate/Zero</a></li>
 									</ol>
-									<p class="hobby-pending" data-hobby-text="personalPending">Personal notes to come.</p>
+
 								</section>
 								<div class="hobby-features">
 									<section id="hobby-manga" class="hobby-panel hobby-manga" aria-labelledby="hobby-manga-title" tabindex="-1">
-										<header class="hobby-panel-heading"><img src="images/hobbies/decorations/18_icon_book.png" width="1254" height="1254" alt="" /><span class="hobby-japanese" lang="ja" aria-hidden="true">いちばん好きな漫画</span><h3 id="hobby-manga-title" data-hobby-text="mangaLabel">Favorite manga</h3></header>
-										<div class="hobby-feature"><img class="hobby-thumbnail" src="images/hobbies/thumbnails/berserk.png" width="640" height="640" alt="Berserk" loading="lazy" /><div><h4><a href="https://magazine.younganimal.com/berserk/" target="_blank" rel="noopener noreferrer">Berserk</a></h4><p data-hobby-text="favoriteManga">My favorite manga is Berserk.</p><p class="hobby-small" data-hobby-text="personalPending">Personal notes to come.</p></div></div>
+										<header class="hobby-panel-heading"><img src="images/hobbies/decorations/18_icon_book.png" width="1254" height="1254" alt="" loading="lazy" /><span class="hobby-japanese" lang="ja" aria-hidden="true">いちばん好きな漫画</span><h3 id="hobby-manga-title" data-hobby-text="mangaLabel">Favorite manga</h3></header>
+										<div class="hobby-feature"><img class="hobby-thumbnail" src="images/hobbies/thumbnails/berserk.png" width="640" height="640" alt="Berserk" loading="lazy" /><div><h4><a href="https://magazine.younganimal.com/berserk/" target="_blank" rel="noopener noreferrer">Berserk</a></h4><p data-hobby-text="favoriteManga">My favorite manga is Berserk.</p></div></div>
 									</section>
 									<section id="hobby-gem" class="hobby-panel hobby-gem" aria-labelledby="hobby-gem-title" tabindex="-1">
-										<header class="hobby-panel-heading"><img src="images/hobbies/decorations/25_icon_diamond.png" width="1254" height="1254" alt="" /><span class="hobby-japanese" lang="ja" aria-hidden="true">もっと知られてほしい作品</span><h3 id="hobby-gem-title" data-hobby-text="gemLabel">Hidden gem</h3></header>
-										<div class="hobby-feature"><img class="hobby-thumbnail" src="images/hobbies/thumbnails/gundam-thunderbolt-hidden-gem.jpg" width="2880" height="1620" alt="Gundam Thunderbolt" loading="lazy" /><div><h4><a href="https://gundam-official.com/series/thunderbolt" target="_blank" rel="noopener noreferrer">Gundam Thunderbolt</a></h4><p class="hobby-small" data-hobby-text="hiddenGem">My hidden gem pick: Gundam Thunderbolt.</p><p class="hobby-small" data-hobby-text="personalPending">Personal notes to come.</p></div></div>
+										<header class="hobby-panel-heading"><img src="images/hobbies/decorations/25_icon_diamond.png" width="1254" height="1254" alt="" loading="lazy" /><span class="hobby-japanese" lang="ja" aria-hidden="true">もっと知られてほしい作品</span><h3 id="hobby-gem-title" data-hobby-text="gemLabel">Hidden gem</h3></header>
+										<div class="hobby-feature"><img class="hobby-thumbnail" src="images/hobbies/thumbnails/gundam-thunderbolt-hidden-gem.jpg" width="2880" height="1620" alt="Gundam Thunderbolt" loading="lazy" /><div><h4><a href="https://gundam-official.com/series/thunderbolt" target="_blank" rel="noopener noreferrer">Gundam Thunderbolt</a></h4><p class="hobby-small" data-hobby-text="hiddenGem">My hidden gem pick: Gundam Thunderbolt.</p></div></div>
 									</section>
 								</div>
 								<section id="hobby-games" class="hobby-panel hobby-games" aria-labelledby="hobby-games-title" tabindex="-1">
-									<header class="hobby-panel-heading"><img src="images/hobbies/decorations/19_icon_controller.png" width="1254" height="1254" alt="" /><span class="hobby-japanese" lang="ja" aria-hidden="true">遊んだゲーム</span><h3 id="hobby-games-title" data-hobby-text="gamesLabel">Video games</h3></header>
-									<div class="hobby-panel-body"><p class="hobby-small" data-hobby-text="gamesNote">I only played video games from May to November 2025. I won’t be able to play for a while, but I hope to play again someday.</p>
-										<ul class="hobby-game-list"><li><img src="images/hobbies/thumbnails/monster-hunter-rise-sunbreak.png" width="400" height="225" alt="Monster Hunter Rise: Sunbreak" loading="lazy" /><a href="https://www.monsterhunter.com/rise-sunbreak/" target="_blank" rel="noopener noreferrer">Monster Hunter Rise: Sunbreak</a></li><li><img src="images/hobbies/thumbnails/monster-hunter-wilds.png" width="800" height="450" alt="Monster Hunter Wilds" loading="lazy" /><a href="https://www.monsterhunter.com/wilds/" target="_blank" rel="noopener noreferrer">Monster Hunter Wilds</a></li><li><img src="images/hobbies/thumbnails/gundam-maxiboost-on.jpg" width="2160" height="1215" alt="Gundam Extreme Maxiboost ON" loading="lazy" /><a href="https://en.bandainamcoent.eu/gundam/mobile-suit-gundam-extreme-vs-maxiboost" target="_blank" rel="noopener noreferrer">Gundam Extreme Maxiboost ON 2</a></li><li><img src="images/hobbies/thumbnails/cyberpunk-2077.jpg" width="640" height="360" alt="Cyberpunk" loading="lazy" /><a href="https://www.cyberpunk.net/us/en/cyberpunk-2077" target="_blank" rel="noopener noreferrer">Cyberpunk</a></li></ul>
+									<header class="hobby-panel-heading"><img src="images/hobbies/decorations/19_icon_controller.png" width="1254" height="1254" alt="" loading="lazy" /><span class="hobby-japanese" lang="ja" aria-hidden="true">ゲーム</span><h3 id="hobby-games-title" data-hobby-text="gamesLabel">Games</h3></header>
+									<div class="hobby-panel-body"><p class="hobby-small" data-hobby-text="gamesNote">I played these games between May and November 2025. I’m too busy to play at the moment, but they’re all games I enjoyed and would recommend trying. I hope to get back to gaming someday.</p>
+										<ul class="hobby-game-list"><li><img src="images/hobbies/thumbnails/monster-hunter-rise-sunbreak.png" width="400" height="225" alt="Monster Hunter Rise: Sunbreak" loading="lazy" /><a href="https://www.monsterhunter.com/rise-sunbreak/" target="_blank" rel="noopener noreferrer">Monster Hunter Rise: Sunbreak</a></li><li><img src="images/hobbies/thumbnails/monster-hunter-wilds.png" width="800" height="450" alt="Monster Hunter Wilds" loading="lazy" /><a href="https://www.monsterhunter.com/wilds/" target="_blank" rel="noopener noreferrer">Monster Hunter Wilds</a></li><li><img src="images/hobbies/thumbnails/gundam-maxiboost-on.jpg" width="2160" height="1215" alt="Gundam Extreme Maxiboost ON" loading="lazy" /><a href="https://en.bandainamcoent.eu/gundam/mobile-suit-gundam-extreme-vs-maxiboost" target="_blank" rel="noopener noreferrer">Mobile Suit Gundam Extreme VS. Maxiboost ON</a></li><li><img src="images/hobbies/thumbnails/cyberpunk-2077.jpg" width="640" height="360" alt="Cyberpunk" loading="lazy" /><a href="https://www.cyberpunk.net/us/en/cyberpunk-2077" target="_blank" rel="noopener noreferrer">Cyberpunk</a></li></ul>
 									</div>
 								</section>
 
 							</div>
 							<div class="hobby-aside">
 								<section id="hobby-watching" class="hobby-panel hobby-watching" aria-labelledby="hobby-watching-title" tabindex="-1">
-									<header class="hobby-panel-heading"><img src="images/hobbies/decorations/17_icon_television.png" width="1254" height="1254" alt="" /><span class="hobby-japanese" lang="ja" aria-hidden="true">近況</span><h3 id="hobby-watching-title" data-hobby-text="watchingLabel">Currently watching</h3></header>
+									<header class="hobby-panel-heading"><img src="images/hobbies/decorations/17_icon_television.png" width="1254" height="1254" alt="" loading="lazy" /><span class="hobby-japanese" lang="ja" aria-hidden="true">近況</span><h3 id="hobby-watching-title" data-hobby-text="watchingLabel">Currently watching</h3></header>
 									<ul class="hobby-watch-list"><li><img src="images/hobbies/thumbnails/nier-automata.jpg" width="707" height="999" loading="lazy" alt="NieR:Automata" /><a href="https://nierautomata-anime.com/" target="_blank" rel="noopener noreferrer" data-hobby-text="nierTitle">NieR:Automata — Season 2</a></li><li><img src="images/hobbies/thumbnails/grand-blue-season-3.jpg" width="700" height="990" loading="lazy" alt="Grand Blue" /><a href="https://grandblue-anime.com/" target="_blank" rel="noopener noreferrer" data-hobby-text="grandBlueTitle">Grand Blue — Season 3</a></li><li><img src="images/hobbies/thumbnails/yomi-no-tsugai.webp" width="1920" height="1080" loading="lazy" alt="黄泉のツガイ" /><a href="https://yominotsugai.com/" target="_blank" rel="noopener noreferrer" lang="ja">黄泉のツガイ</a></li></ul>
 								</section>
-								<section class="hobby-panel hobby-lately" aria-labelledby="hobby-lately-title"><header class="hobby-panel-heading"><img src="images/hobbies/decorations/27_icon_sprout.png" width="1254" height="1254" alt="" /><h3 id="hobby-lately-title" data-hobby-text="latelyLabel">Lately</h3></header><div class="hobby-panel-body"><p data-hobby-text="latelyNote">I’ve also been working on Anime MCP.</p></div></section>
-								<section id="hobby-anticipated" class="hobby-panel hobby-anticipated" aria-labelledby="hobby-anticipated-title" tabindex="-1"><header class="hobby-panel-heading"><img src="images/hobbies/decorations/26_icon_music_note.png" width="1254" height="1254" alt="" /><span class="hobby-japanese" lang="ja" aria-hidden="true">楽しみにしているアニメ</span><h3 id="hobby-anticipated-title" data-hobby-text="anticipatedLabel">Looking forward to</h3></header><ul class="hobby-watch-list"><li><img src="images/hobbies/thumbnails/cyberpunk-edgerunners-2.jpg" width="715" height="500" loading="lazy" alt="Cyberpunk: Edgerunners" /><a href="https://www.cyberpunk.net/en/edgerunners2" target="_blank" rel="noopener noreferrer" data-hobby-text="edgerunnersTitle">Cyberpunk: Edgerunners — Season 2</a></li><li><img src="images/hobbies/thumbnails/fate-strange-fake.jpg" width="2560" height="1440" loading="lazy" alt="Fate/strange Fake" /><a href="https://fatesf-anime.com/" target="_blank" rel="noopener noreferrer" data-hobby-text="strangeFakeTitle">Fate/strange Fake — Season 2</a></li></ul><p class="hobby-pending" data-hobby-text="musicNote">I love the music from both series.</p></section>
-								<section id="hobby-training" class="hobby-panel hobby-training" aria-labelledby="hobby-training-title" tabindex="-1"><header class="hobby-panel-heading"><img src="images/hobbies/decorations/20_icon_dumbbell.png" width="1254" height="1254" alt="" /><span class="hobby-japanese" lang="ja" aria-hidden="true">トレーニングメニュー</span><h3 id="hobby-training-title" data-hobby-text="trainingLabel">Training</h3></header><div class="hobby-panel-body"><p data-hobby-text="trainingPending">Routine to be added.</p><div class="hobby-writing-lines" aria-hidden="true"></div><p class="hobby-small" data-hobby-text="trainingDescription">Weekly overview and an optional printable PDF to come.</p></div></section>
+								<section class="hobby-panel hobby-lately" aria-labelledby="hobby-lately-title"><header class="hobby-panel-heading"><img src="images/hobbies/decorations/27_icon_sprout.png" width="1254" height="1254" alt="" loading="lazy" /><h3 id="hobby-lately-title" data-hobby-text="latelyLabel">Lately</h3></header><div class="hobby-panel-body"><p data-hobby-text="latelyNote">I’ve been busy working on Anime MCP lately.</p></div></section>
+								<section id="hobby-anticipated" class="hobby-panel hobby-anticipated" aria-labelledby="hobby-anticipated-title" tabindex="-1"><header class="hobby-panel-heading"><img src="images/hobbies/decorations/26_icon_music_note.png" width="1254" height="1254" alt="" loading="lazy" /><span class="hobby-japanese" lang="ja" aria-hidden="true">楽しみにしているアニメ</span><h3 id="hobby-anticipated-title" data-hobby-text="anticipatedLabel">Looking forward to</h3></header><ul class="hobby-watch-list"><li><img src="images/hobbies/thumbnails/cyberpunk-edgerunners-2.jpg" width="715" height="500" loading="lazy" alt="Cyberpunk: Edgerunners" /><a href="https://www.cyberpunk.net/en/edgerunners2" target="_blank" rel="noopener noreferrer" data-hobby-text="edgerunnersTitle">Cyberpunk: Edgerunners — Season 2</a></li><li><img src="images/hobbies/thumbnails/fate-strange-fake.jpg" width="2560" height="1440" loading="lazy" alt="Fate/strange Fake" /><a href="https://fatesf-anime.com/" target="_blank" rel="noopener noreferrer" data-hobby-text="strangeFakeTitle">Fate/strange Fake — Season 2</a></li></ul><p class="hobby-pending" data-hobby-text="musicNote">I’m looking forward to these two anime, and I love the music from both series.</p><p class="hobby-pending" data-hobby-text="animeNotesPending">More thoughts to come.</p></section>
+								<section id="hobby-training" class="hobby-panel hobby-training" aria-labelledby="hobby-training-title" tabindex="-1">
+										<header class="hobby-panel-heading"><img src="images/hobbies/decorations/20_icon_dumbbell.png" width="1254" height="1254" loading="lazy" alt="" /><span class="hobby-japanese" lang="ja" aria-hidden="true">トレーニングメニュー</span><h3 id="hobby-training-title" data-hobby-text="trainingLabel">Training</h3></header>
+										<div class="hobby-panel-body">
+											<p class="hobby-small" data-hobby-text="trainingIntro">I train for upper-body development and better jumping. My week includes five lifting sessions, Sunday jump practice, and a Wednesday rest day.</p>
+											<p class="hobby-small" data-hobby-text="trainingInjury">I’m temporarily adjusting my training around an elbow injury, so some movements are currently limited.</p>
+											<details class="hobby-routine"><summary data-hobby-text="trainingDetails">View my weekly routine</summary><dl><div><dt><span data-hobby-text="dayMonday">Monday</span> · <span data-hobby-text="workoutMonday">Short upper-body session</span></dt><dd data-hobby-text="exerciseMonday">Machine shoulder press, machine chest press, chest-supported machine row, seated dumbbell lateral raise, reverse pec deck.</dd></div>
+												<div><dt><span data-hobby-text="dayTuesday">Tuesday</span> · <span data-hobby-text="workoutTuesday">Lower-body maintenance</span></dt><dd data-hobby-text="exerciseTuesday">Front squat, Bulgarian split squat, back extension, single-leg press, single-leg seated hamstring curl, calf raise.</dd></div>
+												<div><dt><span data-hobby-text="dayWednesday">Wednesday</span> · <span data-hobby-text="workoutWednesday">Rest</span></dt><dd data-hobby-text="exerciseWednesday">Rest day.</dd></div>
+												<div><dt><span data-hobby-text="dayThursday">Thursday</span> · <span data-hobby-text="workoutThursday">Medium upper-body session</span></dt><dd data-hobby-text="exerciseThursday">Machine chest and shoulder presses, Gironda-style and seated dumbbell lateral raises, single-arm incline machine press, pec deck, reverse pec deck.</dd></div>
+												<div><dt><span data-hobby-text="dayFriday">Friday</span> · <span data-hobby-text="workoutFriday">Back</span></dt><dd data-hobby-text="exerciseFriday">Chest-supported machine row, angled pulldown / high row, reverse pec deck.</dd></div>
+												<div><dt><span data-hobby-text="daySaturday">Saturday</span> · <span data-hobby-text="workoutSaturday">Longer upper-body session</span></dt><dd data-hobby-text="exerciseSaturday">Machine shoulder and chest presses, Gironda-style lateral raise, single-arm incline machine press, pec deck, reverse pec deck, machine ab crunch.</dd></div>
+												<div><dt><span data-hobby-text="daySunday">Sunday</span> · <span data-hobby-text="workoutSunday">Jump and dunk practice</span></dt><dd data-hobby-text="exerciseSunday">One-foot jump progression.</dd></div></dl></details>
+											<p class="hobby-small" data-hobby-text="trainingDescription">More routine details to come.</p>
+										</div>
+									</section>
 								<img class="hobby-desktop-garden" src="images/hobbies/decorations/11_garden_desktop.png" width="1983" height="793" loading="lazy" alt="" />
 							</div>
 							<div class="hobby-bottom">
 								<section id="hobby-hong-kong" class="hobby-panel hobby-hong-kong" aria-labelledby="hobby-hong-kong-title" tabindex="-1">
-									<header class="hobby-panel-heading"><img src="images/hobbies/decorations/24_icon_flower.png" width="1254" height="1254" alt="" /><span class="hobby-japanese" lang="ja" aria-hidden="true">地元・香港のこと</span><h3 id="hobby-hong-kong-title" data-hobby-text="hongKongLabel">Hong Kong</h3></header>
-									<div class="hobby-hong-kong-content"><picture><source media="(max-width: 980px)" srcset="images/hobbies/decorations/14_hong_kong_harbour.png" /><img class="hobby-harbour" src="images/hobbies/decorations/13_hong_kong_cafe.png" width="1672" height="941" loading="lazy" alt="" /></picture><p class="hobby-small" data-hobby-text="hongKongNote">I’m from Hong Kong and haven’t been back since 2019. I miss 芝士鮮魷 a lot, and I love 茶餐廳.</p><picture class="hobby-crop hobby-drink"><source media="(max-width: 980px)" srcset="images/hobbies/decorations/16_tea_and_toast.png" /><img src="images/hobbies/decorations/15_iced_milk_tea.png" width="1254" height="1254" loading="lazy" alt="" /></picture></div>
+									<header class="hobby-panel-heading"><img src="images/hobbies/decorations/24_icon_flower.png" width="1254" height="1254" alt="" loading="lazy" /><span class="hobby-japanese" lang="ja" aria-hidden="true">地元・香港のこと</span><h3 id="hobby-hong-kong-title" data-hobby-text="hongKongLabel">Hong Kong</h3></header>
+									<div class="hobby-hong-kong-content"><picture><source media="(max-width: 980px)" srcset="images/hobbies/decorations/14_hong_kong_harbour.png" /><img class="hobby-harbour" src="images/hobbies/decorations/13_hong_kong_cafe.png" width="1672" height="941" loading="lazy" alt="" /></picture><div><p class="hobby-small" data-hobby-text="hongKongNote">I’m from Sha Tin, Hong Kong, and haven’t been back since 2019. I love 芝士鮮魷, dai pai dong, and cha chaan teng.</p><a class="hobby-small" href="mailto:caleb.leungkwanho@gmail.com" data-hobby-text="hongKongEmail">Have a favorite dai pai dong? Email me your recommendations!</a></div><picture class="hobby-crop hobby-drink"><source media="(max-width: 980px)" srcset="images/hobbies/decorations/16_tea_and_toast.png" /><img src="images/hobbies/decorations/15_iced_milk_tea.png" width="1254" height="1254" loading="lazy" alt="" /></picture></div>
 								</section>
 								<section id="hobby-notes" class="hobby-panel hobby-notes" aria-labelledby="hobby-notes-title" tabindex="-1">
-									<header class="hobby-panel-heading"><img src="images/hobbies/decorations/23_icon_notepad.png" width="1254" height="1254" alt="" /><span class="hobby-japanese" lang="ja" aria-hidden="true">暮らしのメモ</span><h3 id="hobby-notes-title" data-hobby-text="notesLabel">Life notes</h3></header>
-									<div class="hobby-panel-body hobby-notes-body"><img src="images/hobbies/decorations/23_icon_notepad.png" width="1254" height="1254" loading="lazy" alt="" /><div><h4 data-hobby-text="notesTitle">Moving to America</h4><p class="hobby-small" data-hobby-text="notesPending">Notes coming later.</p></div></div>
-								</section>
+										<header class="hobby-panel-heading"><img src="images/hobbies/decorations/23_icon_notepad.png" width="1254" height="1254" loading="lazy" alt="" /><span class="hobby-japanese" lang="ja" aria-hidden="true">留学生へのアドバイス</span><h3 id="hobby-notes-title" data-hobby-text="notesLabel">Advice for International Students</h3></header>
+										<div class="hobby-panel-body">
+											<p class="hobby-small" data-hobby-text="notesIntro">What I would prepare differently for studying and building a career in America. These are personal suggestions; your goals and budget may differ.</p><details class="hobby-advice"><summary><span aria-hidden="true">1. </span><span data-hobby-text="adviceOneTitle">Choose a degree with a career plan</span></summary><p data-hobby-text="adviceOneBody">If your goal is working in the U.S., I would consider a STEM-eligible program that fits your interests and target jobs. Check the exact program’s STEM OPT eligibility with the school, and plan for OPT and possible employer-sponsored H-1B early. Neither a degree nor STEM OPT guarantees a job or long-term status. For theoretical subjects such as pure math, think through the route to research or applied work before committing.</p></details>
+											<details class="hobby-advice"><summary><span aria-hidden="true">2. </span><span data-hobby-text="adviceTwoTitle">Be clear about why you are going</span></summary><p data-hobby-text="adviceTwoBody">A year of cultural exchange can be worthwhile on its own. If learning English is the main goal, I would compare options in the UK and Australia before paying for a U.S. program. Compare tuition, housing and course length rather than assume one country is always cheaper. If building an overseas career is the goal, research the programs, job market and work-authorization requirements before enrolling.</p></details>
+											<details class="hobby-advice"><summary><span aria-hidden="true">3. </span><span data-hobby-text="adviceThreeTitle">Start preparing before you arrive</span></summary><p data-hobby-text="adviceThreeBody">I would build practical coding skills before university—perhaps through an affordable short coding bootcamp at home, even for physics, chemistry or math. Compare cost and quality; a certificate is not a degree or job guarantee. Open LinkedIn early, build projects, meet people and learn internship recruiting timelines instead of waiting until graduation.</p></details>
+											<p class="hobby-small hobby-advice-sources"><span data-hobby-text="notesSourcesLabel">Check current requirements</span>: <a href="https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-extension-for-stem-students-stem-opt" target="_blank" rel="noopener noreferrer" data-hobby-text="optSourceLabel">STEM OPT</a> · <a href="https://travel.state.gov/content/travel/en/us-visas/employment/temporary-worker-visas.html" target="_blank" rel="noopener noreferrer" data-hobby-text="h1bSourceLabel">H-1B</a></p>
+											<p class="hobby-small" data-hobby-text="notesPending">More advice coming soon.</p>
+										</div>
+									</section>
 							</div>
 						</div>
 						<footer class="hobby-footer"><span class="hobby-crop hobby-footer-flowers" aria-hidden="true"><img src="images/hobbies/decorations/09_footer_flowers_left.png" width="2172" height="724" loading="lazy" alt="" /></span><div><p data-hobby-text="thanks">Thank you for visiting!</p><nav aria-label="Return links" data-hobby-aria="returnNavLabel"><a href="#intro" data-hobby-return data-hobby-text="return">Back to my main website</a><a href="#hobby-top" data-hobby-text="top">Back to top</a></nav></div><span class="hobby-crop hobby-mobile-garden" aria-hidden="true"><img src="images/hobbies/decorations/12_garden_mobile.png" width="1983" height="793" loading="lazy" alt="" /></span></footer>
+						<p class="hobby-art-note"><span data-hobby-text="artReuseNote">Please do not reuse this site’s custom pixel artwork without permission.</span> <a href="ARTWORK_TERMS.md" target="_blank" rel="noopener noreferrer" data-hobby-text="artTermsLabel">Artwork terms</a></p>
 						<p class="hobby-art-note" data-hobby-text="artNote">Artwork belongs to its respective owners. Unofficial fan page; not approved or endorsed by CD PROJEKT RED.</p>
 					</div>
 				</div>
 			</section>
 
-			<section id="research-notebook" class="os-window notebook-window" data-window="notebook" role="dialog" aria-modal="false" aria-labelledby="notebook-window-title" tabindex="-1" hidden>
-				<header class="window-titlebar" data-titlebar>
-					<div class="window-title"><span class="titlebar-document icon solid fa-book-open" aria-hidden="true"></span><h2 id="notebook-window-title">Research notebook</h2></div>
-					<div class="window-controls" aria-label="Notebook window controls">
-						<button type="button" data-window-action="minimize" aria-label="Minimize notebook window"><span aria-hidden="true">—</span></button>
-						<button type="button" data-window-action="maximize" aria-label="Maximize notebook window"><span aria-hidden="true">□</span></button>
-						<button class="close-control" type="button" data-window-action="close" aria-label="Close notebook window"><span aria-hidden="true">×</span></button>
-					</div>
-				</header>
-				<div class="window-menubar">
-					<details class="window-menu">
-						<summary>File</summary>
-						<div class="window-menu-panel">
-							<a href="#intro">Open Portfolio</a>
-							<a href="#research-notebook">Open Research Notebook</a>
-							<a href="#hobby-top">Open Personal Hobbies</a>
-							<button type="button" data-window-action="close">Close window</button>
-						</div>
-					</details>
-					<details class="window-menu">
-						<summary>Edit</summary>
-						<div class="window-menu-panel">
-							<button type="button" data-menu-action="copy-link">Copy page link</button>
-						</div>
-					</details>
-					<details class="window-menu">
-						<summary>View</summary>
-						<div class="window-menu-panel">
-							<button type="button" data-menu-action="maximize">Maximize window</button>
-							<button type="button" data-menu-action="move">Move window</button>
-							<button type="button" data-menu-action="reset-position">Reset position</button>
-							<button type="button" data-menu-action="top">Back to top</button>
-						</div>
-					</details>
-					<details class="window-menu">
-						<summary>Help</summary>
-						<div class="window-menu-panel window-help-panel">
-							<p>Research notes and reading for my ongoing Anime MCP project.</p>
-							<p>On desktop, drag the title bar to move this window. Or choose View → Move window, use the arrow keys, then Enter to finish or Escape to cancel.</p>
-							<p>Use Tab and Enter to browse menus. Escape dismisses an open menu.</p>
-							<a href="#contact">Contact Caleb</a>
-						</div>
-					</details>
-					<span class="window-menu-status" role="status" aria-live="polite"></span>
-				</div>
-				<div class="notebook-page" role="document" tabindex="0" aria-label="Research notes and reading list">
-					<p class="notebook-date">Research notes · September 2026</p>
-					<section aria-labelledby="notebook-question">
-						<h3 id="notebook-question">Currently investigating</h3>
-						<p class="notebook-question">How should lexical and semantic scores be combined when their score distributions differ?</p>
-						<p>I’m studying the foundations of hybrid fusion, focusing on score normalization and how different score distributions affect ranking.</p>
-					</section>
-					<section aria-labelledby="notebook-project">
-						<h3 id="notebook-project">Current project — Anime MCP</h3>
-						<p>I’m building an MCP server for anime-character search. I’m currently developing its evaluation and lexical-retrieval foundation while studying hybrid fusion and relevance calibration before implementing embeddings.</p>
-					</section>
-					<section aria-labelledby="notebook-next">
-						<h3 id="notebook-next">Next to investigate</h3>
-						<ul><li>Relevance-probability calibration</li><li>Query-adaptive fusion</li></ul>
-					</section>
-					<section aria-labelledby="notebook-reading">
-						<h3 id="notebook-reading">Papers guiding this work</h3>
-						<ul class="notebook-reading">
-							<li><a href="https://arxiv.org/abs/2210.11934" target="_blank" rel="noopener noreferrer">An Analysis of Fusion Functions for Hybrid Retrieval</a></li>
-							<li><a href="https://dl.acm.org/doi/10.1145/1835449.1835491" target="_blank" rel="noopener noreferrer">Score distribution models: assumptions, intuition, and robustness to score manipulation</a></li>
-							<li><a href="https://arxiv.org/abs/2112.10327" target="_blank" rel="noopener noreferrer">Classifier Calibration: A survey on how to assess and improve predicted class probabilities</a></li>
-							<li><a href="https://arxiv.org/abs/2302.09947" target="_blank" rel="noopener noreferrer">Query Performance Prediction for Neural IR: Are We There Yet?</a></li>
-						</ul>
-					</section>
-					<p class="notebook-source"><a href="https://github.com/Caleb-Leung-Kwan-Ho/Caleb-Leung-Kwan-Ho/blob/main/README.md#currently-investigating" target="_blank" rel="noopener noreferrer">View my research notes on GitHub →</a></p>
-				</div>
-			</section>
 
 			<div id="start-menu" class="start-menu" hidden>
 				<header><img src="images/pic01.jpeg" alt="" /><strong>Caleb Leung</strong></header>
-				<div class="start-menu-content"><a href="#intro" data-open-portfolio><span class="icon solid fa-folder" aria-hidden="true"></span>My Portfolio</a><button type="button" data-open-window="notebook" aria-controls="research-notebook" aria-haspopup="dialog"><span class="icon solid fa-book-open" aria-hidden="true"></span>Research Notebook</button><button type="button" data-open-window="hobbies"><span class="icon solid fa-gamepad" aria-hidden="true"></span>Personal Hobbies</button><a href="mailto:caleb.leungkwanho@gmail.com"><span class="icon solid fa-envelope" aria-hidden="true"></span>Email Me</a></div>
+				<div class="start-menu-content"><a href="#intro" data-open-portfolio><span class="icon solid fa-folder" aria-hidden="true"></span>My Portfolio</a><a href="#projects" data-open-portfolio><span class="icon solid fa-book-open" aria-hidden="true"></span>Projects &amp; Research</a><button type="button" data-open-window="hobbies"><span class="icon solid fa-gamepad" aria-hidden="true"></span>Personal Hobbies</button><a href="mailto:caleb.leungkwanho@gmail.com"><span class="icon solid fa-envelope" aria-hidden="true"></span>Email Me</a></div>
 				<footer>Static site · No installs</footer>
 			</div>
 
 			<footer class="taskbar">
 				<button id="start-button" class="start-button" type="button" aria-expanded="false" aria-controls="start-menu"><span>Start</span></button>
-				<div class="task-buttons" aria-label="Open windows"><button class="task-button is-active" type="button" data-task-window="portfolio" aria-pressed="true"><span class="folder-icon" aria-hidden="true"></span><span>Caleb Leung — Portfolio</span></button><button class="task-button" type="button" data-task-window="hobbies" aria-pressed="false" hidden><span class="icon solid fa-gamepad" aria-hidden="true"></span><span>Personal Hobbies</span></button><button class="task-button" type="button" data-task-window="notebook" aria-controls="research-notebook" aria-pressed="false" hidden><span class="icon solid fa-book-open" aria-hidden="true"></span><span>Research notebook</span></button></div>
+				<div class="task-buttons" aria-label="Open windows"><button class="task-button is-active" type="button" data-task-window="portfolio" aria-pressed="true"><span class="folder-icon" aria-hidden="true"></span><span>Caleb Leung — Portfolio</span></button><button class="task-button" type="button" data-task-window="hobbies" aria-pressed="false" hidden><span class="icon solid fa-gamepad" aria-hidden="true"></span><span>Personal Hobbies</span></button></div>
 				<time id="taskbar-clock">--:--</time>
 			</footer>
 		</div>

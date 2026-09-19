@@ -2,6 +2,8 @@
 
 These 28 original PNGs were supplied in Caleb_Hobbies_Asset_Review. They were generated with the image-generation tool as interpretations of the desktop and mobile references; they are not artwork extracted from those references.
 
+Please ask Caleb before reusing these custom decorations: [caleb.leungkwanho@gmail.com](mailto:caleb.leungkwanho@gmail.com). They have [separate artwork terms](../../../ARTWORK_TERMS.md) and are not offered for reuse under the theme's license. Those terms preserve any valid prior permissions and uses permitted by law; they do not claim copyright protection for every AI-generated element.
+
 All PNG bytes and original dimensions are preserved. `manifest.json` records the supplied SHA-256 hashes and native dimensions, checked during integration. CSS controls their display size and crop without altering the source files or stretching their proportions. Transparent decorations retain their original padding and alpha channels. Slight colored edge fringing in some originals is part of the supplied artwork.
 
 The masthead skyline, smiling CRT and blossom branch are separate layers. The desktop garden has its lamp on the left and a cat on a wall; the mobile garden has its lamp on the right and no wall. The desktop masthead is 3:1, so its display crop is deliberate. Tea and café art is decorative, not a statement about an exact favorite order.

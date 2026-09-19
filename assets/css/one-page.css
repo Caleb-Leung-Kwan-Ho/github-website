@@ -242,86 +242,6 @@ b {
 	transform: translateX(-50%);
 }
 
-.notebook-window {
-	right: 24px;
-	bottom: calc(var(--taskbar-height) + 34px);
-	width: min(560px, calc(100vw - 48px));
-	height: min(530px, calc(100dvh - var(--taskbar-height) - 70px));
-}
-
-.notebook-page {
-	min-height: 0;
-	flex: 1 1 auto;
-	overflow: auto;
-	padding: 24px 27px;
-	background: #fff;
-	color: #161925;
-	font-family: "Lucida Console", Monaco, monospace;
-	font-size: 15px;
-	line-height: 1.65;
-	overflow-wrap: anywhere;
-	scrollbar-color: #b9bdc8 #f1f0e8;
-}
-
-.notebook-page section + section {
-	margin-top: 26px;
-}
-
-.notebook-page h3 {
-	margin: 0 0 10px;
-	font-size: 16px;
-	line-height: 1.5;
-}
-
-.notebook-page p {
-	margin: 0 0 14px;
-}
-
-.notebook-page .notebook-date {
-	margin-bottom: 23px;
-	color: #596174;
-	font-size: 12px;
-}
-
-.notebook-question {
-	font-weight: 700;
-}
-
-.notebook-page ul {
-	margin: 0;
-	padding-left: 22px;
-	list-style: disc;
-}
-
-.notebook-page li {
-	padding-left: 3px;
-}
-
-.notebook-page li + li {
-	margin-top: 7px;
-}
-
-.notebook-page a {
-	text-decoration: underline;
-	text-underline-offset: 3px;
-}
-
-.notebook-reading {
-	font-size: 13px;
-}
-
-.notebook-page .notebook-source {
-	margin: 27px 0 0;
-	padding-top: 17px;
-	border-top: 1px solid #d8dce7;
-	font-size: 13px;
-}
-
-@media (max-width: 480px) {
-	.notebook-page { padding: 20px 18px; font-size: 14px; }
-	.notebook-page h3 { font-size: 15px; }
-}
-
 .os-window.is-maximized {
 	top: 8px;
 	right: 8px;
@@ -1200,6 +1120,31 @@ b {
 	font-size: 19px;
 }
 
+.project-research {
+	margin-top: 20px;
+	padding-top: 12px;
+	border-top: 1px solid #b4c8e4;
+}
+
+.project-research summary,
+.hobby-routine summary,
+.hobby-advice summary {
+	cursor: pointer;
+	font-weight: 700;
+	line-height: 1.5;
+	padding: 8px 0;
+	overflow-wrap: anywhere;
+}
+
+.project-research p,
+.project-research ul {
+	margin-top: 12px;
+}
+
+.project-research a {
+	text-decoration: underline;
+}
+
 .status-label {
 	margin: 0 0 5px;
 	color: #0b55bd;
@@ -1782,7 +1727,7 @@ b {
 .hobby-bottom {
 	grid-column: 2;
 	grid-row: 2;
-	grid-template-columns: 1.3fr 1fr;
+	grid-template-columns: minmax(0, 1fr);
 }
 
 .hobby-hong-kong-content {
@@ -1814,22 +1759,39 @@ b {
 	object-fit: contain;
 }
 
-.hobby-notes-body {
-	display: flex;
-	align-items: center;
-	gap: 9px;
-	min-height: 125px;
+.hobby-routine,
+.hobby-advice {
+	border-top: 1px dotted var(--hobby-border);
+	font-size: 13px;
 }
 
-.hobby-notes-body > img {
-	width: 47px;
-	height: 64px;
-	object-fit: contain;
+.hobby-routine dl {
+	margin: 0 0 12px;
 }
 
-.hobby-notes h4 {
-	margin-bottom: 8px;
-	font-size: 14px;
+.hobby-routine dl > div {
+	padding: 8px 0;
+	border-bottom: 1px dotted #c5d5ee;
+}
+
+.hobby-routine dt {
+	margin: 0 0 4px;
+	font-weight: 700;
+}
+
+.hobby-routine dd {
+	margin: 0;
+	font-size: 12px;
+	line-height: 1.6;
+}
+
+.hobby-advice p {
+	margin: 4px 0 12px;
+	line-height: 1.7;
+}
+
+.hobby-advice-sources {
+	margin: 12px 0 8px !important;
 }
 
 .hobby-desktop-garden {

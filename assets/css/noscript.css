@@ -4,34 +4,71 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-/* BG */
+/* The portfolio remains readable when the simulated desktop controls are unavailable. */
 
-	body.is-preload #bg:before {
-		background-color: transparent;
+	html,
+	body {
+		height: auto;
+		overflow: auto;
 	}
 
-/* Header */
-
-	body.is-preload #header {
-		-moz-filter: none;
-		-webkit-filter: none;
-		-ms-filter: none;
-		filter: none;
+	.window-controls,
+	.window-menubar,
+	.desktop-shortcut[type="button"],
+	.start-menu,
+	.taskbar,
+	[data-open-window] {
+		display: none !important;
 	}
 
-		body.is-preload #header > * {
-			opacity: 1;
-		}
+	.desktop-shell {
+		height: auto;
+		min-height: 100vh;
+		overflow: auto;
+		padding: 1rem;
+	}
 
-		body.is-preload #header .content .inner {
-			max-height: none;
-			padding: 3rem 2rem;
-			opacity: 1;
-		}
+	.desktop-icons {
+		display: none;
+	}
 
-/* Main */
+	.explorer-window {
+		position: relative;
+		top: auto;
+		left: auto;
+		width: min(72rem, 100%);
+		height: auto;
+		min-height: calc(100vh - 2rem);
+		margin: 0 auto;
+		transform: none;
+	}
 
-	#main article {
-		opacity: 1;
-		margin: 4rem 0 0 0;
+	.explorer-layout,
+	#main.explorer-content {
+		overflow: visible;
+	}
+
+	.profile-section {
+		min-height: 0;
+	}
+
+	/* Keep both auxiliary documents readable without simulated-window behavior. */
+	.hobbies-window[hidden],
+	.notebook-window[hidden] {
+		position: relative;
+		display: flex !important;
+		top: auto;
+		right: auto;
+		bottom: auto;
+		left: auto;
+		width: min(90rem, 100%);
+		height: auto;
+		min-width: 0;
+		margin: 1rem auto 0;
+		transform: none;
+	}
+
+	.hobbies-window-body,
+	.notebook-page {
+		overflow: visible;
 	}

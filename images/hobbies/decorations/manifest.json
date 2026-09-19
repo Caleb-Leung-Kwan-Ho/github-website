@@ -1,0 +1,254 @@
+[
+  {
+    "filename": "01_masthead_desktop.png",
+    "width": 2172,
+    "height": 724,
+    "mode": "RGB",
+    "transparent": false,
+    "description": "Desktop masthead",
+    "sha256": "f896c61034d94bdcbe69de55951b511cd25db7eca62c88efa23aa48b3a99726b"
+  },
+  {
+    "filename": "02_masthead_mobile.png",
+    "width": 2103,
+    "height": 748,
+    "mode": "RGB",
+    "transparent": false,
+    "description": "Mobile masthead",
+    "sha256": "44ccd16c6269e62d2d56d8d5d0b3dfcbda832c04050aa787d36b28f822cd6b9e"
+  },
+  {
+    "filename": "03_computer_mascot.png",
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA",
+    "transparent": true,
+    "description": "Smiling CRT computer",
+    "sha256": "e5c4f7f55d4dd8df2f08e76fc36791694492b03565081bf3ee4ae487d614e496"
+  },
+  {
+    "filename": "04_blossom_branch.png",
+    "width": 1774,
+    "height": 887,
+    "mode": "RGBA",
+    "transparent": true,
+    "description": "Cherry-blossom corner branch",
+    "sha256": "fb3768e9a82366e65d3383704e135e9b42f68a58d335f4f1b8b98decd86ff49f"
+  },
+  {
+    "filename": "05_blossom_cluster.png",
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA",
+    "transparent": true,
+    "description": "Three-blossom cluster",
+    "sha256": "d2448234fdcbdc646cbc527aedfbb9b1fad50115d445a7364bba0ffa1147e65d"
+  },
+  {
+    "filename": "06_single_blossom.png",
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA",
+    "transparent": true,
+    "description": "Single blossom",
+    "sha256": "6cf949d1d2a3dad1be142e2f10ae05ec29c7338588493bf4e7f9062f960adadd"
+  },
+  {
+    "filename": "07_single_petal.png",
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA",
+    "transparent": true,
+    "description": "Loose petal",
+    "sha256": "2cc78fad0a81eec1de7eb100e2c2f0ff8ddcef85f3297833e5ae73163fe0a4ca"
+  },
+  {
+    "filename": "08_welcome_cat.png",
+    "width": 1774,
+    "height": 887,
+    "mode": "RGBA",
+    "transparent": true,
+    "description": "Resting welcome cat",
+    "sha256": "41a30568aacbc5b5787dd7c5d8cf5f577c2f20795148ebdb7bc778a195769cea"
+  },
+  {
+    "filename": "09_footer_flowers_left.png",
+    "width": 2172,
+    "height": 724,
+    "mode": "RGBA",
+    "transparent": true,
+    "description": "Low footer flowers",
+    "sha256": "2c29d5ca7452b2b22c338408c25e40acfe5b1e78cb407eb9cc9a52d6ccd9934c"
+  },
+  {
+    "filename": "10_sidebar_flower_sprig.png",
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA",
+    "transparent": true,
+    "description": "Upright sidebar flower sprig",
+    "sha256": "37267c6382fb877acaf6dfd0d8c6c13f0f8c7299978caa6d50bdcdfaa5c7dfa0"
+  },
+  {
+    "filename": "11_garden_desktop.png",
+    "width": 1983,
+    "height": 793,
+    "mode": "RGBA",
+    "transparent": true,
+    "description": "Desktop cat and wall — lamp left",
+    "sha256": "7da99b3b00ae4780cee19012673ecbe35fd73f79d5b5a4da395c2c1aed2c2281"
+  },
+  {
+    "filename": "12_garden_mobile.png",
+    "width": 1983,
+    "height": 793,
+    "mode": "RGBA",
+    "transparent": true,
+    "description": "Mobile cat garden — lamp right",
+    "sha256": "7449948b8f5b0d6257244b4d4b48b9877f94e39f05a648a9d0878a3a9769620c"
+  },
+  {
+    "filename": "13_hong_kong_cafe.png",
+    "width": 1672,
+    "height": 941,
+    "mode": "RGB",
+    "transparent": false,
+    "description": "Hong Kong tea café",
+    "sha256": "39b8bef20d05c6bf31eecbd075e55dd981769ff1c30a34cf5eacb123e841f17e"
+  },
+  {
+    "filename": "14_hong_kong_harbour.png",
+    "width": 1672,
+    "height": 941,
+    "mode": "RGB",
+    "transparent": false,
+    "description": "Hong Kong harbour and junk boat",
+    "sha256": "da495cc96912843a3880952cba93df8e65f7554f80c00f6500d672e2ac8475fe"
+  },
+  {
+    "filename": "15_iced_milk_tea.png",
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA",
+    "transparent": true,
+    "description": "Iced milk-tea accent",
+    "sha256": "670f7a93375844750643c6c6bae622bbb074a1402468624bfd34146f6f5a3c44"
+  },
+  {
+    "filename": "16_tea_and_toast.png",
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA",
+    "transparent": true,
+    "description": "Tea cup and toast",
+    "sha256": "2da697b6bef03e966937d053ea4a3113cf9591576494ebf702de49ed88c54d80"
+  },
+  {
+    "filename": "17_icon_television.png",
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA",
+    "transparent": true,
+    "description": "Television icon",
+    "sha256": "d4849939900e84113b161ae7c6d0c3b352c419311a1d6c612103852398962c0b"
+  },
+  {
+    "filename": "18_icon_book.png",
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA",
+    "transparent": true,
+    "description": "Manga/book icon",
+    "sha256": "91b449d2979a8d8cbcff8d798c280094f63b8930e79ed9ff9afd760d0283e5e8"
+  },
+  {
+    "filename": "19_icon_controller.png",
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA",
+    "transparent": true,
+    "description": "Game-controller icon",
+    "sha256": "f94270e7f9be7ac77c8046180922017b45aa0c51a81856bdb72b5df7b8c03286"
+  },
+  {
+    "filename": "20_icon_dumbbell.png",
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA",
+    "transparent": true,
+    "description": "Dumbbell icon",
+    "sha256": "31e4831319345166258b1c3daf14bf6b887d70b8fe785cc8558b018fa9e5383f"
+  },
+  {
+    "filename": "21_icon_teacup.png",
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA",
+    "transparent": true,
+    "description": "Tea-cup icon",
+    "sha256": "c153f8a8831b3f761b95904d76dbe09c4ffc3e25b061630a325fc90ae5f23dfb"
+  },
+  {
+    "filename": "22_icon_star.png",
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA",
+    "transparent": true,
+    "description": "Star icon",
+    "sha256": "3c2c07ac301df7d3197669e6a5aa7b5eb4d77f9f02c1a8eced848d19fcb44062"
+  },
+  {
+    "filename": "23_icon_notepad.png",
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA",
+    "transparent": true,
+    "description": "Notepad and pencil icon",
+    "sha256": "b32018a155bb9d4ebc309f3d0d0916f0dde83d102c47b16e78d78056c74cf407"
+  },
+  {
+    "filename": "24_icon_flower.png",
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA",
+    "transparent": true,
+    "description": "Flower icon",
+    "sha256": "fbfc1a5b307005d059c4adabc630c76fc089ffd9ab35aed1a98cbc3efaea1d50"
+  },
+  {
+    "filename": "25_icon_diamond.png",
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA",
+    "transparent": true,
+    "description": "Blue diamond icon",
+    "sha256": "7569842065913989c22804c8b7cbc5babd9952613f8b16778379a7fd3a9898a8"
+  },
+  {
+    "filename": "26_icon_music_note.png",
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA",
+    "transparent": true,
+    "description": "Music-note icon",
+    "sha256": "d945135e031c001ea970755914086e576e2c4c3c04ff1a0b1f688c623d041728"
+  },
+  {
+    "filename": "27_icon_sprout.png",
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA",
+    "transparent": true,
+    "description": "Sprout icon",
+    "sha256": "956e04f559e19634fa72b9173506fead178fb44b6546d1c94f3247c4604449f3"
+  },
+  {
+    "filename": "28_icon_navigation_arrow.png",
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA",
+    "transparent": true,
+    "description": "Navigation triangle icon",
+    "sha256": "067ef2d45a1ac3c8a67f694b852071a0439b96e70dafe0d88821f31d72adffcd"
+  }
+]

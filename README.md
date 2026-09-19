@@ -1,6 +1,6 @@
 # Personal Website
 
-Caleb Leung's static, single-page personal website, built with HTML, CSS, and vanilla JavaScript on the HTML5 UP Dimension theme. The page includes an introduction, resume, skills, interests, and contact links.
+Caleb Leung's static, single-page personal website, presented as a Windows XP-era desktop and built with HTML, CSS, and vanilla JavaScript on the HTML5 UP Dimension base theme. The page includes an introduction, work, a projects placeholder, resume, skills, interests, contact links, and separate simulated windows for the research notebook and personal hobbies website.
 
 ## Preview locally
 
@@ -17,11 +17,11 @@ Open [http://localhost:8000](http://localhost:8000). Stop the server with `Ctrl-
 | Path | Purpose |
 | --- | --- |
 | [`index.html`](index.html) | Page content, sections, navigation, and asset links. |
-| [`assets/css/one-page.css`](assets/css/one-page.css) | Hand-authored site styles: structural single-page rules followed by the liquid-glass visual layer. |
+| [`assets/css/one-page.css`](assets/css/one-page.css) | Hand-authored desktop, Explorer-window, responsive, and content styles. |
 | [`assets/css/main.css`](assets/css/main.css) | Compiled HTML5 UP Dimension base theme, loaded before the site styles. |
-| [`assets/css/noscript.css`](assets/css/noscript.css) | Theme fallback styles loaded when JavaScript is disabled. |
+| [`assets/css/noscript.css`](assets/css/noscript.css) | Readable static fallback styles loaded when JavaScript is disabled. |
 | [`assets/sass/`](assets/sass/) | Sass source for the baseline theme styles. |
-| [`assets/js/main.js`](assets/js/main.js) | The only loaded script; handles active navigation and the initial loading state. |
+| [`assets/js/main.js`](assets/js/main.js) | The only loaded script; handles section navigation, simulated windows, the start menu, taskbar state, the clock, and hobby language switching. |
 | [`images/`](images/) | Local image assets. |
 | [`assets/css/fontawesome-all.min.css`](assets/css/fontawesome-all.min.css), [`assets/webfonts/`](assets/webfonts/) | Local Font Awesome styles and icon fonts. |
 | [`.agents/skills/maintain-site-security/SKILL.md`](.agents/skills/maintain-site-security/SKILL.md) | Review procedure for security-sensitive website and deployment changes. |
@@ -35,6 +35,31 @@ Open [http://localhost:8000](http://localhost:8000). Stop the server with `Ctrl-
 - The resume preview is a Google Drive thumbnail; its link opens the resume PDF on Google Drive. Both depend on the remote file remaining available and shared appropriately.
 - Font Awesome and the site's local images are served from this repository.
 - The only automatically contacted external origins are `fonts.googleapis.com`, `fonts.gstatic.com`, `drive.google.com`, and the thumbnail redirect host `lh3.googleusercontent.com`. External links that load only after a visitor clicks them are not runtime dependencies.
+
+## Desktop controls
+
+The four featured folders lead to Work, Projects, Resume, and Skills. Hobbies remains available from the desktop, sidebar, Start menu, and File menu.
+
+All three windows share File, Edit, View, and Help disclosures. Tab and Enter operate the menus; arrow keys navigate commands and Escape dismisses a menu before closing an auxiliary window. Copy commands write only after a click and report clipboard failure with selectable text. Hobbies language choices stay synchronized with the controls inside its page.
+
+On screens wider than 736px, drag a restored window by its title bar, or choose View → Move window and use the arrow keys (Shift moves farther). Enter commits and Escape cancels a keyboard move. View → Reset position restores the default layout. Maximized and mobile windows stay fixed; resizing the viewport resets custom positions to keep controls reachable. Drag updates use one animation frame at a time, with no library, network requests, persistent storage, or background animation loop.
+
+Portfolio Back and Forward traverse portfolio destinations in the current page session using browser history. Browser Back/Forward also restore hobbies and notebook destinations. Starting a new navigation after going back discards the forward branch. Reloading starts a fresh in-page history boundary, so the toolbar never navigates away from the site.
+
+## Research notebook
+
+The desktop shortcut, Portfolio Tasks sidebar, and Start menu open a Notepad-style research window. `#research-notebook` also opens it directly. It supports the existing minimize, maximize, close, taskbar, and keyboard controls; its content remains readable without JavaScript.
+
+The notebook is a static summary of the September 2026 [GitHub profile notes](https://github.com/Caleb-Leung-Kwan-Ho/Caleb-Leung-Kwan-Ho/blob/main/README.md#currently-investigating), including Anime MCP's current evaluation and lexical-retrieval work, the hybrid-fusion research question, planned calibration and query-adaptive fusion, and four paper links. These are user-initiated external links, not embeds or automatic requests. Update the notebook text and date when the source notes change.
+
+## Personal hobbies website
+
+The hobbies window follows the supplied desktop and mobile references, with English, Japanese, and Hong Kong Traditional Chinese versions. Its English content remains readable without JavaScript. Links within the hobbies document scroll its own pane; the return link opens the portfolio.
+
+- Decorative originals live in `images/hobbies/decorations/`; their manifest records original dimensions and hashes. CSS crops transparent margins and displays the artwork proportionally with pixelated rendering. The originals are preserved; web-size optimization is a separate task.
+- The 16 locally served title thumbnails and their official sources are documented in [`images/hobbies/THUMBNAIL_SOURCES.md`](images/hobbies/THUMBNAIL_SOURCES.md). The source artwork may differ from the mockup's illustrative placeholders.
+- Personal notes and the workout routine are still awaiting Caleb's writing; no PDF download is shown before a file exists. The Reze arc and Fate/Zero choices remain tentative, and the supplied “Gundam Extreme Maxiboost ON 2” label is retained pending clarification.
+- Language buttons replace text from fixed local dictionaries, without network calls or stored preferences. The brand and supplied proper names stay consistent.
 
 ## Maintenance
 

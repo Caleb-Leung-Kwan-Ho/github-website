@@ -730,6 +730,10 @@ b {
 	gap: 22px;
 }
 
+.hero-heading > div {
+	min-width: 0;
+}
+
 .profile-image {
 	width: 104px;
 	height: 104px;
@@ -773,7 +777,7 @@ b {
 }
 
 .hero-detail {
-	margin: 0;
+	margin: 14px 0 0;
 	color: #677087;
 	font-size: 14px;
 }
@@ -864,7 +868,8 @@ b {
 
 .folder-grid {
 	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
+	/* Keep the four shortcuts in at most two columns, including in a maximized window. */
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, max(240px, calc((100% - 12px) / 2))), 1fr));
 	gap: 12px;
 }
 
@@ -894,6 +899,11 @@ b {
 .folder-tile strong,
 .folder-tile small {
 	display: block;
+}
+
+.folder-tile > span:last-child {
+	min-width: 0;
+	overflow-wrap: anywhere;
 }
 
 .folder-tile strong {
@@ -941,9 +951,22 @@ b {
 	padding-bottom: 22px;
 }
 
+.detail-card-body {
+	padding: 18px 22px 22px;
+}
+
+.detail-card-body > :last-child {
+	margin-bottom: 0;
+}
+
+.detail-card-heading .status-label {
+	margin: 0 0 5px;
+	color: #0b55bd;
+}
+
 .resume-layout {
 	display: grid;
-	grid-template-columns: minmax(12rem, 0.75fr) minmax(260px, 1.25fr);
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
 	gap: 28px;
 	align-items: start;
 }
@@ -1096,6 +1119,10 @@ b {
 	min-width: 0;
 }
 
+.contact-list a > span:last-child {
+	min-width: 0;
+}
+
 .contact-list small {
 	overflow: hidden;
 	margin-top: 3px;
@@ -1124,6 +1151,7 @@ b {
 	margin-top: 20px;
 	padding-top: 12px;
 	border-top: 1px solid #b4c8e4;
+	overflow-wrap: anywhere;
 }
 
 .project-research summary,
@@ -1143,6 +1171,10 @@ b {
 
 .project-research a {
 	text-decoration: underline;
+}
+
+.project-research li + li {
+	margin-top: 8px;
 }
 
 .status-label {
@@ -1415,6 +1447,8 @@ b {
 .hobby-layout {
 	display: grid;
 	grid-template-columns: 165px minmax(0, 1fr) 250px;
+	/* Sidebar expansion must not add space between the two center sections. */
+	grid-template-rows: auto 1fr;
 	align-items: start;
 	gap: 12px;
 	padding: 10px;
@@ -1854,7 +1888,7 @@ b {
 
 @media (max-width: 980px) {
 	.hobbies-window-body { padding: 12px; }
-	.hobby-layout { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+	.hobby-layout { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; gap: 10px; }
 	.hobby-sidebar, .hobbies-site .hobby-desktop-garden { display: none; }
 	.hobby-content, .hobby-aside, .hobby-features, .hobby-bottom { display: contents; }
 	.hobby-welcome { order: 1; }
@@ -2378,7 +2412,7 @@ b {
 	}
 
 	.hero-detail {
-		display: none;
+		font-size: 13px;
 	}
 
 	.folder-grid,

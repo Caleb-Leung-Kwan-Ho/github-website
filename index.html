@@ -9,10 +9,10 @@
 			content="default-src 'none'; base-uri 'none'; object-src 'none'; form-action 'none'; script-src 'self'; script-src-attr 'none'; style-src 'self' https://fonts.googleapis.com; style-src-attr 'none'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://drive.google.com https://lh3.googleusercontent.com; connect-src 'none'; frame-src 'none'; media-src 'none'; manifest-src 'none'; worker-src 'none'"
 		/>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="description" content="The professional portfolio of Caleb Leung, a software and AI engineer focused on document chunking, distributed embeddings, and retrieval systems." />
+		<meta name="description" content="The professional portfolio of Caleb Leung, a software engineer working across AI and data systems, backend engineering, and distributed processing." />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!-- Keep this order: site-specific styles intentionally override the base theme. -->
-		<link rel="stylesheet" href="assets/css/one-page.css?v=20260919-content-3" />
+		<link rel="stylesheet" href="assets/css/one-page.css?v=20260919-advice-layout" />
 		<link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
@@ -154,12 +154,14 @@
 								<div>
 									<p class="eyebrow">Welcome to my portfolio</p>
 									<h2 id="intro-title">Caleb (Kwan Ho) Leung</h2>
-									<p class="hero-role">Software / AI Engineer · Chunking, Embeddings &amp; Retrieval</p>
-									<p class="hero-detail">Building the systems that prepare and retrieve information for AI applications.</p>
+									<p class="hero-role">Software engineer working across AI and data systems.</p>
 								</div>
 							</div>
+							<p class="hero-detail">Building reliable systems to process, organize, and retrieve information for AI applications.</p>
 							<div class="section-rule" aria-hidden="true"></div>
-							<p>My production work focuses on document chunking and distributed embedding infrastructure. Through Anime MCP, I’m also developing retrieval, ranking, and context expansion for anime-character information.</p>
+							<p>I am a software engineer interested in AI and working across the agent and data layers of production systems. My work focuses on backend engineering, distributed processing, and reliable data pipelines.</p>
+							<p>At IntellPro, my work includes designing scalable text-extraction and document-transformation services, developing a custom financial-document chunking algorithm and supporting library, and owning the distributed embedding stage—where I built its rate limiting, retries, worker orchestration, concurrency control, dead-letter queue handling, and state-machine-based job coordination. I have also applied agent workflows specifically to metadata extraction.</p>
+							<p>These contributions are part of a broader production document-processing pipeline that I work on alongside the team. The pipeline handles approximately 3,000 documents per day across more than 10 integrations.</p>
 							<p>As a first-generation college graduate, I earned a B.S. in Mathematics with a concentration in Financial Mathematics and a minor in Economics from Baruch College. I am currently pursuing an M.S. in Computer Science from Georgia Tech.</p>
 
 							<div class="folder-grid quick-folders" aria-label="Featured portfolio folders">
@@ -173,28 +175,30 @@
 						<section id="work" class="profile-section" aria-labelledby="work-title" data-section-name="Work">
 							<header class="section-heading"><span class="heading-folder folder-icon" aria-hidden="true"></span><div><p class="eyebrow">Selected experience</p><h2 id="work-title">Work</h2></div></header>
 							<div class="xp-detail-card">
-								<div class="detail-card-heading"><span class="large-folder folder-icon" aria-hidden="true"></span><div><h3>Document chunking &amp; distributed embeddings</h3><p>IntellPro · Production engineering</p></div></div>
-								<p>At IntellPro, I designed a financial-document chunking algorithm and supporting library, and I own the distributed embedding stage. My work includes rate limiting, retries, worker orchestration, and concurrency control to make embedding jobs reliable.</p>
-								<p>These components are part of a broader document-processing pipeline that I contribute to alongside the team.</p>
+								<div class="detail-card-heading"><span class="large-folder folder-icon" aria-hidden="true"></span><div><h3>Document processing &amp; AI infrastructure</h3><p>IntellPro · Production engineering</p></div></div>
+								<p>My contributions include scalable text-extraction and document-transformation services, a custom financial-document chunking algorithm and supporting library, and ownership of the distributed embedding stage.</p>
+								<p>For the embedding stage, I built rate limiting, retries, worker orchestration, concurrency control, dead-letter queue handling, and state-machine-based job coordination. I have also applied agent workflows to metadata extraction.</p>
+								<p>This work supports a broader document-processing pipeline that I contribute to alongside the team, handling approximately 3,000 documents per day across more than 10 integrations.</p>
 							</div>
 						</section>
 
 						<section id="projects" class="profile-section" aria-labelledby="projects-title" data-section-name="Projects &amp; Research">
 							<header class="section-heading"><span class="heading-folder folder-icon" aria-hidden="true"></span><div><p class="eyebrow">Personal projects</p><h2 id="projects-title">Projects &amp; Research</h2></div></header>
 							<div class="xp-detail-card">
-								<p class="status-label">In development</p>
-								<h3>Anime MCP</h3>
-								<p>I’m building a retrieval system for anime-character information, exposed through an MCP server. My current focus is indexing and retrieval, with ranking, hybrid fusion, and context expansion as areas of development and evaluation.</p>
-								<details class="project-research">
-									<summary>Research questions &amp; reading</summary>
-									<p>How should lexical and semantic scores be combined when their score distributions differ? I’m studying score normalization and hybrid fusion, with relevance calibration and query-adaptive weighting as follow-up questions.</p>
-									<ul>
-										<li><a href="https://arxiv.org/abs/2210.11934" target="_blank" rel="noopener noreferrer">An Analysis of Fusion Functions for Hybrid Retrieval</a></li>
-										<li><a href="https://dl.acm.org/doi/10.1145/1835449.1835491" target="_blank" rel="noopener noreferrer">Score distribution models: assumptions, intuition, and robustness to score manipulation</a></li>
-										<li><a href="https://arxiv.org/abs/2112.10327" target="_blank" rel="noopener noreferrer">Classifier Calibration: A survey on how to assess and improve predicted class probabilities</a></li>
-										<li><a href="https://arxiv.org/abs/2302.09947" target="_blank" rel="noopener noreferrer">Query Performance Prediction for Neural IR: Are We There Yet?</a></li>
-									</ul>
-								</details>
+								<div class="detail-card-heading"><span class="large-folder folder-icon" aria-hidden="true"></span><div><p class="status-label">In development</p><h3>Anime MCP</h3></div></div>
+								<div class="detail-card-body">
+									<p>I’m building a retrieval system for anime-character information, exposed through an MCP server. My current focus is indexing and retrieval, with ranking, hybrid fusion, and context expansion as areas of development and evaluation.</p>
+									<details class="project-research">
+										<summary>Research questions &amp; reading</summary>
+										<p>How should lexical and semantic scores be combined when their score distributions differ? I’m studying score normalization and hybrid fusion, with relevance calibration and query-adaptive weighting as follow-up questions.</p>
+										<ul>
+											<li><a href="https://arxiv.org/abs/2210.11934" target="_blank" rel="noopener noreferrer">An Analysis of Fusion Functions for Hybrid Retrieval</a></li>
+											<li><a href="https://dl.acm.org/doi/10.1145/1835449.1835491" target="_blank" rel="noopener noreferrer">Score distribution models: assumptions, intuition, and robustness to score manipulation</a></li>
+											<li><a href="https://arxiv.org/abs/2112.10327" target="_blank" rel="noopener noreferrer">Classifier Calibration: A survey on how to assess and improve predicted class probabilities</a></li>
+											<li><a href="https://arxiv.org/abs/2302.09947" target="_blank" rel="noopener noreferrer">Query Performance Prediction for Neural IR: Are We There Yet?</a></li>
+										</ul>
+									</details>
+								</div>
 							</div>
 						</section>
 
@@ -242,7 +246,7 @@
 						<footer class="content-footer"><p>&copy; Caleb Leung 2026</p></footer>
 					</main>
 				</div>
-				<footer class="window-statusbar"><span id="status-text">9 objects</span><span>My Portfolio</span></footer>
+				<footer class="window-statusbar"><span id="status-text">8 objects</span><span>My Portfolio</span></footer>
 			</section>
 
 			<section class="os-window hobbies-window" data-window="hobbies" role="dialog" aria-modal="false" aria-labelledby="hobbies-window-title" tabindex="-1" hidden>
@@ -327,7 +331,7 @@
 									<header class="hobby-panel-heading"><img src="images/hobbies/decorations/22_icon_star.png" width="1254" height="1254" alt="" loading="lazy" /><span class="hobby-japanese" lang="ja" aria-hidden="true">好きなアニメ ベスト5</span><h3 id="hobby-anime-title" data-hobby-text="animeLabel">Top 5 anime</h3></header>
 									<ol class="hobby-anime-list">
 										<li><img src="images/hobbies/thumbnails/end-of-evangelion.jpg" width="1920" height="1080" alt="The End of Evangelion" loading="lazy" /><a href="https://gkids.com/films/end-of-evangelion/" target="_blank" rel="noopener noreferrer">The End of Evangelion</a></li>
-										<li><img src="images/hobbies/thumbnails/kara-no-kyoukai-chapter-1.jpg" width="608" height="857" alt="空の境界1" loading="lazy" /><a href="https://www.karanokyoukai.com/" target="_blank" rel="noopener noreferrer" lang="ja">空の境界1</a></li>
+										<li><img src="images/hobbies/thumbnails/kara-no-kyoukai-chapter-1.jpg" width="608" height="857" alt="空の境界 第一章「俯瞰風景」" loading="lazy" /><a href="https://www.karanokyoukai.com/archive/index.html" target="_blank" rel="noopener noreferrer" lang="ja">空の境界 第一章「俯瞰風景」</a></li>
 										<li><img src="images/hobbies/thumbnails/chainsaw-man-reze-arc.jpg" width="2048" height="2896" alt="Chainsaw Man Reze arc" loading="lazy" /><a href="https://chainsawman.dog/movie_reze/" target="_blank" rel="noopener noreferrer">Chainsaw Man Reze arc</a></li>
 										<li><img src="images/hobbies/thumbnails/gundam-thunderbolt.png" width="900" height="1260" alt="Gundam Thunderbolt" loading="lazy" /><a href="https://gundam-official.com/series/thunderbolt" target="_blank" rel="noopener noreferrer">Gundam Thunderbolt</a></li>
 										<li><img src="images/hobbies/thumbnails/fate-zero.jpg" width="1006" height="1439" alt="Fate/Zero" loading="lazy" /><a href="https://www.fate-zero.jp/" target="_blank" rel="noopener noreferrer">Fate/Zero</a></li>
@@ -379,14 +383,19 @@
 							<div class="hobby-bottom">
 								<section id="hobby-hong-kong" class="hobby-panel hobby-hong-kong" aria-labelledby="hobby-hong-kong-title" tabindex="-1">
 									<header class="hobby-panel-heading"><img src="images/hobbies/decorations/24_icon_flower.png" width="1254" height="1254" alt="" loading="lazy" /><span class="hobby-japanese" lang="ja" aria-hidden="true">地元・香港のこと</span><h3 id="hobby-hong-kong-title" data-hobby-text="hongKongLabel">Hong Kong</h3></header>
-									<div class="hobby-hong-kong-content"><picture><source media="(max-width: 980px)" srcset="images/hobbies/decorations/14_hong_kong_harbour.png" /><img class="hobby-harbour" src="images/hobbies/decorations/13_hong_kong_cafe.png" width="1672" height="941" loading="lazy" alt="" /></picture><div><p class="hobby-small" data-hobby-text="hongKongNote">I’m from Sha Tin, Hong Kong, and haven’t been back since 2019. I love 芝士鮮魷, dai pai dong, and cha chaan teng.</p><a class="hobby-small" href="mailto:caleb.leungkwanho@gmail.com" data-hobby-text="hongKongEmail">Have a favorite dai pai dong? Email me your recommendations!</a></div><picture class="hobby-crop hobby-drink"><source media="(max-width: 980px)" srcset="images/hobbies/decorations/16_tea_and_toast.png" /><img src="images/hobbies/decorations/15_iced_milk_tea.png" width="1254" height="1254" loading="lazy" alt="" /></picture></div>
+									<div class="hobby-hong-kong-content"><picture><source media="(max-width: 980px)" srcset="images/hobbies/decorations/14_hong_kong_harbour.png" /><img class="hobby-harbour" src="images/hobbies/decorations/13_hong_kong_cafe.png" width="1672" height="941" loading="lazy" alt="" /></picture><div><p class="hobby-small" data-hobby-text="hongKongNote">I’m from Sha Tin, Hong Kong, and haven’t been back since 2019. I love 芝士鮮魷, 大排檔, and 茶餐廳.</p><a class="hobby-small" href="mailto:caleb.leungkwanho@gmail.com" data-hobby-text="hongKongEmail">Have a favorite 大排檔 or 茶餐廳? Email me your recommendations!</a></div><picture class="hobby-crop hobby-drink"><source media="(max-width: 980px)" srcset="images/hobbies/decorations/16_tea_and_toast.png" /><img src="images/hobbies/decorations/15_iced_milk_tea.png" width="1254" height="1254" loading="lazy" alt="" /></picture></div>
 								</section>
 								<section id="hobby-notes" class="hobby-panel hobby-notes" aria-labelledby="hobby-notes-title" tabindex="-1">
 										<header class="hobby-panel-heading"><img src="images/hobbies/decorations/23_icon_notepad.png" width="1254" height="1254" loading="lazy" alt="" /><span class="hobby-japanese" lang="ja" aria-hidden="true">留学生へのアドバイス</span><h3 id="hobby-notes-title" data-hobby-text="notesLabel">Advice for International Students</h3></header>
 										<div class="hobby-panel-body">
-											<p class="hobby-small" data-hobby-text="notesIntro">What I would prepare differently for studying and building a career in America. These are personal suggestions; your goals and budget may differ.</p><details class="hobby-advice"><summary><span aria-hidden="true">1. </span><span data-hobby-text="adviceOneTitle">Choose a degree with a career plan</span></summary><p data-hobby-text="adviceOneBody">If your goal is working in the U.S., I would consider a STEM-eligible program that fits your interests and target jobs. Check the exact program’s STEM OPT eligibility with the school, and plan for OPT and possible employer-sponsored H-1B early. Neither a degree nor STEM OPT guarantees a job or long-term status. For theoretical subjects such as pure math, think through the route to research or applied work before committing.</p></details>
-											<details class="hobby-advice"><summary><span aria-hidden="true">2. </span><span data-hobby-text="adviceTwoTitle">Be clear about why you are going</span></summary><p data-hobby-text="adviceTwoBody">A year of cultural exchange can be worthwhile on its own. If learning English is the main goal, I would compare options in the UK and Australia before paying for a U.S. program. Compare tuition, housing and course length rather than assume one country is always cheaper. If building an overseas career is the goal, research the programs, job market and work-authorization requirements before enrolling.</p></details>
-											<details class="hobby-advice"><summary><span aria-hidden="true">3. </span><span data-hobby-text="adviceThreeTitle">Start preparing before you arrive</span></summary><p data-hobby-text="adviceThreeBody">I would build practical coding skills before university—perhaps through an affordable short coding bootcamp at home, even for physics, chemistry or math. Compare cost and quality; a certificate is not a degree or job guarantee. Open LinkedIn early, build projects, meet people and learn internship recruiting timelines instead of waiting until graduation.</p></details>
+											<p class="hobby-small" data-hobby-text="notesIntro">What I would prepare differently for studying and building a career in America. These are personal suggestions; your goals and budget may differ.</p><details class="hobby-advice"><summary><span aria-hidden="true">1. </span><span data-hobby-text="adviceOneTitle">Choose a degree with a career plan</span></summary><p data-hobby-text="adviceOneBody">If your goal is working in the U.S., I would consider a STEM-eligible program that fits your interests and target jobs. Check the exact program’s STEM OPT eligibility with the school, and plan for OPT and possible employer-sponsored H-1B early. Eligible students can apply for a 24-month STEM OPT extension after the initial post-completion OPT period of up to 12 months, allowing up to 36 months in total if approved. Those two extra years can give a sponsoring employer more opportunities to register you for the annual H-1B selection process (lottery), depending on timing and continued eligibility; selection is not guaranteed. Neither a degree nor STEM OPT guarantees a job or long-term status.</p></details>
+											<details class="hobby-advice"><summary><span aria-hidden="true">2. </span><span data-hobby-text="adviceDegreeTitle">Plan the full path for a theoretical degree</span></summary>
+												<p data-hobby-text="adviceDegreeBody">With a theoretical subject such as pure mathematics, I would plan beyond the degree title. Proof-based study can involve a long learning curve before you are ready for independent research, and an undergraduate degree alone may not prepare you for a specific job. Look at actual entry-level roles and the coding, statistics, applied knowledge, or experience they require. Do not assume the degree by itself will lead to U.S. employment or sponsorship.</p>
+												<p data-hobby-text="adviceGraduateBody">Before committing, decide whether you want to work after your bachelor’s or pursue a master’s or PhD, and whether you are prepared for the academic demands and extra years. For an academic research career, plan for doctoral study. Work out the full cost: tuition, living expenses, funding conditions, and income you would forgo. Keep an alternative plan if funding, admission, or your interests change.</p>
+												<p data-hobby-text="adviceBudgetBody">One route worth comparing is an affordable undergraduate degree outside the U.S., followed by a U.S. master’s. I would compare specific programs in Japan, Taiwan, the UK, or Australia, including the option of studying at home. None is automatically cheaper: compare total costs, scholarships, course length, language requirements, and whether the degree meets the U.S. graduate program’s admissions prerequisites.</p>
+											</details>
+											<details class="hobby-advice"><summary><span aria-hidden="true">3. </span><span data-hobby-text="adviceTwoTitle">Be clear about why you are going</span></summary><p data-hobby-text="adviceTwoBody">A year of cultural exchange can be worthwhile on its own. If learning English is the main goal, I would compare options in the UK and Australia before paying for a U.S. program. Compare tuition, housing and course length rather than assume one country is always cheaper. If building an overseas career is the goal, research the programs, job market and work-authorization requirements before enrolling.</p></details>
+											<details class="hobby-advice"><summary><span aria-hidden="true">4. </span><span data-hobby-text="adviceThreeTitle">Start preparing before you arrive</span></summary><p data-hobby-text="adviceThreeBody">I would build practical coding skills before university—perhaps through an affordable short coding bootcamp at home, even for physics, chemistry or math. Compare cost and quality; a certificate is not a degree or job guarantee. Open LinkedIn early, build projects, meet people and learn internship recruiting timelines instead of waiting until graduation.</p></details>
 											<p class="hobby-small hobby-advice-sources"><span data-hobby-text="notesSourcesLabel">Check current requirements</span>: <a href="https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-extension-for-stem-students-stem-opt" target="_blank" rel="noopener noreferrer" data-hobby-text="optSourceLabel">STEM OPT</a> · <a href="https://travel.state.gov/content/travel/en/us-visas/employment/temporary-worker-visas.html" target="_blank" rel="noopener noreferrer" data-hobby-text="h1bSourceLabel">H-1B</a></p>
 											<p class="hobby-small" data-hobby-text="notesPending">More advice coming soon.</p>
 										</div>

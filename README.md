@@ -51,7 +51,7 @@ Portfolio Back and Forward traverse portfolio destinations in the current page s
 
 Projects and the former research notebook are combined in the portfolio's Projects & Research section. Anime MCP is marked as in development, with its retrieval work and expandable research reading kept together. No published demo or project website is implied.
 
-The research content summarizes Anime MCP's evaluation and lexical-retrieval work, the hybrid-fusion question, and planned calibration and query-adaptive fusion. Paper links are user-initiated external links, not embeds or automatic requests. Update this content when the project or research notes change. The Work section emphasizes Caleb's chunking and embedding contributions without claiming sole ownership of the broader ingestion pipeline. Skills include Graphite.
+The research content summarizes Anime MCP's evaluation and lexical-retrieval work, the hybrid-fusion question, and planned calibration and query-adaptive fusion. Paper links are user-initiated external links, not embeds or automatic requests. Update this content when the project or research notes change. The introduction and Work section describe Caleb's extraction, transformation, chunking, embedding, and metadata-extraction contributions before giving the wider team's pipeline scale; ownership is limited to the distributed embedding stage. Skills include Graphite.
 
 ## Personal hobbies website
 

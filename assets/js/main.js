@@ -72,9 +72,9 @@
 			return;
 		}
 		if (windowElement.getAttribute('data-window') === 'portfolio') {
-			explorerContent.focus();
+			explorerContent.focus({ preventScroll: true });
 		} else {
-			windowElement.focus();
+			windowElement.focus({ preventScroll: true });
 		}
 	}
 
@@ -98,6 +98,9 @@
 			lastWindowTrigger[name] = startMenu.contains(opener) ? startButton : opener;
 		}
 
+		if (windowElement.hidden && windowDragging && windowElement.classList.contains('is-positioned') && window.matchMedia('(max-width: 736px)').matches) {
+			windowDragging.reset(windowElement);
+		}
 		windowElement.hidden = false;
 		if (taskButton) {
 			taskButton.hidden = false;
@@ -145,6 +148,22 @@
 			lastWindowTrigger[name].focus();
 		} else if (nextWindow) {
 			focusWindow(nextWindow);
+		} else {
+			startButton.focus();
+		}
+	}
+
+	function showDesktop(focusTarget) {
+		if (windowDragging) { windowDragging.finish(); }
+		closeWindowMenus();
+		closeStartMenu();
+		windows.forEach(function (windowElement) {
+			windowElement.hidden = true;
+		});
+		setActiveWindow(null);
+		var shortcut = focusTarget && focusTarget.matches && focusTarget.matches('.desktop-shortcut') ? focusTarget : document.querySelector('.desktop-shortcut');
+		if (canReceiveFocus(shortcut)) {
+			shortcut.focus({ preventScroll: true });
 		} else {
 			startButton.focus();
 		}
@@ -215,7 +234,9 @@
 
 		openWindow('portfolio', null, false);
 		setActiveSection(id);
-		target.scrollIntoView({ block: 'start' });
+		// Keep section navigation inside the pane, even when the window has been dragged down.
+		var top = target.getBoundingClientRect().top - explorerContent.getBoundingClientRect().top;
+		explorerContent.scrollTo({ top: explorerContent.scrollTop + top - explorerContent.clientTop });
 
 		if (updateAddress) { recordNavigation(id); }
 	}
@@ -354,8 +375,8 @@
 				return: 'メインサイトへ戻る',
 				top: 'ページの先頭へ',
 				artNote: '作品の権利は各権利者に帰属します。非公式のファンページであり、CD PROJEKT REDの承認・推奨を受けたものではありません。',
-				artReuseNote: 'このサイト用に制作したピクセルアートは、許可なく再利用しないでください。',
-				artTermsLabel: 'アートワークの利用について',
+				artReuseNote: 'このサイトのオリジナルのピクセルアートは、ぜひ共有・再利用してください。使った場所をメールで教えていただき、Caleb Leung の名前をクレジットに添えてください。',
+				artTermsLabel: 'アートワークの共有ポリシー',
 				nierTitle: 'NieR:Automata — シーズン2',
 				grandBlueTitle: 'ぐらんぶる — シーズン3',
 				edgerunnersTitle: 'Cyberpunk: Edgerunners — シーズン2',
@@ -441,8 +462,8 @@
 				return: '返去我嘅主網站',
 				top: '返去頁頂',
 				artNote: '作品版權屬於各自的權利人。本網站為非官方粉絲網頁，未經 CD PROJEKT RED 認可或支持。',
-				artReuseNote: '未經同意，請勿重用呢個網站專屬嘅像素插畫。',
-				artTermsLabel: '插畫使用條款',
+				artReuseNote: '歡迎分享或重用呢個網站專屬嘅像素插畫！記得用 email 話畀我知你用咗喺邊度，並註明 Caleb Leung 嘅名字就得喇。',
+				artTermsLabel: '插畫分享政策',
 				nierTitle: 'NieR:Automata — 第二季',
 				grandBlueTitle: 'Grand Blue — 第三季',
 				edgerunnersTitle: 'Cyberpunk: Edgerunners — 第二季',
@@ -564,8 +585,8 @@
 
 		function begin(windowElement) {
 			finish(false, false);
-			if (window.matchMedia('(max-width: 736px)').matches || windowElement.hidden || windowElement.classList.contains('is-maximized')) {
-				announce(windowElement, 'Moving is available for restored windows on a desktop screen.');
+			if (windowElement.hidden || windowElement.classList.contains('is-maximized')) {
+				announce(windowElement, 'Restore the window before moving it.');
 				return false;
 			}
 			var titlebar = windowElement.querySelector('[data-titlebar]');
@@ -587,7 +608,8 @@
 				originalX: windowElement.style.getPropertyValue('--window-x'),
 				originalY: windowElement.style.getPropertyValue('--window-y')
 			};
-			if (bounds.height <= availableHeight) {
+			// A phone window can slide down to reveal the desktop, while its title bar stays reachable.
+			if (!window.matchMedia('(max-width: 736px)').matches && bounds.height <= availableHeight) {
 				activeMove.maxY = availableHeight - bounds.height;
 			}
 			setActiveWindow(windowElement);
@@ -702,7 +724,7 @@
 			button.textContent = maximized ? 'Restore window' : 'Maximize window';
 		});
 		windowElement.querySelectorAll('[data-menu-action="move"]').forEach(function (button) {
-			button.disabled = maximized || window.matchMedia('(max-width: 736px)').matches;
+			button.disabled = maximized;
 		});
 	}
 
@@ -807,6 +829,18 @@
 
 	var windowDragging = setupWindowDragging();
 
+	document.querySelectorAll('[data-show-desktop]').forEach(function (button) {
+		button.addEventListener('click', showDesktop);
+	});
+
+	document.querySelector('.desktop-icons').addEventListener('focusin', function (event) {
+		var shortcut = event.target.closest('.desktop-shortcut');
+		// Phone shortcuts must not receive invisible keyboard focus behind a fitted window.
+		if (shortcut && window.matchMedia('(max-width: 736px)').matches && nextVisibleWindow(null)) {
+			showDesktop(shortcut);
+		}
+	});
+
 	document.querySelectorAll('[data-open-window]').forEach(function (opener) {
 		opener.addEventListener('click', function () {
 			openWindow(opener.getAttribute('data-open-window'), opener);
@@ -872,6 +906,13 @@
 		startButton.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
 		if (willOpen) {
 			startMenu.querySelector('a, button').focus();
+		}
+	});
+
+	startMenu.addEventListener('click', function (event) {
+		if (event.target.closest('a[href]')) {
+			closeStartMenu();
+			if (startMenu.contains(document.activeElement)) { startButton.focus(); }
 		}
 	});
 

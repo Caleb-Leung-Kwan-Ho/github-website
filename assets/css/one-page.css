@@ -260,17 +260,15 @@ b {
 	transform: none;
 }
 
-@media (min-width: 737px) {
-	.os-window:not(.is-maximized) .window-titlebar {
-		cursor: grab;
-		touch-action: none;
-	}
+.os-window:not(.is-maximized) .window-titlebar {
+	cursor: grab;
+	touch-action: none;
+}
 
-	.os-window.is-dragging,
-	.os-window.is-dragging .window-titlebar {
-		cursor: grabbing;
-		user-select: none;
-	}
+.os-window.is-dragging,
+.os-window.is-dragging .window-titlebar {
+	cursor: grabbing;
+	user-select: none;
 }
 
 .window-titlebar {
@@ -2074,10 +2072,38 @@ b {
 	transform-origin: center;
 }
 
+.show-desktop-button {
+	display: grid;
+	width: 44px;
+	min-width: 44px;
+	height: 100%;
+	flex: 0 0 44px;
+	place-items: center;
+	padding: 0;
+	border: 0;
+	border-left: 1px solid #0e48a5;
+	border-radius: 0;
+	background: transparent;
+	box-shadow: none;
+	color: #fff;
+	font-size: 19px;
+	letter-spacing: 0;
+	line-height: 1;
+}
+
+.show-desktop-button:hover {
+	background: #2a75db;
+}
+
+.show-desktop-button:focus-visible {
+	outline-offset: -3px;
+}
+
 #taskbar-clock {
 	display: flex;
 	width: 92px;
 	height: 100%;
+	flex-shrink: 0;
 	align-items: center;
 	justify-content: center;
 	border-left: 1px solid #0c73d7;
@@ -2093,7 +2119,11 @@ b {
 	bottom: var(--taskbar-height);
 	left: 0;
 	z-index: 35;
+	display: flex;
 	width: 330px;
+	max-height: calc(100vh - var(--taskbar-height) - 8px);
+	max-height: calc(100dvh - var(--taskbar-height) - 8px);
+	flex-direction: column;
 	overflow: hidden;
 	border: 2px solid #1551b5;
 	border-radius: 8px 8px 0 0;
@@ -2104,6 +2134,7 @@ b {
 .start-menu > header {
 	display: flex;
 	height: 72px;
+	flex-shrink: 0;
 	align-items: center;
 	gap: 12px;
 	padding: 9px 13px;
@@ -2124,6 +2155,8 @@ b {
 
 .start-menu-content {
 	display: grid;
+	min-height: 0;
+	overflow-y: auto;
 	gap: 2px;
 	padding: 9px;
 }
@@ -2175,6 +2208,7 @@ b {
 }
 
 .start-menu > footer {
+	flex-shrink: 0;
 	padding: 8px 12px;
 	background: #d9e8ff;
 	color: #35506f;
@@ -2218,13 +2252,25 @@ b {
 	}
 
 	.desktop-icons {
-		display: none;
+		top: 12px;
+		left: 12px;
+		display: grid;
+		width: min(340px, calc(100% - 24px));
+		max-height: calc(100vh - var(--taskbar-height) - 24px);
+		max-height: calc(100dvh - var(--taskbar-height) - 24px);
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 12px;
+	}
+
+	.desktop-shortcut {
+		width: 100%;
+		min-height: 104px;
+		padding: 10px 8px;
 	}
 
 	.os-window,
 	.explorer-window,
 	.hobbies-window,
-	.os-window.is-positioned:not(.is-maximized),
 	.os-window.is-maximized {
 		top: 6px;
 		right: 6px;
@@ -2235,6 +2281,25 @@ b {
 		min-width: 0;
 		min-height: 0;
 		transform: none;
+	}
+
+	.os-window.is-positioned:not(.is-maximized) {
+		top: var(--window-y);
+		right: auto;
+		bottom: auto;
+		left: var(--window-x);
+		width: calc(100% - 12px);
+		height: calc(100% - var(--taskbar-height) - 12px);
+	}
+
+	.window-titlebar {
+		min-height: 44px;
+	}
+
+	.window-controls button {
+		width: 32px;
+		min-width: 32px;
+		height: 32px;
 	}
 
 	.explorer-toolbar {
@@ -2346,12 +2411,6 @@ b {
 	.window-title h1,
 	.window-title h2 {
 		font-size: 12px;
-	}
-
-	.window-controls button {
-		width: 24px;
-		min-width: 24px;
-		height: 23px;
 	}
 
 	.window-menubar {

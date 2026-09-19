@@ -12,7 +12,7 @@
 		<meta name="description" content="The professional portfolio of Caleb Leung, a software engineer working across AI and data systems, backend engineering, and distributed processing." />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!-- Keep this order: site-specific styles intentionally override the base theme. -->
-		<link rel="stylesheet" href="assets/css/one-page.css?v=20260919-advice-layout" />
+		<link rel="stylesheet" href="assets/css/one-page.css?v=20260919-mobile-desktop" />
 		<link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
@@ -88,7 +88,8 @@
 						<summary>Help</summary>
 						<div class="window-menu-panel window-help-panel">
 							<p>Caleb’s engineering portfolio. Explore my work, projects, resume, and skills.</p>
-							<p>On desktop, drag the title bar to move this window. Or choose View → Move window, use the arrow keys, then Enter to finish or Escape to cancel.</p>
+							<p>Drag the title bar with a mouse or finger to move this window. Or choose View → Move window, use the arrow keys, then Enter to finish or Escape to cancel.</p>
+							<p>On a phone, drag the window down to reveal the desktop. Maximize it or choose View → Reset position to bring the full page back. Show desktop minimizes both windows; tap a taskbar button to reopen one.</p>
 							<p>Use Tab and Enter to browse menus. Escape dismisses an open menu.</p>
 							<a href="#contact">Contact Caleb</a>
 						</div>
@@ -287,7 +288,8 @@
 						<summary>Help</summary>
 						<div class="window-menu-panel window-help-panel">
 							<p>A personal corner for anime, manga, games, training, and Hong Kong.</p>
-							<p>On desktop, drag the title bar to move this window. Or choose View → Move window, use the arrow keys, then Enter to finish or Escape to cancel.</p>
+							<p>Drag the title bar with a mouse or finger to move this window. Or choose View → Move window, use the arrow keys, then Enter to finish or Escape to cancel.</p>
+							<p>On a phone, drag the window down to reveal the desktop. Maximize it or choose View → Reset position to bring the full page back. Show desktop minimizes both windows; tap a taskbar button to reopen one.</p>
 							<p>Use Tab and Enter to browse menus. Escape dismisses an open menu.</p>
 							<a href="#contact">Contact Caleb</a>
 						</div>
@@ -403,7 +405,7 @@
 							</div>
 						</div>
 						<footer class="hobby-footer"><span class="hobby-crop hobby-footer-flowers" aria-hidden="true"><img src="images/hobbies/decorations/09_footer_flowers_left.png" width="2172" height="724" loading="lazy" alt="" /></span><div><p data-hobby-text="thanks">Thank you for visiting!</p><nav aria-label="Return links" data-hobby-aria="returnNavLabel"><a href="#intro" data-hobby-return data-hobby-text="return">Back to my main website</a><a href="#hobby-top" data-hobby-text="top">Back to top</a></nav></div><span class="hobby-crop hobby-mobile-garden" aria-hidden="true"><img src="images/hobbies/decorations/12_garden_mobile.png" width="1983" height="793" loading="lazy" alt="" /></span></footer>
-						<p class="hobby-art-note"><span data-hobby-text="artReuseNote">Please do not reuse this site’s custom pixel artwork without permission.</span> <a href="ARTWORK_TERMS.md" target="_blank" rel="noopener noreferrer" data-hobby-text="artTermsLabel">Artwork terms</a></p>
+						<p class="hobby-art-note"><span data-hobby-text="artReuseNote">You’re welcome to share and reuse this site’s custom pixel artwork—just email me to let me know where it appears and credit Caleb Leung.</span> <a href="ARTWORK_TERMS.md" target="_blank" rel="noopener noreferrer" data-hobby-text="artTermsLabel">Artwork sharing policy</a></p>
 						<p class="hobby-art-note" data-hobby-text="artNote">Artwork belongs to its respective owners. Unofficial fan page; not approved or endorsed by CD PROJEKT RED.</p>
 					</div>
 				</div>
@@ -412,13 +414,23 @@
 
 			<div id="start-menu" class="start-menu" hidden>
 				<header><img src="images/pic01.jpeg" alt="" /><strong>Caleb Leung</strong></header>
-				<div class="start-menu-content"><a href="#intro" data-open-portfolio><span class="icon solid fa-folder" aria-hidden="true"></span>My Portfolio</a><a href="#projects" data-open-portfolio><span class="icon solid fa-book-open" aria-hidden="true"></span>Projects &amp; Research</a><button type="button" data-open-window="hobbies"><span class="icon solid fa-gamepad" aria-hidden="true"></span>Personal Hobbies</button><a href="mailto:caleb.leungkwanho@gmail.com"><span class="icon solid fa-envelope" aria-hidden="true"></span>Email Me</a></div>
-				<footer>Static site · No installs</footer>
+				<div class="start-menu-content">
+					<a href="#intro" data-open-portfolio><span class="icon solid fa-user" aria-hidden="true"></span>My Portfolio</a>
+					<a href="#work" data-open-portfolio><span class="icon solid fa-folder" aria-hidden="true"></span>My Work</a>
+					<a href="https://github.com/Caleb-Leung-Kwan-Ho" target="_blank" rel="noopener noreferrer"><span class="icon brands fa-github" aria-hidden="true"></span>GitHub</a>
+					<a href="#resume" data-open-portfolio><span class="icon solid fa-file-alt" aria-hidden="true"></span>Resume</a>
+					<button type="button" data-open-window="hobbies"><span class="icon solid fa-gamepad" aria-hidden="true"></span>Personal Hobbies</button>
+					<a href="#projects" data-open-portfolio><span class="icon solid fa-book-open" aria-hidden="true"></span>Projects &amp; Research</a>
+					<a href="mailto:caleb.leungkwanho@gmail.com"><span class="icon solid fa-envelope" aria-hidden="true"></span>Email Me</a>
+					<button type="button" data-show-desktop><span class="icon solid fa-desktop" aria-hidden="true"></span>Show desktop</button>
+				</div>
+				<footer>Built by Caleb · <a href="https://github.com/Caleb-Leung-Kwan-Ho/github-website" target="_blank" rel="noopener noreferrer">View source</a></footer>
 			</div>
 
 			<footer class="taskbar">
 				<button id="start-button" class="start-button" type="button" aria-expanded="false" aria-controls="start-menu"><span>Start</span></button>
 				<div class="task-buttons" aria-label="Open windows"><button class="task-button is-active" type="button" data-task-window="portfolio" aria-pressed="true"><span class="folder-icon" aria-hidden="true"></span><span>Caleb Leung — Portfolio</span></button><button class="task-button" type="button" data-task-window="hobbies" aria-pressed="false" hidden><span class="icon solid fa-gamepad" aria-hidden="true"></span><span>Personal Hobbies</span></button></div>
+				<button id="show-desktop-button" class="show-desktop-button" type="button" data-show-desktop aria-label="Show desktop" title="Show desktop"><span class="icon solid fa-desktop" aria-hidden="true"></span></button>
 				<time id="taskbar-clock">--:--</time>
 			</footer>
 		</div>

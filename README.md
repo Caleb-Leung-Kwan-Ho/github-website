@@ -28,7 +28,7 @@ Open [http://localhost:8000](http://localhost:8000). Stop the server with `Ctrl-
 | [`.github/scripts/check_site_security.py`](.github/scripts/check_site_security.py) | Checks security boundaries and repository rules, and prints JavaScript review advisories. |
 | [`.github/workflows/security-invariants.yml`](.github/workflows/security-invariants.yml) | Runs the security checks for pull requests and pushes to `main`. |
 | [`LICENSE.txt`](LICENSE.txt) | Theme license and attribution requirements. |
-| [`ARTWORK_TERMS.md`](ARTWORK_TERMS.md) | Separate terms for the custom pixel-art decorations; third-party artwork retains its own rights. |
+| [`ARTWORK_TERMS.md`](ARTWORK_TERMS.md) | Sharing policy for the custom pixel-art decorations: email Caleb and give credit; third-party artwork retains its own rights. |
 
 ## Assets and external services
 
@@ -43,7 +43,9 @@ The four featured folders lead to Work, Projects, Resume, and Skills. Hobbies re
 
 The portfolio and hobbies windows share File, Edit, View, and Help disclosures. Tab and Enter operate the menus; arrow keys navigate commands and Escape dismisses a menu before closing an auxiliary window. Copy commands write only after a click and report clipboard failure with selectable text. Hobbies language choices stay synchronized with the controls inside its page.
 
-On screens wider than 736px, drag a restored window by its title bar, or choose View → Move window and use the arrow keys (Shift moves farther). Enter commits and Escape cancels a keyboard move. View → Reset position restores the default layout. Maximized and mobile windows stay fixed; resizing the viewport resets custom positions to keep controls reachable. Drag updates use one animation frame at a time, with no library, network requests, persistent storage, or background animation loop.
+Drag a restored window by its title bar with a mouse or touch, or choose View → Move window and use the arrow keys (Shift moves farther). Enter commits and Escape cancels a keyboard move. View → Reset position restores the default layout. Maximized windows stay fixed; resizing the viewport resets custom positions to keep controls reachable. Drag updates use one animation frame at a time, with no library, network requests, persistent storage, or background animation loop.
+
+On screens up to 736px wide, the desktop shortcuts form a two-column grid. Start includes all five destinations, and Show desktop in Start or the taskbar minimizes both windows while retaining their taskbar buttons. Phone windows start fitted to the screen. Dragging down can reveal the desktop while the title bar stays above the taskbar; lower content may move off-screen until the window is moved back, maximized, or reset. Reopening a moved, minimized phone window also resets its position. Page content keeps its normal touch scrolling.
 
 Portfolio Back and Forward traverse portfolio destinations in the current page session using browser history. Browser Back/Forward also restore the hobbies destination. Starting a new navigation after going back discards the forward branch. Reloading starts a fresh in-page history boundary, so the toolbar never navigates away from the site.
 
@@ -66,7 +68,7 @@ The hobbies window follows the supplied desktop and mobile references, with Engl
 
 ## Artwork and licensing
 
-The HTML5 UP Dimension theme remains under the Creative Commons Attribution 3.0 license in [`LICENSE.txt`](LICENSE.txt), with its attribution intact. The custom pixel-art decorations have separate, scoped [artwork terms](ARTWORK_TERMS.md): ask Caleb before reusing them. This does not revoke any valid license already granted or restrict uses permitted by law. AI generation alone is not a claim of copyright ownership over every element.
+The HTML5 UP Dimension theme remains under the Creative Commons Attribution 3.0 license in [`LICENSE.txt`](LICENSE.txt), with its attribution intact. The custom pixel-art decorations have a separate, scoped [sharing policy](ARTWORK_TERMS.md): sharing and reuse are allowed with an email notification to Caleb and clear credit, including a website link for online use. No reply is required before use. This does not revoke any valid license already granted or restrict uses permitted by law.
 
 Anime, manga, and game thumbnails belong to their respective rights holders. Their [source ledger](images/hobbies/THUMBNAIL_SOURCES.md) records provenance; neither the theme license nor the custom artwork notice grants reuse rights to third-party images.
 

@@ -1,8 +1,8 @@
 # Hobbies decorative artwork
 
-These 28 original PNGs were supplied in Caleb_Hobbies_Asset_Review. They were generated with the image-generation tool as interpretations of the desktop and mobile references; they are not artwork extracted from those references.
+These 28 custom pixel-art PNGs were supplied in Caleb_Hobbies_Asset_Review for the desktop and mobile hobbies website.
 
-Please ask Caleb before reusing these custom decorations: [caleb.leungkwanho@gmail.com](mailto:caleb.leungkwanho@gmail.com). They have [separate artwork terms](../../../ARTWORK_TERMS.md) and are not offered for reuse under the theme's license. Those terms preserve any valid prior permissions and uses permitted by law; they do not claim copyright protection for every AI-generated element.
+You're welcome to share and reuse these custom decorations. Just email [caleb.leungkwanho@gmail.com](mailto:caleb.leungkwanho@gmail.com) to let Caleb know where they appear and give clear credit to Caleb Leung. The email is a notification; you do not need to wait for a reply. Follow the [artwork sharing policy](../../../ARTWORK_TERMS.md), including its credit and website-link requirements. These terms are separate from the theme's license and preserve any valid prior permissions and uses permitted by law.
 
 All PNG bytes and original dimensions are preserved. `manifest.json` records the supplied SHA-256 hashes and native dimensions, checked during integration. CSS controls their display size and crop without altering the source files or stretching their proportions. Transparent decorations retain their original padding and alpha channels. Slight colored edge fringing in some originals is part of the supplied artwork.
 

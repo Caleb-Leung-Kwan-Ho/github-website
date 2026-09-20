@@ -198,4 +198,3 @@ export function createWindowDragging({ windows, setActiveWindow, closeStartMenu 
 		refresh: refresh
 	};
 }
-

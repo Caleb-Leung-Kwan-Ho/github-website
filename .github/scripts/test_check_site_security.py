@@ -17,6 +17,7 @@ REPOSITORY_ROOT = SCRIPT_DIRECTORY.parents[1]
 sys.path.insert(0, str(SCRIPT_DIRECTORY))
 
 import check_site_security as checker  # noqa: E402
+import check_javascript as javascript_checker  # noqa: E402
 
 
 VALID_CSP = (
@@ -56,8 +57,10 @@ jobs:
         run: python3 -m unittest discover -s .github/scripts -p 'test_*.py'
       - name: Check site security invariants
         run: python3 .github/scripts/check_site_security.py
+      - name: Check generated page is current
+        run: python3 scripts/build_site.py --check
       - name: Check JavaScript syntax
-        run: node --check assets/js/main.js
+        run: python3 .github/scripts/check_javascript.py
       - name: Check changed lines for whitespace errors
         env:
           EVENT_NAME: ${{ github.event_name }}
@@ -88,7 +91,7 @@ def valid_html(body: str = "") -> str:
 <body>
   {body}
   <img src="https://drive.google.com/thumbnail?id=public-file" alt="Resume preview">
-  <script src="assets/js/main.js"></script>
+  <script type="module" src="assets/js/main.js"></script>
 </body>
 </html>
 """
@@ -161,7 +164,7 @@ class CSPTests(unittest.TestCase):
 class HTMLResourceTests(unittest.TestCase):
     def test_remote_script_fails(self) -> None:
         document = valid_html().replace(
-            '<script src="assets/js/main.js"></script>',
+            '<script type="module" src="assets/js/main.js"></script>',
             '<script src="https://example.com/app.js"></script>',
         )
         errors = checker.audit_html(document).errors
@@ -234,9 +237,6 @@ class JavaScriptReviewTests(unittest.TestCase):
             "eval(source)": "eval",
             "element.innerHTML = value": "HTML assignment",
             "element['outerHTML'] += value": "HTML assignment",
-            "import './second.js';": "JavaScript import",
-            "import helper from './second.js';": "JavaScript import",
-            "import/*comment*/('./second.js');": "JavaScript import",
             "fetch('/data')": "fetch",
             "navigator.serviceWorker.register('/sw.js')": "service-worker registration",
         }
@@ -250,6 +250,139 @@ class JavaScriptReviewTests(unittest.TestCase):
         notes = checker.review_javascript("// fetch('/data') would need review")
         self.assertTrue(notes)
         self.assertTrue(all("possible" in note.lower() for note in notes))
+
+
+class JavaScriptModuleTests(unittest.TestCase):
+    def write_modules(self, root: Path, sources: dict[str, str]) -> None:
+        for name, source in sources.items():
+            path = root / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(source, encoding="utf-8")
+
+    def test_follows_imports_and_reexports_once_even_with_cycles(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory).resolve()
+            sources = {
+                "assets/js/main.js": "import { windows } from '../../desktop/windows.js';\n"
+                "import '../../sites/hobbies/site.js';\n",
+                "desktop/windows.js": "export { windows } from './dragging.js';\n",
+                "desktop/dragging.js": "import './windows.js';\nexport function windows() {}\n",
+                "sites/hobbies/site.js": "import * as translations from './translations.js';\n",
+                "sites/hobbies/translations.js": "export const translations = {};\n",
+                "desktop/unreferenced.js": "import 'https://example.com/not-loaded.js';\n",
+            }
+            self.write_modules(root, sources)
+            modules, errors = checker.javascript_modules(root)
+            self.assertEqual(errors, [])
+            self.assertEqual(
+                {str(path.relative_to(root)) for path in modules},
+                set(sources) - {"desktop/unreferenced.js"},
+            )
+
+    def test_comments_and_ordinary_strings_do_not_create_imports(self) -> None:
+        imports, errors = checker.javascript_imports(
+            "// import './comment.js';\n/* import('./comment.js'); */\n"
+            "const text = \"import('./example.js')\";\n"
+            "import { helper } from './real.js'; // Keep comments readable.\n",
+            "desktop/site.js",
+        )
+        self.assertEqual(imports, ["./real.js"])
+        self.assertEqual(errors, [])
+
+    def test_dynamic_loading_and_unsupported_imports_fail(self) -> None:
+        for source in (
+            "import('./other.js');",
+            "import/* comment */('./other.js');",
+            "const node = document.createElement('script');",
+            "new Worker('./worker.js');",
+            "importScripts('./other.js');",
+            "import {\n helper\n} from './other.js';",
+            "export *\n from './other.js';",
+        ):
+            with self.subTest(source=source):
+                _, errors = checker.javascript_imports(source, "desktop/site.js")
+                self.assertTrue(errors)
+
+    def test_remote_bare_encoded_and_suffixed_paths_fail(self) -> None:
+        for specifier in (
+            "https://example.com/code.js", "//example.com/code.js", "library",
+            "/desktop/code.js", "../../desktop/%63ode.js", "../../desktop/code.js?v=1",
+            "../../desktop/code.js#fragment", "../../desktop/co\\x64e.js",
+        ):
+            with self.subTest(specifier=specifier), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory)
+                self.write_modules(root, {"assets/js/main.js": f"import '{specifier}';\n"})
+                _, errors = checker.javascript_modules(root)
+                self.assertTrue(any("plain local relative" in error for error in errors))
+
+    def test_missing_module_and_unapproved_location_fail(self) -> None:
+        for specifier, message in (
+            ("../../desktop/missing.js", "missing"),
+            ("../../other/site.js", "unapproved"),
+            ("../../../outside.js", "outside the repository"),
+        ):
+            with self.subTest(specifier=specifier), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory)
+                self.write_modules(root, {"assets/js/main.js": f"import '{specifier}';\n"})
+                _, errors = checker.javascript_modules(root)
+                self.assertTrue(any(message in error for error in errors))
+
+    def test_symlink_cannot_escape_the_repository(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory)
+            root = base / "site"
+            self.write_modules(root, {"assets/js/main.js": "import '../../desktop/linked.js';\n"})
+            (base / "outside.js").write_text("export const value = 1;", encoding="utf-8")
+            (root / "desktop").mkdir()
+            (root / "desktop/linked.js").symlink_to(base / "outside.js")
+            _, errors = checker.javascript_modules(root)
+            self.assertTrue(any("outside the repository" in error for error in errors))
+
+    def test_cli_reviews_every_reachable_module(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory).resolve()
+            self.write_modules(root, {
+                "assets/js/main.js": "import '../../desktop/windows.js';\n",
+                "desktop/windows.js": "fetch('/data');\n",
+            })
+            output = io.StringIO()
+            with (
+                patch.object(checker, "REPOSITORY_ROOT", root),
+                patch.object(checker, "audit_repository", return_value=[]),
+                redirect_stderr(output),
+                redirect_stdout(output),
+            ):
+                self.assertEqual(checker.main(), 0)
+            self.assertIn("desktop/windows.js: possible fetch", output.getvalue())
+
+
+class JavaScriptSyntaxRunnerTests(unittest.TestCase):
+    def test_checks_all_modules_as_modules_without_executing_them(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            modules = [root / "first.js", root / "second.js"]
+            for path in modules:
+                path.write_text("export const value = 1;", encoding="utf-8")
+            with (
+                patch.object(javascript_checker, "javascript_modules", return_value=(modules, [])),
+                patch.object(javascript_checker.subprocess, "run") as run,
+                redirect_stdout(io.StringIO()),
+            ):
+                run.return_value.returncode = 0
+                self.assertEqual(javascript_checker.main(), 0)
+                self.assertEqual(run.call_count, 2)
+                for call in run.call_args_list:
+                    self.assertEqual(call.args[0], ["node", "--input-type=module", "--check"])
+                    self.assertEqual(call.kwargs["input"], "export const value = 1;")
+
+    def test_invalid_graph_is_not_passed_to_node(self) -> None:
+        with (
+            patch.object(javascript_checker, "javascript_modules", return_value=([], ["missing module"])),
+            patch.object(javascript_checker.subprocess, "run") as run,
+            redirect_stderr(io.StringIO()),
+        ):
+            self.assertEqual(javascript_checker.main(), 1)
+            run.assert_not_called()
 
 
 class WorkflowTests(unittest.TestCase):
@@ -268,7 +401,8 @@ class WorkflowTests(unittest.TestCase):
         workflow = workflow.replace("permissions:", '"permissions":')
         workflow = workflow.replace("runs-on: ubuntu-latest", "runs-on: 'ubuntu-latest'")
         workflow = workflow.replace(
-            "run: node --check assets/js/main.js", 'run: "node --check assets/js/main.js"'
+            "run: python3 .github/scripts/check_javascript.py",
+            'run: "python3 .github/scripts/check_javascript.py"',
         )
         self.assertEqual(checker.check_workflow_text(workflow, "workflow.yml"), [])
 
@@ -355,11 +489,15 @@ class WorkflowTests(unittest.TestCase):
                 ))
 
     def test_missing_validation_command_fails(self) -> None:
-        workflow = workflow_with(
-            "run: python3 .github/scripts/check_site_security.py", "run: python3 --version"
-        )
-        errors = checker.check_workflow_text(workflow, "workflow.yml")
-        self.assertTrue(any("validation" in error.lower() for error in errors))
+        for command in (
+            "python3 .github/scripts/check_site_security.py",
+            "python3 .github/scripts/check_javascript.py",
+            "python3 scripts/build_site.py --check",
+        ):
+            with self.subTest(command=command):
+                workflow = workflow_with(f"run: {command}", "run: python3 --version")
+                errors = checker.check_workflow_text(workflow, "workflow.yml")
+                self.assertTrue(any("validation" in error.lower() for error in errors))
 
     def test_tool_download_fails(self) -> None:
         workflow = VALID_WORKFLOW + "\n      - run: curl https://example.com/tool\n"
@@ -412,13 +550,10 @@ class CSSResourceTests(unittest.TestCase):
 
 
 class RepositoryRuleTests(unittest.TestCase):
-    def test_script_must_remain_classic(self) -> None:
-        document = valid_html().replace(
-            '<script src="assets/js/main.js"></script>',
-            '<script type="module" src="assets/js/main.js"></script>',
-        )
+    def test_entry_must_be_a_module(self) -> None:
+        document = valid_html().replace('type="module"', '')
         errors = checker.audit_html(document).errors
-        self.assertTrue(any("classic scripts" in error for error in errors))
+        self.assertTrue(any('type="module"' in error for error in errors))
 
     def test_package_manifest_is_reported_as_repository_rule(self) -> None:
         for filename in ("package.json", "requirements-dev.txt", "Cargo.toml"):
@@ -461,6 +596,9 @@ class CheckerIntegrationTests(unittest.TestCase):
         advisory = "Possible fetch match; comments and strings may also match."
         with (
             patch.object(checker, "audit_repository", return_value=[]),
+            patch.object(checker, "javascript_modules", return_value=(
+                [REPOSITORY_ROOT / checker.EXPECTED_SCRIPT], []
+            )),
             patch.object(checker, "review_javascript", return_value=[advisory]) as review,
             redirect_stdout(output),
             redirect_stderr(output),

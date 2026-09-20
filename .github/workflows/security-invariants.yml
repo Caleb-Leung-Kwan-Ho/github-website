@@ -34,8 +34,11 @@ jobs:
       - name: Check site security invariants
         run: python3 .github/scripts/check_site_security.py
 
+      - name: Check generated page is current
+        run: python3 scripts/build_site.py --check
+
       - name: Check JavaScript syntax
-        run: node --check assets/js/main.js
+        run: python3 .github/scripts/check_javascript.py
 
       - name: Check changed lines for whitespace errors
         env:

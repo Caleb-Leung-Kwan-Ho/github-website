@@ -2,7 +2,7 @@
 
 ## Keep it simple
 
-This is a static, single-page personal website. Keep it that way unless a task explicitly calls for an architectural change. Prefer a small, focused HTML, CSS, or vanilla-JavaScript edit over a framework, component runtime, state manager, build system, or dependency.
+This is a static, single-page personal website with a shared desktop and separately maintained portfolio and hobbies content. Keep the dependency-free HTML assembly and browser-native JavaScript modules simple. Prefer a focused edit over a framework, component runtime, state manager, or dependency.
 
 These are repository defaults, not prohibitions against necessary changes. If a request genuinely requires departing from them, explain the reason and tradeoff before making the change.
 
@@ -16,12 +16,13 @@ Preserve the meaning and scope of factual claims when editing copy. Base additio
 
 ## Work in the existing shapes
 
-- `index.html` is the page entry point and source of the site content, sections, navigation, and asset links.
-- `assets/css/one-page.css` is the hand-authored site-specific styling layer. It is intentionally loaded after the compiled HTML5 UP base theme in `assets/css/main.css`.
-- `assets/sass/` is the source for the baseline theme CSS. `assets/js/main.js` contains the site’s only loaded custom behavior.
+- `desktop/page.html` owns the page shell and window markup. `sites/portfolio/content.html` and `sites/hobbies/content.html` own the existing site content. Run `python3 scripts/build_site.py` after HTML edits; commit the generated `index.html` with its sources rather than editing it directly.
+- `desktop/styles.css` and `sites/*/styles.css` own their respective styling. `assets/css/one-page.css` imports them in desktop, portfolio, hobbies order, after the compiled HTML5 UP theme in `assets/css/main.css`.
+- `assets/js/main.js` connects the two sites. `desktop/*.js` owns common windows, menus, dragging, and navigation; each `sites/*/site.js` owns its content behavior. Hobbies translations live in `sites/hobbies/translations.js`.
+- `assets/sass/` remains the source for the baseline theme CSS. See `README.md` and `docs/MAINTENANCE.md` for the concise file map and workflow.
 - Use `images/` for local visual assets. Keep `LICENSE.txt` and the theme attribution comments intact.
 
-For a new main section, follow the existing `profile-section` pattern: give the section a stable `id`, a heading connected with `aria-labelledby`, and a matching `#site-nav` link. The navigation href-to-section mapping is used by `main.js` to set the active link, so keep them aligned.
+For a new portfolio section, follow the existing `profile-section` pattern: give the section a stable `id`, a heading connected with `aria-labelledby`, and a matching `#site-nav` link. `sites/portfolio/site.js` uses that mapping to set the active link, so keep them aligned. Keep site behavior behind the existing site callbacks; the desktop should not contain site-specific selectors or duplicate window logic.
 
 Reuse an existing class when the new element represents the same component, layout pattern, or behavior. Create a new descriptive class when an element has a distinct styling role; section-specific classes are acceptable when they keep the code understandable.
 
@@ -31,27 +32,27 @@ Extract a shared class when multiple elements genuinely share a repeated concept
 
 For CSS or layout-related HTML work, use the [maintain-site-css skill](.agents/skills/maintain-site-css/SKILL.md) for selector tracing and focused visual checks. The rules in this file remain the source of truth for repository conventions.
 
-Put site-specific styling in `assets/css/one-page.css`, not inline in `index.html` and not in the unlinked root `style.css`. Preserve the `main.css` then `one-page.css` load order.
+Put styling in the owning desktop or site stylesheet, not inline in HTML and not in the unlinked root `style.css`. Preserve the `main.css` then `one-page.css` load order and the manifest's import order.
 
-`one-page.css` has a structural single-page layer followed by a liquid-glass visual layer. Extend the appropriate existing layer instead of adding another stylesheet or scattered overrides. Reuse the existing `--glass-*` variables for repeated visual values.
+Keep selectors limited to the component or site they belong to. Moving CSS into another file does not isolate it. Shared window controls belong to the desktop; reuse the existing CSS variables for repeated visual values.
 
 Keep responsive rules close to the styles they modify. Reuse the current `980px`, `736px`, and `480px` breakpoints unless a new one is genuinely necessary, and preserve reduced-motion and reduced-transparency behavior.
 
-Do not directly edit the generated `assets/css/main.css` for ordinary site changes. Put site-specific changes in `one-page.css`. If a task genuinely requires changing the baseline theme, update the Sass source only when its compiled CSS can be reproduced reliably; otherwise explain the missing build workflow before proceeding.
+Do not directly edit the generated `assets/css/main.css` for ordinary site changes. If a task genuinely requires changing the baseline theme, update the Sass source only when its compiled CSS can be reproduced reliably; otherwise explain the missing Sass build workflow before proceeding.
 
 ## JavaScript, comments, and dependencies
 
-Keep interactions progressively enhanced and dependency-free where practical. Add small page behavior to `assets/js/main.js`; do not modify minified vendor files for custom work.
+Keep interactions progressively enhanced and dependency-free. Add behavior to the owning local module and keep `assets/js/main.js` as composition only. Use single-line static relative imports supported by the checker; review and update its limited grammar before adopting other module syntax. Do not modify minified vendor files for custom work.
 
 Comments should capture a non-obvious contract or reason—such as CSS load order, the navigation/section relationship, a browser workaround, or an accessibility constraint—not narrate obvious code. Update a nearby comment when changing the contract it describes.
 
-Before adding a dependency or package tooling, confirm that the existing static stack cannot solve the problem cleanly and that the maintenance cost is justified. This repository currently has no package manifest, build, lint, format, or deployment configuration; its automated tests are limited to the dependency-free security checks below.
+Before adding a dependency or package tooling, confirm that the existing static stack cannot solve the problem cleanly and that the maintenance cost is justified. The HTML assembler uses Python's standard library. There is no package manifest, bundler, or deployment configuration.
 
 ## Security boundaries
 
 For security audits or hardening, and for changes to JavaScript, dependencies, automatically loaded external resources, forms, embeds, network requests, CSP or other security metadata, secrets, GitHub Actions, or Pages deployment, use the [maintain-site-security skill](.agents/skills/maintain-site-security/SKILL.md). Ordinary copy and layout work does not require it unless the change crosses one of those boundaries.
 
-Keep browser-executable code local and limited to one classic script, `assets/js/main.js`. The single-script and no-package-tooling checks enforce repository conventions; an authorized architectural change must update those checks and the documentation together. Google Fonts and the Google Drive resume thumbnail are the approved automatically loaded third-party resources; adding another origin or any external JavaScript requires explicit user approval and corresponding updates to the CSP, security checker, and documentation.
+Keep browser-executable code local, starting at the single module entry `assets/js/main.js`, with static relative imports in the approved desktop and site locations. The checker audits the reachable module graph; no-package-tooling rules remain in force. An authorized architectural change must update checks and documentation together. Google Fonts and the Google Drive resume thumbnail are the approved automatically loaded third-party resources; adding another origin or any external JavaScript requires explicit user approval and corresponding updates to the CSP, security checker, and documentation.
 
 Never commit credentials, tokens, private keys, or other secrets. If one is discovered, do not reproduce it in output; identify its location safely and advise the user to revoke or rotate it. Do not weaken the CSP with wildcards, a broad `https:` source, `'unsafe-inline'`, or `'unsafe-eval'` unless the user explicitly approves the documented tradeoff.
 
@@ -61,7 +62,7 @@ GitHub Actions must use minimal permissions and immutable full-commit action ref
 
 Preserve the visual design, responsiveness, anchors, navigation, keyboard access, skip link, focus styles, image alt text, and external-link safety unless the task explicitly changes them. Keep external links opening in a new tab paired with `rel="noopener noreferrer"`.
 
-For all code changes, run `python3 .github/scripts/check_site_security.py` and `git diff --check`. Run `node --check assets/js/main.js` when JavaScript changes. When the security checker or workflow changes, also run `python3 -m unittest discover -s .github/scripts -p 'test_*.py'`.
+For all code changes, run `python3 scripts/build_site.py --check`, `python3 .github/scripts/check_site_security.py`, and `git diff --check`. Run `python3 .github/scripts/check_javascript.py` when JavaScript changes. When assembly, the security checker, or workflow changes, also run `python3 -m unittest discover -s .github/scripts -p 'test_*.py'`.
 
 Treat security failures and repository-rule failures as blocking. JavaScript review advisories are non-blocking prompts for manual inspection, not confirmed vulnerabilities; text matches can include comments or strings and miss dynamic or aliased operations. Review changed JavaScript even when automated checks pass.
 

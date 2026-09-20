@@ -1,0 +1,778 @@
+/* Personal Hobbies content, artwork, translations, and responsive layout. */
+
+.hobby-routine summary,
+.hobby-advice summary {
+	cursor: pointer;
+	font-weight: 700;
+	line-height: 1.5;
+	padding: 8px 0;
+	overflow-wrap: anywhere;
+}
+
+.hobbies-window-body {
+	min-height: 0;
+	flex: 1 1 auto;
+	overflow-y: auto;
+	padding: 16px;
+	background-color: #effbe9;
+	background-image: repeating-linear-gradient(0deg, #71d2e65e 0 7px, transparent 7px 14px), repeating-linear-gradient(90deg, #77cde859 0 7px, transparent 7px 14px);
+	scroll-behavior: smooth;
+	scrollbar-color: #8ec9ee #edf9ff;
+}
+
+/* The hobby document is self-contained inside the existing desktop window. */
+.hobbies-site {
+	--hobby-blue: #1724ab;
+	--hobby-border: #75b8f6;
+	max-width: 1350px;
+	margin: 0 auto;
+	border: 2px solid #2635c4;
+	background: #f6fcff;
+	color: #121b78;
+	font-family: "Monaco", "Consolas", "Lucida Console", monospace;
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+.hobbies-site a {
+	color: #1425c5;
+	overflow-wrap: anywhere;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+.hobbies-site a:hover {
+	color: #822774;
+}
+
+.hobbies-site h2,
+.hobbies-site h3,
+.hobbies-site h4 {
+	color: #0b176f;
+}
+
+.hobbies-site p {
+	margin: 0;
+}
+
+.hobbies-site img {
+	display: block;
+	max-width: 100%;
+}
+
+.hobbies-site img[src*="/decorations/"] {
+	image-rendering: pixelated;
+}
+
+/* Crop transparent margins at display time while retaining the source PNGs. */
+.hobby-crop {
+	position: relative;
+	display: block;
+	overflow: hidden;
+}
+
+.hobbies-site .hobby-crop > img {
+	position: absolute;
+	top: var(--crop-top);
+	left: var(--crop-left);
+	width: var(--crop-width);
+	max-width: none;
+	height: auto;
+}
+
+.hobby-panel-heading img,
+.hobby-side-nav img {
+	transform: scale(1.2);
+}
+
+.hobby-panel-heading img[src$="23_icon_notepad.png"],
+.hobby-panel-heading img[src$="24_icon_flower.png"],
+.hobby-side-nav img[src$="23_icon_notepad.png"] {
+	transform: scale(1.5);
+}
+
+.hobby-masthead {
+	position: relative;
+	display: flex;
+	width: 100%;
+	min-height: 164px;
+	align-items: center;
+	gap: 16px;
+	overflow: hidden;
+	padding: 14px 25px;
+	border-bottom: 1px solid var(--hobby-blue);
+	background: #d9f4ff url("../../images/hobbies/decorations/01_masthead_desktop.png") right bottom / 100% auto no-repeat;
+}
+
+.hobby-brand {
+	position: relative;
+	z-index: 1;
+	align-self: flex-start;
+	padding-top: 6px;
+}
+
+.hobby-brand h2 {
+	font-family: "Menlo", "Consolas", monospace;
+	font-size: clamp(27px, 3.1vw, 43px);
+	font-weight: 900;
+	letter-spacing: -1.4px;
+	line-height: 1.02;
+	text-shadow: 1px 0 currentColor;
+}
+
+.hobby-brand p {
+	max-width: 490px;
+	margin-top: 8px;
+	font-size: 16px;
+}
+
+.hobby-computer {
+	transform: scale(1.2);
+	position: relative;
+	z-index: 1;
+	width: 130px;
+	height: 130px;
+	flex: 0 0 130px;
+	object-fit: contain;
+}
+
+.hobby-branch {
+	position: absolute;
+	top: 0;
+	width: 240px;
+	height: auto;
+	pointer-events: none;
+}
+
+.hobby-branch-right {
+	right: 0;
+}
+
+.hobby-branch-left {
+	left: 0;
+	width: 95px;
+	transform: scaleX(-1);
+}
+
+.hobbies-language-controls,
+.hobby-top-nav {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 5px 12px;
+	padding: 5px 12px;
+	background: linear-gradient(90deg, #e3e8ff, #f7f5ff, #e3e8ff);
+}
+
+.hobbies-language-controls {
+	border-bottom: 1px dotted var(--hobby-border);
+}
+
+.hobbies-language-controls button {
+	width: auto;
+	min-height: 32px;
+	height: auto;
+	padding: 3px 12px;
+	border: 1px solid transparent;
+	border-radius: 2px;
+	background: transparent;
+	box-shadow: none;
+	color: #1425c5 !important;
+	font: inherit;
+	font-size: 14px;
+	letter-spacing: 0;
+	line-height: 1.5;
+	text-transform: none;
+}
+
+.hobbies-language-controls button[aria-pressed="true"] {
+	border-color: #4096fa;
+	background: linear-gradient(#effdff, #b5ddff);
+	box-shadow: inset 0 0 0 2px #effbff;
+	font-weight: bold;
+}
+
+.hobby-top-nav {
+	border-bottom: 1px solid #7b83f6;
+	gap: 5px 18px;
+}
+
+.hobby-top-nav a {
+	display: inline-flex;
+	min-height: 29px;
+	align-items: center;
+	gap: 7px;
+}
+
+.hobby-top-nav a::before { content: "["; }
+.hobby-top-nav a::after { content: "]"; }
+
+.hobby-star-divider {
+	display: flex;
+	height: 29px;
+	align-items: center;
+	justify-content: space-around;
+	overflow: hidden;
+	border-bottom: 1px dashed var(--hobby-border);
+	color: #fff49b;
+	font-size: 22px;
+	-webkit-text-stroke: 1px #233cc0;
+}
+
+.hobby-star-divider span {
+	white-space: nowrap;
+	line-height: 1;
+}
+
+.hobby-star-divider span::after {
+	content: " · · ";
+	color: #233cc0;
+	font-size: 14px;
+	-webkit-text-stroke: 0;
+}
+
+.hobby-star-divider span:nth-child(even) {
+	color: #a5edff;
+}
+
+.hobby-layout {
+	display: grid;
+	grid-template-columns: 165px minmax(0, 1fr) 250px;
+	/* Sidebar expansion must not add space between the two center sections. */
+	grid-template-rows: auto 1fr;
+	align-items: start;
+	gap: 12px;
+	padding: 10px;
+}
+
+.hobby-sidebar {
+	grid-column: 1;
+	grid-row: 1 / 3;
+	align-self: stretch;
+	padding-right: 10px;
+	border-right: 1px dashed var(--hobby-border);
+}
+
+.hobby-side-nav {
+	display: grid;
+	gap: 8px;
+	padding-bottom: 24px;
+	border-bottom: 2px dotted var(--hobby-border);
+}
+
+.hobby-side-nav a {
+	display: grid;
+	min-height: 66px;
+	grid-template-columns: 38px minmax(0, 1fr) 8px;
+	align-items: center;
+	gap: 6px;
+	padding: 7px;
+	border: 1px solid var(--hobby-border);
+	background: linear-gradient(110deg, #fff, #e8f9ff);
+	box-shadow: inset 0 0 0 3px #fff;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+.hobby-side-nav a::after {
+	content: "";
+	width: 8px;
+	height: 15px;
+	background: url("../../images/hobbies/decorations/28_icon_navigation_arrow.png") center / 34px 34px no-repeat;
+}
+
+.hobby-side-nav img {
+	width: 38px;
+	height: 38px;
+	object-fit: contain;
+}
+
+.hobby-sidebar-sprig {
+	--crop-width: 285%; --crop-left: -95.23%; --crop-top: -22.22%;
+	width: 100px;
+	aspect-ratio: 440 / 882;
+	margin: 35px auto 0;
+}
+
+.hobby-content,
+.hobby-aside {
+	display: grid;
+	min-width: 0;
+	gap: 10px;
+}
+
+.hobby-aside {
+	grid-column: 3;
+	grid-row: 1 / 3;
+	align-self: stretch;
+	grid-template-rows: repeat(4, auto) 1fr;
+}
+
+.hobby-content {
+	grid-column: 2;
+	grid-row: 1;
+}
+
+.hobby-panel {
+	min-width: 0;
+	border: 1px solid var(--hobby-border);
+	background: #fff;
+	scroll-margin-top: 10px;
+}
+
+.hobby-panel-heading {
+	display: flex;
+	min-height: 34px;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 4px 8px;
+	padding: 3px 9px;
+	border-bottom: 1px solid #8995ff;
+	background: linear-gradient(105deg, #c3eeff, #effcff);
+}
+
+.hobby-anime .hobby-panel-heading,
+.hobby-gem .hobby-panel-heading,
+.hobby-anticipated .hobby-panel-heading,
+.hobby-notes .hobby-panel-heading {
+	background: linear-gradient(105deg, #d8d3ff, #f5efff);
+}
+
+.hobby-panel-heading img {
+	width: 26px;
+	height: 26px;
+	flex: 0 0 26px;
+	object-fit: contain;
+}
+
+.hobby-japanese {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.hobbies-site:not([lang="en"]) .hobby-japanese {
+	display: none;
+}
+
+.hobby-panel-heading h3 {
+	flex: 1 1 auto;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1.4;
+	text-align: right;
+}
+
+.hobby-panel-heading img + h3 {
+	text-align: left;
+}
+
+.hobby-panel-body {
+	padding: 10px 12px;
+}
+
+.hobby-welcome .hobby-panel-body {
+	display: flex;
+	min-height: 48px;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+}
+
+.hobby-welcome-cat {
+	--crop-width: 135.73%; --crop-left: -20.35%; --crop-top: -36.31%;
+	width: 87px;
+	aspect-ratio: 1307 / 559;
+	flex: 0 0 87px;
+	object-fit: contain;
+}
+
+.hobbies-site ul,
+.hobbies-site ol {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.hobbies-site li {
+	min-width: 0;
+	padding: 0;
+}
+
+.hobbies-site .hobby-anime-list {
+	display: grid;
+	grid-auto-flow: column;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	grid-template-rows: repeat(3, auto);
+	gap: 0 16px;
+	padding: 6px 10px;
+	counter-reset: anime-rank;
+}
+
+.hobby-anime-list li {
+	display: grid;
+	grid-template-columns: 25px minmax(65px, 38%) minmax(0, 1fr);
+	align-items: center;
+	gap: 7px;
+	padding: 6px 0;
+	border-bottom: 1px dotted #96ccf9;
+	counter-increment: anime-rank;
+	font-size: 14px;
+	line-height: 1.4;
+}
+
+.hobby-anime-list li::before {
+	content: counter(anime-rank, decimal-leading-zero);
+	align-self: start;
+	color: #493cc4;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.hobby-anime-list img {
+	width: 100%;
+	height: 66px;
+	border: 1px solid #b2c8ec;
+	object-fit: cover;
+	object-position: center 28%;
+}
+
+.hobbies-site .hobby-pending {
+	padding: 4px 12px 9px;
+	font-size: 14px;
+}
+
+.hobby-features,
+.hobby-bottom {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 10px;
+}
+
+.hobby-feature {
+	display: grid;
+	grid-template-columns: 42% minmax(0, 1fr);
+	align-items: center;
+	gap: 10px;
+	padding: 8px;
+}
+
+.hobby-feature h4 {
+	margin-bottom: 7px;
+	font-size: 15px;
+	line-height: 1.4;
+}
+
+.hobby-manga h4 {
+	font-size: 23px;
+}
+
+.hobby-feature p + p {
+	margin-top: 5px;
+}
+
+.hobby-thumbnail {
+	width: 100%;
+	height: 113px;
+	object-fit: cover;
+	border: 1px solid #bcc9db;
+}
+
+.hobby-small {
+	font-size: 14px;
+	line-height: 1.6;
+}
+
+.hobbies-site .hobby-game-list {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 10px 16px;
+	margin-top: 9px;
+}
+
+.hobby-game-list li {
+	display: grid;
+	grid-template-columns: 43% minmax(0, 1fr);
+	align-items: center;
+	gap: 10px;
+	font-size: 14px;
+}
+
+.hobby-game-list img {
+	width: 100%;
+	height: 64px;
+	object-fit: cover;
+	border: 1px solid #adc3e6;
+}
+
+.hobbies-site .hobby-watch-list {
+	padding: 0 9px;
+}
+
+.hobby-watch-list li {
+	display: grid;
+	grid-template-columns: 64px minmax(0, 1fr);
+	align-items: center;
+	gap: 10px;
+	padding: 7px 0;
+	border-bottom: 1px dotted #96ccf9;
+	font-size: 14px;
+}
+
+.hobby-watch-list li:last-child {
+	border: 0;
+}
+
+.hobby-watch-list img {
+	width: 64px;
+	height: 58px;
+	object-fit: cover;
+	object-position: center 25%;
+	border: 1px solid #adc3e6;
+}
+
+.hobby-aside .hobby-panel-heading {
+	gap: 3px 7px;
+	padding-inline: 7px;
+}
+
+.hobby-aside .hobby-japanese {
+	font-size: 14px;
+}
+
+.hobby-lately p {
+	font-size: 14px;
+}
+
+.hobby-writing-lines {
+	height: 42px;
+	margin: 4px 0 9px;
+	background: repeating-linear-gradient(transparent 0 19px, #bedbff 19px 20px);
+}
+
+.hobby-bottom {
+	grid-column: 2;
+	grid-row: 2;
+	grid-template-columns: minmax(0, 1fr);
+}
+
+.hobby-hong-kong-content {
+	display: grid;
+	grid-template-columns: 32% minmax(0, 1fr) 45px;
+	align-items: center;
+	gap: 9px;
+	padding: 8px;
+}
+
+.hobby-harbour {
+	width: 100%;
+	height: 105px;
+	object-fit: cover;
+	object-position: left center;
+	border: 1px solid #a2b1d0;
+}
+
+.hobby-drink {
+	--crop-width: 225.13%; --crop-left: -73.79%; --crop-top: -9.77%;
+	justify-self: end;
+	width: 45px;
+	aspect-ratio: 557 / 1054;
+}
+
+.hobby-drink img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.hobby-routine,
+.hobby-advice {
+	border-top: 1px dotted var(--hobby-border);
+	font-size: 13px;
+}
+
+.hobby-routine dl {
+	margin: 0 0 12px;
+}
+
+.hobby-routine dl > div {
+	padding: 8px 0;
+	border-bottom: 1px dotted #c5d5ee;
+}
+
+.hobby-routine dt {
+	margin: 0 0 4px;
+	font-weight: 700;
+}
+
+.hobby-routine dd {
+	margin: 0;
+	font-size: 12px;
+	line-height: 1.6;
+}
+
+.hobby-advice p {
+	margin: 4px 0 12px;
+	line-height: 1.7;
+}
+
+.hobby-advice-sources {
+	margin: 12px 0 8px !important;
+}
+
+.hobby-desktop-garden {
+	width: 100%;
+	height: auto;
+	align-self: end;
+	margin-top: 12px;
+}
+
+.hobby-footer {
+	position: relative;
+	display: flex;
+	min-height: 66px;
+	align-items: center;
+	gap: 15px;
+	padding: 9px 18px 9px 160px;
+	border-top: 1px dashed var(--hobby-border);
+	background: linear-gradient(120deg, #ebfaff, #f8ffff);
+}
+
+.hobby-footer > div {
+	display: flex;
+	flex: 1;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 8px 20px;
+}
+
+.hobby-footer nav {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px 20px;
+	font-size: 14px;
+}
+
+.hobby-footer-flowers {
+	--crop-width: 204.91%; --crop-left: -1.70%; --crop-top: -121.94%;
+	aspect-ratio: 1060 / 319;
+	position: absolute;
+	bottom: 0;
+	left: 5px;
+	width: 150px;
+	height: auto;
+}
+
+.hobby-mobile-garden {
+	--crop-width: 198.30%; --crop-left: -49.40%; --crop-top: -6.25%;
+	aspect-ratio: 1000 / 704;
+	display: none !important;
+}
+
+.hobbies-site .hobby-art-note {
+	padding: 6px 12px;
+	border-top: 1px dotted #bcd6ee;
+	color: #465680;
+	font-size: 10px;
+	text-align: center;
+}
+
+@media (max-width: 980px) {
+	.hobbies-window-body { padding: 12px; }
+	.hobby-layout { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; gap: 10px; }
+	.hobby-sidebar, .hobbies-site .hobby-desktop-garden { display: none; }
+	.hobby-content, .hobby-aside, .hobby-features, .hobby-bottom { display: contents; }
+	.hobby-welcome { order: 1; }
+	.hobby-anime { order: 2; }
+	.hobby-manga { order: 3; }
+	.hobby-gem { order: 4; }
+	.hobby-games { order: 5; }
+	.hobby-watching { order: 6; }
+	.hobby-lately { order: 7; }
+	.hobby-anticipated { order: 8; }
+	.hobby-training { order: 9; }
+	.hobby-hong-kong { order: 10; }
+	.hobby-notes { order: 11; }
+	.hobby-masthead { aspect-ratio: 2103 / 748; background-image: url("../../images/hobbies/decorations/02_masthead_mobile.png"); }
+	.hobbies-site .hobby-anime-list { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; }
+	.hobby-anime-list li { grid-template-columns: 28px minmax(100px, 28%) minmax(0, 1fr); min-height: 50px; }
+	.hobby-anime-list img { height: 58px; }
+	.hobby-feature { grid-template-columns: 32% minmax(0, 1fr); }
+	.hobby-thumbnail { height: 115px; }
+	.hobby-watch-list li { grid-template-columns: 26% minmax(0, 1fr); }
+	.hobby-watch-list img { width: 100%; height: 65px; }
+	.hobby-anticipated .hobby-watch-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+	.hobby-anticipated .hobby-watch-list li { grid-template-columns: 40% minmax(0, 1fr); border: 0; }
+	.hobby-hong-kong-content { grid-template-columns: 30% minmax(0, 1fr) 70px; align-items: center; }
+	.hobby-drink { --crop-width: 143.15%; --crop-left: -22.37%; --crop-top: -127.87%; grid-column: auto; width: 70px; height: auto; aspect-ratio: 876 / 366; margin: 0; }
+	.hobby-harbour { height: 100px; }
+	.hobby-footer { min-height: 140px; justify-content: center; padding: 20px 180px; }
+	.hobby-footer > div { justify-content: center; text-align: center; }
+	.hobby-footer nav { justify-content: center; }
+	.hobby-footer-flowers { width: 160px; }
+	.hobby-mobile-garden { position: absolute; display: block !important; width: 160px; height: auto; right: 0; bottom: 0; }
+}
+
+@media (max-width: 736px) {
+	.hobbies-window-body { padding: 8px; }
+	.hobbies-site { font-size: 13px; }
+	.hobby-masthead { min-height: 145px; gap: 8px; padding: 16px 12px 30px; }
+	.hobby-computer { width: 90px; height: 90px; flex-basis: 90px; }
+	.hobby-brand h2 { font-size: clamp(21px, 4vw, 30px); letter-spacing: -1px; }
+	.hobby-brand p { max-width: 310px; font-size: 11px; }
+	.hobby-branch-right { width: 130px; }
+	.hobby-branch-left { width: 66px; }
+	.hobbies-language-controls { gap: 3px; padding-inline: 4px; }
+	.hobbies-language-controls button { padding: 4px 8px; font-size: 12px; }
+	.hobby-top-nav { gap: 0 10px; padding-inline: 6px; font-size: 12px; }
+	.hobby-top-nav a { gap: 4px; }
+	.hobby-panel-heading { gap: 4px 6px; padding-inline: 6px; }
+	.hobby-japanese { font-size: 13px; }
+	.hobby-panel-heading h3 { font-size: 12px; }
+	.hobby-layout { padding: 7px; }
+	.hobby-anime-list li { font-size: 13px; }
+	.hobby-game-list li { grid-template-columns: 1fr; gap: 4px; }
+	.hobby-game-list img { height: 85px; }
+	.hobby-hong-kong-content { grid-template-columns: 32% minmax(0, 1fr); }
+	.hobby-drink { grid-column: 2; width: 70px; height: auto; margin-top: -4px; }
+	.hobby-footer { padding: 15px 45px 110px; }
+	.hobby-footer-flowers, .hobby-mobile-garden { width: 145px; }
+}
+
+@media (max-width: 480px) {
+	.hobbies-window-body { padding: 5px; }
+	.hobby-masthead { min-height: 180px; padding: 20px 8px 28px; gap: 3px; }
+	.hobby-computer { width: 66px; height: 80px; flex-basis: 66px; }
+	.hobby-brand h2 { font-size: clamp(17px, 5vw, 23px); letter-spacing: -0.8px; }
+	.hobby-brand p { max-width: 220px; margin-top: 5px; font-size: 10px; }
+	.hobby-branch-right { width: 90px; }
+	.hobby-branch-left { width: 50px; }
+	.hobby-star-divider { height: 23px; background-size: 19px 19px; }
+	.hobby-star-divider span:nth-child(n + 9) { display: none; }
+	.hobby-japanese { font-size: 11px; }
+	.hobby-panel-heading img { width: 22px; height: 22px; flex-basis: 22px; }
+	.hobby-panel-heading h3 { font-size: 11px; }
+	.hobby-panel-body { padding: 9px; }
+	.hobby-welcome .hobby-panel-body { align-items: flex-end; }
+	.hobby-welcome-cat { width: 61px; height: auto; flex-basis: 61px; }
+	.hobby-anime-list li { grid-template-columns: 22px 84px minmax(0, 1fr); gap: 6px; font-size: 12px; }
+	.hobby-anime-list img { height: 49px; }
+	.hobby-anime-list li::before { font-size: 16px; }
+	.hobby-feature { gap: 9px; }
+	.hobby-feature h4 { font-size: 14px; }
+	.hobby-manga h4 { font-size: 22px; }
+	.hobby-thumbnail { height: 100px; }
+	.hobby-small { font-size: 11px; }
+	.hobby-anticipated .hobby-watch-list { gap: 8px; }
+	.hobby-anticipated .hobby-watch-list li { grid-template-columns: 1fr; gap: 5px; align-content: start; }
+	.hobby-anticipated .hobby-watch-list img { height: 70px; }
+	.hobby-footer { padding-inline: 15px; }
+	.hobby-footer nav { gap: 8px 12px; font-size: 11px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.hobbies-window-body {
+		scroll-behavior: auto;
+	}
+}

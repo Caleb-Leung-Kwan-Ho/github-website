@@ -9,14 +9,14 @@ Read the repository-root [AGENTS.md](../../../AGENTS.md) for conventions, author
 
 ## Trace the affected styles
 
-- Search each affected selector in `index.html`, `assets/css/one-page.css`, and the inherited `assets/css/main.css` rules. Include imported styles when they contribute to the affected component, and inspect all responsive overrides before proposing a change.
-- Identify every component or section reached by a shared selector or `--glass-*` variable. Treat its structural rules, later glass treatment, and breakpoint overrides as one unit of review; the two custom styling layers are intentional.
+- Search each affected selector in the authored HTML (`desktop/page.html`, `sites/*/content.html`), `desktop/styles.css`, `sites/*/styles.css`, and inherited `assets/css/main.css` rules. Trace the import order through `assets/css/one-page.css` and inspect all responsive overrides before proposing a change.
+- Identify every component or section reached by a shared selector or CSS variable. Treat base and breakpoint rules as one unit of review; the desktop, portfolio, and hobbies import order is intentional.
 - Inspect existing ID and direct-child selectors as contracts with the HTML5 UP theme and page structure. Preserve the necessary specificity when editing an override; do not replace these patterns merely to enforce a class-only convention.
-- When navigation or section markup changes, inspect the href-to-section mapping in `assets/js/main.js` and the affected IDs and ARIA relationships in `index.html`. Account for sticky-header height and anchor scroll offsets when layout changes.
+- When navigation or section markup changes, inspect the mapping in `sites/portfolio/site.js` and `desktop/navigation.js`, along with IDs and ARIA relationships in the authored HTML. Account for sticky-header height and anchor scroll offsets when layout changes.
 
 ## Work within the current layers
 
-For implementation, edit the relevant existing blocks in `assets/css/one-page.css` and any HTML in scope, following `AGENTS.md`. Use inherited theme rules to understand the cascade rather than treating generated `main.css` as the normal edit target.
+For implementation, edit the owning desktop or site stylesheet and authored HTML, following `AGENTS.md`. Keep `one-page.css` as the import manifest and rebuild `index.html` after HTML edits. Use inherited theme rules to understand the cascade rather than treating generated `main.css` as the normal edit target.
 
 For grid and flex changes, consider content minimum widths, gaps, wrapping, and shrinking together. If child count or order changes, inspect positional selectors and track placement. For typography or available-width changes, account for long headings and skill labels with both Source Sans Pro and the existing fallback font stack.
 

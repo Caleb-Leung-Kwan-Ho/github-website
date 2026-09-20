@@ -19,6 +19,19 @@ from urllib.parse import urlsplit
 REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
 # These are repository conventions, not claims that other architectures are unsafe.
 EXPECTED_SCRIPT = "assets/js/main.js"
+MODULE_DIRECTORIES = {"desktop", "sites/portfolio", "sites/hobbies"}
+
+# Deliberately small module grammar: one static import/re-export per line, with
+# ordinary quoted relative paths. Unsupported syntax needs a checker update.
+JS_STATIC_IMPORT = re.compile(
+    r"^[ \t]*(?:import(?:[ \t]+[\w$*,{} \t]+[ \t]+from)?|"
+    r"export[ \t]+(?:\{[^}\n]*\}|\*(?:[ \t]+as[ \t]+[\w$]+)?)[ \t]+from)"
+    r"[ \t]*(['\"])([^'\"\r\n]+)\1[ \t]*;?[ \t]*$",
+    re.MULTILINE,
+)
+JS_COMMENT_OR_STRING = re.compile(
+    r"//[^\n]*|/\*[\s\S]*?\*/|'(?:\\[\s\S]|[^'\\])*'|\"(?:\\[\s\S]|[^\"\\])*\""
+)
 
 # Google Drive provides the resume image; Google Fonts provides only styles/fonts.
 # The image redirect host belongs in CSP, even though it is absent from HTML source.
@@ -69,10 +82,6 @@ JS_REVIEW_PATTERNS = (
     ),
     (re.compile(r"\binsertAdjacentHTML\s*\("), "insertAdjacentHTML"),
     (re.compile(r"\bcreateElement\s*\(\s*['\"]script['\"]\s*\)"), "dynamic script creation"),
-    (
-        re.compile(r"\bimport\s*(?:/\*.*?\*/\s*)?(?:\(|['\"{*]|[\w$]+\s+from\b)", re.DOTALL),
-        "JavaScript import",
-    ),
     (re.compile(r"\bfetch\s*\("), "fetch"),
     (re.compile(r"\bXMLHttpRequest\b"), "XMLHttpRequest"),
     (re.compile(r"\bWebSocket\s*\("), "WebSocket"),
@@ -300,9 +309,9 @@ class SiteHTMLAudit(HTMLParser):
                 self.errors.append("inline script elements are not allowed")
             else:
                 self.scripts.append(source)
-            if attributes.get("type"):
+            if attributes.get("type") != "module":
                 self.errors.append(
-                    "repository rule: loaded scripts must remain classic scripts without a type attribute"
+                    'repository rule: the script entry must declare type="module"'
                 )
 
         if tag == "a" and attributes.get("target", "").lower() == "_blank":
@@ -411,6 +420,89 @@ def review_javascript(source: str, path: str = EXPECTED_SCRIPT) -> list[str]:
                 f"{path}: possible {label}; review the source (comments and strings can also match)"
             )
     return notes
+
+
+def javascript_imports(source: str, path: str) -> tuple[list[str], list[str]]:
+    """Read the supported static imports, rejecting untracked loading syntax.
+
+    This is a conservative source reader, not a JavaScript parser. Comments and
+    ordinary strings are masked; template literals and unusual regular
+    expressions containing module keywords require manual review. Node checks
+    syntax separately, and browser/source review remains necessary.
+    """
+
+    def blank(match: re.Match) -> str:
+        return re.sub(r"[^\n]", " ", match.group())
+
+    comments_masked = JS_COMMENT_OR_STRING.sub(
+        lambda match: blank(match) if match.group().startswith("/") else match.group(),
+        source,
+    )
+    code_masked = JS_COMMENT_OR_STRING.sub(blank, source)
+    imports: list[str] = []
+    covered: list[tuple[int, int]] = []
+    errors: list[str] = []
+    for match in JS_STATIC_IMPORT.finditer(comments_masked):
+        # A declaration-looking line within a quoted string is not an import.
+        if not code_masked[match.start():match.end()].strip():
+            continue
+        imports.append(match.group(2))
+        covered.append(match.span())
+
+    for match in re.finditer(r"\bimport\b|\bexport\s*(?:\*|\{[^}]*\}\s*from\b)", code_masked):
+        if not any(start <= match.start() < end for start, end in covered):
+            errors.append(
+                f"{path}: repository rule: unsupported module loading syntax; "
+                "use a single-line static relative import or re-export"
+            )
+    for pattern in (
+        r"\bcreateElement\s*\(\s*['\"]script['\"]\s*\)",
+        r"\bimportScripts\s*\(",
+        r"\bnew\s+(?:SharedWorker|Worker)\s*\(",
+    ):
+        for match in re.finditer(pattern, comments_masked):
+            if code_masked[match.start():match.start() + 1].strip():
+                errors.append(f"{path}: repository rule: dynamic script/worker loading is not allowed")
+    return imports, list(dict.fromkeys(errors))
+
+
+def javascript_modules(root: Path) -> tuple[list[Path], list[str]]:
+    """Trace the entry's complete supported import graph, including re-exports."""
+
+    root = root.resolve()
+    pending = [root / EXPECTED_SCRIPT]
+    visited: set[Path] = set()
+    modules: list[Path] = []
+    errors: list[str] = []
+    while pending:
+        path = pending.pop().resolve()
+        if path in visited:
+            continue
+        visited.add(path)
+        if not path.is_relative_to(root):
+            errors.append("repository rule: JavaScript module resolves outside the repository")
+            continue
+        relative = path.relative_to(root)
+        if str(relative) != EXPECTED_SCRIPT and (
+            relative.parent.as_posix() not in MODULE_DIRECTORIES or path.suffix != ".js"
+        ):
+            errors.append(f"repository rule: unapproved JavaScript module location: {relative}")
+            continue
+        if not path.is_file():
+            errors.append(f"JavaScript module is missing: {relative}")
+            continue
+        modules.append(path)
+        imports, syntax_errors = javascript_imports(path.read_text(encoding="utf-8"), str(relative))
+        errors.extend(syntax_errors)
+        for specifier in imports:
+            # Reject URLs, bare packages, URL-encoded traversal, and escaped paths.
+            if not specifier.startswith(("./", "../")) or any(
+                character in specifier for character in "\\%?#:"
+            ):
+                errors.append(f"{relative}: module imports must use plain local relative .js paths")
+                continue
+            pending.append(path.parent / specifier)
+    return sorted(modules), list(dict.fromkeys(errors))
 
 
 def check_css_origins(root: Path) -> list[str]:
@@ -652,7 +744,8 @@ def check_workflow_text(text: str, path: str) -> list[str]:
     required = {
         ("python3", "-m", "unittest", "discover", "-s", ".github/scripts", "-p", "test_*.py"),
         ("python3", ".github/scripts/check_site_security.py"),
-        ("node", "--check", "assets/js/main.js"),
+        ("python3", ".github/scripts/check_javascript.py"),
+        ("python3", "scripts/build_site.py", "--check"),
     }
     whitespace_commands = {
         ("git", "diff", "--check", "$BASE_SHA...$HEAD_SHA"),
@@ -733,9 +826,8 @@ def audit_repository(root: Path = REPOSITORY_ROOT) -> list[str]:
     html_audit = audit_html(index_path.read_text(encoding="utf-8"))
     errors.extend(html_audit.errors)
 
-    script_path = root / EXPECTED_SCRIPT
-    if not script_path.is_file():
-        errors.append(f"expected script is missing: {EXPECTED_SCRIPT}")
+    _, module_errors = javascript_modules(root)
+    errors.extend(module_errors)
 
     errors.extend(check_css_origins(root))
     errors.extend(check_project_tooling(root))
@@ -745,9 +837,11 @@ def audit_repository(root: Path = REPOSITORY_ROOT) -> list[str]:
 
 def main() -> int:
     errors = audit_repository()
-    script_path = REPOSITORY_ROOT / EXPECTED_SCRIPT
-    if script_path.is_file():
-        for note in review_javascript(script_path.read_text(encoding="utf-8")):
+    modules, _ = javascript_modules(REPOSITORY_ROOT)
+    for script_path in modules:
+        for note in review_javascript(
+            script_path.read_text(encoding="utf-8"), str(script_path.relative_to(REPOSITORY_ROOT))
+        ):
             print(f"Review note (non-blocking): {note}", file=sys.stderr)
     if errors:
         print("Site security or repository checks failed:", file=sys.stderr)

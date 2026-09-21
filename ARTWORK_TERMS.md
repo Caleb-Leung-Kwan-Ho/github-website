@@ -3,7 +3,7 @@
 You're welcome to share and reuse the 28 custom pixel-art PNGs in [`images/hobbies/decorations/`](images/hobbies/decorations/README.md). Just let Caleb know where they appear and give credit by following these two steps:
 
 1. **Email Caleb.** Notify [caleb.leungkwanho@gmail.com](mailto:caleb.leungkwanho@gmail.com) when you share or use the artwork. Include a link to where it appears, or a brief description if it is not online. This is a notification; you do not need to wait for a reply.
-2. **Give clear credit.** Credit **Caleb Leung** beside the artwork, in its caption, or in a clearly identified credits section. For online use, include a link to [Caleb’s Personal Hobbies Website](https://caleb-leung-kwan-ho.github.io/github-website/#hobby-top).
+2. **Give clear credit.** Credit **Caleb Leung** beside the artwork, in its caption, or in a clearly identified credits section. For online use, include a link to [Caleb’s Personal Hobbies Website](https://caleb-leung-kwan-ho.github.io/#hobby-top).
 
 Suggested credit: “Pixel artwork from Caleb Leung’s Personal Hobbies Website,” with the website name linked to the page above.
 

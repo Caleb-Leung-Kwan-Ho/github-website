@@ -1,0 +1,5 @@
+# This public portfolio allows crawlers to access its single public page.
+User-agent: *
+Allow: /
+
+Sitemap: https://caleb-leung-kwan-ho.github.io/sitemap.xml

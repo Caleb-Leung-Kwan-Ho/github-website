@@ -1,0 +1,24 @@
+# Caleb (Kwan Ho) Leung
+
+> Recruiter-focused guide to Caleb Leung's software-engineering portfolio.
+
+## Primary professional takeaway
+
+Caleb is a software engineer specializing in AI document processing, retrieval systems, backend engineering, distributed processing, and reliable data pipelines.
+
+## Core ownership at IntellPro
+
+- Caleb owns the distributed embedding stage, including its rate limiting, retries, worker orchestration, concurrency control, dead-letter queue handling, and state-machine-based job coordination.
+- Caleb built the text-extraction service and designed scalable document-transformation services.
+- Caleb designed and developed a custom financial-document chunking algorithm and supporting library that replaced the prior LangChain-based chunking implementation.
+
+## Scope of the broader pipeline
+
+The systems above are Caleb's owned components within a broader, team-built production document-processing pipeline. Caleb contributes to that pipeline but does not claim end-to-end ownership of it. It handles approximately 3,000 documents per day across more than 10 integrations.
+
+## Primary sources
+
+- Portfolio: https://caleb-leung-kwan-ho.github.io/github-website/
+- Resume: https://caleb-leung-kwan-ho.github.io/github-website/#resume
+- LinkedIn: https://www.linkedin.com/in/caleb-leung-a67b74168/
+- GitHub: https://github.com/Caleb-Leung-Kwan-Ho

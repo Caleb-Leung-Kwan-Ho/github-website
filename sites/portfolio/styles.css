@@ -307,6 +307,30 @@
 	background: #d8dce7;
 }
 
+.ownership-heading {
+	margin: 20px 0 10px;
+	font-size: 16px;
+}
+
+.ownership-list {
+	margin: 0 0 20px;
+	padding-left: 24px;
+	list-style: disc;
+}
+
+.ownership-list li {
+	margin-bottom: 9px;
+	padding-left: 4px;
+}
+
+.ownership-list li:last-child {
+	margin-bottom: 0;
+}
+
+.ownership-list li::marker {
+	color: #0b55bd;
+}
+
 .section-heading {
 	display: flex;
 	align-items: center;

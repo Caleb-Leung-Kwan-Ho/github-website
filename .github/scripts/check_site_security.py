@@ -324,7 +324,7 @@ class SiteHTMLAudit(HTMLParser):
             if value:
                 self._check_resource_url(tag, attribute, value)
 
-        if tag == "link" and attributes.get("href") and not self._is_canonical_metadata_link(attributes):
+        if tag == "link" and attributes.get("href"):
             self._check_resource_url(tag, "href", attributes["href"])
 
     def handle_startendtag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
@@ -349,16 +349,10 @@ class SiteHTMLAudit(HTMLParser):
     @staticmethod
     def _is_controlled_resource(tag: str, attributes: dict[str, str]) -> bool:
         if tag == "link":
-            return bool(attributes.get("href")) and not SiteHTMLAudit._is_canonical_metadata_link(attributes)
+            return bool(attributes.get("href"))
         return tag in SiteHTMLAudit._RESOURCE_ATTRIBUTES and any(
             attributes.get(name) for name in SiteHTMLAudit._RESOURCE_ATTRIBUTES[tag]
         )
-
-    @staticmethod
-    def _is_canonical_metadata_link(attributes: dict[str, str]) -> bool:
-        """Recognize the exact non-fetching canonical-link form used by the site."""
-
-        return attributes.get("rel", "").lower().split() == ["canonical"]
 
     def _check_resource_url(self, tag: str, attribute: str, value: str) -> None:
         candidates = [value]

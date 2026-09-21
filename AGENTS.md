@@ -32,6 +32,8 @@ Extract a shared class when multiple elements genuinely share a repeated concept
 
 For CSS or layout-related HTML work, use the [maintain-site-css skill](.agents/skills/maintain-site-css/SKILL.md) for selector tracing and focused visual checks. The rules in this file remain the source of truth for repository conventions.
 
+Do not add or modify CSS, inline styles, or styling-related markup unless the user explicitly requests a visual or styling change. Content, metadata, crawler, and SEO work must preserve the existing presentation and must not introduce styling-only classes.
+
 Put styling in the owning desktop or site stylesheet, not inline in HTML and not in the unlinked root `style.css`. Preserve the `main.css` then `one-page.css` load order and the manifest's import order.
 
 Keep selectors limited to the component or site they belong to. Moving CSS into another file does not isolate it. Shared window controls belong to the desktop; reuse the existing CSS variables for repeated visual values.

@@ -162,21 +162,6 @@ class CSPTests(unittest.TestCase):
 
 
 class HTMLResourceTests(unittest.TestCase):
-    def test_external_canonical_link_is_metadata_not_a_resource(self) -> None:
-        document = valid_html().replace(
-            "</head>",
-            '<link rel="canonical" href="https://example.com/">\n</head>',
-        )
-        self.assertEqual(checker.audit_html(document).errors, [])
-
-    def test_canonical_rel_cannot_bypass_resource_check(self) -> None:
-        document = valid_html().replace(
-            "</head>",
-            '<link rel="canonical stylesheet" href="https://example.com/">\n</head>',
-        )
-        errors = checker.audit_html(document).errors
-        self.assertTrue(any("unapproved origin https://example.com" in error for error in errors))
-
     def test_remote_script_fails(self) -> None:
         document = valid_html().replace(
             '<script type="module" src="assets/js/main.js"></script>',

@@ -11,13 +11,10 @@ A Windows XP-style desktop containing an engineering portfolio and Personal Hobb
 | Desktop and window appearance | [`desktop/styles.css`](desktop/styles.css) |
 | Portfolio content, appearance, and behavior | [`sites/portfolio/`](sites/portfolio/) |
 | Hobbies content, appearance, behavior, and translations | [`sites/hobbies/`](sites/hobbies/) |
-| Recruiter/search metadata and crawler guidance | `desktop/page.html`, [`robots.txt`](robots.txt), [`sitemap.xml`](sitemap.xml), and [`llms.txt`](llms.txt) |
 | Connect the two sites to the desktop | [`assets/js/main.js`](assets/js/main.js) |
 | Images and artwork sources | [`images/`](images/) |
 
 Each site has `content.html`, `styles.css`, and `site.js`. Hobbies also has `translations.js`; English is authored in its HTML. **Edit these source files, not the generated root `index.html`.** The content files are fragments used by the build, not separate public webpages.
-
-Keep the visible recruiter summary, the page metadata, and `llms.txt` aligned. The visible page remains the primary source for search engines; `llms.txt` is a voluntary guide for cooperative AI tools.
 
 ## Build and preview
 

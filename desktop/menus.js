@@ -7,7 +7,7 @@ export function updateWindowMenu(windowElement) {
 	windowElement.querySelectorAll('[data-menu-action="maximize"]').forEach(function (button) {
 		button.textContent = maximized ? 'Restore window' : 'Maximize window';
 	});
-	windowElement.querySelectorAll('[data-menu-action="move"]').forEach(function (button) {
+	windowElement.querySelectorAll('[data-menu-action="move"], [data-menu-action="resize"]').forEach(function (button) {
 		button.disabled = maximized;
 	});
 }
@@ -86,9 +86,11 @@ export function setupWindowMenus(sites, desktop, navigation) {
 			} else if (action === 'reset-position') {
 				if (windowElement.classList.contains('is-maximized')) { desktop.toggleMaximize(windowElement, maximizeButton); }
 				desktop.dragging.reset(windowElement);
-				announceWindow(windowElement, 'Window position reset.');
+				announceWindow(windowElement, 'Window size and position reset.');
 			} else if (action === 'move') {
 				desktop.dragging.startKeyboardMove(windowElement, button.closest('.window-menu').querySelector('summary'));
+			} else if (action === 'resize') {
+				desktop.dragging.startKeyboardResize(windowElement, button.closest('.window-menu').querySelector('summary'));
 			} else if (action === 'copy-email') {
 				copyWindowText(windowElement, 'caleb.leungkwanho@gmail.com');
 			} else if (action === 'copy-link') {

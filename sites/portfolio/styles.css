@@ -225,7 +225,7 @@
 	max-width: none;
 	min-height: 62%;
 	margin: 0;
-	padding: 36px clamp(28px, 5vw, 58px) 42px;
+	padding: 36px clamp(28px, 5cqw, 58px) 42px;
 	border-bottom: 1px solid #d8ddea;
 	border-radius: 0;
 	background: #fff;
@@ -285,13 +285,13 @@
 }
 
 .profile-hero h2 {
-	font-size: clamp(25px, 3vw, 38px);
+	font-size: clamp(25px, 3cqw, 38px);
 }
 
 .hero-role {
 	margin: 5px 0 2px;
 	color: #454d69;
-	font-size: clamp(16px, 2vw, 21px);
+	font-size: clamp(16px, 2cqw, 21px);
 	font-weight: 700;
 }
 
@@ -315,7 +315,7 @@
 }
 
 .section-heading h2 {
-	font-size: clamp(24px, 3vw, 34px);
+	font-size: clamp(24px, 3cqw, 34px);
 }
 
 .heading-folder {
@@ -678,7 +678,8 @@
 	margin: 0;
 }
 
-@media (max-width: 980px) {
+/* Follow the desktop window's available width as its edges are resized. */
+@container site-window (max-width: 980px) {
 	#back-button > span:last-child,
 	#forward-button > span:last-child {
 		display: none;
@@ -699,7 +700,7 @@
 	}
 }
 
-@media (max-width: 736px) {
+@container site-window (max-width: 736px) {
 	.explorer-toolbar {
 		min-height: 46px;
 		padding: 4px 7px;
@@ -783,7 +784,7 @@
 	}
 }
 
-@media (max-width: 480px) {
+@container site-window (max-width: 480px) {
 	.explorer-toolbar {
 		gap: 3px;
 	}

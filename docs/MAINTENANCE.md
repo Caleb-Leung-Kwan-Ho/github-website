@@ -14,7 +14,7 @@ Visitors receive that complete HTML immediately. The browser never fetches HTML 
 
 ## Who owns what
 
-- **Desktop:** window movement, focus, minimize/maximize/close, Start, taskbar, and common menu behavior. Window labels and menu entries are declared in `desktop/page.html`.
+- **Desktop:** window movement and resizing, focus, minimize/maximize/close, Start, taskbar, and common menu behavior. Window labels and menu entries are declared in `desktop/page.html`.
 - **Navigation:** shareable fragments and browser history. It finds the site that owns a destination and asks that site to navigate there.
 - **Portfolio:** section navigation, the address label, its Back/Forward buttons, and professional content.
 - **Hobbies:** its internal scrolling, language choices, translations, and decorative layout.
@@ -65,7 +65,7 @@ python3 .github/scripts/check_javascript.py
 git diff --check
 ```
 
-For appearance or behavior changes, preview at desktop and phone widths. Check the affected links, keyboard access, Back/Forward, language switching, and window controls. The existing mobile drag behavior lets a window slide down while keeping its title bar reachable; maximize/reset or reopening a minimized window restores a fitted layout.
+For appearance or behavior changes, preview at desktop and phone widths. Check the affected links, keyboard access, Back/Forward, language switching, and window controls. Restored windows resize from any edge or corner, or through View → Resize window with the arrow keys (Shift for larger steps, Enter to save, Escape to cancel). Each site uses the shared `site-window` CSS container so its layout follows the window width. Maximize/restore preserves the chosen size; View → Reset size and position or a browser viewport change restores the fitted layout. The existing mobile drag behavior lets a window slide down while keeping its title bar reachable; maximize/reset or reopening a minimized window restores a fitted layout.
 
 The GitHub workflow validates the committed source and output. It does not publish the site or configure branch protection. Security checks enforce local modules and the existing external-resource policy; JavaScript advisories still require human review.
 

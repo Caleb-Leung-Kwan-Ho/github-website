@@ -209,6 +209,7 @@ b {
 
 .os-window {
 	position: absolute;
+	container: site-window / inline-size;
 	z-index: 4;
 	display: flex;
 	min-width: 360px;
@@ -258,6 +259,68 @@ b {
 	bottom: auto;
 	left: var(--window-x);
 	transform: none;
+}
+
+.os-window.is-positioned.is-resized:not(.is-maximized) {
+	width: var(--window-width);
+	height: var(--window-height);
+	min-width: 0;
+	min-height: 0;
+}
+
+.window-resize-handle {
+	position: absolute;
+	z-index: 30;
+	touch-action: none;
+	user-select: none;
+}
+
+.os-window.is-maximized .window-resize-handle {
+	display: none;
+}
+
+.window-resize-handle[data-resize-direction="n"],
+.window-resize-handle[data-resize-direction="s"] {
+	right: 12px;
+	left: 12px;
+	height: 6px;
+	cursor: ns-resize;
+}
+
+.window-resize-handle[data-resize-direction="e"],
+.window-resize-handle[data-resize-direction="w"] {
+	top: 12px;
+	bottom: 12px;
+	width: 6px;
+	cursor: ew-resize;
+}
+
+.window-resize-handle[data-resize-direction="ne"],
+.window-resize-handle[data-resize-direction="sw"],
+.window-resize-handle[data-resize-direction="nw"],
+.window-resize-handle[data-resize-direction="se"] {
+	width: 12px;
+	height: 12px;
+	cursor: nwse-resize;
+}
+
+.window-resize-handle[data-resize-direction="ne"],
+.window-resize-handle[data-resize-direction="sw"] {
+	cursor: nesw-resize;
+}
+
+.window-resize-handle[data-resize-direction*="n"] { top: 0; }
+.window-resize-handle[data-resize-direction*="e"] { right: 0; }
+.window-resize-handle[data-resize-direction*="s"] { bottom: 0; }
+.window-resize-handle[data-resize-direction*="w"] { left: 0; }
+
+.window-resize-handle[data-resize-direction="se"] {
+	background: repeating-linear-gradient(135deg, transparent 0 3px, #7f9db9 3px 4px);
+	clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+.os-window.is-resizing {
+	user-select: none;
 }
 
 .os-window:not(.is-maximized) .window-titlebar {
@@ -413,6 +476,10 @@ b {
 	box-shadow: 3px 4px 7px rgba(24, 41, 63, 0.28);
 	color: #161925;
 	scrollbar-width: thin;
+}
+
+.os-window.is-resized:not(.is-maximized) .window-menu-panel {
+	max-height: min(340px, max(60px, calc(var(--window-height) - 110px)));
 }
 
 .window-menu-panel > a,
@@ -865,7 +932,7 @@ b {
 	}
 }
 
-@media (max-width: 480px) {
+@container site-window (max-width: 480px) {
 	.window-title h1,
 	.window-title h2 {
 		font-size: 12px;
@@ -885,7 +952,9 @@ b {
 	.window-menu-status {
 		flex-basis: 100%;
 	}
+}
 
+@media (max-width: 480px) {
 	.start-menu {
 		width: min(330px, calc(100vw - 8px));
 	}

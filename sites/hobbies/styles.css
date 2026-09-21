@@ -113,7 +113,7 @@
 
 .hobby-brand h2 {
 	font-family: "Menlo", "Consolas", monospace;
-	font-size: clamp(27px, 3.1vw, 43px);
+	font-size: clamp(27px, 3.1cqw, 43px);
 	font-weight: 900;
 	letter-spacing: -1.4px;
 	line-height: 1.02;
@@ -678,7 +678,8 @@
 	text-align: center;
 }
 
-@media (max-width: 980px) {
+/* Follow the desktop window's available width as its edges are resized. */
+@container site-window (max-width: 980px) {
 	.hobbies-window-body { padding: 12px; }
 	.hobby-layout { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; gap: 10px; }
 	.hobby-sidebar, .hobbies-site .hobby-desktop-garden { display: none; }
@@ -714,12 +715,12 @@
 	.hobby-mobile-garden { position: absolute; display: block !important; width: 160px; height: auto; right: 0; bottom: 0; }
 }
 
-@media (max-width: 736px) {
+@container site-window (max-width: 736px) {
 	.hobbies-window-body { padding: 8px; }
 	.hobbies-site { font-size: 13px; }
 	.hobby-masthead { min-height: 145px; gap: 8px; padding: 16px 12px 30px; }
 	.hobby-computer { width: 90px; height: 90px; flex-basis: 90px; }
-	.hobby-brand h2 { font-size: clamp(21px, 4vw, 30px); letter-spacing: -1px; }
+	.hobby-brand h2 { font-size: clamp(21px, 4cqw, 30px); letter-spacing: -1px; }
 	.hobby-brand p { max-width: 310px; font-size: 11px; }
 	.hobby-branch-right { width: 130px; }
 	.hobby-branch-left { width: 66px; }
@@ -740,11 +741,11 @@
 	.hobby-footer-flowers, .hobby-mobile-garden { width: 145px; }
 }
 
-@media (max-width: 480px) {
+@container site-window (max-width: 480px) {
 	.hobbies-window-body { padding: 5px; }
 	.hobby-masthead { min-height: 180px; padding: 20px 8px 28px; gap: 3px; }
 	.hobby-computer { width: 66px; height: 80px; flex-basis: 66px; }
-	.hobby-brand h2 { font-size: clamp(17px, 5vw, 23px); letter-spacing: -0.8px; }
+	.hobby-brand h2 { font-size: clamp(17px, 5cqw, 23px); letter-spacing: -0.8px; }
 	.hobby-brand p { max-width: 220px; margin-top: 5px; font-size: 10px; }
 	.hobby-branch-right { width: 90px; }
 	.hobby-branch-left { width: 50px; }

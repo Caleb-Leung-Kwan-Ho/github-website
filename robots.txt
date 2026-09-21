@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://caleb-leung-kwan-ho.github.io/github-website/sitemap.xml
+Sitemap: https://caleb-leung-kwan-ho.github.io/sitemap.xml

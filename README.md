@@ -2,6 +2,8 @@
 
 A Windows XP-style desktop containing an engineering portfolio and Personal Hobbies, with DVD Project Lab preserved but temporarily disabled. Built with static HTML, CSS, and browser-native JavaScript modules. No framework, package installation, or backend.
 
+The portfolio opens in Work, with an Explorer-style case-study list and an Overview / Engineering details preview. Folder links change the content in the same window; the identity header and Resume / Contact actions stay above each view. The complete content remains readable without JavaScript. Resume shortcuts use the shared local `images/resume-pdf.svg` artwork.
+
 ## Where to edit
 
 | Change | File or folder |

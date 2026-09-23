@@ -18,7 +18,7 @@ Visitors receive that complete HTML immediately. The browser never fetches HTML 
 
 - **Desktop:** window movement and resizing, focus, minimize/maximize/close, Start, taskbar, and common menu behavior. Window labels and menu entries are declared in `desktop/page.html`.
 - **Navigation:** shareable fragments and browser history. It finds the site that owns a destination and asks that site to navigate there.
-- **Portfolio:** section navigation, the address label, its Back/Forward buttons, and professional content.
+- **Portfolio:** folder views, the Work case-study preview, the address label, its Back/Forward buttons, and professional content. Work is the default view; the identity header remains above every view. The local module hides inactive `.profile-section` elements only after enhancement, preserving the full readable document without JavaScript. Keep each section's ID, heading, and sidebar link aligned; `data-section-name` supplies its location label, and optional `data-item-count` supplies a real collection count. The Work preview's Overview / Engineering details tabs are also enhanced locally, with both panels readable without JavaScript.
 - **Hobbies:** its internal scrolling, language choices, translations, and decorative layout.
 - **Project Lab:** the DVD animation, expandable project workspace, catalogue filtering, selection, roadmaps, and updates.
 - **My Websites / My folder:** the portfolio owns the `#websites` section and its launcher. `sites/my-folder/` owns the folder-location sidebar, `websites.json` shortcut list, shared `shortcut.html` template, grid, scoped styles, and directory behavior. It uses the existing window/navigation callbacks, with window ID `websites` and destination `#my-folder`; its frame remains in `desktop/page.html`, like the other windows. Portfolio is a parent folder location and is not listed as a website file. The old `#hobbies` destination remains an alias for `#websites`.
@@ -67,7 +67,7 @@ For each future website, follow these steps:
    | --- | --- |
    | `id`, `element`, `homeId` | Match the window's `data-window`, reference its element, and identify its home destination. |
    | `acceptsTarget(target)` | Recognize destinations belonging to this site; return false for `null` or another site's content. |
-   | `navigate(target)` | Scroll the site's content pane to a destination without moving the desktop. |
+   | `navigate(target)` | Reveal the destination in the site's content pane without moving the desktop. Portfolio switches folder views; other sites may scroll to a section. |
    | `getLinkId()` | Supply the destination for the shared Copy link menu, if included. |
    | Optional callbacks | `focus()` chooses a focus target (otherwise the window element must be focusable); `initialize(navigation, desktop)` connects site-specific behavior; `selectLanguage()` supports language menus. |
 

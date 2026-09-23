@@ -833,6 +833,14 @@ b {
 	text-align: center;
 }
 
+.start-menu-content .start-shortcut-image {
+	display: block;
+	width: 31px;
+	height: 31px;
+	flex: 0 0 31px;
+	object-fit: contain;
+}
+
 .start-menu-content a:hover .icon,
 .start-menu-content button:hover .icon,
 .start-menu-content a:focus-visible .icon,

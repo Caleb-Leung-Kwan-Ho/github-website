@@ -33,6 +33,8 @@ Apply **open for extension, closed for modification** through these ownership bo
 
 Small integration edits are expected: window and launch markup, factory registration, stylesheet imports, the no-JavaScript fallback, the exact security allowlist, documentation, and rebuilt HTML. The extension steps below identify these points. When a genuinely shared requirement needs a shared interface change, explain why and validate the affected existing sites. Avoid speculative abstractions or unrelated refactoring.
 
+Consider **build-time rendering** when a collection will gain entries regularly, such as a growing list of posts: keep each entry as data and let one shared template produce consistent HTML during `scripts/build_site.py`. This avoids copying list-item markup and drifting details. Keep small and stable or one-off content in `content.html`; add a renderer only when expected growth justifies its code. Keep its data and template with the owning site, and use the existing standard-library build with validation and HTML escaping. My folder and Project Lab are current examples.
+
 Visitor navigation must grow alongside the folders:
 
 - Keep every site discoverable through an overview or navigation list. **My Websites → My folder** opens a grid of website shortcuts, with entry points in the desktop and Start menu. Keep individual files in the grid and folder locations in the directory sidebar.

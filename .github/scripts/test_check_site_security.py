@@ -259,6 +259,22 @@ class JavaScriptModuleTests(unittest.TestCase):
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(source, encoding="utf-8")
 
+    def test_my_folder_module_requires_its_exact_approved_directory(self) -> None:
+        for site, approved in (("my-folder", True), ("my-folder-extra", False)):
+            with self.subTest(site=site), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory).resolve()
+                module = f"sites/{site}/site.js"
+                self.write_modules(root, {
+                    "assets/js/main.js": f"import '../../{module}';\n",
+                    module: "export function createWebsiteFolder() {}\n",
+                })
+                modules, errors = checker.javascript_modules(root)
+                if approved:
+                    self.assertEqual(errors, [])
+                    self.assertIn(root / module, modules)
+                else:
+                    self.assertTrue(any("unapproved" in error for error in errors))
+
     def test_project_site_helpers_are_audited_without_allowing_other_sites(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory).resolve()

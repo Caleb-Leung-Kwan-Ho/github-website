@@ -19,7 +19,7 @@
 		<meta name="twitter:card" content="summary" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!-- Keep this order: site-specific styles intentionally override the base theme. -->
-		<link rel="stylesheet" href="assets/css/one-page.css?v=20260923-project-lab" />
+		<link rel="stylesheet" href="assets/css/one-page.css?v=20260923-my-folder" />
 		<link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
@@ -107,6 +107,21 @@
 				</div>
 
 				<!-- include: sites/portfolio/content.html -->
+			</section>
+
+			<section class="os-window website-folder-window" data-window="websites" role="dialog" aria-modal="false" aria-labelledby="website-folder-title" tabindex="-1" hidden>
+				<header class="window-titlebar" data-titlebar>
+					<div class="window-title"><span class="titlebar-folder folder-icon" aria-hidden="true"></span><h2 id="website-folder-title">My folder</h2></div>
+					<div class="window-controls" aria-label="My folder window controls"><button type="button" data-window-action="minimize" aria-label="Minimize My folder window"><span aria-hidden="true">—</span></button><button type="button" data-window-action="maximize" aria-label="Maximize My folder window"><span aria-hidden="true">□</span></button><button class="close-control" type="button" data-window-action="close" aria-label="Close My folder window"><span aria-hidden="true">×</span></button></div>
+				</header>
+				<div class="window-menubar">
+					<details class="window-menu"><summary>File</summary><div class="window-menu-panel"><a href="#websites">Open parent folder</a><button type="button" data-window-action="close">Close window</button></div></details>
+					<details class="window-menu"><summary>Edit</summary><div class="window-menu-panel"><button type="button" data-menu-action="copy-link">Copy folder link</button></div></details>
+					<details class="window-menu"><summary>View</summary><div class="window-menu-panel"><button type="button" data-menu-action="maximize">Maximize window</button><button type="button" data-menu-action="move">Move window</button><button type="button" data-menu-action="resize">Resize window</button><button type="button" data-menu-action="reset-position">Reset size and position</button></div></details>
+					<details class="window-menu"><summary>Help</summary><div class="window-menu-panel window-help-panel"><p>Choose a website shortcut to open it. Use Tab and Enter with a keyboard, or click or tap once.</p><p>Use Up to return to My Websites. Drag the title bar or resize the window, just like the other desktop windows.</p></div></details>
+					<span class="window-menu-status" role="status" aria-live="polite"></span>
+				</div>
+				<!-- include: sites/my-folder/content.html -->
 			</section>
 
 			<section class="os-window hobbies-window" data-window="hobbies" role="dialog" aria-modal="false" aria-labelledby="hobbies-window-title" tabindex="-1" hidden>
@@ -236,6 +251,7 @@
 				<button id="start-button" class="start-button" type="button" aria-expanded="false" aria-controls="start-menu"><span>Start</span></button>
 				<div class="task-buttons" aria-label="Open windows">
 					<button class="task-button is-active" type="button" data-task-window="portfolio" aria-pressed="true"><span class="folder-icon" aria-hidden="true"></span><span>Caleb Leung — Portfolio</span></button>
+					<button class="task-button" type="button" data-task-window="websites" aria-pressed="false" hidden><span class="folder-icon" aria-hidden="true"></span><span>My folder</span></button>
 					<button class="task-button" type="button" data-task-window="hobbies" aria-pressed="false" hidden><span class="icon solid fa-gamepad" aria-hidden="true"></span><span>Personal Hobbies</span></button>
 					<!-- project-lab:start -->
 					<button class="task-button" type="button" data-task-window="projects" aria-pressed="false" hidden><span class="icon solid fa-compact-disc" aria-hidden="true"></span><span>DVD Project Lab</span></button>

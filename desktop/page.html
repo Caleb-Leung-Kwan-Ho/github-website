@@ -19,7 +19,7 @@
 		<meta name="twitter:card" content="summary" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!-- Keep this order: site-specific styles intentionally override the base theme. -->
-		<link rel="stylesheet" href="assets/css/one-page.css?v=20260920-modules" />
+		<link rel="stylesheet" href="assets/css/one-page.css?v=20260923-project-lab" />
 		<link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
@@ -42,10 +42,10 @@
 					<span class="shortcut-icon document-icon icon solid fa-file-alt" aria-hidden="true"></span>
 					<span>Resume</span>
 				</a>
-				<button class="desktop-shortcut" type="button" data-open-window="hobbies">
-					<span class="shortcut-icon icon solid fa-gamepad" aria-hidden="true"></span>
-					<span>Personal Hobbies</span>
-				</button>
+				<a class="desktop-shortcut" href="#websites" data-open-portfolio>
+					<span class="shortcut-icon icon solid fa-folder-open" aria-hidden="true"></span>
+					<span>My Websites</span>
+				</a>
 				<a class="desktop-shortcut" href="#projects" data-open-portfolio>
 					<span class="shortcut-icon document-icon icon solid fa-book-open" aria-hidden="true"></span>
 					<span>Projects &amp; Research</span>
@@ -71,7 +71,7 @@
 						<div class="window-menu-panel">
 							<a href="#intro">Open Portfolio</a>
 							<a href="#projects">Open Projects &amp; Research</a>
-							<a href="#hobby-top">Open Personal Hobbies</a>
+							<a href="#websites">Open My Websites</a>
 							<button type="button" data-window-action="close">Close window</button>
 						</div>
 					</details>
@@ -98,7 +98,7 @@
 							<p>Caleb’s engineering portfolio. Explore my work, projects, resume, and skills.</p>
 							<p>Drag the title bar with a mouse or finger to move this window. Or choose View → Move window, use the arrow keys, then Enter to finish or Escape to cancel.</p>
 							<p>Drag any edge or corner to resize this window. Or choose View → Resize window and use the arrow keys, then Enter to finish or Escape to cancel.</p>
-							<p>On a phone, drag the window down to reveal the desktop. Maximize it or choose View → Reset size and position to bring the full page back. Show desktop minimizes both windows; tap a taskbar button to reopen one.</p>
+							<p>On a phone, drag the window down to reveal the desktop. Maximize it or choose View → Reset size and position to bring the full page back. Show desktop minimizes all windows; tap a taskbar button to reopen one.</p>
 							<p>Use Tab and Enter to browse menus. Escape dismisses an open menu.</p>
 							<a href="#contact">Contact Caleb</a>
 						</div>
@@ -120,7 +120,7 @@
 						<div class="window-menu-panel">
 							<a href="#intro">Open Portfolio</a>
 							<a href="#projects">Open Projects &amp; Research</a>
-							<a href="#hobby-top">Open Personal Hobbies</a>
+							<a href="#websites">Open My Websites</a>
 							<button type="button" data-window-action="close">Close window</button>
 						</div>
 					</details>
@@ -150,7 +150,7 @@
 							<p>A personal corner for anime, manga, games, training, and Hong Kong.</p>
 							<p>Drag the title bar with a mouse or finger to move this window. Or choose View → Move window, use the arrow keys, then Enter to finish or Escape to cancel.</p>
 							<p>Drag any edge or corner to resize this window. Or choose View → Resize window and use the arrow keys, then Enter to finish or Escape to cancel.</p>
-							<p>On a phone, drag the window down to reveal the desktop. Maximize it or choose View → Reset size and position to bring the full page back. Show desktop minimizes both windows; tap a taskbar button to reopen one.</p>
+							<p>On a phone, drag the window down to reveal the desktop. Maximize it or choose View → Reset size and position to bring the full page back. Show desktop minimizes all windows; tap a taskbar button to reopen one.</p>
 							<p>Use Tab and Enter to browse menus. Escape dismisses an open menu.</p>
 							<a href="#contact">Contact Caleb</a>
 						</div>
@@ -159,6 +159,55 @@
 				</div>
 				<!-- include: sites/hobbies/content.html -->
 			</section>
+
+			<!-- project-lab:start -->
+			<section class="os-window projects-window" data-window="projects" role="dialog" aria-modal="false" aria-labelledby="projects-window-title" tabindex="-1" hidden>
+				<header class="window-titlebar" data-titlebar>
+					<div class="window-title"><span class="titlebar-document icon solid fa-compact-disc" aria-hidden="true"></span><h2 id="projects-window-title">DVD Project Lab</h2></div>
+					<div class="window-controls" aria-label="Project Lab window controls"><button type="button" data-window-action="minimize" aria-label="Minimize Project Lab window"><span aria-hidden="true">—</span></button><button type="button" data-window-action="maximize" aria-label="Maximize Project Lab window"><span aria-hidden="true">□</span></button><button class="close-control" type="button" data-window-action="close" aria-label="Close Project Lab window"><span aria-hidden="true">×</span></button></div>
+				</header>
+				<div class="window-menubar">
+					<details class="window-menu">
+						<summary>File</summary>
+						<div class="window-menu-panel">
+							<a href="#intro">Open Portfolio</a>
+							<a href="#projects">Open Projects &amp; Research</a>
+							<a href="#websites">Open My Websites</a>
+							<button type="button" data-window-action="close">Close window</button>
+						</div>
+					</details>
+					<details class="window-menu">
+						<summary>Edit</summary>
+						<div class="window-menu-panel">
+							<button type="button" data-menu-action="copy-link">Copy page link</button>
+						</div>
+					</details>
+					<details class="window-menu">
+						<summary>View</summary>
+						<div class="window-menu-panel">
+							<button type="button" data-menu-action="maximize">Maximize window</button>
+							<button type="button" data-menu-action="move">Move window</button>
+							<button type="button" data-menu-action="resize">Resize window</button>
+							<button type="button" data-menu-action="reset-position">Reset size and position</button>
+							<button type="button" data-menu-action="top">Back to top</button>
+						</div>
+					</details>
+					<details class="window-menu">
+						<summary>Help</summary>
+						<div class="window-menu-panel window-help-panel">
+							<p>A place for side projects and experiments. Browse the library for progress notes and roadmaps, or pause and enjoy the screensaver.</p>
+							<p>Drag the title bar with a mouse or finger to move this window. Or choose View → Move window, use the arrow keys, then Enter to finish or Escape to cancel.</p>
+							<p>Drag any edge or corner to resize this window. Or choose View → Resize window and use the arrow keys, then Enter to finish or Escape to cancel.</p>
+							<p>On a phone, drag the window down to reveal the desktop. Maximize it or choose View → Reset size and position to bring the full page back. Show desktop minimizes all windows; tap a taskbar button to reopen one.</p>
+							<p>Use Tab and Enter to browse menus. Escape dismisses an open menu.</p>
+							<a href="#contact">Contact Caleb</a>
+						</div>
+					</details>
+					<span class="window-menu-status" role="status" aria-live="polite"></span>
+				</div>
+				<!-- include: sites/projects/content.html -->
+			</section>
+			<!-- project-lab:end -->
 
 
 			<div id="start-menu" class="start-menu" hidden>
@@ -170,7 +219,11 @@
 				</nav>
 				<nav id="start-programs" class="start-menu-content start-programs" aria-label="All Programs" hidden>
 					<a href="#projects" data-open-portfolio><span class="icon solid fa-book-open" aria-hidden="true"></span>Projects &amp; Research</a>
+					<a href="#websites" data-open-portfolio><span class="icon solid fa-folder-open" aria-hidden="true"></span>My Websites</a>
 					<button type="button" data-open-window="hobbies"><span class="icon solid fa-gamepad" aria-hidden="true"></span>Personal Hobbies</button>
+					<!-- project-lab:start -->
+					<button type="button" data-open-window="projects"><span class="icon solid fa-compact-disc" aria-hidden="true"></span>DVD Project Lab</button>
+					<!-- project-lab:end -->
 					<a href="https://github.com/Caleb-Leung-Kwan-Ho" target="_blank" rel="noopener noreferrer"><span class="icon brands fa-github" aria-hidden="true"></span>GitHub</a>
 					<a href="mailto:caleb.leungkwanho@gmail.com"><span class="icon solid fa-envelope" aria-hidden="true"></span>Email Me</a>
 					<button type="button" data-show-desktop><span class="icon solid fa-desktop" aria-hidden="true"></span>Show desktop</button>
@@ -181,7 +234,13 @@
 
 			<footer class="taskbar">
 				<button id="start-button" class="start-button" type="button" aria-expanded="false" aria-controls="start-menu"><span>Start</span></button>
-				<div class="task-buttons" aria-label="Open windows"><button class="task-button is-active" type="button" data-task-window="portfolio" aria-pressed="true"><span class="folder-icon" aria-hidden="true"></span><span>Caleb Leung — Portfolio</span></button><button class="task-button" type="button" data-task-window="hobbies" aria-pressed="false" hidden><span class="icon solid fa-gamepad" aria-hidden="true"></span><span>Personal Hobbies</span></button></div>
+				<div class="task-buttons" aria-label="Open windows">
+					<button class="task-button is-active" type="button" data-task-window="portfolio" aria-pressed="true"><span class="folder-icon" aria-hidden="true"></span><span>Caleb Leung — Portfolio</span></button>
+					<button class="task-button" type="button" data-task-window="hobbies" aria-pressed="false" hidden><span class="icon solid fa-gamepad" aria-hidden="true"></span><span>Personal Hobbies</span></button>
+					<!-- project-lab:start -->
+					<button class="task-button" type="button" data-task-window="projects" aria-pressed="false" hidden><span class="icon solid fa-compact-disc" aria-hidden="true"></span><span>DVD Project Lab</span></button>
+					<!-- project-lab:end -->
+				</div>
 				<button id="show-desktop-button" class="show-desktop-button" type="button" data-show-desktop aria-label="Show desktop" title="Show desktop"><span class="icon solid fa-desktop" aria-hidden="true"></span></button>
 				<time id="taskbar-clock">--:--</time>
 			</footer>

@@ -351,7 +351,7 @@
 
 .folder-grid {
 	display: grid;
-	/* Keep the four shortcuts in at most two columns, including in a maximized window. */
+	/* Folder collections add rows while keeping at most two readable columns. */
 	grid-template-columns: repeat(auto-fit, minmax(min(100%, max(240px, calc((100% - 12px) / 2))), 1fr));
 	gap: 12px;
 }

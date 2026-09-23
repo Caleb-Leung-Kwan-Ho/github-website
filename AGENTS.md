@@ -2,7 +2,7 @@
 
 ## Keep it simple
 
-This is a static, single-page personal website with a shared desktop and separately maintained portfolio and hobbies content. Keep the dependency-free HTML assembly and browser-native JavaScript modules simple. Prefer a focused edit over a framework, component runtime, state manager, or dependency.
+This is a static, single-page personal website with a shared desktop and separately maintained portfolio, hobbies, and Project Lab content. Keep the dependency-free HTML assembly and browser-native JavaScript modules simple. Prefer a focused edit over a framework, component runtime, state manager, or dependency.
 
 These are repository defaults, not prohibitions against necessary changes. If a request genuinely requires departing from them, explain the reason and tradeoff before making the change.
 
@@ -16,9 +16,9 @@ Preserve the meaning and scope of factual claims when editing copy. Base additio
 
 ## Work in the existing shapes
 
-- `desktop/page.html` owns the page shell and window markup. `sites/portfolio/content.html` and `sites/hobbies/content.html` own the existing site content. Run `python3 scripts/build_site.py` after HTML edits; commit the generated `index.html` with its sources rather than editing it directly.
-- `desktop/styles.css` and `sites/*/styles.css` own their respective styling. `assets/css/one-page.css` imports them in desktop, portfolio, hobbies order, after the compiled HTML5 UP theme in `assets/css/main.css`.
-- `assets/js/main.js` connects the two sites. `desktop/*.js` owns common windows, menus, dragging, and navigation; each `sites/*/site.js` owns its content behavior. Hobbies translations live in `sites/hobbies/translations.js`.
+- `desktop/page.html` owns the page shell and window markup. `sites/*/content.html` owns each site’s content; Project Lab also uses `sites/projects/projects.json` for its build-time catalogue. Run `python3 scripts/build_site.py` after HTML edits; commit the generated `index.html` with its sources rather than editing it directly.
+- `desktop/styles.css` and `sites/*/styles.css` own their respective styling. `assets/css/one-page.css` imports them in desktop, portfolio, hobbies, projects order, after the compiled HTML5 UP theme in `assets/css/main.css`.
+- `assets/js/main.js` connects the sites. `desktop/*.js` owns common windows, menus, dragging, and navigation; each `sites/*/site.js` owns its content behavior. Hobbies translations live in `sites/hobbies/translations.js`.
 - `assets/sass/` remains the source for the baseline theme CSS. See `README.md` and `docs/MAINTENANCE.md` for the concise file map and workflow.
 - Use `images/` for local visual assets. Keep `LICENSE.txt` and the theme attribution comments intact.
 
@@ -27,6 +27,14 @@ For a new portfolio section, follow the existing `profile-section` pattern: give
 Reuse an existing class when the new element represents the same component, layout pattern, or behavior. Create a new descriptive class when an element has a distinct styling role; section-specific classes are acceptable when they keep the code understandable.
 
 Extract a shared class when multiple elements genuinely share a repeated concept. Do not force unrelated elements to share a class merely because their current styles happen to be similar. Avoid unnecessary wrappers and isolated utility classes that do not belong to an intentional utility system.
+
+## Design for growth
+
+The website collection will continue to grow. Put every future website in its own `sites/<name>/` folder with `content.html`, `styles.css`, `site.js`, and any site-specific helper modules. Follow the extension workflow in `docs/MAINTENANCE.md`.
+
+Apply open for extension, closed for modification: keep new site behavior in its own folder and reuse the shared site callbacks and desktop controls. Limit edits to existing code to the documented integration points and genuinely shared requirements. Adding a site should not require changes to unrelated sites or site-specific branches in shared desktop logic. Explain necessary shared interface changes and validate the affected existing behavior; avoid speculative abstractions.
+
+When implementing or reviewing visitor navigation, account for a growing number of sites, lists, items, and folders. Keep sites discoverable, shortcuts selective, and lists usable beyond today's item count, including keyboard access and narrow layouts. The My Websites directory is the portfolio’s overview of personal sites; add an entry there when adding a website. Keep professional project selection curated separately from casual project updates and website discovery. These principles guide authorized changes; they do not authorize an unrelated UI redesign.
 
 ## CSS and responsive behavior
 

@@ -3,9 +3,10 @@ import { createNavigation } from '../../desktop/navigation.js';
 import { setupWindowMenus } from '../../desktop/menus.js';
 import { createPortfolioSite } from '../../sites/portfolio/site.js';
 import { createHobbiesSite } from '../../sites/hobbies/site.js';
+import { createProjectsSite } from '../../sites/projects/site.js';
 
 // The first site is the desktop's default destination. Each site owns its content behavior.
-var sites = [createPortfolioSite(), createHobbiesSite()];
+var sites = [createPortfolioSite(), createHobbiesSite(), createProjectsSite()].filter(Boolean);
 var desktop = createDesktop(sites);
 var navigation = createNavigation(sites, desktop);
 

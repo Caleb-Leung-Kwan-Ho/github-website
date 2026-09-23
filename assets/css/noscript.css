@@ -52,8 +52,9 @@
 		min-height: 0;
 	}
 
-	/* Keep the hobbies document readable without simulated-window behavior. */
-	.hobbies-window[hidden] {
+	/* Keep every auxiliary document readable without simulated-window behavior. */
+	.hobbies-window[hidden],
+	.projects-window[hidden] {
 		position: relative;
 		display: flex !important;
 		top: auto;

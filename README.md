@@ -1,6 +1,6 @@
 # Caleb’s website
 
-A Windows XP-style desktop containing an engineering portfolio and Personal Hobbies. Built with static HTML, CSS, and browser-native JavaScript modules. No framework, package installation, or backend.
+A Windows XP-style desktop containing an engineering portfolio and Personal Hobbies, with DVD Project Lab preserved but temporarily disabled. Built with static HTML, CSS, and browser-native JavaScript modules. No framework, package installation, or backend.
 
 ## Where to edit
 
@@ -11,10 +11,19 @@ A Windows XP-style desktop containing an engineering portfolio and Personal Hobb
 | Desktop and window appearance | [`desktop/styles.css`](desktop/styles.css) |
 | Portfolio content, appearance, and behavior | [`sites/portfolio/`](sites/portfolio/) |
 | Hobbies content, appearance, behavior, and translations | [`sites/hobbies/`](sites/hobbies/) |
-| Connect the two sites to the desktop | [`assets/js/main.js`](assets/js/main.js) |
+| Project Lab content, appearance, behavior, and catalogue | [`sites/projects/`](sites/projects/) |
+| Connect sites to the desktop | [`assets/js/main.js`](assets/js/main.js) |
 | Images and artwork sources | [`images/`](images/) |
 
-Each site has `content.html`, `styles.css`, and `site.js`. Hobbies also has `translations.js`; English is authored in its HTML. **Edit these source files, not the generated root `index.html`.** The content files are fragments used by the build, not separate public webpages.
+Each site has `content.html`, `styles.css`, and `site.js`. Hobbies also has `translations.js`; English is authored in its HTML. Project Lab keeps its project copy in `projects.json`, rendered into HTML during the build. **Edit these source files, not the generated root `index.html`.** The content files are fragments used by the build, not separate public webpages.
+
+## Growing the collection
+
+The collection of websites will continue to grow. Every future website belongs in its own `sites/<name>/` folder, with its content, styles, and site-specific JavaScript kept together. The shared desktop provides window controls and navigation.
+
+The design goal is **open for extension, closed for modification**: add a site's implementation in its own folder, reuse the shared interfaces, and keep changes to existing code limited to the necessary integration points. This keeps additions easy to review and reduces the risk of breaking existing sites. See the [site extension workflow](docs/MAINTENANCE.md#adding-a-mini-site-later).
+
+Visitor navigation must also accommodate growth. Directories, menus, lists, and folder views should stay usable as entries increase. The **My Websites** directory in the portfolio provides an overview and links to each personal site's window. Reach it from the desktop, portfolio sidebar, or Start menu; add a directory entry when adding a website. This visitor-facing organization is separate from where the site files live.
 
 ## Build and preview
 
@@ -27,7 +36,9 @@ python3 -m http.server 8000
 
 Open [localhost:8000](http://localhost:8000). Stop the server with `Ctrl-C`. After an HTML edit, rebuild and refresh; CSS and JavaScript edits only need a refresh. Use the local server rather than opening HTML directly from disk.
 
-The build only combines local HTML files. It does not download anything or change the site’s content. Commit the regenerated `index.html` alongside source changes so the published copy stays current; CI checks this without changing deployment settings.
+The build combines local HTML files and, when enabled, renders the Project Lab catalogue from local JSON. It does not download anything or change the authored content. Commit the regenerated `index.html` alongside source changes so the published copy stays current; CI checks this without changing deployment settings.
+
+DVD Project Lab is controlled by `PROJECT_LAB_ENABLED = False` in [`scripts/build_site.py`](scripts/build_site.py). Set it to `True` and rebuild to restore the lab and its entry points. Its content, artwork, styles, and routing remain in the repository while disabled.
 
 For the short explanation of how the pieces fit together and which checks to run, read [Maintaining the site](docs/MAINTENANCE.md). Editing conventions are in [AGENTS.md](AGENTS.md).
 

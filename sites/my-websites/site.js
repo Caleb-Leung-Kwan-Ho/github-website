@@ -36,7 +36,7 @@ export function createWebsitesSite() {
 		var link = document.createElement('a');
 		link.setAttribute('href', shortcut.getAttribute('href'));
 		var icon = document.createElement('img');
-		icon.setAttribute('src', 'images/internet-explorer-6.ico');
+		icon.setAttribute('src', 'images/internet-explorer-6.svg');
 		icon.setAttribute('width', '16');
 		icon.setAttribute('height', '16');
 		icon.setAttribute('alt', '');

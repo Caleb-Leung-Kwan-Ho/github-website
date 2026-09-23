@@ -10,3 +10,5 @@ Suggested credit: “Pixel artwork from Caleb Leung’s Personal Hobbies Website
 These decorations are identified in that folder's [`manifest.json`](images/hobbies/decorations/manifest.json). To the extent Caleb holds applicable rights, sharing and reuse are permitted under the email-and-credit conditions above. These are separate artwork terms, not the theme's license or the terms for the site's code. Normal viewing of the website does not require an email or credit.
 
 The HTML5 UP Dimension theme and its attribution remain governed by [`LICENSE.txt`](LICENSE.txt). Third-party anime, manga, and game images retain their respective owners' rights; this notice grants no permission to reuse them. See the [thumbnail source ledger](images/hobbies/THUMBNAIL_SOURCES.md).
+
+Microsoft's Internet Explorer logo and original icon artwork, including the underlying design reproduced in this site's SVG icons, are also excluded from these sharing terms and the software/theme license. The SVG reconstruction does not make the Microsoft design our original artwork. See [third-party notices](THIRD_PARTY_NOTICES.md) and the [icon provenance](images/internet-explorer-6.source.md).

@@ -12,8 +12,78 @@
   <path d="M59 4v15h15" fill="#edf2f9" stroke="#8798ae" stroke-width=".9" stroke-linejoin="round"/>
   <path d="M60.5 7v10.5H71" fill="none" stroke="#fff"/>
 
-  <!-- Original IE6 48px artwork; source: internet-explorer-6.source.md. -->
-  <image x="18" y="20" width="48" height="48" href="data:image/png;base64,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"/>
+  <!-- Keep this vector mark in sync with internet-explorer-6.svg. -->
+  <svg xmlns="http://www.w3.org/2000/svg" x="18" y="20" width="48" height="48" viewBox="0 0 48 48">
+    <title>Internet Explorer 6</title>
+    <desc>Unofficial vector reconstruction of the Windows XP-era Internet Explorer icon.</desc>
+    <!-- The Internet Explorer logo belongs to Microsoft. No affiliation or endorsement.
+         This reconstruction does not grant rights to the underlying design.
+         See internet-explorer-6.source.md and ../THIRD_PARTY_NOTICES.md. -->
+    <defs>
+      <linearGradient id="ie6-depth" gradientUnits="userSpaceOnUse" x1="8" y1="5" x2="39" y2="43">
+        <stop stop-color="#21789a"/>
+        <stop offset=".5" stop-color="#205e8c"/>
+        <stop offset="1" stop-color="#225575"/>
+      </linearGradient>
+      <linearGradient id="ie6-face" gradientUnits="userSpaceOnUse" x1="12" y1="7" x2="31" y2="40">
+        <stop stop-color="#67e7f5"/>
+        <stop offset=".28" stop-color="#28b5e9"/>
+        <stop offset=".62" stop-color="#2994df"/>
+        <stop offset="1" stop-color="#2789d2"/>
+      </linearGradient>
+      <radialGradient id="ie6-top-light" gradientUnits="userSpaceOnUse" cx="11" cy="10" r="16" gradientTransform="translate(11 10) rotate(-38) scale(1 .45) translate(-11 -10)">
+        <stop stop-color="#bcffff"/>
+        <stop offset=".55" stop-color="#9efcff" stop-opacity=".8"/>
+        <stop offset="1" stop-color="#75f2fa" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="ie6-bottom-light" gradientUnits="userSpaceOnUse" cx="34" cy="37" r="19" gradientTransform="translate(34 37) rotate(-36) scale(1 .32) translate(-34 -37)">
+        <stop stop-color="#b5faff"/>
+        <stop offset=".45" stop-color="#9befff" stop-opacity=".95"/>
+        <stop offset="1" stop-color="#64dcf7" stop-opacity="0"/>
+      </radialGradient>
+      <linearGradient id="ie6-orbit" gradientUnits="userSpaceOnUse" x1="29" y1="2" x2="42" y2="13">
+        <stop stop-color="#5ad4ef"/>
+        <stop offset=".55" stop-color="#35b6e4"/>
+        <stop offset="1" stop-color="#2685bd"/>
+      </linearGradient>
+      <linearGradient id="ie6-swoosh" gradientUnits="userSpaceOnUse" x1="12" y1="15" x2="7" y2="45">
+        <stop stop-color="#72e5f5"/>
+        <stop offset=".4" stop-color="#31bbe9"/>
+        <stop offset=".8" stop-color="#24a5e4"/>
+        <stop offset="1" stop-color="#2587c5"/>
+      </linearGradient>
+      <linearGradient id="ie6-edge" gradientUnits="userSpaceOnUse" x1="8" y1="7" x2="38" y2="41">
+        <stop stop-color="#b3ffff"/>
+        <stop offset=".28" stop-color="#6fe4f3"/>
+        <stop offset=".55" stop-color="#3bbaeb"/>
+        <stop offset=".72" stop-color="#429edd"/>
+        <stop offset="1" stop-color="#a5f6ff"/>
+      </linearGradient>
+      <path id="ie6-back-orbit" d="M26.5 5.2C34.9 .2 41.9-1 44 2.6c1.3 2.2.6 5.8-1.1 8.8l-1.1-.6c1.1-3 1.5-5.7.4-7.1-1.7-2.3-6.7-.6-12.9 2.8Z"/>
+      <path id="ie6-letter" fill-rule="evenodd" d="M2.5 23.2C3.1 12.5 11.6 4.5 22.8 4.5c12.1 0 20.3 8.5 20.3 21.3H17.2c.1 4.3 2.3 6.9 6.2 6.9 2.8 0 4.6-1.5 5.4-4h13.7c-1.8 8-8.9 12.9-19.3 12.9-10.7 0-18.1-6.2-18.6-15.8C8.2 19.3 13.7 13 20.1 8.6 12.7 11.9 6.4 17.4 2.5 23.2Zm14.7-3.4h11.7c-.3-3.8-2.4-6.1-5.8-6.1-3.2 0-5.5 2.4-5.9 6.1Z"/>
+      <path id="ie6-front-orbit" d="M20.1 8.6C13.4 14.8 7.4 23.1 4.5 31.9c-2.3 7-2.2 10.8.4 11.9 2.6 1.2 7.5-.1 14.6-2.2C12.9 46 6.9 47.5 3.3 45.5c-4.6-2.5-2.1-11.3 2.3-19.7C9.4 18.7 14.9 12.1 20.1 8.6Z"/>
+      <clipPath id="ie6-face-clip"><use href="#ie6-letter" clip-rule="evenodd"/></clipPath>
+      <!-- Only the interior bevel is softened; the silhouette stays vector-sharp. -->
+      <filter id="ie6-bevel" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+        <feGaussianBlur stdDeviation=".55"/>
+      </filter>
+    </defs>
+    <g id="ie6-mark">
+      <use href="#ie6-back-orbit" transform="translate(.45 .65)" fill="url(#ie6-depth)"/>
+      <use href="#ie6-back-orbit" fill="url(#ie6-orbit)"/>
+      <use href="#ie6-letter" transform="translate(.6 .85)" fill="url(#ie6-depth)"/>
+      <use href="#ie6-letter" fill="url(#ie6-face)"/>
+      <use href="#ie6-letter" fill="url(#ie6-top-light)"/>
+      <use href="#ie6-letter" fill="url(#ie6-bottom-light)"/>
+      <g clip-path="url(#ie6-face-clip)">
+        <path d="M2.5 23.2C3.1 12.5 11.6 4.5 22.8 4.5c12.1 0 20.3 8.5 20.3 21.3H17.2c.1 4.3 2.3 6.9 6.2 6.9 2.8 0 4.6-1.5 5.4-4h13.7c-1.8 8-8.9 12.9-19.3 12.9-10.7 0-18.1-6.2-18.6-15.8C8.2 19.3 13.7 13 20.1 8.6 12.7 11.9 6.4 17.4 2.5 23.2Z" fill="none" stroke="url(#ie6-edge)" stroke-width="1.8" stroke-linejoin="round" opacity=".75" filter="url(#ie6-bevel)"/>
+      </g>
+      <path d="M17.2 19.8h11.7" fill="none" stroke="#1c73a6" stroke-width=".45"/>
+      <path d="M17.4 26.2h25.3" fill="none" stroke="#175484" stroke-width=".6"/>
+      <use href="#ie6-front-orbit" transform="translate(.4 .6)" fill="url(#ie6-depth)"/>
+      <use href="#ie6-front-orbit" fill="url(#ie6-swoosh)"/>
+    </g>
+  </svg>
 
   <rect x="10" y="63" width="17" height="18" fill="#fff" stroke="#41536e" stroke-width="1"/>
   <path d="M13.2 77.7L16 80C16.4 76.1 18.2 73.5 21 71.5L23.5 74V66.5H16L18.4 68.8C15.5 71.2 13.6 74.1 13.2 77.7Z" fill="#071d48"/>

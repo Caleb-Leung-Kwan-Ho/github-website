@@ -1,8 +1,8 @@
 # Internet Explorer 6 artwork
 
 `internet-explorer-6.ico` is the original multi-size icon extracted from
-Microsoft's Internet Explorer 6 SP1 executable. It is the source of truth for
-the browser mark in `website-shortcut.svg`.
+Microsoft's Internet Explorer 6 SP1 executable. It is retained as the visual
+reference for the site's scalable recreation of the browser mark.
 
 ## Source
 
@@ -19,28 +19,34 @@ the browser mark in `website-shortcut.svg`.
 
 ## Website use
 
-My Websites uses `internet-explorer-6.ico` directly for its desktop shortcut,
-title bar, address bar, Favorites links, Start entry, and taskbar button.
-The browser selects the ICO frame appropriate to the displayed size.
+My Websites uses `internet-explorer-6.svg` for its desktop shortcut, title bar,
+address bar, Favorites links, Start entry, and taskbar button. This is an
+unofficial vector reconstruction based on the original icon, made with paths
+and gradients so it can scale without enlarging bitmap pixels. It is not an
+untouched Microsoft asset or a pixel-identical replacement for every ICO frame.
 
-`website-shortcut.svg` embeds a lossless PNG conversion of the original
-48 × 48, 32-bit frame (`RT_ICON` 7, language 1033). Its pixels, transparency,
-colors, proportions, and shading are unchanged. It is placed at its native
-48-pixel size inside the site's existing document and shortcut-arrow artwork.
-That surrounding SVG artwork is custom; the complete composite is not an
-original Windows icon.
-
-Use the original ICO frames for future IE6 icons rather than redrawing or
-recoloring the logo. The SVG embeds the PNG so it remains self-contained when
-loaded as an image. No external image requests are made.
+`website-shortcut.svg` contains the same vector browser artwork within the
+site's custom document and shortcut-arrow artwork. Neither SVG embeds the old
+PNG conversion or loads an external image. The complete composite is not an
+original Windows icon. Use the retained ICO as the reference when refining
+the XP-era shape, colors, and shading.
 
 ## SHA-256 provenance
 
 - `IE_S1.CAB`: `40e8b813e1d0a853de42779dbcff72de1d92d7afbc60eb49d54d65a4642c480b`
 - `IEXPLORE.EXE`: `414d5191aebccfcb8c23b9f81ead7e455587373cd4efdaf8e4484d0b4589ebc8`
 - `internet-explorer-6.ico`: `62682ff9a9fa489fb069375298f117b79b26b7b6f5e80256789ea44751f64617`
-- Embedded PNG: `59a76494b2afec41b337d3e606672c18ec35c3c80fe78691c7381d97b1291ae5`
 
-Internet Explorer artwork and trademarks belong to Microsoft Corporation.
-This is third-party artwork, not part of this repository's custom-artwork
-license. The software archives and executables are not included in the site.
+These hashes document the original source and retained ICO, not the recreated
+SVG files. The software archives and executables are not included in the site.
+
+## Ownership and permissions
+
+The Internet Explorer logo and original icon artwork belong to Microsoft.
+Reconstructing the mark in SVG does not transfer ownership of the underlying
+design to this repository's authors. The mark is excluded from the repository's
+custom-artwork sharing policy and software/theme license.
+
+See [Third-party notices](../THIRD_PARTY_NOTICES.md) for the ownership and
+non-affiliation notice and links to Microsoft's published guidance. Attribution
+does not grant permission or establish legal clearance for use of the artwork.

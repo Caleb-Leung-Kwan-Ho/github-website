@@ -50,4 +50,6 @@ For the short explanation of how the pieces fit together and which checks to run
 
 The HTML5 UP Dimension base theme is retained under [its license](LICENSE.txt). Keep its attribution. Custom decorations have an [email-and-credit sharing policy](ARTWORK_TERMS.md); third-party images retain their owners’ rights. See the [thumbnail sources](images/hobbies/THUMBNAIL_SOURCES.md) and [decoration inventory](images/hobbies/decorations/README.md).
 
+Internet Explorer icons use a local SVG reconstruction of Microsoft's XP-era design. Microsoft retains ownership of the underlying logo and original artwork; this project is not affiliated with or endorsed by Microsoft. See the [artwork provenance](images/internet-explorer-6.source.md) and [third-party notices](THIRD_PARTY_NOTICES.md). Attribution is not permission to reuse the artwork.
+
 The only automatically loaded external origins are `fonts.googleapis.com`, `fonts.gstatic.com`, `drive.google.com`, and the resume-thumbnail redirect `lh3.googleusercontent.com`. Other external links load when clicked.

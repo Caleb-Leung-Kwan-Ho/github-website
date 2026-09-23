@@ -8,6 +8,10 @@ export function createDesktop(sites) {
 	var windowMenus = Array.prototype.slice.call(document.querySelectorAll('.window-menu'));
 	var startButton = document.getElementById('start-button');
 	var startMenu = document.getElementById('start-menu');
+	var startFeatured = document.getElementById('start-featured');
+	var startPrograms = document.getElementById('start-programs');
+	var startProgramsButton = document.getElementById('start-programs-button');
+	var startProgramsLabel = document.getElementById('start-programs-label');
 	var clock = document.getElementById('taskbar-clock');
 	var lastWindowTrigger = {};
 
@@ -67,9 +71,34 @@ export function createDesktop(sites) {
 		return element && document.contains(element) && element.getClientRects().length > 0;
 	}
 
+	function setStartProgramsVisible(isVisible) {
+		startFeatured.hidden = isVisible;
+		startPrograms.hidden = !isVisible;
+		startProgramsButton.setAttribute('aria-expanded', isVisible ? 'true' : 'false');
+		startProgramsLabel.textContent = isVisible ? 'Back' : 'All Programs';
+	}
+
+	function startMenuControls() {
+		return Array.prototype.slice.call(startMenu.querySelectorAll('a[href], button')).filter(canReceiveFocus);
+	}
+
 	function closeStartMenu() {
 		startMenu.hidden = true;
 		startButton.setAttribute('aria-expanded', 'false');
+		setStartProgramsVisible(false);
+		startFeatured.scrollTop = 0;
+		startPrograms.scrollTop = 0;
+	}
+
+	function toggleStartPrograms() {
+		var willOpen = startPrograms.hidden;
+		setStartProgramsVisible(willOpen);
+		if (willOpen) {
+			startPrograms.scrollTop = 0;
+			startPrograms.querySelector('a[href], button').focus();
+		} else {
+			startProgramsButton.focus();
+		}
 	}
 
 	function openWindow(name, opener, shouldFocus) {
@@ -230,18 +259,57 @@ export function createDesktop(sites) {
 
 	startButton.addEventListener('click', function () {
 		closeWindowMenus();
-		var willOpen = startMenu.hidden;
-		startMenu.hidden = !willOpen;
-		startButton.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
-		if (willOpen) {
-			startMenu.querySelector('a, button').focus();
+		if (startMenu.hidden) {
+			setStartProgramsVisible(false);
+			startMenu.hidden = false;
+			startButton.setAttribute('aria-expanded', 'true');
+			startMenuControls()[0].focus();
+		} else {
+			closeStartMenu();
 		}
 	});
 
+	startProgramsButton.addEventListener('click', toggleStartPrograms);
+
+	startMenu.addEventListener('keydown', function (event) {
+		if (event.key === 'ArrowRight' && event.target === startProgramsButton && startPrograms.hidden) {
+			event.preventDefault();
+			toggleStartPrograms();
+			return;
+		}
+		if (event.key === 'ArrowLeft' && !startPrograms.hidden) {
+			event.preventDefault();
+			toggleStartPrograms();
+			return;
+		}
+		if (['ArrowDown', 'ArrowUp', 'Home', 'End'].indexOf(event.key) === -1) {
+			return;
+		}
+		event.preventDefault();
+		var controls = startMenuControls();
+		var currentIndex = controls.indexOf(document.activeElement);
+		var nextIndex = currentIndex + (event.key === 'ArrowUp' ? -1 : 1);
+		if (event.key === 'Home') { nextIndex = 0; }
+		if (event.key === 'End') { nextIndex = controls.length - 1; }
+		controls[(nextIndex + controls.length) % controls.length].focus();
+	});
+
+	function closeStartMenuAfterFocusOut() {
+		// Switching views briefly hides the focused item before focusing its replacement.
+		window.setTimeout(function () {
+			if (!startMenu.hidden && !startMenu.contains(document.activeElement) && !startButton.contains(document.activeElement)) {
+				closeStartMenu();
+			}
+		}, 0);
+	}
+	startMenu.addEventListener('focusout', closeStartMenuAfterFocusOut);
+	startButton.addEventListener('focusout', closeStartMenuAfterFocusOut);
+
 	startMenu.addEventListener('click', function (event) {
 		if (event.target.closest('a[href]')) {
+			var shouldRestoreFocus = startMenu.contains(document.activeElement);
 			closeStartMenu();
-			if (startMenu.contains(document.activeElement)) { startButton.focus(); }
+			if (shouldRestoreFocus) { startButton.focus(); }
 		}
 	});
 
@@ -265,8 +333,13 @@ export function createDesktop(sites) {
 		}
 
 		if (!startMenu.hidden) {
-			closeStartMenu();
-			startButton.focus();
+			event.preventDefault();
+			if (!startPrograms.hidden) {
+				toggleStartPrograms();
+			} else {
+				closeStartMenu();
+				startButton.focus();
+			}
 			return;
 		}
 

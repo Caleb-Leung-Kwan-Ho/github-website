@@ -783,12 +783,14 @@ b {
 	display: grid;
 	min-height: 0;
 	overflow-y: auto;
+	overscroll-behavior: contain;
 	gap: 2px;
 	padding: 9px;
 }
 
 .start-menu-content a,
-.start-menu-content button {
+.start-menu-content button,
+.start-programs-button {
 	display: flex;
 	width: 100%;
 	min-width: 0;
@@ -807,20 +809,25 @@ b {
 	font-size: 13px;
 	font-weight: 400;
 	letter-spacing: 0;
+	line-height: 1.35;
 	text-align: left;
 	text-transform: none;
+	white-space: normal;
 }
 
 .start-menu-content a:hover,
 .start-menu-content button:hover,
 .start-menu-content a:focus-visible,
-.start-menu-content button:focus-visible {
+.start-menu-content button:focus-visible,
+.start-programs-button:hover,
+.start-programs-button:focus-visible {
 	background: #2f71cd;
 	color: #fff !important;
 }
 
 .start-menu-content .icon {
 	width: 31px;
+	flex: 0 0 31px;
 	color: #2472cd;
 	font-size: 27px;
 	text-align: center;
@@ -830,6 +837,43 @@ b {
 .start-menu-content button:hover .icon,
 .start-menu-content a:focus-visible .icon,
 .start-menu-content button:focus-visible .icon {
+	color: #fff;
+}
+
+.start-programs a,
+.start-programs button {
+	min-height: 44px;
+}
+
+.start-programs .icon {
+	width: 22px;
+	flex-basis: 22px;
+	font-size: 18px;
+}
+
+.start-programs-button {
+	width: calc(100% - 18px);
+	flex-shrink: 0;
+	margin: 0 9px 9px;
+	border-top-color: #d4dfea;
+	border-radius: 0;
+	font-weight: 700;
+}
+
+.start-programs-arrow {
+	width: 31px;
+	flex: 0 0 31px;
+	color: #26851e;
+	font-size: 19px;
+	text-align: center;
+}
+
+.start-programs-button[aria-expanded="true"] .start-programs-arrow {
+	transform: rotate(180deg);
+}
+
+.start-programs-button:hover .start-programs-arrow,
+.start-programs-button:focus-visible .start-programs-arrow {
 	color: #fff;
 }
 

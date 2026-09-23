@@ -50,8 +50,8 @@ def render(root: Path = ROOT, *, project_lab_enabled: bool | None = None) -> str
         if "<!-- include:" in content:
             raise ValueError(f"Nested includes are not supported: {name}")
         if "<!-- website-shortcuts" in content:
-            if name != "sites/my-folder/content.html" or len(WEBSITE_SHORTCUTS.findall(content)) != 1:
-                raise ValueError("One website-shortcuts marker is supported only in sites/my-folder/content.html")
+            if name != "sites/my-websites/content.html" or len(WEBSITE_SHORTCUTS.findall(content)) != 1:
+                raise ValueError("One website-shortcuts marker is supported only in sites/my-websites/content.html")
             shortcuts = render_shortcuts(root, enabled_features=frozenset({"project-lab"}) if enabled else frozenset())
             content = WEBSITE_SHORTCUTS.sub(lambda marker: "\n".join(marker[1] + line if line else line for line in shortcuts.split("\n")), content)
             if "<!-- website-shortcuts" in content:
@@ -71,7 +71,7 @@ def render(root: Path = ROOT, *, project_lab_enabled: bool | None = None) -> str
     if "<!-- project-catalogue" in output:
         raise ValueError("Project catalogue marker belongs in sites/projects/content.html")
     if "<!-- website-shortcuts" in output:
-        raise ValueError("Website shortcuts marker belongs in sites/my-folder/content.html")
+        raise ValueError("Website shortcuts marker belongs in sites/my-websites/content.html")
     first_line, remainder = output.split("\n", 1)
     return first_line + "\n" + NOTICE + remainder
 

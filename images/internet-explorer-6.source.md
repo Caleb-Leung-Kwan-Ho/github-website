@@ -19,6 +19,10 @@ the browser mark in `website-shortcut.svg`.
 
 ## Website use
 
+My Websites uses `internet-explorer-6.ico` directly for its desktop shortcut,
+title bar, address bar, Favorites links, Start entry, and taskbar button.
+The browser selects the ICO frame appropriate to the displayed size.
+
 `website-shortcut.svg` embeds a lossless PNG conversion of the original
 48 × 48, 32-bit frame (`RT_ICON` 7, language 1033). Its pixels, transparency,
 colors, proportions, and shading are unchanged. It is placed at its native

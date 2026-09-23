@@ -36,15 +36,15 @@ class WebsiteContentTests(unittest.TestCase):
         temporary = tempfile.TemporaryDirectory()
         self.addCleanup(temporary.cleanup)
         self.root = Path(temporary.name)
-        self.folder = self.root / "sites/my-folder"
+        self.folder = self.root / "sites/my-websites"
         self.folder.mkdir(parents=True)
-        self.template = (REPOSITORY_ROOT / "sites/my-folder/shortcut.html").read_text(encoding="utf-8")
+        self.template = (REPOSITORY_ROOT / "sites/my-websites/shortcut.html").read_text(encoding="utf-8")
         (self.folder / "shortcut.html").write_text(self.template, encoding="utf-8")
 
     def write_catalogue(self, data: object) -> None:
         (self.folder / "websites.json").write_text(json.dumps(data), encoding="utf-8")
 
-    def test_ten_sites_need_only_data_and_keep_one_shared_icon_template(self) -> None:
+    def test_ten_sites_need_only_data_and_keep_one_shared_directory_template(self) -> None:
         data = [{"name": f"Website {number}", "target": f"#website-{number}"} for number in range(10)]
         self.write_catalogue(data)
         document = ShortcutHTML(catalogue.render_shortcuts(self.root))
@@ -52,10 +52,12 @@ class WebsiteContentTests(unittest.TestCase):
         icons = [attributes for tag, attributes in document.elements if tag == "img"]
         self.assertEqual([link["href"] for link in links], [site["target"] for site in data])
         self.assertEqual([link["aria-label"] for link in links], [f'Open {site["name"]} website' for site in data])
+        self.assertEqual([link["data-website-name"] for link in links], [site["name"] for site in data])
         self.assertEqual(len(icons), 10)
         self.assertTrue(all(icon["src"] == "images/website-shortcut.svg" and icon["alt"] == "" for icon in icons))
+        self.assertFalse(any(attrs.get("class") in ("website-description", "website-topics") for _, attrs in document.elements))
         for site in data:
-            self.assertIn(f'{site["name"]}.html', document.text)
+            self.assertIn(site["name"], document.text)
         self.assertEqual((self.folder / "shortcut.html").read_text(encoding="utf-8"), self.template)
 
     def test_names_preserve_unicode_and_escape_text_and_attributes(self) -> None:
@@ -65,10 +67,45 @@ class WebsiteContentTests(unittest.TestCase):
         document = ShortcutHTML(source)
         links = [attributes for tag, attributes in document.elements if tag == "a"]
         self.assertEqual(links[0]["aria-label"], f"Open {name} website")
-        self.assertIn(f"{name}.html", document.text)
+        self.assertEqual(links[0]["data-website-name"], name)
+        self.assertIn(name, document.text)
         self.assertIn("&lt;img", source)
         self.assertEqual(sum(tag == "img" for tag, _ in document.elements), 1)
         self.assertFalse(any(key.startswith("on") for _, attributes in document.elements for key in attributes))
+
+    def test_optional_directory_details_are_escaped_inside_one_link(self) -> None:
+        description = 'Games & <img src=x onerror="alert(1)">'
+        topics = ['Anime', '香港 & <script>example</script>']
+        self.write_catalogue([{
+            "name": "Personal Hobbies",
+            "target": "#hobby-top",
+            "description": description,
+            "thumbnail": "images/websites/personal-hobbies.png",
+            "topics": topics,
+        }])
+        source = catalogue.render_shortcuts(self.root)
+        document = ShortcutHTML(source)
+        images = [attrs for tag, attrs in document.elements if tag == "img"]
+        self.assertEqual(len(images), 1)
+        self.assertEqual(images[0]["src"], "images/websites/personal-hobbies.png")
+        self.assertEqual((images[0]["width"], images[0]["height"]), ("320", "180"))
+        self.assertEqual(sum(tag == "a" for tag, _ in document.elements), 1)
+        self.assertEqual(sum(tag == "script" for tag, _ in document.elements), 0)
+        self.assertIn(description, document.text)
+        self.assertIn(" · ".join(topics), document.text)
+        self.assertIn("&lt;script&gt;", source)
+
+    def test_thumbnail_paths_stay_within_local_images(self) -> None:
+        for thumbnail in (
+            "https://example.com/image.png", "//example.com/image.png", "/images/image.png",
+            "images/../image.png", "images/folder/../../image.png", "images/%2e%2e/image.png",
+            "images/image.png?x=1", "images/image.svg#fragment", "images/image.html",
+            "images/image.png\n", "images\\image.png", None,
+        ):
+            with self.subTest(thumbnail=thumbnail):
+                self.write_catalogue([{"name": "Hobbies", "target": "#hobby-top", "thumbnail": thumbnail}])
+                with self.assertRaises(ValueError):
+                    catalogue.render_shortcuts(self.root)
 
     def test_lab_shortcut_follows_feature_flag_without_reordering_other_sites(self) -> None:
         self.write_catalogue([
@@ -98,6 +135,13 @@ class WebsiteContentTests(unittest.TestCase):
             [{"name": "Hobbies", "target": "#hobby-top", "typo": "ignored"}],
             [{"name": "Hobbies", "target": "#hobby-top", "feature": "unknown"}],
             [{"name": "Hobbies", "target": "#hobby-top", "feature": []}],
+            [{"name": "Hobbies", "target": "#hobby-top", "description": ""}],
+            [{"name": "Hobbies", "target": "#hobby-top", "description": " padded "}],
+            [{"name": "Hobbies", "target": "#hobby-top", "description": None}],
+            [{"name": "Hobbies", "target": "#hobby-top", "topics": "Anime"}],
+            [{"name": "Hobbies", "target": "#hobby-top", "topics": [""]}],
+            [{"name": "Hobbies", "target": "#hobby-top", "topics": [" padded "]}],
+            [{"name": "Hobbies", "target": "#hobby-top", "topics": [42]}],
         )
         for data in cases:
             with self.subTest(data=data):

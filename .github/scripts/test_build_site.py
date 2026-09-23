@@ -200,10 +200,10 @@ class BuildSiteTests(unittest.TestCase):
             {"name": "Personal Hobbies", "target": "#hobby-top"},
             {"name": "DVD Project Lab", "target": "#project-lab", "feature": "project-lab"},
         ]
-        self.write("desktop/page.html", '<!DOCTYPE html>\n<body>\n  <!-- include: sites/my-folder/content.html -->\n</body>\n')
-        self.write("sites/my-folder/content.html", '<ul class="website-shortcut-grid">\n  <!-- website-shortcuts -->\n</ul>\n')
-        self.write("sites/my-folder/websites.json", json.dumps(data))
-        self.write("sites/my-folder/shortcut.html", (REPOSITORY_ROOT / "sites/my-folder/shortcut.html").read_text(encoding="utf-8"))
+        self.write("desktop/page.html", '<!DOCTYPE html>\n<body>\n  <!-- include: sites/my-websites/content.html -->\n</body>\n')
+        self.write("sites/my-websites/content.html", '<ul class="website-shortcut-grid">\n  <!-- website-shortcuts -->\n</ul>\n')
+        self.write("sites/my-websites/websites.json", json.dumps(data))
+        self.write("sites/my-websites/shortcut.html", (REPOSITORY_ROOT / "sites/my-websites/shortcut.html").read_text(encoding="utf-8"))
         return data
 
     def test_website_shortcuts_are_static_indented_html_and_share_lab_feature_flag(self) -> None:
@@ -212,7 +212,7 @@ class BuildSiteTests(unittest.TestCase):
             with self.subTest(enabled=enabled):
                 output = builder.render(self.root, project_lab_enabled=enabled)
                 self.assertNotIn("<!-- website-shortcuts", output)
-                self.assertIn('    <li><a class="website-shortcut" href="#hobby-top"', output)
+                self.assertIn('    <li class="website-entry">\n      <a class="website-shortcut" href="#hobby-top"', output)
                 self.assertEqual('href="#project-lab"' in output, enabled)
 
     def test_website_data_change_makes_check_fail_without_rewriting(self) -> None:
@@ -220,7 +220,7 @@ class BuildSiteTests(unittest.TestCase):
         target = self.write("index.html", builder.render(self.root))
         before = target.read_bytes()
         data.append({"name": "Another Website", "target": "#another-website"})
-        self.write("sites/my-folder/websites.json", json.dumps(data))
+        self.write("sites/my-websites/websites.json", json.dumps(data))
         status, _, stderr = self.run_main("--check")
         self.assertEqual(status, 1)
         self.assertIn("out of date", stderr)
@@ -234,7 +234,7 @@ class BuildSiteTests(unittest.TestCase):
             "<!-- website-shortcuts -->\n<!-- website-shortcuts: other.json -->\n",
         ):
             with self.subTest(content=content):
-                self.write("sites/my-folder/content.html", content)
+                self.write("sites/my-websites/content.html", content)
                 with self.assertRaises(ValueError):
                     builder.render(self.root)
         self.write("desktop/page.html", '<!DOCTYPE html>\n<!-- website-shortcuts -->\n')
@@ -251,7 +251,7 @@ class BuildSiteTests(unittest.TestCase):
         before = target.read_bytes()
         for source in ("{", '[{"name": "Unsafe", "target": "javascript:alert(1)"}]'):
             with self.subTest(source=source):
-                self.write("sites/my-folder/websites.json", source)
+                self.write("sites/my-websites/websites.json", source)
                 status, _, stderr = self.run_main()
                 self.assertEqual(status, 1)
                 self.assertIn("Cannot build the site", stderr)

@@ -443,19 +443,27 @@
 
 .resume-layout {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
-	gap: 28px;
+	grid-template-columns: minmax(0, 1fr);
+	gap: 14px;
 	align-items: start;
 }
 
-.resume-layout h3 {
-	margin-bottom: 8px;
-	font-size: 18px;
+.resume-actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px 16px;
+}
+
+.resume-actions p {
+	margin: 0;
 }
 
 .resume-document {
 	display: block;
-	max-width: 480px;
+	width: 100%;
+	max-width: 680px;
 	padding: 7px;
 	border: 1px solid #7f9db9;
 	background: #ece9d8;
@@ -994,46 +1002,6 @@
 }
 
 
-.website-folder-launch {
-	display: flex;
-	width: 136px;
-	min-height: 142px;
-	align-items: center;
-	flex-direction: column;
-	gap: 7px;
-	margin-top: 22px;
-	padding: 22px 10px 10px;
-	border: 1px solid transparent;
-	color: var(--ink);
-	text-align: center;
-}
-
-.website-folder-launch .large-folder {
-	width: 64px;
-	height: 46px;
-	flex: 0 0 46px;
-	margin-bottom: 5px;
-	transform: none;
-}
-
-.website-folder-launch strong {
-	font-size: 14px;
-	line-height: 1.3;
-}
-
-.website-folder-launch small {
-	color: #66708a;
-	font-size: 11px;
-	line-height: 1.3;
-}
-
-.website-folder-launch:hover,
-.website-folder-launch:focus-visible {
-	border-color: #87afe7;
-	background: #e8f1ff;
-	color: var(--ink);
-}
-
 .explorer-window:not(.portfolio-enhanced) .profile-section {
 	padding-top: 24px;
 	border-top: 1px solid #d8ddea;
@@ -1179,17 +1147,12 @@
 	}
 
 	.contribution-grid,
-	.skill-groups,
-	.resume-layout {
+	.skill-groups {
 		grid-template-columns: 1fr;
 	}
 
 	.contribution-card > .icon {
 		flex-basis: 28px;
-	}
-
-	.resume-document {
-		max-width: 380px;
 	}
 
 	.work-preview-heading {

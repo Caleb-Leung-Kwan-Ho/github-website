@@ -16,8 +16,8 @@ Preserve the meaning and scope of factual claims when editing copy. Base additio
 
 ## Work in the existing shapes
 
-- `desktop/page.html` owns the page shell and window markup. `sites/*/content.html` owns each site’s content; Project Lab and My folder also use site-owned data for build-time rendering, and My folder has a shared shortcut template. Run `python3 scripts/build_site.py` after HTML edits; commit the generated `index.html` with its sources rather than editing it directly.
-- `desktop/styles.css` and `sites/*/styles.css` own their respective styling. `assets/css/one-page.css` imports them in desktop, portfolio, hobbies, projects, my-folder order, after the compiled HTML5 UP theme in `assets/css/main.css`.
+- `desktop/page.html` owns the page shell and window markup. `sites/*/content.html` owns each site’s content; Project Lab and My Websites also use site-owned data for build-time rendering, and My Websites has a shared shortcut template. Run `python3 scripts/build_site.py` after HTML edits; commit the generated `index.html` with its sources rather than editing it directly.
+- `desktop/styles.css` and `sites/*/styles.css` own their respective styling. `assets/css/one-page.css` imports them in desktop, portfolio, hobbies, projects, my-websites order, after the compiled HTML5 UP theme in `assets/css/main.css`.
 - `assets/js/main.js` connects the sites. `desktop/*.js` owns common windows, menus, dragging, and navigation; each `sites/*/site.js` owns its content behavior. Hobbies translations live in `sites/hobbies/translations.js`.
 - `assets/sass/` remains the source for the baseline theme CSS. See `README.md` and `docs/MAINTENANCE.md` for the concise file map and workflow.
 - Use `images/` for local visual assets. Keep `LICENSE.txt` and the theme attribution comments intact.

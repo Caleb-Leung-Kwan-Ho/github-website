@@ -20,7 +20,7 @@
 		<meta name="twitter:card" content="summary" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!-- Keep this order: site-specific styles intentionally override the base theme. -->
-		<link rel="stylesheet" href="assets/css/one-page.css?v=20260923-my-folder" />
+		<link rel="stylesheet" href="assets/css/one-page.css?v=20260923-my-websites" />
 		<link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
@@ -43,8 +43,8 @@
 					<img class="shortcut-icon" src="images/resume-pdf.svg" width="48" height="48" alt="" />
 					<span>Resume</span>
 				</a>
-				<a class="desktop-shortcut" href="#websites" data-open-portfolio>
-					<span class="shortcut-icon icon solid fa-folder-open" aria-hidden="true"></span>
+				<a class="desktop-shortcut" href="#websites">
+					<img class="shortcut-icon" src="images/internet-explorer-6.ico" width="48" height="48" alt="" />
 					<span>My Websites</span>
 				</a>
 				<a class="desktop-shortcut" href="#projects" data-open-portfolio>
@@ -144,7 +144,7 @@
 									</li>
 								</ul>
 							</div>
-							<div class="portfolio-other-links"><a href="#contact">Contact</a><a href="#websites">My Websites</a></div>
+							<div class="portfolio-other-links"><a href="#contact">Contact</a></div>
 						</nav>
 					</aside>
 
@@ -222,8 +222,9 @@
 						<section id="resume" class="profile-section" aria-labelledby="resume-title" data-section-name="Resume">
 							<header class="section-heading"><img class="resume-pdf-icon" src="images/resume-pdf.svg" width="32" height="32" alt="" /><div><p class="eyebrow">Professional snapshot</p><h2 id="resume-title">Resume</h2></div></header>
 							<div class="resume-layout">
-								<div><h3>Open the full document</h3><p>View my current resume in a new browser tab.</p><a class="xp-action-button" href="https://drive.google.com/file/d/1izw75qJofqoQvkoXxQGSsfDgSRhDXDW4/view?usp=sharing" target="_blank" rel="noopener noreferrer">Open Resume</a></div>
-								<a class="resume-document" href="https://drive.google.com/file/d/1izw75qJofqoQvkoXxQGSsfDgSRhDXDW4/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Open Caleb Leung's resume PDF in a new browser tab"><img src="https://drive.google.com/thumbnail?id=1izw75qJofqoQvkoXxQGSsfDgSRhDXDW4&amp;sz=w2000" alt="Preview of Caleb Leung's resume. Click to open the full PDF in a new browser tab." loading="lazy" decoding="async" /></a>
+								<div class="resume-actions"><p>Preview my resume below.</p><a class="xp-action-button" href="https://drive.google.com/file/d/1izw75qJofqoQvkoXxQGSsfDgSRhDXDW4/view?usp=sharing" target="_blank" rel="noopener noreferrer">Open Resume</a></div>
+								<!-- Load the document even while its folder view is hidden. -->
+								<a class="resume-document" href="https://drive.google.com/file/d/1izw75qJofqoQvkoXxQGSsfDgSRhDXDW4/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Open Caleb Leung's resume PDF in a new browser tab"><img src="https://drive.google.com/thumbnail?id=1izw75qJofqoQvkoXxQGSsfDgSRhDXDW4&amp;sz=w2000" alt="Preview of Caleb Leung's resume. Click to open the full PDF in a new browser tab." loading="eager" decoding="async" /></a>
 							</div>
 						</section>
 
@@ -260,50 +261,61 @@
 							</div>
 						</section>
 
-						<section id="websites" class="profile-section" aria-labelledby="websites-title" data-section-name="My Websites">
-							<header id="hobbies" class="section-heading"><span class="heading-folder folder-icon" aria-hidden="true"></span><div><p class="eyebrow">A growing collection</p><h2 id="websites-title">My Websites</h2></div></header>
-							<p>Little corners of the web for the things I enjoy and the things I’m building. Open My folder to browse my websites.</p>
-							<a class="website-folder-launch" href="#my-folder"><span class="large-folder folder-icon" aria-hidden="true"></span><strong>My folder</strong><small>Open folder</small></a>
-						</section>
-
-						<footer class="content-footer"><a href="#websites">Outside my AI work: explore My Website <span aria-hidden="true">→</span></a><p>&copy; Caleb Leung 2026</p></footer>
+						<footer class="content-footer"><a href="#websites">Outside my AI work: explore My Websites <span aria-hidden="true">→</span></a><p>&copy; Caleb Leung 2026</p></footer>
 					</main>
 				</div>
 				<footer class="window-statusbar"><span id="status-text">1 item</span><span id="portfolio-location">My Portfolio / Work</span></footer>
 			</section>
 
-			<section class="os-window website-folder-window" data-window="websites" role="dialog" aria-modal="false" aria-labelledby="website-folder-title" tabindex="-1" hidden>
+			<section class="os-window websites-window" data-window="websites" role="dialog" aria-modal="false" aria-labelledby="websites-window-title" tabindex="-1" hidden>
 				<header class="window-titlebar" data-titlebar>
-					<div class="window-title"><span class="titlebar-folder folder-icon" aria-hidden="true"></span><h2 id="website-folder-title">My folder</h2></div>
-					<div class="window-controls" aria-label="My folder window controls"><button type="button" data-window-action="minimize" aria-label="Minimize My folder window"><span aria-hidden="true">—</span></button><button type="button" data-window-action="maximize" aria-label="Maximize My folder window"><span aria-hidden="true">□</span></button><button class="close-control" type="button" data-window-action="close" aria-label="Close My folder window"><span aria-hidden="true">×</span></button></div>
+					<div class="window-title"><img class="window-app-icon" src="images/internet-explorer-6.ico" width="20" height="20" alt="" /><h2 id="websites-window-title">My Websites - Microsoft Internet Explorer</h2></div>
+					<div class="window-controls" aria-label="My Websites window controls"><button type="button" data-window-action="minimize" aria-label="Minimize My Websites window"><span aria-hidden="true">—</span></button><button type="button" data-window-action="maximize" aria-label="Maximize My Websites window"><span aria-hidden="true">□</span></button><button class="close-control" type="button" data-window-action="close" aria-label="Close My Websites window"><span aria-hidden="true">×</span></button></div>
 				</header>
 				<div class="window-menubar">
-					<details class="window-menu"><summary>File</summary><div class="window-menu-panel"><a href="#websites">Open parent folder</a><button type="button" data-window-action="close">Close window</button></div></details>
-					<details class="window-menu"><summary>Edit</summary><div class="window-menu-panel"><button type="button" data-menu-action="copy-link">Copy folder link</button></div></details>
-					<details class="window-menu"><summary>View</summary><div class="window-menu-panel"><button type="button" data-menu-action="maximize">Maximize window</button><button type="button" data-menu-action="move">Move window</button><button type="button" data-menu-action="resize">Resize window</button><button type="button" data-menu-action="reset-position">Reset size and position</button></div></details>
-					<details class="window-menu"><summary>Help</summary><div class="window-menu-panel window-help-panel"><p>Choose a website shortcut to open it. Use Tab and Enter with a keyboard, or click or tap once.</p><p>Use Up to return to My Websites. Drag the title bar or resize the window, just like the other desktop windows.</p></div></details>
+					<details class="window-menu"><summary>File</summary><div class="window-menu-panel"><a href="#websites">Open My Websites</a><a href="#work">Back to portfolio</a><button type="button" data-window-action="close">Close window</button></div></details>
+					<details class="window-menu"><summary>Edit</summary><div class="window-menu-panel"><button type="button" data-menu-action="copy-link">Copy page link</button></div></details>
+					<details class="window-menu"><summary>View</summary><div class="window-menu-panel"><button type="button" data-menu-action="maximize">Maximize window</button><button type="button" data-menu-action="move">Move window</button><button type="button" data-menu-action="resize">Resize window</button></div></details>
+					<details class="window-menu"><summary>Favorites</summary><div class="window-menu-panel" data-websites-favorites-menu><button type="button" data-websites-favorites-toggle data-websites-favorites-label aria-expanded="false" aria-controls="websites-favorites">Show Favorites panel</button></div></details>
+					<details class="window-menu"><summary>Tools</summary><div class="window-menu-panel"><button type="button" data-menu-action="reset-position">Reset window size and position</button></div></details>
+					<details class="window-menu"><summary>Help</summary><div class="window-menu-panel window-help-panel"><p>Click a website once to open its existing window, or use Tab and Enter.</p><p>Favorites shows the same collection in a compact list. Home returns to this directory; Back and Forward follow your browsing history on this desktop.</p><p>Use Back to portfolio to return to my AI and software engineering work.</p></div></details>
 					<span class="window-menu-status" role="status" aria-live="polite"></span>
 				</div>
-				<nav class="website-folder-toolbar" aria-label="Folder navigation">
-					<button class="folder-back" type="button"><span class="folder-back-icon" aria-hidden="true">←</span><span>Back</span></button>
-					<a class="folder-up" href="#websites" aria-label="Up to My Websites"><span class="folder-icon" aria-hidden="true"></span><span>Up</span></a>
+				<nav class="websites-toolbar" aria-label="Website browsing controls">
+					<button class="websites-toolbar-button" type="button" data-websites-back aria-label="Go to the previous page" disabled><span class="browser-history-icon" aria-hidden="true">←</span><span>Back</span></button>
+					<button class="websites-toolbar-button" type="button" data-websites-forward aria-label="Go to the next page" disabled><span class="browser-history-icon is-forward" aria-hidden="true">→</span><span>Forward</span></button>
+					<a class="websites-toolbar-button" href="#websites"><span class="browser-home-icon icon solid fa-home" aria-hidden="true"></span><span>Home</span></a>
+					<button class="websites-toolbar-button" type="button" data-websites-favorites-toggle aria-expanded="false" aria-controls="websites-favorites"><span class="browser-favorites-icon icon solid fa-star" aria-hidden="true"></span><span>Favorites</span></button>
 				</nav>
-				<div class="website-folder-address"><span>Address</span><span>Portfolio / My Websites / My folder</span></div>
-				<div class="website-folder-layout">
-					<aside class="website-folder-sidebar">
-						<nav class="website-folder-panel" aria-label="Folder locations">
-							<h2>Folders</h2>
-							<ul class="website-folder-tree"><li><a href="#intro"><span class="folder-icon" aria-hidden="true"></span><span>Portfolio</span></a><ul><li><a href="#websites"><span class="folder-icon" aria-hidden="true"></span><span>My Websites</span></a><ul><li><a href="#my-folder" aria-current="page"><span class="folder-icon" aria-hidden="true"></span><span>My folder</span></a></li></ul></li></ul></li></ul>
-						</nav>
-						<section class="website-folder-panel website-folder-details" aria-labelledby="folder-details-title"><h2 id="folder-details-title">Details</h2><p><strong>My folder</strong><br /><span data-folder-count>Website shortcuts</span></p><p>Select a website to open it.</p></section>
+				<div class="websites-address"><span>Address</span><div class="websites-address-field"><img src="images/internet-explorer-6.ico" width="16" height="16" alt="" /><span data-websites-address>caleb-leung-kwan-ho.github.io/#websites</span></div><a class="websites-go" href="#websites" aria-label="Go to My Websites">Go <span aria-hidden="true">→</span></a></div>
+				<div class="websites-layout">
+					<aside id="websites-favorites" class="websites-favorites" aria-labelledby="websites-favorites-title" hidden>
+						<div class="websites-favorites-heading"><h2 id="websites-favorites-title">Favorites</h2><button type="button" data-websites-favorites-close aria-label="Close Favorites">×</button></div>
+						<nav aria-label="Favorite websites"><ul class="websites-favorites-list" data-websites-favorites-list></ul></nav>
+						<a class="websites-return" href="#work">Back to portfolio</a>
 					</aside>
-					<section id="my-folder" class="website-folder-content" tabindex="-1" aria-label="Website shortcuts">
-						<ul class="website-shortcut-grid">
-							<li><a class="website-shortcut" href="#hobby-top" aria-label="Open Personal Hobbies website"><img src="images/website-shortcut.svg" width="80" height="88" alt="" /><span class="website-shortcut-label">Personal Hobbies.html</span></a></li>
+					<section id="websites" class="websites-content" tabindex="-1" aria-labelledby="websites-title">
+						<!-- Preserve old fragment links in the readable no-JavaScript document too. -->
+						<span id="my-folder" aria-hidden="true"></span><span id="hobbies" aria-hidden="true"></span>
+						<header class="websites-heading"><div><h2 id="websites-title">My Websites</h2><p>A little more about me, outside my AI work.</p></div><a class="websites-return" href="#work">Back to portfolio</a></header>
+						<div class="websites-list-heading"><h3>Around the web</h3><p data-websites-count>Website collection</p></div>
+						<ul class="websites-directory-list">
+							<li class="website-entry">
+							  <a class="website-shortcut" href="#hobby-top" data-website-name="Personal Hobbies" aria-label="Open Personal Hobbies website">
+							    <img class="website-thumbnail" src="images/websites/personal-hobbies.png" width="320" height="180" alt="" />
+							    <div class="website-summary">
+							      <h3 class="website-entry-title">Personal Hobbies</h3>
+							      <p class="website-description">Anime, manga, games &amp; a little Hong Kong.</p>
+							      <p class="website-topics">Anime · Games · Hong Kong</p>
+							      <span class="website-visit">Visit website <span aria-hidden="true">→</span></span>
+							    </div>
+							  </a>
+							</li>
 						</ul>
+						<p class="websites-growth">More sites will appear here as I build them.</p>
 					</section>
 				</div>
-				<footer class="window-statusbar"><span data-folder-status>Website shortcuts</span><span>My folder</span></footer>
+				<footer class="window-statusbar"><span data-websites-count>Website collection</span><span>Internet</span></footer>
 			</section>
 
 			<section class="os-window hobbies-window" data-window="hobbies" role="dialog" aria-modal="false" aria-labelledby="hobbies-window-title" tabindex="-1" hidden>
@@ -480,7 +492,7 @@
 				</nav>
 				<nav id="start-programs" class="start-menu-content start-programs" aria-label="All Programs" hidden>
 					<a href="#projects" data-open-portfolio><span class="icon solid fa-book-open" aria-hidden="true"></span>Projects &amp; Research</a>
-					<a href="#websites" data-open-portfolio><span class="icon solid fa-folder-open" aria-hidden="true"></span>My Websites</a>
+					<a href="#websites"><img class="start-shortcut-image" src="images/internet-explorer-6.ico" width="31" height="31" alt="" />My Websites</a>
 					<button type="button" data-open-window="hobbies"><span class="icon solid fa-gamepad" aria-hidden="true"></span>Personal Hobbies</button>
 					<a href="https://github.com/Caleb-Leung-Kwan-Ho" target="_blank" rel="noopener noreferrer"><span class="icon brands fa-github" aria-hidden="true"></span>GitHub</a>
 					<a href="mailto:caleb.leungkwanho@gmail.com"><span class="icon solid fa-envelope" aria-hidden="true"></span>Email Me</a>
@@ -494,7 +506,7 @@
 				<button id="start-button" class="start-button" type="button" aria-expanded="false" aria-controls="start-menu"><span>Start</span></button>
 				<div class="task-buttons" aria-label="Open windows">
 					<button class="task-button is-active" type="button" data-task-window="portfolio" aria-pressed="true"><span class="folder-icon" aria-hidden="true"></span><span>Caleb Leung — Portfolio</span></button>
-					<button class="task-button" type="button" data-task-window="websites" aria-pressed="false" hidden><span class="folder-icon" aria-hidden="true"></span><span>My folder</span></button>
+					<button class="task-button" type="button" data-task-window="websites" aria-pressed="false" hidden><img class="window-app-icon" src="images/internet-explorer-6.ico" width="20" height="20" alt="" /><span>My Websites</span></button>
 					<button class="task-button" type="button" data-task-window="hobbies" aria-pressed="false" hidden><span class="icon solid fa-gamepad" aria-hidden="true"></span><span>Personal Hobbies</span></button>
 				</div>
 				<button id="show-desktop-button" class="show-desktop-button" type="button" data-show-desktop aria-label="Show desktop" title="Show desktop"><span class="icon solid fa-desktop" aria-hidden="true"></span></button>

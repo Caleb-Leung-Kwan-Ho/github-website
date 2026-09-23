@@ -111,7 +111,7 @@ export function createPortfolioSite() {
 		id: 'portfolio',
 		element: element,
 		homeId: 'work',
-		aliases: { 'research-notebook': 'projects', 'hobbies': 'websites' },
+		aliases: { 'research-notebook': 'projects' },
 		closeOnEscape: false,
 		acceptsTarget: acceptsTarget,
 		focus: function () { content.focus({ preventScroll: true }); },

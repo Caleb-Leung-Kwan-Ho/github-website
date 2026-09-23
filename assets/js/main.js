@@ -1,13 +1,13 @@
 import { createDesktop } from '../../desktop/windows.js';
 import { createNavigation } from '../../desktop/navigation.js';
 import { setupWindowMenus } from '../../desktop/menus.js';
-import { createWebsiteFolder } from '../../sites/my-folder/site.js';
+import { createWebsitesSite } from '../../sites/my-websites/site.js';
 import { createPortfolioSite } from '../../sites/portfolio/site.js';
 import { createHobbiesSite } from '../../sites/hobbies/site.js';
 import { createProjectsSite } from '../../sites/projects/site.js';
 
 // Portfolio remains the default; the auxiliary directory uses the same window callbacks.
-var sites = [createPortfolioSite(), createHobbiesSite(), createProjectsSite(), createWebsiteFolder()].filter(Boolean);
+var sites = [createPortfolioSite(), createHobbiesSite(), createProjectsSite(), createWebsitesSite()].filter(Boolean);
 var desktop = createDesktop(sites);
 var navigation = createNavigation(sites, desktop);
 

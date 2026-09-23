@@ -19,7 +19,7 @@
 		<meta name="twitter:card" content="summary" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!-- Keep this order: site-specific styles intentionally override the base theme. -->
-		<link rel="stylesheet" href="assets/css/one-page.css?v=20260923-my-folder" />
+		<link rel="stylesheet" href="assets/css/one-page.css?v=20260923-my-websites" />
 		<link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
@@ -42,8 +42,8 @@
 					<img class="shortcut-icon" src="images/resume-pdf.svg" width="48" height="48" alt="" />
 					<span>Resume</span>
 				</a>
-				<a class="desktop-shortcut" href="#websites" data-open-portfolio>
-					<span class="shortcut-icon icon solid fa-folder-open" aria-hidden="true"></span>
+				<a class="desktop-shortcut" href="#websites">
+					<img class="shortcut-icon" src="images/internet-explorer-6.ico" width="48" height="48" alt="" />
 					<span>My Websites</span>
 				</a>
 				<a class="desktop-shortcut" href="#projects" data-open-portfolio>
@@ -109,19 +109,21 @@
 				<!-- include: sites/portfolio/content.html -->
 			</section>
 
-			<section class="os-window website-folder-window" data-window="websites" role="dialog" aria-modal="false" aria-labelledby="website-folder-title" tabindex="-1" hidden>
+			<section class="os-window websites-window" data-window="websites" role="dialog" aria-modal="false" aria-labelledby="websites-window-title" tabindex="-1" hidden>
 				<header class="window-titlebar" data-titlebar>
-					<div class="window-title"><span class="titlebar-folder folder-icon" aria-hidden="true"></span><h2 id="website-folder-title">My folder</h2></div>
-					<div class="window-controls" aria-label="My folder window controls"><button type="button" data-window-action="minimize" aria-label="Minimize My folder window"><span aria-hidden="true">—</span></button><button type="button" data-window-action="maximize" aria-label="Maximize My folder window"><span aria-hidden="true">□</span></button><button class="close-control" type="button" data-window-action="close" aria-label="Close My folder window"><span aria-hidden="true">×</span></button></div>
+					<div class="window-title"><img class="window-app-icon" src="images/internet-explorer-6.ico" width="20" height="20" alt="" /><h2 id="websites-window-title">My Websites - Microsoft Internet Explorer</h2></div>
+					<div class="window-controls" aria-label="My Websites window controls"><button type="button" data-window-action="minimize" aria-label="Minimize My Websites window"><span aria-hidden="true">—</span></button><button type="button" data-window-action="maximize" aria-label="Maximize My Websites window"><span aria-hidden="true">□</span></button><button class="close-control" type="button" data-window-action="close" aria-label="Close My Websites window"><span aria-hidden="true">×</span></button></div>
 				</header>
 				<div class="window-menubar">
-					<details class="window-menu"><summary>File</summary><div class="window-menu-panel"><a href="#websites">Open parent folder</a><button type="button" data-window-action="close">Close window</button></div></details>
-					<details class="window-menu"><summary>Edit</summary><div class="window-menu-panel"><button type="button" data-menu-action="copy-link">Copy folder link</button></div></details>
-					<details class="window-menu"><summary>View</summary><div class="window-menu-panel"><button type="button" data-menu-action="maximize">Maximize window</button><button type="button" data-menu-action="move">Move window</button><button type="button" data-menu-action="resize">Resize window</button><button type="button" data-menu-action="reset-position">Reset size and position</button></div></details>
-					<details class="window-menu"><summary>Help</summary><div class="window-menu-panel window-help-panel"><p>Choose a website shortcut to open it. Use Tab and Enter with a keyboard, or click or tap once.</p><p>Use Up to return to My Websites. Drag the title bar or resize the window, just like the other desktop windows.</p></div></details>
+					<details class="window-menu"><summary>File</summary><div class="window-menu-panel"><a href="#websites">Open My Websites</a><a href="#work">Back to portfolio</a><button type="button" data-window-action="close">Close window</button></div></details>
+					<details class="window-menu"><summary>Edit</summary><div class="window-menu-panel"><button type="button" data-menu-action="copy-link">Copy page link</button></div></details>
+					<details class="window-menu"><summary>View</summary><div class="window-menu-panel"><button type="button" data-menu-action="maximize">Maximize window</button><button type="button" data-menu-action="move">Move window</button><button type="button" data-menu-action="resize">Resize window</button></div></details>
+					<details class="window-menu"><summary>Favorites</summary><div class="window-menu-panel" data-websites-favorites-menu><button type="button" data-websites-favorites-toggle data-websites-favorites-label aria-expanded="false" aria-controls="websites-favorites">Show Favorites panel</button></div></details>
+					<details class="window-menu"><summary>Tools</summary><div class="window-menu-panel"><button type="button" data-menu-action="reset-position">Reset window size and position</button></div></details>
+					<details class="window-menu"><summary>Help</summary><div class="window-menu-panel window-help-panel"><p>Click a website once to open its existing window, or use Tab and Enter.</p><p>Favorites shows the same collection in a compact list. Home returns to this directory; Back and Forward follow your browsing history on this desktop.</p><p>Use Back to portfolio to return to my AI and software engineering work.</p></div></details>
 					<span class="window-menu-status" role="status" aria-live="polite"></span>
 				</div>
-				<!-- include: sites/my-folder/content.html -->
+				<!-- include: sites/my-websites/content.html -->
 			</section>
 
 			<section class="os-window hobbies-window" data-window="hobbies" role="dialog" aria-modal="false" aria-labelledby="hobbies-window-title" tabindex="-1" hidden>
@@ -234,7 +236,7 @@
 				</nav>
 				<nav id="start-programs" class="start-menu-content start-programs" aria-label="All Programs" hidden>
 					<a href="#projects" data-open-portfolio><span class="icon solid fa-book-open" aria-hidden="true"></span>Projects &amp; Research</a>
-					<a href="#websites" data-open-portfolio><span class="icon solid fa-folder-open" aria-hidden="true"></span>My Websites</a>
+					<a href="#websites"><img class="start-shortcut-image" src="images/internet-explorer-6.ico" width="31" height="31" alt="" />My Websites</a>
 					<button type="button" data-open-window="hobbies"><span class="icon solid fa-gamepad" aria-hidden="true"></span>Personal Hobbies</button>
 					<!-- project-lab:start -->
 					<button type="button" data-open-window="projects"><span class="icon solid fa-compact-disc" aria-hidden="true"></span>DVD Project Lab</button>
@@ -251,7 +253,7 @@
 				<button id="start-button" class="start-button" type="button" aria-expanded="false" aria-controls="start-menu"><span>Start</span></button>
 				<div class="task-buttons" aria-label="Open windows">
 					<button class="task-button is-active" type="button" data-task-window="portfolio" aria-pressed="true"><span class="folder-icon" aria-hidden="true"></span><span>Caleb Leung — Portfolio</span></button>
-					<button class="task-button" type="button" data-task-window="websites" aria-pressed="false" hidden><span class="folder-icon" aria-hidden="true"></span><span>My folder</span></button>
+					<button class="task-button" type="button" data-task-window="websites" aria-pressed="false" hidden><img class="window-app-icon" src="images/internet-explorer-6.ico" width="20" height="20" alt="" /><span>My Websites</span></button>
 					<button class="task-button" type="button" data-task-window="hobbies" aria-pressed="false" hidden><span class="icon solid fa-gamepad" aria-hidden="true"></span><span>Personal Hobbies</span></button>
 					<!-- project-lab:start -->
 					<button class="task-button" type="button" data-task-window="projects" aria-pressed="false" hidden><span class="icon solid fa-compact-disc" aria-hidden="true"></span><span>DVD Project Lab</span></button>

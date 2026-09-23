@@ -27,6 +27,7 @@ Site code uses the shared desktop through a small set of callbacks; it does not 
 - **Translate Hobbies:** update its English HTML and the corresponding Japanese/Hong Kong Traditional Chinese entries in `translations.js`. Keep the `data-hobby-text` keys aligned.
 - **Change appearance:** edit the owning site’s CSS, or `desktop/styles.css` for shared controls. Keep the existing responsive breakpoints and focus styles.
 - **Change window behavior:** edit the relevant desktop module. Check both windows because they share it.
+- **Add a Start menu entry:** put it in `#start-programs` in `desktop/page.html`, or in `#start-featured` if it is one of the most important shortcuts. Keep each entry in only one view; All Programs scrolls within the menu as the list grows.
 
 Asset links in HTML are relative to the published root `index.html`, even inside a content fragment. CSS image links are relative to the CSS file itself. Keep large artwork and the base theme in their current locations unless a separate task calls for changing them.
 

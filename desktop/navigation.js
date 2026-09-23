@@ -42,7 +42,7 @@ export function createNavigation(sites, desktop) {
 		var route = destination(id);
 		if (!route) { return; }
 		options = options || {};
-		desktop.openWindow(route.site.id, null, false);
+		desktop.openWindow(route.site.id, options.opener || null, false);
 		route.site.navigate(route.target);
 		if (options.record) { recordNavigation(route.id); }
 		if (options.focus) { focusAnchorTarget(route.target); }
@@ -55,7 +55,8 @@ export function createNavigation(sites, desktop) {
 				var route = destination(link.getAttribute('href').slice(1));
 				if (!route) { return; }
 				event.preventDefault();
-				navigate(route.id, { record: true, focus: event.detail === 0 || link.classList.contains('skip-link') });
+				var changesWindow = link.closest('[data-window]') !== route.site.element;
+				navigate(route.id, { record: true, focus: changesWindow || event.detail === 0 || link.classList.contains('skip-link'), opener: link });
 			});
 		});
 

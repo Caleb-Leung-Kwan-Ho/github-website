@@ -14,6 +14,7 @@
 
 	.window-controls,
 	.window-menubar,
+	.websites-toolbar,
 	.desktop-shortcut[type="button"],
 	.start-menu,
 	.taskbar,
@@ -52,8 +53,10 @@
 		min-height: 0;
 	}
 
-	/* Keep the hobbies document readable without simulated-window behavior. */
-	.hobbies-window[hidden] {
+	/* Keep every auxiliary document readable without simulated-window behavior. */
+	.hobbies-window[hidden],
+	.websites-window[hidden],
+	.projects-window[hidden] {
 		position: relative;
 		display: flex !important;
 		top: auto;
@@ -68,5 +71,10 @@
 	}
 
 	.hobbies-window-body {
+		overflow: visible;
+	}
+
+	.websites-layout,
+	.websites-content {
 		overflow: visible;
 	}

@@ -1,0 +1,32 @@
+# Third-party notices
+
+## Microsoft Internet Explorer artwork
+
+Microsoft, Internet Explorer, Windows, and Windows XP are trademarks of the
+Microsoft group of companies. The Internet Explorer logo and original icon
+artwork belong to Microsoft.
+
+`images/internet-explorer-6.ico` is retained as an original reference.
+`images/internet-explorer-6.svg` is an unofficial vector reconstruction of the
+XP-era icon. `images/website-shortcut.svg` incorporates that reconstruction into
+custom surrounding artwork. The repository authors do not claim ownership of
+the underlying Microsoft design. See the [source and provenance record](images/internet-explorer-6.source.md).
+
+This project is not affiliated with, sponsored by, or endorsed by Microsoft.
+Microsoft's artwork and trademarks are not licensed under this repository's
+software/theme license or custom-artwork sharing policy. This notice gives
+credit; it does not grant permission or establish legal clearance to use,
+modify, or redistribute Microsoft's artwork.
+
+Microsoft's published [Trademark and Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks)
+and [copyrighted-content guidance](https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/permissions)
+describe restrictions on logos and product icons. The
+[Microsoft trademark list linked by those guidelines](https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/mscle/documents/presentations/Trademark_List_FY26Q1.pdf)
+still includes Internet Explorer and Internet Explorer Design. Product
+retirement does not itself grant reuse rights.
+
+## Other artwork
+
+The custom decoration sharing policy is in [ARTWORK_TERMS.md](ARTWORK_TERMS.md).
+Third-party anime, manga, and game image sources are recorded in the
+[thumbnail source ledger](images/hobbies/THUMBNAIL_SOURCES.md).

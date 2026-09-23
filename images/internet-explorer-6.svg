@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <title>Internet Explorer 6</title>
+  <desc>Unofficial vector reconstruction of the Windows XP-era Internet Explorer icon.</desc>
+  <!-- The Internet Explorer logo belongs to Microsoft. No affiliation or endorsement.
+       This reconstruction does not grant rights to the underlying design.
+       See internet-explorer-6.source.md and ../THIRD_PARTY_NOTICES.md. -->
+  <defs>
+    <linearGradient id="ie6-depth" gradientUnits="userSpaceOnUse" x1="8" y1="5" x2="39" y2="43">
+      <stop stop-color="#21789a"/>
+      <stop offset=".5" stop-color="#205e8c"/>
+      <stop offset="1" stop-color="#225575"/>
+    </linearGradient>
+    <linearGradient id="ie6-face" gradientUnits="userSpaceOnUse" x1="12" y1="7" x2="31" y2="40">
+      <stop stop-color="#67e7f5"/>
+      <stop offset=".28" stop-color="#28b5e9"/>
+      <stop offset=".62" stop-color="#2994df"/>
+      <stop offset="1" stop-color="#2789d2"/>
+    </linearGradient>
+    <radialGradient id="ie6-top-light" gradientUnits="userSpaceOnUse" cx="11" cy="10" r="16" gradientTransform="translate(11 10) rotate(-38) scale(1 .45) translate(-11 -10)">
+      <stop stop-color="#bcffff"/>
+      <stop offset=".55" stop-color="#9efcff" stop-opacity=".8"/>
+      <stop offset="1" stop-color="#75f2fa" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ie6-bottom-light" gradientUnits="userSpaceOnUse" cx="34" cy="37" r="19" gradientTransform="translate(34 37) rotate(-36) scale(1 .32) translate(-34 -37)">
+      <stop stop-color="#b5faff"/>
+      <stop offset=".45" stop-color="#9befff" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#64dcf7" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ie6-orbit" gradientUnits="userSpaceOnUse" x1="29" y1="2" x2="42" y2="13">
+      <stop stop-color="#5ad4ef"/>
+      <stop offset=".55" stop-color="#35b6e4"/>
+      <stop offset="1" stop-color="#2685bd"/>
+    </linearGradient>
+    <linearGradient id="ie6-swoosh" gradientUnits="userSpaceOnUse" x1="12" y1="15" x2="7" y2="45">
+      <stop stop-color="#72e5f5"/>
+      <stop offset=".4" stop-color="#31bbe9"/>
+      <stop offset=".8" stop-color="#24a5e4"/>
+      <stop offset="1" stop-color="#2587c5"/>
+    </linearGradient>
+    <linearGradient id="ie6-edge" gradientUnits="userSpaceOnUse" x1="8" y1="7" x2="38" y2="41">
+      <stop stop-color="#b3ffff"/>
+      <stop offset=".28" stop-color="#6fe4f3"/>
+      <stop offset=".55" stop-color="#3bbaeb"/>
+      <stop offset=".72" stop-color="#429edd"/>
+      <stop offset="1" stop-color="#a5f6ff"/>
+    </linearGradient>
+    <path id="ie6-back-orbit" d="M26.5 5.2C34.9 .2 41.9-1 44 2.6c1.3 2.2.6 5.8-1.1 8.8l-1.1-.6c1.1-3 1.5-5.7.4-7.1-1.7-2.3-6.7-.6-12.9 2.8Z"/>
+    <path id="ie6-letter" fill-rule="evenodd" d="M2.5 23.2C3.1 12.5 11.6 4.5 22.8 4.5c12.1 0 20.3 8.5 20.3 21.3H17.2c.1 4.3 2.3 6.9 6.2 6.9 2.8 0 4.6-1.5 5.4-4h13.7c-1.8 8-8.9 12.9-19.3 12.9-10.7 0-18.1-6.2-18.6-15.8C8.2 19.3 13.7 13 20.1 8.6 12.7 11.9 6.4 17.4 2.5 23.2Zm14.7-3.4h11.7c-.3-3.8-2.4-6.1-5.8-6.1-3.2 0-5.5 2.4-5.9 6.1Z"/>
+    <path id="ie6-front-orbit" d="M20.1 8.6C13.4 14.8 7.4 23.1 4.5 31.9c-2.3 7-2.2 10.8.4 11.9 2.6 1.2 7.5-.1 14.6-2.2C12.9 46 6.9 47.5 3.3 45.5c-4.6-2.5-2.1-11.3 2.3-19.7C9.4 18.7 14.9 12.1 20.1 8.6Z"/>
+    <clipPath id="ie6-face-clip"><use href="#ie6-letter" clip-rule="evenodd"/></clipPath>
+    <!-- Only the interior bevel is softened; the silhouette stays vector-sharp. -->
+    <filter id="ie6-bevel" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation=".55"/>
+    </filter>
+  </defs>
+  <g id="ie6-mark">
+    <use href="#ie6-back-orbit" transform="translate(.45 .65)" fill="url(#ie6-depth)"/>
+    <use href="#ie6-back-orbit" fill="url(#ie6-orbit)"/>
+    <use href="#ie6-letter" transform="translate(.6 .85)" fill="url(#ie6-depth)"/>
+    <use href="#ie6-letter" fill="url(#ie6-face)"/>
+    <use href="#ie6-letter" fill="url(#ie6-top-light)"/>
+    <use href="#ie6-letter" fill="url(#ie6-bottom-light)"/>
+    <g clip-path="url(#ie6-face-clip)">
+      <path d="M2.5 23.2C3.1 12.5 11.6 4.5 22.8 4.5c12.1 0 20.3 8.5 20.3 21.3H17.2c.1 4.3 2.3 6.9 6.2 6.9 2.8 0 4.6-1.5 5.4-4h13.7c-1.8 8-8.9 12.9-19.3 12.9-10.7 0-18.1-6.2-18.6-15.8C8.2 19.3 13.7 13 20.1 8.6 12.7 11.9 6.4 17.4 2.5 23.2Z" fill="none" stroke="url(#ie6-edge)" stroke-width="1.8" stroke-linejoin="round" opacity=".75" filter="url(#ie6-bevel)"/>
+    </g>
+    <path d="M17.2 19.8h11.7" fill="none" stroke="#1c73a6" stroke-width=".45"/>
+    <path d="M17.4 26.2h25.3" fill="none" stroke="#175484" stroke-width=".6"/>
+    <use href="#ie6-front-orbit" transform="translate(.4 .6)" fill="url(#ie6-depth)"/>
+    <use href="#ie6-front-orbit" fill="url(#ie6-swoosh)"/>
+  </g>
+</svg>

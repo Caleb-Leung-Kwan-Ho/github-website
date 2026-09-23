@@ -108,7 +108,7 @@ export function createDesktop(sites) {
 			return;
 		}
 
-		if (opener && !opener.hasAttribute('data-task-window')) {
+		if (opener && !windowElement.contains(opener) && !opener.hasAttribute('data-task-window')) {
 			lastWindowTrigger[name] = startMenu.contains(opener) ? startButton : opener;
 		}
 

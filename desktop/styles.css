@@ -359,6 +359,14 @@ b {
 	gap: 8px;
 }
 
+.window-app-icon {
+	display: block;
+	width: 20px;
+	height: 20px;
+	flex: 0 0 20px;
+	object-fit: contain;
+}
+
 .window-title h1,
 .window-title h2 {
 	min-width: 0;
@@ -831,6 +839,14 @@ b {
 	color: #2472cd;
 	font-size: 27px;
 	text-align: center;
+}
+
+.start-menu-content .start-shortcut-image {
+	display: block;
+	width: 31px;
+	height: 31px;
+	flex: 0 0 31px;
+	object-fit: contain;
 }
 
 .start-menu-content a:hover .icon,

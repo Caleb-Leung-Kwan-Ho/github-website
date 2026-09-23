@@ -1,0 +1,25 @@
+<nav class="websites-toolbar" aria-label="Website browsing controls">
+	<button class="websites-toolbar-button" type="button" data-websites-back aria-label="Go to the previous page" disabled><span class="browser-history-icon" aria-hidden="true">←</span><span>Back</span></button>
+	<button class="websites-toolbar-button" type="button" data-websites-forward aria-label="Go to the next page" disabled><span class="browser-history-icon is-forward" aria-hidden="true">→</span><span>Forward</span></button>
+	<a class="websites-toolbar-button" href="#websites"><span class="browser-home-icon icon solid fa-home" aria-hidden="true"></span><span>Home</span></a>
+	<button class="websites-toolbar-button" type="button" data-websites-favorites-toggle aria-expanded="false" aria-controls="websites-favorites"><span class="browser-favorites-icon icon solid fa-star" aria-hidden="true"></span><span>Favorites</span></button>
+</nav>
+<div class="websites-address"><span>Address</span><div class="websites-address-field"><img src="images/internet-explorer-6.svg" width="16" height="16" alt="" /><span data-websites-address>caleb-leung-kwan-ho.github.io/#websites</span></div><a class="websites-go" href="#websites" aria-label="Go to My Websites">Go <span aria-hidden="true">→</span></a></div>
+<div class="websites-layout">
+	<aside id="websites-favorites" class="websites-favorites" aria-labelledby="websites-favorites-title" hidden>
+		<div class="websites-favorites-heading"><h2 id="websites-favorites-title">Favorites</h2><button type="button" data-websites-favorites-close aria-label="Close Favorites">×</button></div>
+		<nav aria-label="Favorite websites"><ul class="websites-favorites-list" data-websites-favorites-list></ul></nav>
+		<a class="websites-return" href="#work">Back to portfolio</a>
+	</aside>
+	<section id="websites" class="websites-content" tabindex="-1" aria-labelledby="websites-title">
+		<!-- Preserve old fragment links in the readable no-JavaScript document too. -->
+		<span id="my-folder" aria-hidden="true"></span><span id="hobbies" aria-hidden="true"></span>
+		<header class="websites-heading"><div><h2 id="websites-title">My Websites</h2><p>A little more about me, outside my AI work.</p></div><a class="websites-return" href="#work">Back to portfolio</a></header>
+		<div class="websites-list-heading"><h3>Around the web</h3><p data-websites-count>Website collection</p></div>
+		<ul class="websites-directory-list">
+			<!-- website-shortcuts -->
+		</ul>
+		<p class="websites-growth">More sites will appear here as I build them.</p>
+	</section>
+</div>
+<footer class="window-statusbar"><span data-websites-count>Website collection</span><span>Internet</span></footer>

@@ -1,93 +1,99 @@
 <div class="explorer-toolbar">
-	<button id="back-button" class="toolbar-button" type="button" aria-label="Go to the previously viewed portfolio section" disabled>
-		<span class="back-icon" aria-hidden="true">←</span>
-		<span>Back</span>
-	</button>
-	<button id="forward-button" class="toolbar-button" type="button" aria-label="Go to the next viewed portfolio section" disabled>
-		<span class="back-icon" aria-hidden="true">→</span>
-		<span>Forward</span>
-	</button>
-	<span class="toolbar-separator" aria-hidden="true"></span>
-	<a class="toolbar-button home-button" href="#intro" data-open-portfolio aria-label="Portfolio home">
-		<span class="up-folder icon solid fa-folder-open" aria-hidden="true"></span>
-		<span>Home</span>
-	</a>
-	<span class="toolbar-separator" aria-hidden="true"></span>
-	<span class="address-label">Address</span>
-	<div class="address-field" aria-live="polite">
-		<span class="address-folder folder-icon" aria-hidden="true"></span>
-		<span id="address-text">Portfolio / About</span>
+	<div class="explorer-navigation" aria-label="Portfolio navigation">
+		<button id="back-button" class="toolbar-button" type="button" aria-label="Go to the previously viewed portfolio folder" disabled><span class="back-icon" aria-hidden="true">←</span><span>Back</span></button>
+		<button id="forward-button" class="toolbar-button" type="button" aria-label="Go to the next viewed portfolio folder" disabled><span class="back-icon" aria-hidden="true">→</span><span>Forward</span></button>
+		<span class="toolbar-separator" aria-hidden="true"></span>
+		<a class="toolbar-button home-button" href="#intro" aria-label="Go up to My Portfolio"><span class="up-folder icon solid fa-level-up-alt" aria-hidden="true"></span><span>Up</span></a>
 	</div>
-	<a class="go-button" href="#intro" data-open-portfolio aria-label="Go to the portfolio home">Go</a>
+	<div class="explorer-address">
+		<span class="address-label">Address</span>
+		<div class="address-field" aria-live="polite"><span class="address-folder folder-icon" aria-hidden="true"></span><span id="address-text">My Portfolio / Work</span></div>
+	</div>
 </div>
 
 <div class="explorer-layout">
 	<aside class="explorer-sidebar">
-		<nav id="site-nav" class="sidebar-panel" aria-label="Portfolio sections">
-			<h2>Portfolio Tasks</h2>
-			<ul>
-				<li><a href="#intro"><span class="icon solid fa-info-circle" aria-hidden="true"></span>About</a></li>
-					<li><a href="#work"><span class="icon solid fa-folder" aria-hidden="true"></span>Work</a></li>
-				<li><a href="#projects"><span class="icon solid fa-code" aria-hidden="true"></span>Projects &amp; Research</a></li>
-				<li><a href="#resume"><span class="icon solid fa-file-alt" aria-hidden="true"></span>Resume</a></li>
-				<li><a href="#skills"><span class="icon solid fa-tools" aria-hidden="true"></span>Skills</a></li>
-				<li><a href="#beyond"><span class="icon solid fa-star" aria-hidden="true"></span>Beyond Tech</a></li>
-				<li><a href="#contact"><span class="icon solid fa-envelope" aria-hidden="true"></span>Contact</a></li>
-				<li><a href="#hobbies"><span class="icon solid fa-gamepad" aria-hidden="true"></span>Personal Hobbies Website</a></li>
-			</ul>
-		</nav>
-
-		<nav class="sidebar-panel other-places" aria-label="Other places">
-			<h2>Other Places</h2>
-			<ul>
-				<li><a href="https://github.com/Caleb-Leung-Kwan-Ho" target="_blank" rel="noopener noreferrer"><span class="icon brands fa-github" aria-hidden="true"></span>GitHub</a></li>
-				<li><a href="https://www.linkedin.com/in/caleb-leung-a67b74168/" target="_blank" rel="noopener noreferrer"><span class="icon brands fa-linkedin" aria-hidden="true"></span>LinkedIn</a></li>
-				<li><a href="mailto:caleb.leungkwanho@gmail.com"><span class="icon solid fa-envelope" aria-hidden="true"></span>Email</a></li>
-			</ul>
+		<nav id="site-nav" aria-label="Portfolio sections">
+			<div class="sidebar-panel portfolio-tasks">
+				<h2>Portfolio tasks</h2>
+				<ul>
+					<li><a href="#resume"><img class="resume-pdf-icon" src="images/resume-pdf.svg" width="26" height="26" alt="" />View resume</a></li>
+					<li><a href="mailto:caleb.leungkwanho@gmail.com"><span class="icon solid fa-envelope" aria-hidden="true"></span>Email Caleb</a></li>
+					<li><a href="https://github.com/Caleb-Leung-Kwan-Ho" target="_blank" rel="noopener noreferrer"><span class="icon brands fa-github" aria-hidden="true"></span>GitHub</a></li>
+				</ul>
+			</div>
+			<div class="sidebar-panel portfolio-folders">
+				<h2>Folders</h2>
+				<ul class="portfolio-folder-tree">
+					<li><a href="#intro"><span class="nav-folder folder-icon" aria-hidden="true"></span>My Portfolio</a>
+						<ul>
+							<li><a href="#work"><span class="nav-folder folder-icon" aria-hidden="true"></span>Work</a></li>
+							<li><a href="#projects"><span class="nav-folder folder-icon" aria-hidden="true"></span>Projects &amp; Research</a></li>
+							<li><a href="#skills"><span class="nav-folder folder-icon" aria-hidden="true"></span>Skills</a></li>
+							<li><a href="#beyond"><span class="nav-folder folder-icon" aria-hidden="true"></span>About</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="portfolio-other-links"><a href="#contact">Contact</a></div>
 		</nav>
 	</aside>
 
 	<main id="main" class="explorer-content" tabindex="-1">
-		<section id="intro" class="profile-section profile-hero" aria-labelledby="intro-title" data-section-name="About">
-			<div class="hero-heading">
-				<figure class="profile-image">
-					<img src="images/pic01.jpeg" alt="Caleb Leung" />
-				</figure>
-				<div>
-					<p class="eyebrow">Welcome to my portfolio</p>
-					<h2 id="intro-title">Caleb (Kwan Ho) Leung</h2>
-					<p class="hero-role">Software engineer working across AI and data systems.</p>
+		<header class="portfolio-identity" aria-labelledby="portfolio-name">
+			<figure class="profile-image"><img src="images/pic01.jpeg" width="104" height="104" alt="Caleb Leung" /></figure>
+			<div class="portfolio-introduction"><h2 id="portfolio-name">Caleb Leung</h2><p class="hero-role">Software Engineer · AI &amp; Data Systems</p><p class="hero-detail">Building reliable systems for AI applications.</p></div>
+			<div class="portfolio-actions"><a class="xp-action-button" href="#resume">Resume</a><a class="xp-action-button" href="#contact">Contact</a></div>
+		</header>
+
+		<section id="work" class="profile-section" aria-labelledby="work-title" data-section-name="Work" data-item-count="1">
+			<header class="section-heading"><h2 id="work-title">Work</h2></header>
+			<div class="work-file-list">
+				<table class="work-files" aria-label="Work case studies">
+					<thead><tr><th scope="col">Name</th><th scope="col">Organization</th><th scope="col">Type</th></tr></thead>
+					<tbody><tr class="is-selected"><td><a href="#work" aria-current="true" aria-label="View Document processing and AI infrastructure case study"><span class="icon regular fa-file-alt" aria-hidden="true"></span>Document processing &amp; AI infrastructure</a></td><td>IntellPro</td><td>Case study</td></tr></tbody>
+				</table>
+			</div>
+			<article class="work-preview" aria-labelledby="work-preview-title">
+				<header class="work-preview-heading"><h3 id="work-preview-title">Document processing &amp; AI infrastructure</h3><span>Preview</span></header>
+				<div class="preview-tabs" data-preview-tabs aria-label="Case study view">
+					<button id="work-overview-tab" type="button" data-preview-tab="overview" aria-controls="work-overview">Overview</button>
+					<button id="work-engineering-tab" type="button" data-preview-tab="engineering" aria-controls="work-engineering">Engineering details</button>
 				</div>
-			</div>
-			<p class="hero-detail">Building reliable systems to process, organize, and retrieve information for AI applications.</p>
-			<div class="section-rule" aria-hidden="true"></div>
-			<p>I am a software engineer interested in AI and working across the agent and data layers of production systems. My work focuses on backend engineering, distributed processing, and reliable data pipelines.</p>
-			<p>At IntellPro, my work includes designing scalable text-extraction and document-transformation services, developing a custom financial-document chunking algorithm and supporting library, and owning the distributed embedding stage—where I built its rate limiting, retries, worker orchestration, concurrency control, dead-letter queue handling, and state-machine-based job coordination. I have also applied agent workflows specifically to metadata extraction.</p>
-			<p>These contributions are part of a broader production document-processing pipeline that I work on alongside the team. The pipeline handles approximately 3,000 documents per day across more than 10 integrations.</p>
-			<p>As a first-generation college graduate, I earned a B.S. in Mathematics with a concentration in Financial Mathematics and a minor in Economics from Baruch College. I am currently pursuing an M.S. in Computer Science from Georgia Tech.</p>
+				<div id="work-overview" class="work-preview-panel" data-preview-panel="overview">
+					<div class="contribution-grid">
+						<div class="contribution-card"><span class="icon regular fa-file-alt" aria-hidden="true"></span><div><h4>Text extraction</h4><p>Built extraction and transformation services.</p></div></div>
+						<div class="contribution-card"><span class="icon solid fa-cog" aria-hidden="true"></span><div><h4>Document chunking</h4><p>Developed a financial-document algorithm.</p></div></div>
+						<div class="contribution-card"><span class="icon solid fa-database" aria-hidden="true"></span><div><h4>Distributed embeddings</h4><p>Own the embedding stage.</p><small>Workers · Retries · Rate limits</small></div></div>
+					</div>
+					<div class="pipeline-context"><span class="icon solid fa-users" aria-hidden="true"></span><div><h4>Team pipeline context</h4><p>~3,000 documents/day · 10+ integrations</p><small>Contributing alongside the team.</small></div></div>
+					<button class="xp-action-button engineering-action" type="button" data-open-engineering>Read engineering details <span aria-hidden="true">→</span></button>
+				</div>
+				<div id="work-engineering" class="work-preview-panel engineering-details" data-preview-panel="engineering">
+					<h4>My contributions at IntellPro</h4>
+					<p>My contributions include scalable text-extraction and document-transformation services, a custom financial-document chunking algorithm and supporting library, and ownership of the distributed embedding stage.</p>
+					<p>For the embedding stage, I built rate limiting, retries, worker orchestration, concurrency control, dead-letter queue handling, and state-machine-based job coordination. I have also applied agent workflows to metadata extraction.</p>
+					<p>This work supports a broader document-processing pipeline that I contribute to alongside the team, handling approximately 3,000 documents per day across more than 10 integrations.</p>
+				</div>
+			</article>
+		</section>
 
-			<div class="folder-grid quick-folders" aria-label="Featured portfolio folders">
-				<a class="folder-tile" href="#work"><span class="large-folder folder-icon" aria-hidden="true"></span><span><strong>Work</strong><small>Production engineering</small></span></a>
+		<section id="intro" class="profile-section" aria-labelledby="intro-title" data-section-name="Overview" data-item-count="4">
+			<header class="section-heading"><h2 id="intro-title">My Portfolio</h2></header>
+			<p>Software engineering across the agent and data layers of production AI systems, with a focus on backend engineering, distributed processing, and reliable data pipelines.</p>
+			<div class="pipeline-context"><span class="icon solid fa-database" aria-hidden="true"></span><div><h3>Production work at IntellPro</h3><p>Text extraction · Financial-document chunking · Distributed embeddings</p><small>Contributing to a team pipeline handling approximately 3,000 documents per day across more than 10 integrations.</small></div></div>
+			<div class="folder-grid quick-folders" aria-label="Portfolio folders and documents">
+				<a class="folder-tile" href="#work"><span class="large-folder folder-icon" aria-hidden="true"></span><span><strong>Work</strong><small>Document processing &amp; AI infrastructure</small><small>IntellPro · Production engineering</small></span></a>
 				<a class="folder-tile" href="#projects"><span class="large-folder folder-icon" aria-hidden="true"></span><span><strong>Projects &amp; Research</strong><small>Anime MCP · In development</small></span></a>
-				<a class="folder-tile" href="#resume"><span class="large-folder folder-icon" aria-hidden="true"></span><span><strong>Resume</strong><small>Professional experience</small></span></a>
-				<a class="folder-tile" href="#skills"><span class="large-folder folder-icon" aria-hidden="true"></span><span><strong>Skills</strong><small>Technical toolkit</small></span></a>
+				<a class="folder-tile" href="#skills"><span class="large-folder folder-icon" aria-hidden="true"></span><span><strong>Skills</strong><small>Backend · Distributed systems · Retrieval</small></span></a>
+				<a class="folder-tile" href="#resume"><img class="folder-document" src="images/resume-pdf.svg" width="56" height="56" alt="" /><span><strong>Resume.pdf</strong><small>View professional experience</small></span></a>
 			</div>
 		</section>
 
-		<section id="work" class="profile-section" aria-labelledby="work-title" data-section-name="Work">
-			<header class="section-heading"><span class="heading-folder folder-icon" aria-hidden="true"></span><div><p class="eyebrow">Selected experience</p><h2 id="work-title">Work</h2></div></header>
+		<section id="projects" class="profile-section" aria-labelledby="projects-title" data-section-name="Projects &amp; Research" data-item-count="1">
+			<header class="section-heading"><div><p class="eyebrow">Personal projects</p><h2 id="projects-title">Projects &amp; Research</h2></div></header>
 			<div class="xp-detail-card">
-				<div class="detail-card-heading"><span class="large-folder folder-icon" aria-hidden="true"></span><div><h3>Document processing &amp; AI infrastructure</h3><p>IntellPro · Production engineering</p></div></div>
-				<p>My contributions include scalable text-extraction and document-transformation services, a custom financial-document chunking algorithm and supporting library, and ownership of the distributed embedding stage.</p>
-				<p>For the embedding stage, I built rate limiting, retries, worker orchestration, concurrency control, dead-letter queue handling, and state-machine-based job coordination. I have also applied agent workflows to metadata extraction.</p>
-				<p>This work supports a broader document-processing pipeline that I contribute to alongside the team, handling approximately 3,000 documents per day across more than 10 integrations.</p>
-			</div>
-		</section>
-
-		<section id="projects" class="profile-section" aria-labelledby="projects-title" data-section-name="Projects &amp; Research">
-			<header class="section-heading"><span class="heading-folder folder-icon" aria-hidden="true"></span><div><p class="eyebrow">Personal projects</p><h2 id="projects-title">Projects &amp; Research</h2></div></header>
-			<div class="xp-detail-card">
-				<div class="detail-card-heading"><span class="large-folder folder-icon" aria-hidden="true"></span><div><p class="status-label">In development</p><h3>Anime MCP</h3></div></div>
+				<div class="detail-card-heading"><span class="case-document icon solid fa-file-code" aria-hidden="true"></span><div><p class="status-label">In development</p><h3>Anime MCP</h3></div></div>
 				<div class="detail-card-body">
 					<p>I’m building a retrieval system for anime-character information, exposed through an MCP server. My current focus is indexing and retrieval, with ranking, hybrid fusion, and context expansion as areas of development and evaluation.</p>
 					<details class="project-research">
@@ -105,15 +111,16 @@
 		</section>
 
 		<section id="resume" class="profile-section" aria-labelledby="resume-title" data-section-name="Resume">
-			<header class="section-heading"><span class="heading-document icon solid fa-file-alt" aria-hidden="true"></span><div><p class="eyebrow">Professional snapshot</p><h2 id="resume-title">Resume</h2></div></header>
+			<header class="section-heading"><img class="resume-pdf-icon" src="images/resume-pdf.svg" width="32" height="32" alt="" /><div><p class="eyebrow">Professional snapshot</p><h2 id="resume-title">Resume</h2></div></header>
 			<div class="resume-layout">
-				<div><h3>Open the full document</h3><p>View my current resume in a new browser tab.</p><a class="xp-action-button" href="https://drive.google.com/file/d/1izw75qJofqoQvkoXxQGSsfDgSRhDXDW4/view?usp=sharing" target="_blank" rel="noopener noreferrer">Open Resume</a></div>
-				<a class="resume-document" href="https://drive.google.com/file/d/1izw75qJofqoQvkoXxQGSsfDgSRhDXDW4/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Open Caleb Leung's resume PDF in a new browser tab"><img src="https://drive.google.com/thumbnail?id=1izw75qJofqoQvkoXxQGSsfDgSRhDXDW4&amp;sz=w2000" alt="Preview of Caleb Leung's resume. Click to open the full PDF in a new browser tab." loading="lazy" decoding="async" /></a>
+				<div class="resume-actions"><p>Preview my resume below.</p><a class="xp-action-button" href="https://drive.google.com/file/d/1izw75qJofqoQvkoXxQGSsfDgSRhDXDW4/view?usp=sharing" target="_blank" rel="noopener noreferrer">Open Resume</a></div>
+				<!-- Load the document even while its folder view is hidden. -->
+				<a class="resume-document" href="https://drive.google.com/file/d/1izw75qJofqoQvkoXxQGSsfDgSRhDXDW4/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Open Caleb Leung's resume PDF in a new browser tab"><img src="https://drive.google.com/thumbnail?id=1izw75qJofqoQvkoXxQGSsfDgSRhDXDW4&amp;sz=w2000" alt="Preview of Caleb Leung's resume. Click to open the full PDF in a new browser tab." loading="eager" decoding="async" /></a>
 			</div>
 		</section>
 
 		<section id="skills" class="profile-section" aria-labelledby="skills-title" data-section-name="Skills">
-			<header class="section-heading"><span class="heading-folder folder-icon" aria-hidden="true"></span><div><p class="eyebrow">Technical toolkit</p><h2 id="skills-title">Skills</h2></div></header>
+			<header class="section-heading"><div><p class="eyebrow">Technical toolkit</p><h2 id="skills-title">Skills</h2></div></header>
 			<div class="skill-groups">
 				<div class="skill-group"><h3>Programming languages</h3><div class="skill-list"><span>Python</span><span>C++</span><span>JavaScript/TypeScript</span><span>Elixir</span><span>SQL</span><span>HTML/CSS</span></div></div>
 				<div class="skill-group"><h3>Frameworks &amp; libraries</h3><div class="skill-list"><span>FastAPI</span><span>Django</span><span>Next.js</span><span>Pytest</span><span>Pandas</span><span>NumPy</span><span>SQLAlchemy</span><span>Pydantic</span><span>Poetry</span><span>Oban Pro</span></div></div>
@@ -124,8 +131,13 @@
 			<div class="learning-block"><h3>Currently learning</h3><ul><li>AWS and ETL / data pipelines &mdash; going deeper</li><li>System design and distributed systems &mdash; lifelong learning</li><li>Erlang fundamentals and deeper OTP knowledge through Elixir</li><li>Phoenix Framework for production-ready SFTP and backend work</li><li>Deep Learning &mdash; CS 7643 (<a href="https://omscs.gatech.edu/cs-7643-deep-learning" target="_blank" rel="noopener noreferrer">course page</a>)</li><li>Japanese &mdash; working toward N4</li></ul></div>
 		</section>
 
-		<section id="beyond" class="profile-section" aria-labelledby="beyond-title" data-section-name="Beyond Tech">
-			<header class="section-heading"><span class="heading-folder folder-icon" aria-hidden="true"></span><div><p class="eyebrow">Additional perspective</p><h2 id="beyond-title">Beyond Tech</h2></div></header>
+		<section id="beyond" class="profile-section" aria-labelledby="beyond-title" data-section-name="About">
+			<header class="section-heading"><div><p class="eyebrow">Additional perspective</p><h2 id="beyond-title">About</h2></div></header>
+			<p>I am a software engineer interested in AI and working across the agent and data layers of production systems. My work focuses on backend engineering, distributed processing, and reliable data pipelines.</p>
+			<p>At IntellPro, my work includes designing scalable text-extraction and document-transformation services, developing a custom financial-document chunking algorithm and supporting library, and owning the distributed embedding stage—where I built its rate limiting, retries, worker orchestration, concurrency control, dead-letter queue handling, and state-machine-based job coordination. I have also applied agent workflows specifically to metadata extraction.</p>
+			<p>These contributions are part of a broader production document-processing pipeline that I work on alongside the team. The pipeline handles approximately 3,000 documents per day across more than 10 integrations.</p>
+			<p>As a first-generation college graduate, I earned a B.S. in Mathematics with a concentration in Financial Mathematics and a minor in Economics from Baruch College. I am currently pursuing an M.S. in Computer Science from Georgia Tech.</p>
+			<h3 class="about-subheading">Beyond Tech</h3>
 			<p>Beyond my technical expertise, I bring valuable soft skills from more than 4 years in luxury and retail and 1 year in dining. I was a top seller in each retail position, working with Giorgio Armani, AllSaints, and The North Face UE in Hong Kong.</p>
 			<p>I also worked on crossover collections involving Mastermind Japan, Sacai, and THE NORTH FACE Japan (Goldwin). These experiences strengthened my customer service, sales, team collaboration, adaptability, problem-solving, and communication skills.</p>
 		</section>
@@ -140,12 +152,7 @@
 			</div>
 		</section>
 
-		<section id="hobbies" class="profile-section hobbies-section" aria-labelledby="hobbies-title" data-section-name="Personal Hobbies Website">
-			<header class="section-heading"><span class="heading-folder folder-icon" aria-hidden="true"></span><div><p class="eyebrow">New desktop app</p><h2 id="hobbies-title">Personal Hobbies Website</h2></div></header>
-			<div class="coming-soon-card"><span class="large-folder folder-icon" aria-hidden="true"></span><div><p class="status-label">A little corner of the web</p><h3>Anime, manga &amp; everyday things.</h3><p>Visit my personal homepage for anime, games, training, Hong Kong, and advice for international students.</p><a class="xp-action-button" href="#hobby-top">Open Hobbies Website</a></div></div>
-		</section>
-
-		<footer class="content-footer"><p>&copy; Caleb Leung 2026</p></footer>
+		<footer class="content-footer"><a href="#websites">Outside my AI work: explore My Websites <span aria-hidden="true">→</span></a><p>&copy; Caleb Leung 2026</p></footer>
 	</main>
 </div>
-<footer class="window-statusbar"><span id="status-text">8 objects</span><span>My Portfolio</span></footer>
+<footer class="window-statusbar"><span id="status-text">1 item</span><span id="portfolio-location">My Portfolio / Work</span></footer>

@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Personal Hobbies",
+    "target": "#hobby-top",
+    "description": "Anime, manga, games & a little Hong Kong.",
+    "thumbnail": "images/websites/personal-hobbies.png",
+    "topics": ["Anime", "Games", "Hong Kong"]
+  },
+  {
+    "name": "DVD Project Lab",
+    "target": "#project-lab",
+    "feature": "project-lab"
+  }
+]

@@ -50,6 +50,7 @@ class ProjectFeatureTests(unittest.TestCase):
         shutil.copytree(REPOSITORY_ROOT / "desktop", cls.enabled_root / "desktop")
         shutil.copytree(REPOSITORY_ROOT / "sites", cls.enabled_root / "sites")
         shutil.copytree(REPOSITORY_ROOT / "sites/archieve/projects", cls.enabled_root / "sites/projects")
+        shutil.copytree(REPOSITORY_ROOT / "images/project-journal", cls.enabled_root / "images/project-journal")
 
     def assert_lab_absent(self, output: str) -> None:
         document = FeatureHTML(output)
@@ -64,8 +65,8 @@ class ProjectFeatureTests(unittest.TestCase):
             self.assertNotIn("projects-site", classes)
         text = "".join(document.text)
         self.assertNotIn("DVD Project Lab", text)
-        for project in self.data["projects"]:
-            self.assertNotIn(project["summary"], text)
+        # The independent journal starts with the same factual project snapshot.
+        # Absence of DVD routes, controls, and panels identifies the disabled site.
 
     def test_default_render_disables_archived_lab(self) -> None:
         output = builder.render(REPOSITORY_ROOT)
@@ -84,6 +85,9 @@ class ProjectFeatureTests(unittest.TestCase):
         document = FeatureHTML(output)
         self.assertEqual(len(document.matching("data-window", "portfolio")), 1)
         self.assertEqual(len(document.matching("data-window", "hobbies")), 1)
+        self.assertEqual(len(document.matching("data-window", "project-journal")), 1)
+        self.assertEqual(len(document.matching("id", "project-journal")), 1)
+        self.assertTrue(document.matching("href", "#project-journal"))
         self.assertTrue(document.matching("href", "#hobby-top"))
         self.assertTrue(document.matching("id", "websites"))
         self.assertIn("My Websites", "".join(document.text))
@@ -178,6 +182,7 @@ class ProjectFeatureTests(unittest.TestCase):
             shutil.copytree(REPOSITORY_ROOT / "desktop", root / "desktop")
             shutil.copytree(REPOSITORY_ROOT / "sites", root / "sites")
             shutil.copytree(REPOSITORY_ROOT / "sites/archieve/projects", root / "sites/projects")
+            shutil.copytree(REPOSITORY_ROOT / "images/project-journal", root / "images/project-journal")
             target = root / "index.html"
             render = builder.render
             render_registry = builder.render_site_registry
@@ -191,10 +196,13 @@ class ProjectFeatureTests(unittest.TestCase):
                     styles.parent.mkdir(parents=True, exist_ok=True)
                     registry.write_text(render_registry(root, project_lab_enabled=published_enabled), encoding="utf-8")
                     styles.write_text(render_styles(root, project_lab_enabled=published_enabled), encoding="utf-8")
+                    translations = root / "sites/project-journal/translations.js"
+                    translations.write_text(builder.render_translations(root), encoding="utf-8")
                     previous = target.read_bytes()
                     modified = target.stat().st_mtime_ns
                     registry_previous = registry.read_bytes()
                     styles_previous = styles.read_bytes()
+                    translations_previous = translations.read_bytes()
                     stdout, stderr = io.StringIO(), io.StringIO()
                     with patch.object(builder, "ROOT", root), patch.object(builder, "render", lambda *_: render(root, project_lab_enabled=not published_enabled)), patch.object(builder, "render_site_registry", lambda *_: render_registry(root, project_lab_enabled=not published_enabled)), patch.object(builder, "render_site_styles", lambda *_: render_styles(root, project_lab_enabled=not published_enabled)), patch.object(sys, "argv", ["build_site.py", "--check"]):
                         with redirect_stdout(stdout), redirect_stderr(stderr):
@@ -205,6 +213,7 @@ class ProjectFeatureTests(unittest.TestCase):
                     self.assertEqual(target.stat().st_mtime_ns, modified)
                     self.assertEqual(registry.read_bytes(), registry_previous)
                     self.assertEqual(styles.read_bytes(), styles_previous)
+                    self.assertEqual(translations.read_bytes(), translations_previous)
 
 
 if __name__ == "__main__":

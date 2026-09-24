@@ -2,7 +2,8 @@
 import { createPortfolioSite } from '../../sites/portfolio/site.js';
 import { createHobbiesSite } from '../../sites/hobbies/site.js';
 import { createWebsitesSite } from '../../sites/my-websites/site.js';
+import { createProjectJournalSite } from '../../sites/project-journal/site.js';
 
 export function createSites() {
-	return [createPortfolioSite(), createHobbiesSite(), createWebsitesSite()].filter(Boolean);
+	return [createPortfolioSite(), createHobbiesSite(), createWebsitesSite(), createProjectJournalSite()].filter(Boolean);
 }

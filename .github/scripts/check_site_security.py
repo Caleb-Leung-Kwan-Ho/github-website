@@ -20,7 +20,7 @@ REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
 # These are repository conventions, not claims that other architectures are unsafe.
 EXPECTED_SCRIPT = "assets/js/main.js"
 GENERATED_SITE_REGISTRY = "assets/js/site-registry.js"
-MODULE_DIRECTORIES = {"desktop", "sites/portfolio", "sites/hobbies", "sites/my-websites"}
+MODULE_DIRECTORIES = {"desktop", "sites/portfolio", "sites/hobbies", "sites/my-websites", "sites/project-journal"}
 
 # Deliberately small module grammar: one static import/re-export per line, with
 # ordinary quoted relative paths. Unsupported syntax needs a checker update.

@@ -22,6 +22,8 @@ import site_config  # noqa: E402
 
 
 class BuildSiteTests(unittest.TestCase):
+    TRANSLATIONS = "// Fixture generated translations.\nexport const translations = {};\n"
+
     def setUp(self) -> None:
         temporary = tempfile.TemporaryDirectory()
         self.addCleanup(temporary.cleanup)
@@ -30,9 +32,9 @@ class BuildSiteTests(unittest.TestCase):
         self.write("desktop/page.html", '<!DOCTYPE html>\n<body>\n  <!-- include: sites/hobbies/content.html -->\n</body>\n')
         self.write("sites/hobbies/content.html", '<section lang="zh-HK">香港 &amp; hobbies</section>\n')
         self.write("desktop/styles.css", "/* Desktop fixture */\n")
-        for site in ("portfolio", "hobbies", "my-websites"):
-            self.write(f"sites/{site}/site.js", "export function createSite() {}\n")
-            self.write(f"sites/{site}/styles.css", f"/* {site} fixture */\n")
+        for site in site_config.active_sites():
+            self.write(f"sites/{site.folder}/site.js", "export function createSite() {}\n")
+            self.write(f"sites/{site.folder}/styles.css", f"/* {site.folder} fixture */\n")
 
     def write(self, name: str, content: str) -> Path:
         target = self.root / name
@@ -46,7 +48,7 @@ class BuildSiteTests(unittest.TestCase):
         render_registry = builder.render_site_registry
         render_styles = builder.render_site_styles
         # The functions bind the repository root as a default; supply this fixture.
-        with patch.object(builder, "ROOT", self.root), patch.object(builder, "render", lambda *_: render(self.root)), patch.object(builder, "render_site_registry", lambda *_: render_registry(self.root)), patch.object(builder, "render_site_styles", lambda *_: render_styles(self.root)):
+        with patch.object(builder, "ROOT", self.root), patch.object(builder, "render", lambda *_: render(self.root)), patch.object(builder, "render_site_registry", lambda *_: render_registry(self.root)), patch.object(builder, "render_site_styles", lambda *_: render_styles(self.root)), patch.object(builder, "render_translations", return_value=self.TRANSLATIONS):
             with patch.object(sys, "argv", ["build_site.py", *arguments]), redirect_stdout(stdout), redirect_stderr(stderr):
                 status = builder.main()
         return status, stdout.getvalue(), stderr.getvalue()
@@ -56,6 +58,7 @@ class BuildSiteTests(unittest.TestCase):
             "index": self.write("index.html", builder.render(self.root)),
             "registry": self.write("assets/js/site-registry.js", builder.render_site_registry(self.root)),
             "styles": self.write("assets/css/one-page.css", builder.render_site_styles(self.root)),
+            "translations": self.write("sites/project-journal/translations.js", self.TRANSLATIONS),
         }
 
     def test_render_preserves_content_and_relative_indentation(self) -> None:
@@ -141,7 +144,7 @@ class BuildSiteTests(unittest.TestCase):
 
     def test_check_detects_stale_generated_assets_without_rewriting(self) -> None:
         targets = self.write_outputs()
-        for name in ("registry", "styles"):
+        for name in ("registry", "styles", "translations"):
             with self.subTest(name=name):
                 target = targets[name]
                 target.write_text("Stale generated asset\n", encoding="utf-8")
@@ -150,7 +153,8 @@ class BuildSiteTests(unittest.TestCase):
                 self.assertEqual(status, 1)
                 self.assertIn("out of date", stderr)
                 self.assertEqual((target.stat().st_mtime_ns, target.read_bytes()), before)
-                target.write_text(builder.render_site_registry(self.root) if name == "registry" else builder.render_site_styles(self.root), encoding="utf-8")
+                fresh = {"registry": builder.render_site_registry(self.root), "styles": builder.render_site_styles(self.root), "translations": self.TRANSLATIONS}
+                target.write_text(fresh[name], encoding="utf-8")
 
     def test_check_missing_output_fails_without_creating_it(self) -> None:
         status, _, stderr = self.run_main("--check")
@@ -169,6 +173,7 @@ class BuildSiteTests(unittest.TestCase):
         self.assertEqual((self.root / "index.html").read_text(encoding="utf-8"), expected)
         self.assertEqual((self.root / "assets/js/site-registry.js").read_text(encoding="utf-8"), expected_registry)
         self.assertEqual((self.root / "assets/css/one-page.css").read_text(encoding="utf-8"), expected_styles)
+        self.assertEqual((self.root / "sites/project-journal/translations.js").read_text(encoding="utf-8"), self.TRANSLATIONS)
 
     def test_failed_build_keeps_previous_output(self) -> None:
         target = self.write("index.html", "Previously published content\n")

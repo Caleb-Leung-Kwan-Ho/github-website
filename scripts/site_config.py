@@ -49,6 +49,7 @@ SITES = (
     Site("hobbies", "createHobbiesSite", browser=BrowserWindow("hobbies", "Personal Hobbies", "hobby-top")),
     Site("projects", "createProjectsSite", enabled=False, feature_gate="project-lab"),
     Site("my-websites", "createWebsitesSite", browser=BrowserWindow("websites", "My Websites", "websites")),
+    Site("project-journal", "createProjectJournalSite", browser=BrowserWindow("project-journal", "Project Lab", "project-journal")),
 )
 
 

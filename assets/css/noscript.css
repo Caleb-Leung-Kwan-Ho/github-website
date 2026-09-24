@@ -75,6 +75,18 @@
 
 	.browser-layout,
 	.browser-page,
-	.websites-content {
+	.websites-content,
+	.project-journal-content {
 		overflow: visible;
+	}
+
+	/* Natural document height replaces the journal's constrained window scroller. */
+	.project-journal-window .browser-layout,
+	.project-journal-window .browser-page {
+		display: block;
+		flex: none;
+	}
+
+	.project-journal-window .project-journal-content {
+		flex: none;
 	}

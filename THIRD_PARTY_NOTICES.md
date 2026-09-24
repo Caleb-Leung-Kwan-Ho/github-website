@@ -27,6 +27,18 @@ retirement does not itself grant reuse rights.
 
 ## Other artwork
 
+Project Lab serves three local photographs with individual licenses:
+
+- Shinjuku rainy night: Daniel Ramirez, CC BY 2.0, captured June 16, 2016.
+- Shibuya Station Yamanote Line Platform: Rukin, CC BY-SA 4.0, captured May 22, 2008. The display photo's color and tone were edited; the adaptation retains CC BY-SA 4.0.
+- Hong Kong Portland Street at night: UCLARodent, CC BY-SA 2.5. Its exact capture date is unknown; January 13, 2007 is the original upload date.
+
+The complete titles, creator/source/license links, and modification notices are
+in the [Project Lab photo credits](images/project-journal/PHOTO_CREDITS.md),
+the adjacent `photos.json`, and the site's visible Photo credits section.
+These photographs retain their individual licenses and are not covered by
+the repository's software/theme license or custom-artwork policy.
+
 The custom decoration sharing policy is in [ARTWORK_TERMS.md](ARTWORK_TERMS.md).
 Third-party anime, manga, and game image sources are recorded in the
 [thumbnail source ledger](images/hobbies/THUMBNAIL_SOURCES.md).

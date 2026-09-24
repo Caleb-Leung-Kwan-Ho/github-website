@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 2,
+  "pathBase": "kit root",
+  "photos": [
+    {
+      "id": "shinjuku-rain-2016",
+      "headerOrder": 1,
+      "region": "Japan",
+      "title": "Walking around Kabukicho, Shinjuku at night. (29362470401)",
+      "creator": "Daniel Ramirez",
+      "creatorUrl": "https://www.flickr.com/people/21442511@N08",
+      "dateTaken": "2016-06-16",
+      "datePrecision": "day",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Walking_around_Kabukicho,_Shinjuku_at_night._(29362470401).jpg",
+      "sourceRevisionId": 1166337958,
+      "originalSourceUrl": "https://www.flickr.com/photos/danramarch/29362470401/",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Walking_around_Kabukicho%2C_Shinjuku_at_night._%2829362470401%29.jpg",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "width": 5472,
+      "height": 3078,
+      "suggestedObjectPosition": "50% 50%",
+      "file": "assets/photos/shinjuku-rain-2016.jpg",
+      "suggestedRepoPath": "images/project-journal/shinjuku-rain-2016.jpg",
+      "sourceCheckedOn": "2026-09-24",
+      "modifications": "Downloaded JPEG bytes unchanged; displayed with a CSS 4:3 crop.",
+      "displayAspectRatio": "4 / 3",
+      "localized": {
+        "en": {
+          "caption": "Shinjuku · rainy night",
+          "alt": "Umbrellas and bright Japanese signs along a wet Kabukicho street at night."
+        },
+        "ja": {
+          "caption": "新宿・雨の夜",
+          "alt": "雨の夜の新宿・歌舞伎町。傘をさした人々が、看板の並ぶ濡れた通りを歩いている。"
+        },
+        "zh-HK": {
+          "caption": "新宿・雨夜",
+          "alt": "新宿歌舞伎町雨夜，行人撐着雨傘走在濕潤的街道上，兩旁亮起密集的日文招牌。"
+        }
+      },
+      "sha256": "c170ff3e64297d1a11a06678e5f5807dd3fc4841aaf81f97aa6859fd327457c0",
+      "bytes": 5747376
+    },
+    {
+      "id": "yamanote-shibuya-2008-graded",
+      "headerOrder": 2,
+      "region": "Japan",
+      "title": "Shibuya Station Yamanote Line Platform 20080522",
+      "creator": "Rukin",
+      "creatorUrl": "https://commons.wikimedia.org/wiki/User:Rukin",
+      "dateTaken": "2008-05-22",
+      "datePrecision": "day",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shibuya_Station_Yamanote_Line_Platform_20080522.jpg",
+      "sourceRevisionId": 1225277658,
+      "originalSourceUrl": "https://commons.wikimedia.org/wiki/File:Shibuya_Station_Yamanote_Line_Platform_20080522.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/60/Shibuya_Station_Yamanote_Line_Platform_20080522.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "width": 1500,
+      "height": 1125,
+      "suggestedObjectPosition": "50% 50%",
+      "file": "assets/photos/yamanote-shibuya-2008-graded.jpg",
+      "suggestedRepoPath": "images/project-journal/yamanote-shibuya-2008-graded.jpg",
+      "sourceOriginalFile": "assets/photos/sources/yamanote-shibuya-2008-original.jpg",
+      "sourceOriginalFacts": {
+        "sha256": "4cf9d200328c93c39f2bd872837674d9aa1edded00cca078abb89f2a2b08c3df",
+        "bytes": 232893
+      },
+      "sourceCheckedOn": "2026-09-24",
+      "modifications": "Color graded the original photograph: lower brightness, slightly higher contrast, cooler tones, lower saturation, and light grain. No objects were intentionally added or removed. The header uses a CSS 4:3 crop. The adapted photo remains CC BY-SA 4.0.",
+      "displayAspectRatio": "4 / 3",
+      "localized": {
+        "en": {
+          "caption": "Yamanote Line · Shibuya",
+          "alt": "Green-striped Yamanote Line train passing the indoor Shibuya Station platform; color-graded 2008 photograph."
+        },
+        "ja": {
+          "caption": "山手線・渋谷駅",
+          "alt": "渋谷駅の屋内ホームを通る緑の帯の山手線。2008年の写真を色調補正したもの。"
+        },
+        "zh-HK": {
+          "caption": "山手線・澀谷站",
+          "alt": "一列帶綠色橫紋的山手線列車駛經澀谷站室內月台；2008年相片經色調處理。"
+        }
+      },
+      "sha256": "ae15f07bee3d1c51def0891ad509884a05df1a3df3935eac7798ff67d79ef1aa",
+      "bytes": 329806
+    },
+    {
+      "id": "mong-kok-portland-night",
+      "headerOrder": 3,
+      "region": "Hong Kong",
+      "title": "HK Portland Street Night",
+      "creator": "UCLARodent",
+      "creatorUrl": "https://en.wikipedia.org/wiki/User:UCLARodent",
+      "dateTaken": null,
+      "datePrecision": "unknown",
+      "firstUploadedOn": "2007-01-13",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:HK_Portland_Street_Night.jpg",
+      "sourceRevisionId": 960890998,
+      "originalSourceUrl": "https://commons.wikimedia.org/wiki/File:HK_Portland_Street_Night.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/27/HK_Portland_Street_Night.jpg",
+      "license": "CC BY-SA 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/",
+      "licenseSelection": "Use the CC BY-SA 2.5 option on the source page; the GFDL and other Creative Commons options are not used by this kit.",
+      "width": 1408,
+      "height": 1056,
+      "suggestedObjectPosition": "50% 50%",
+      "file": "assets/photos/mong-kok-portland-street.jpg",
+      "suggestedRepoPath": "images/project-journal/mong-kok-portland-street.jpg",
+      "sourceCheckedOn": "2026-09-24",
+      "modifications": "Downloaded JPEG bytes unchanged; displayed with a CSS 4:3 crop. The 2007 date is the original upload date, not a verified capture date.",
+      "displayAspectRatio": "4 / 3",
+      "localized": {
+        "en": {
+          "caption": "Mong Kok · Portland Street",
+          "alt": "Dense neon signs above Portland Street at night, with the road receding through the center of the scene."
+        },
+        "ja": {
+          "caption": "旺角・砵蘭街",
+          "alt": "香港・旺角の砵蘭街。道路が画面の中央へと続き、夜空にネオンサインが密集している。"
+        },
+        "zh-HK": {
+          "caption": "旺角・砵蘭街",
+          "alt": "旺角砵蘭街夜景，霓虹招牌密佈，街道由畫面中央向遠處延伸。"
+        }
+      },
+      "sha256": "5f258e002fb40ac4d9450feda25757cce46a898badf2a79dbdd4afacc62ec75c",
+      "bytes": 866188
+    }
+  ]
+}

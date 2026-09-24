@@ -1,0 +1,41 @@
+      <article class="journal-project" id="${base}" data-journal-project-panel="${projectId}" aria-labelledby="${base}-title" tabindex="-1">
+        <div class="journal-main">
+          <section class="journal-summary journal-panel">
+            <h3 class="journal-panel-title journal-current-work" id="${base}-current-work-title">${currentWork}</h3>
+            <div class="journal-panel-body">
+              <h4 class="journal-project-title" id="${base}-title">${projectTitle}</h4>
+              ${projectStatus}
+              <p class="journal-summary-text">${projectSummary}</p>
+              <dl class="journal-focus">
+                <div><dt>${currentFocus}</dt><dd>${projectFocus}</dd></div>
+                <div><dt>${nextStep}</dt><dd>${projectNextStep}</dd></div>
+              </dl>
+            </div>
+          </section>
+          <section class="journal-updates journal-panel" id="${base}-updates" aria-labelledby="${base}-updates-title" tabindex="-1">
+            <h3 class="journal-panel-title" id="${base}-updates-title">${updates}</h3>
+            <div class="journal-panel-body">
+${updateList}
+            </div>
+          </section>
+          <section class="journal-roadmap journal-panel" id="${base}-roadmap" aria-labelledby="${base}-roadmap-title" tabindex="-1">
+            <h3 class="journal-panel-title" id="${base}-roadmap-title">${roadmap}</h3>
+            <div class="journal-panel-body">
+${roadmapContent}
+            </div>
+          </section>
+        </div>
+        <aside class="journal-support">
+          <section class="journal-blocker journal-panel" aria-labelledby="${base}-blocker-title">
+            <h3 class="journal-panel-title" id="${base}-blocker-title">${currentBlocker}</h3>
+            <div class="journal-panel-body"><p>${projectBlocker}</p></div>
+          </section>
+          <section class="journal-links journal-panel" aria-labelledby="${base}-links-title">
+            <h3 class="journal-panel-title" id="${base}-links-title">${links}</h3>
+            <div class="journal-panel-body">
+${projectLinks}
+            </div>
+          </section>
+${relatedProjectsContent}
+        </aside>
+      </article>

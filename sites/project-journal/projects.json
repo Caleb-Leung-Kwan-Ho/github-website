@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 1,
+  "projects": [
+    {
+      "id": "anime-mcp",
+      "title": "Anime MCP",
+      "status": "in-progress",
+      "featured": true,
+      "summary": "Building an MCP server for anime-character search, with a focus on retrieval quality and combining lexical and embedding scores.",
+      "currentFocus": "Identify retrieval bottlenecks and select embedding models for hybrid-fusion experiments.",
+      "nextStep": "Select the embedding models, run hybrid-fusion experiments, and compare the results with published findings.",
+      "currentBlocker": "The retrieval bottleneck has not yet been identified. Model selection and comparative experiments are needed to investigate it.",
+      "relatedProjectIds": [],
+      "milestones": [
+        {
+          "id": "evaluation-and-lexical-foundation",
+          "title": "Develop the evaluation and lexical-retrieval foundation",
+          "status": "in-progress",
+          "description": "Build the evaluation setup and lexical-retrieval baseline for comparing retrieval approaches."
+        },
+        {
+          "id": "select-embedding-models",
+          "title": "Select embedding models",
+          "status": "planned",
+          "description": "Model names and the final comparison set are pending."
+        },
+        {
+          "id": "run-hybrid-fusion-experiments",
+          "title": "Run hybrid-fusion experiments",
+          "status": "planned",
+          "description": "Evaluate retrieval performance and investigate where bottlenecks appear."
+        },
+        {
+          "id": "interpret-experiment-results",
+          "title": "Compare findings with published research",
+          "status": "planned",
+          "description": "Examine whether the findings extend to anime retrieval and document differences supported by the experiments. Results are not yet available."
+        }
+      ],
+      "updates": [
+        {
+          "id": "current-research-focus",
+          "date": null,
+          "text": "The current priority is understanding retrieval bottlenecks and preparing an embedding-model comparison with hybrid fusion. Model selection and experimental results are pending."
+        }
+      ],
+      "links": [
+        {
+          "label": "Public research notes",
+          "url": "https://github.com/Caleb-Leung-Kwan-Ho/Caleb-Leung-Kwan-Ho"
+        },
+        {
+          "label": "Research reference: An Analysis of Fusion Functions for Hybrid Retrieval",
+          "url": "https://arxiv.org/abs/2210.11934"
+        }
+      ]
+    },
+    {
+      "id": "gba-website",
+      "title": "GBA-style personal website",
+      "status": "in-progress",
+      "featured": false,
+      "summary": "A nearly finished personal website with a Game Boy Advance-style experience and A/B controls, running in the browser.",
+      "currentFocus": "Finish the remaining houses, correct character spawning, and improve the existing gameplay.",
+      "nextStep": "Add friends' houses, fix incorrect spawn locations, and refine the current gameplay.",
+      "currentBlocker": null,
+      "relatedProjectIds": ["browser-game"],
+      "milestones": [
+        {
+          "id": "finish-website-experience",
+          "title": "Finish the browser-based website experience",
+          "status": "in-progress",
+          "description": "The existing experience is nearly complete, with a small set of additions and fixes remaining."
+        },
+        {
+          "id": "add-friends-houses",
+          "title": "Add friends' houses",
+          "status": "planned"
+        },
+        {
+          "id": "fix-spawn-locations",
+          "title": "Correct character spawn locations",
+          "status": "planned",
+          "description": "Ensure characters do not appear at the wrong location."
+        },
+        {
+          "id": "refine-current-gameplay",
+          "title": "Improve the existing gameplay",
+          "status": "planned"
+        }
+      ],
+      "updates": [
+        {
+          "id": "website-final-additions",
+          "date": null,
+          "text": "The website is nearly finished. Remaining work includes friends' houses, spawn-location fixes, and improvements to the current gameplay. The related browser game builds on this work."
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "browser-game",
+      "title": "Browser game",
+      "status": "in-progress",
+      "featured": false,
+      "summary": "A game growing out of the GBA-style website, with plans for expanded gameplay, NPC behavior, character classes, and offline play with local saves.",
+      "currentFocus": "Design the first version of NPC logic. Its actions are not currently organized as a state machine.",
+      "nextStep": "Continue developing the NPC logic independently before deciding on the broader implementation approach.",
+      "currentBlocker": null,
+      "relatedProjectIds": ["gba-website"],
+      "milestones": [
+        {
+          "id": "design-npc-logic-v1",
+          "title": "Design NPC logic v1",
+          "status": "in-progress",
+          "description": "Initial action logic is being designed. The current version is not a state machine."
+        },
+        {
+          "id": "develop-typescript-gameplay",
+          "title": "Develop expanded gameplay in TypeScript",
+          "status": "planned",
+          "description": "Build on the website's browser-based foundation and GBA-style controls."
+        },
+        {
+          "id": "add-character-classes",
+          "title": "Add a character class system",
+          "status": "planned"
+        },
+        {
+          "id": "enable-offline-play",
+          "title": "Enable offline play",
+          "status": "planned",
+          "description": "The goal is a free game playable locally without a game server."
+        },
+        {
+          "id": "add-save-file-import-export",
+          "title": "Add local saves and save-file import/export",
+          "status": "planned",
+          "description": "Players should be able to keep their progress and load it again. The storage method and file format have not been selected."
+        }
+      ],
+      "updates": [
+        {
+          "id": "npc-design-underway",
+          "date": null,
+          "text": "NPC logic design has started. The first version uses actions that are not yet a state machine. Offline play, character classes, expanded gameplay, and save-file import/export remain planned work."
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "gluonagent",
+      "title": "GluonAgent",
+      "status": "paused",
+      "featured": false,
+      "summary": "An agent project paused while its complexity and research needs are reassessed.",
+      "currentFocus": "Paused pending further research.",
+      "nextStep": "Do further research before deciding how to resume the project.",
+      "currentBlocker": "The project's complexity requires more research before development can continue.",
+      "relatedProjectIds": [],
+      "milestones": [
+        {
+          "id": "further-research",
+          "title": "Research the unresolved complexity",
+          "status": "planned",
+          "description": "Further research is needed before the project resumes."
+        }
+      ],
+      "updates": [
+        {
+          "id": "project-paused",
+          "date": null,
+          "text": "Development is paused because the project is too complex to continue without additional research."
+        }
+      ],
+      "links": []
+    }
+  ]
+}
+

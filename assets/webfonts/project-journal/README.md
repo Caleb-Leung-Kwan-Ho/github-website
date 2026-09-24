@@ -24,9 +24,13 @@ Downloaded on 2026-09-24 from these 98.css paths:
 The English journal uses these faces at their native 11px size for compact
 interface labels, project-list names, update and roadmap rows, and filter values.
 Focus labels and NEW badges use the bold face; panel and project headings use
-the regular face at 18px for a smaller, lighter treatment. Explanatory prose,
-including expanded update and milestone details, uses regular Tahoma/Arial with
-the existing CJK system-font fallbacks.
+the regular face at 18px for a smaller, lighter treatment. The “Show project details”
+toggle remains 13px with 20px line height. Full descriptions, expanded focus
+values, and update and milestone details use the photo captions' regular local
+pixel face at 11px in English or 12px in Japanese and Hong Kong Traditional
+Chinese, with 16px line height and no synthesized font styles.
+Remaining explanatory prose uses regular Tahoma/Arial with the existing CJK
+system-font fallbacks.
 The page title uses bold English pixel lettering at 24px, or 20px on narrow
 layouts, in burgundy. The regular-only CJK faces retain their original glyphs
 without synthesized bold. The subtitle stays regular at 16px, or 14px on narrow

@@ -513,6 +513,13 @@
 	display: inline;
 	margin: 0;
 }
+.project-journal-content [data-journal-excerpt="summary"],
+.project-journal-content [data-journal-excerpt="currentFocus"],
+.project-journal-content [data-journal-excerpt="nextStep"],
+.project-journal-content [data-journal-field="currentBlocker"] {
+	font: 400 var(--journal-ui-size)/16px var(--journal-ui-font);
+	font-synthesis: none;
+}
 .project-journal-content summary {
 	cursor: pointer;
 }
@@ -541,6 +548,17 @@
 }
 .project-journal-content .journal-full-description dd {
 	margin: 0 0 5px;
+}
+.project-journal-content .journal-full-description > summary {
+	font: 400 13px/20px var(--journal-ui-font);
+	font-synthesis: none;
+}
+.project-journal-content .journal-full-description > p,
+.project-journal-content .journal-full-description .journal-focus dd,
+.project-journal-content .journal-update > p,
+.project-journal-content .journal-milestone > p {
+	font: 400 var(--journal-ui-size)/16px var(--journal-ui-font);
+	font-synthesis: none;
 }
 .project-journal-content :is(.journal-update-list, .journal-links ul, .journal-related ul) {
 	margin: 0;
@@ -631,8 +649,6 @@
 .project-journal-content .journal-milestone > p {
 	margin-top: 4px;
 	color: #625766;
-	font-family: var(--journal-reading-font);
-	font-size: 13px;
 }
 .project-journal-content .journal-roadmap tbody tr:last-child :is(th, td) {
 	border-bottom: 0;

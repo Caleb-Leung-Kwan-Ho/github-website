@@ -8,6 +8,7 @@ from pathlib import Path
 import re
 import sys
 
+from browser_content import render_browser_windows
 from project_content import render_catalogue
 from site_config import Site, active_sites
 from website_content import render_shortcuts
@@ -45,6 +46,7 @@ def render(root: Path = ROOT, *, project_lab_enabled: bool | None = None) -> str
     sites = configured_sites(project_lab_enabled)
     enabled = any(site.feature_gate == "project-lab" for site in sites)
     template = project_lab_content((root / "desktop/page.html").read_text(encoding="utf-8"), enabled)
+    template = render_browser_windows(template, root, sites)
 
     def include(match: re.Match[str]) -> str:
         indent, name = match.groups()
@@ -71,6 +73,8 @@ def render(root: Path = ROOT, *, project_lab_enabled: bool | None = None) -> str
         return "\n".join(indent + line if line else line for line in content.split("\n"))
 
     output = INCLUDE.sub(include, template)
+    if "<!-- browser-window" in output:
+        raise ValueError("Browser window markers belong in desktop/page.html")
     if "<!-- include:" in output:
         raise ValueError("Unsupported include marker in desktop/page.html")
     if "<!-- project-catalogue" in output:

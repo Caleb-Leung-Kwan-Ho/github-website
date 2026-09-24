@@ -14,7 +14,7 @@
 
 	.window-controls,
 	.window-menubar,
-	.websites-toolbar,
+	.browser-toolbar,
 	.desktop-shortcut[type="button"],
 	.start-menu,
 	.taskbar,
@@ -54,8 +54,7 @@
 	}
 
 	/* Keep every auxiliary document readable without simulated-window behavior. */
-	.hobbies-window[hidden],
-	.websites-window[hidden],
+	.browser-window[hidden],
 	.projects-window[hidden] {
 		position: relative;
 		display: flex !important;
@@ -74,7 +73,8 @@
 		overflow: visible;
 	}
 
-	.websites-layout,
+	.browser-layout,
+	.browser-page,
 	.websites-content {
 		overflow: visible;
 	}

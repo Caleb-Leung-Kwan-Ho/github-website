@@ -16,7 +16,7 @@ Preserve the meaning and scope of factual claims when editing copy. Base additio
 
 ## Work in the existing shapes
 
-- `desktop/page.html` owns the page shell and window markup. Each active site's `content.html` owns its content; archived Project Lab and My Websites also use site-owned data for build-time rendering, and My Websites has a shared shortcut template. `scripts/site_config.py` lists active sites and their source folders. Run `python3 scripts/build_site.py` after HTML or site-configuration edits; commit the generated `index.html`, `assets/js/site-registry.js`, and `assets/css/one-page.css` with their sources rather than editing those outputs directly.
+- `desktop/page.html` owns the page shell and window placement. Its `browser-window` markers use `desktop/browser-window.html` for the shared Internet Explorer frame, with `BrowserWindow` metadata in `scripts/site_config.py`; Portfolio and archived Project Lab retain their authored frames. Each active site's `content.html` owns its content; archived Project Lab and My Websites also use site-owned data for build-time rendering, and My Websites has a shared shortcut template. `scripts/site_config.py` lists active sites and their source folders. Run `python3 scripts/build_site.py` after HTML or site-configuration edits; commit the generated `index.html`, `assets/js/site-registry.js`, and `assets/css/one-page.css` with their sources rather than editing those outputs directly.
 - `desktop/styles.css` and each active site's `styles.css` own their respective styling. The generated `assets/css/one-page.css` imports desktop styles followed by enabled site styles in configuration order, after the compiled HTML5 UP theme in `assets/css/main.css`.
 - `assets/js/main.js` connects the desktop to the generated `assets/js/site-registry.js`, which imports enabled site factories. `desktop/*.js` owns common windows, menus, dragging, and navigation; each active site's `site.js` owns its content behavior. Hobbies translations live in `sites/hobbies/translations.js`.
 - `assets/sass/` remains the source for the baseline theme CSS. See `README.md` and `docs/MAINTENANCE.md` for the concise file map and workflow.
@@ -31,6 +31,8 @@ Extract a shared class when multiple elements genuinely share a repeated concept
 ## Design for growth
 
 The website collection will continue to grow. Put every future website in its own `sites/<name>/` folder with `content.html`, `styles.css`, `site.js`, and any site-specific helper modules. Follow the extension workflow in `docs/MAINTENANCE.md`.
+
+Future non-portfolio sites use the shared Internet Explorer frame: title bar, File/Edit/View/Favorites/Tools/Help menus, Back/Forward/Home/Favorites toolbar, and address row. Register its browser metadata and marker instead of copying the header. Keep browser controls and Favorites behavior in `desktop/browser.js`, shared styling in `desktop/styles.css`, and each site's design below the header in its own folder. Portfolio keeps its separate frame; leave archived Project Lab unchanged unless its migration is requested.
 
 Apply open for extension, closed for modification: keep new site behavior in its own folder and reuse the shared site callbacks and desktop controls. Limit edits to existing code to the documented integration points and genuinely shared requirements. Adding a site should not require changes to unrelated sites or site-specific branches in shared desktop logic. Explain necessary shared interface changes and validate the affected existing behavior; avoid speculative abstractions.
 

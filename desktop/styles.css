@@ -554,6 +554,359 @@ b {
 	overflow-wrap: anywhere;
 }
 
+/* Internet Explorer chrome shared by sites using desktop/browser-window.html. */
+.browser-toolbar {
+	display: flex;
+	min-height: 51px;
+	flex: 0 0 auto;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 3px;
+	padding: 4px 8px;
+	border-bottom: 1px solid #c3c1b5;
+	background: linear-gradient(180deg, #faf9f3, var(--window-gray));
+}
+
+.browser-toolbar-button {
+	display: inline-flex;
+	min-width: 0;
+	height: 40px;
+	align-items: center;
+	gap: 7px;
+	padding: 4px 8px;
+	border: 1px solid transparent;
+	border-radius: 3px;
+	background: transparent;
+	box-shadow: none;
+	color: var(--ink) !important;
+	font-size: 12px;
+	font-weight: 400;
+	letter-spacing: 0;
+	line-height: 1;
+	text-transform: none;
+	transition: none;
+}
+
+.browser-toolbar-button:hover:not(:disabled),
+.browser-toolbar-button:focus-visible {
+	border-color: #a5b8ce;
+	background: #f7fbff;
+}
+
+.browser-toolbar-button[aria-expanded="true"],
+.browser-toolbar-button[aria-pressed="true"] {
+	border-color: #8499af;
+	background: #e0e6ed;
+	box-shadow: inset 1px 1px 2px #b2bac2;
+}
+
+.browser-toolbar-button:disabled {
+	opacity: 1;
+	color: #7a7a75 !important;
+	cursor: default;
+}
+
+.browser-toolbar .browser-history-icon {
+	display: grid;
+	width: 28px;
+	height: 28px;
+	flex: 0 0 28px;
+	place-items: center;
+	border: 1px solid #287720;
+	border-radius: 50%;
+	background: linear-gradient(140deg, #a5e589, #49ad32 50%, #208320);
+	box-shadow: inset 1px 1px 2px #e7ffde, 1px 1px 1px #fff;
+	color: #fff;
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 1;
+	text-shadow: 1px 1px #2b7729;
+}
+
+.browser-toolbar-button:disabled .browser-history-icon {
+	border-color: #a6a69e;
+	background: linear-gradient(140deg, #e4e5de, #b9bcb2);
+	box-shadow: inset 1px 1px 2px #fff, 1px 1px 1px #fff;
+	color: #f9f9f5;
+	text-shadow: 1px 1px #a3a398;
+}
+
+.browser-toolbar .browser-home-icon,
+.browser-toolbar .browser-favorites-icon {
+	width: 29px;
+	flex: 0 0 29px;
+	font-size: 27px;
+	line-height: 1;
+	text-align: center;
+	text-shadow: 1px 1px #fff;
+}
+
+.browser-toolbar .browser-home-icon {
+	color: #346dc0;
+}
+
+.browser-toolbar .browser-favorites-icon {
+	color: #eebd25;
+	text-shadow: 1px 1px #aa7922, -1px -1px #fff2ac;
+}
+
+.browser-address {
+	display: flex;
+	min-height: 34px;
+	flex: 0 0 auto;
+	align-items: center;
+	gap: 8px;
+	padding: 4px 8px;
+	border-bottom: 1px solid #a5a5a5;
+	background: var(--window-gray);
+	font-size: 12px;
+}
+
+.browser-address > :first-child {
+	margin: 0;
+	color: #555;
+	font-size: inherit;
+	font-weight: 400;
+	letter-spacing: 0;
+	text-transform: none;
+}
+
+.browser-address-field {
+	display: flex;
+	min-width: 0;
+	min-height: 24px;
+	flex: 1 1 auto;
+	align-items: center;
+	gap: 6px;
+	padding: 2px 6px;
+	border: 1px solid #7f9db9;
+	background: #fff;
+	color: var(--ink);
+}
+
+.browser-address-field img {
+	width: 16px;
+	height: 16px;
+	flex: 0 0 16px;
+	object-fit: contain;
+}
+
+.browser-address-field span {
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.browser-go {
+	display: inline-flex;
+	min-height: 26px;
+	flex: 0 0 auto;
+	align-items: center;
+	gap: 4px;
+	padding: 2px 5px;
+	border: 1px solid transparent;
+	color: var(--ink);
+}
+
+.browser-go:hover {
+	border-color: #a5b8ce;
+	background: #f7fbff;
+}
+
+.browser-layout {
+	display: flex;
+	min-width: 0;
+	min-height: 0;
+	flex: 1 1 auto;
+	overflow: hidden;
+}
+
+/* Site content follows its available width when the Favorites panel is open. */
+.browser-page {
+	container: site-window / inline-size;
+	display: flex;
+	min-width: 0;
+	min-height: 0;
+	flex: 1 1 auto;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+.browser-favorites {
+	display: flex;
+	width: 200px;
+	min-width: 0;
+	min-height: 0;
+	flex: 0 0 200px;
+	flex-direction: column;
+	border-right: 1px solid #a7a89a;
+	background: #f2f1e8;
+}
+
+.browser-favorites-heading {
+	display: flex;
+	flex: 0 0 auto;
+	align-items: center;
+	justify-content: space-between;
+	gap: 5px;
+	padding: 7px 9px;
+	border-bottom: 1px solid #d4d2c5;
+	background: var(--window-gray);
+}
+
+.browser-favorites-heading h2 {
+	color: var(--ink);
+	font-size: 13px;
+}
+
+.browser-favorites-heading button {
+	width: 24px;
+	height: 24px;
+	padding: 0;
+	border: 1px solid transparent;
+	border-radius: 2px;
+	box-shadow: none;
+	color: #555 !important;
+	font-size: 18px;
+	font-weight: 400;
+	letter-spacing: 0;
+	line-height: 20px;
+	transition: none;
+}
+
+.browser-favorites-heading button:hover {
+	border-color: #abae9e;
+	background: #fff;
+}
+
+.browser-favorites-list {
+	min-height: 0;
+	flex: 1 1 auto;
+	overflow-y: auto;
+	margin: 0;
+	padding: 6px;
+	list-style: none;
+	scrollbar-width: thin;
+}
+
+.browser-favorites > nav {
+	display: flex;
+	min-height: 0;
+	flex: 1 1 auto;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+.browser-favorites-list li {
+	margin: 0;
+	padding: 0;
+}
+
+.browser-favorites-list a {
+	display: flex;
+	min-height: 36px;
+	align-items: center;
+	gap: 7px;
+	padding: 6px;
+	border: 1px solid transparent;
+	color: var(--ink);
+	font-size: 12px;
+	line-height: 1.4;
+	overflow-wrap: anywhere;
+}
+
+.browser-favorites-list img {
+	width: 16px;
+	height: 16px;
+	flex: 0 0 16px;
+	object-fit: contain;
+}
+
+.browser-window [data-browser-favorites-menu] > a {
+	display: flex;
+	align-items: center;
+	gap: 7px;
+	overflow-wrap: anywhere;
+}
+
+.browser-window [data-browser-favorites-menu] > a img {
+	flex: 0 0 16px;
+	object-fit: contain;
+}
+
+.browser-favorites-list a:hover,
+.browser-favorites-list a:focus-visible {
+	border-color: #b0c7e4;
+	background: #e4efff;
+}
+
+.browser-favorites > .browser-return {
+	flex: 0 0 auto;
+	padding: 10px 12px;
+	border-top: 1px solid #d4d2c5;
+	font-size: 11px;
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+.browser-page > .window-statusbar {
+	flex-shrink: 0;
+}
+
+/* Browser controls follow the window width independently of the page content. */
+@container site-window (max-width: 736px) {
+	.browser-layout {
+		flex-direction: column;
+	}
+
+	/* Long pages must not squeeze the stacked Favorites list out of view. */
+	.browser-page {
+		flex-basis: 0;
+	}
+
+	.browser-favorites {
+		width: auto;
+		max-height: 180px;
+		flex: 0 1 180px;
+		border-right: 0;
+		border-bottom: 1px solid #a7a89a;
+	}
+}
+
+@container site-window (max-width: 480px) {
+	.browser-toolbar {
+		gap: 2px;
+		padding: 4px;
+	}
+
+	.browser-toolbar-button {
+		gap: 4px;
+		padding: 4px 5px;
+		font-size: 11px;
+	}
+
+	.browser-toolbar .browser-history-icon {
+		width: 23px;
+		height: 23px;
+		flex-basis: 23px;
+		font-size: 20px;
+	}
+
+	.browser-toolbar .browser-home-icon,
+	.browser-toolbar .browser-favorites-icon {
+		width: 24px;
+		flex-basis: 24px;
+		font-size: 23px;
+	}
+
+	.browser-address {
+		gap: 5px;
+		padding: 4px 6px;
+		font-size: 11px;
+	}
+}
+
 /* Shared folder artwork used by title bars, task buttons, and portfolio content. */
 .folder-icon {
 	position: relative;

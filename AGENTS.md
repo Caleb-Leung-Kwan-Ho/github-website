@@ -16,9 +16,9 @@ Preserve the meaning and scope of factual claims when editing copy. Base additio
 
 ## Work in the existing shapes
 
-- `desktop/page.html` owns the page shell and window markup. `sites/*/content.html` owns each site’s content; Project Lab and My Websites also use site-owned data for build-time rendering, and My Websites has a shared shortcut template. Run `python3 scripts/build_site.py` after HTML edits; commit the generated `index.html` with its sources rather than editing it directly.
-- `desktop/styles.css` and `sites/*/styles.css` own their respective styling. `assets/css/one-page.css` imports them in desktop, portfolio, hobbies, projects, my-websites order, after the compiled HTML5 UP theme in `assets/css/main.css`.
-- `assets/js/main.js` connects the sites. `desktop/*.js` owns common windows, menus, dragging, and navigation; each `sites/*/site.js` owns its content behavior. Hobbies translations live in `sites/hobbies/translations.js`.
+- `desktop/page.html` owns the page shell and window markup. Each active site's `content.html` owns its content; archived Project Lab and My Websites also use site-owned data for build-time rendering, and My Websites has a shared shortcut template. `scripts/site_config.py` lists active sites and their source folders. Run `python3 scripts/build_site.py` after HTML or site-configuration edits; commit the generated `index.html`, `assets/js/site-registry.js`, and `assets/css/one-page.css` with their sources rather than editing those outputs directly.
+- `desktop/styles.css` and each active site's `styles.css` own their respective styling. The generated `assets/css/one-page.css` imports desktop styles followed by enabled site styles in configuration order, after the compiled HTML5 UP theme in `assets/css/main.css`.
+- `assets/js/main.js` connects the desktop to the generated `assets/js/site-registry.js`, which imports enabled site factories. `desktop/*.js` owns common windows, menus, dragging, and navigation; each active site's `site.js` owns its content behavior. Hobbies translations live in `sites/hobbies/translations.js`.
 - `assets/sass/` remains the source for the baseline theme CSS. See `README.md` and `docs/MAINTENANCE.md` for the concise file map and workflow.
 - Use `images/` for local visual assets. Keep `LICENSE.txt` and the theme attribution comments intact.
 
@@ -44,7 +44,7 @@ For CSS or layout-related HTML work, use the [maintain-site-css skill](.agents/s
 
 Do not add or modify CSS, inline styles, or styling-related markup unless the user explicitly requests a visual or styling change. Content, metadata, crawler, and SEO work must preserve the existing presentation and must not introduce styling-only classes.
 
-Put styling in the owning desktop or site stylesheet, not inline in HTML and not in the unlinked root `style.css`. Preserve the `main.css` then `one-page.css` load order and the manifest's import order.
+Put styling in the owning desktop or site stylesheet, not inline in HTML and not in the unlinked root `style.css`. Preserve the `main.css` then `one-page.css` load order and the site order in `scripts/site_config.py`.
 
 Keep selectors limited to the component or site they belong to. Moving CSS into another file does not isolate it. Shared window controls belong to the desktop; reuse the existing CSS variables for repeated visual values.
 
@@ -54,7 +54,7 @@ Do not directly edit the generated `assets/css/main.css` for ordinary site chang
 
 ## JavaScript, comments, and dependencies
 
-Keep interactions progressively enhanced and dependency-free. Add behavior to the owning local module and keep `assets/js/main.js` as composition only. Use single-line static relative imports supported by the checker; review and update its limited grammar before adopting other module syntax. Do not modify minified vendor files for custom work.
+Keep interactions progressively enhanced and dependency-free. Add behavior to the owning local module, register its factory in `scripts/site_config.py`, and keep `assets/js/main.js` as composition only. The build generates single-line static relative imports in `assets/js/site-registry.js`; review and update the checker's limited grammar before adopting other module syntax. Do not modify minified vendor files for custom work.
 
 Comments should capture a non-obvious contract or reason—such as CSS load order, the navigation/section relationship, a browser workaround, or an accessibility constraint—not narrate obvious code. Update a nearby comment when changing the contract it describes.
 

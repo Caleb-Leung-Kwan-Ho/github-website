@@ -34,7 +34,7 @@ class CatalogueHTML(HTMLParser):
 
 class ProjectContentTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.data = json.loads((REPOSITORY_ROOT / "sites/projects/projects.json").read_text(encoding="utf-8"))
+        self.data = json.loads((REPOSITORY_ROOT / "sites/archieve/projects/projects.json").read_text(encoding="utf-8"))
 
     def test_supplied_content_has_all_targets_and_no_invented_dates(self) -> None:
         source = catalogue.render_projects(self.data)

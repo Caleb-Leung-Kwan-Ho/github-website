@@ -1,13 +1,10 @@
 import { createDesktop } from '../../desktop/windows.js';
 import { createNavigation } from '../../desktop/navigation.js';
 import { setupWindowMenus } from '../../desktop/menus.js';
-import { createWebsitesSite } from '../../sites/my-websites/site.js';
-import { createPortfolioSite } from '../../sites/portfolio/site.js';
-import { createHobbiesSite } from '../../sites/hobbies/site.js';
-import { createProjectsSite } from '../../sites/projects/site.js';
+import { createSites } from './site-registry.js';
 
-// Portfolio remains the default; the auxiliary directory uses the same window callbacks.
-var sites = [createPortfolioSite(), createHobbiesSite(), createProjectsSite(), createWebsitesSite()].filter(Boolean);
+// The generated site order keeps Portfolio first as the default destination.
+var sites = createSites();
 var desktop = createDesktop(sites);
 var navigation = createNavigation(sites, desktop);
 

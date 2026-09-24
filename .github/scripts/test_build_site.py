@@ -9,6 +9,7 @@ import sys
 import tempfile
 import unittest
 from contextlib import redirect_stderr, redirect_stdout
+from dataclasses import replace
 from pathlib import Path
 from unittest.mock import patch
 
@@ -17,6 +18,7 @@ REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPOSITORY_ROOT / "scripts"))
 
 import build_site as builder  # noqa: E402
+import site_config  # noqa: E402
 
 
 class BuildSiteTests(unittest.TestCase):
@@ -27,6 +29,10 @@ class BuildSiteTests(unittest.TestCase):
         self.root = self.fixture / "site"
         self.write("desktop/page.html", '<!DOCTYPE html>\n<body>\n  <!-- include: sites/hobbies/content.html -->\n</body>\n')
         self.write("sites/hobbies/content.html", '<section lang="zh-HK">香港 &amp; hobbies</section>\n')
+        self.write("desktop/styles.css", "/* Desktop fixture */\n")
+        for site in ("portfolio", "hobbies", "my-websites"):
+            self.write(f"sites/{site}/site.js", "export function createSite() {}\n")
+            self.write(f"sites/{site}/styles.css", f"/* {site} fixture */\n")
 
     def write(self, name: str, content: str) -> Path:
         target = self.root / name
@@ -37,11 +43,20 @@ class BuildSiteTests(unittest.TestCase):
     def run_main(self, *arguments: str) -> tuple[int, str, str]:
         stdout, stderr = io.StringIO(), io.StringIO()
         render = builder.render
-        # render's default root is bound at definition time; supply the fixture explicitly.
-        with patch.object(builder, "ROOT", self.root), patch.object(builder, "render", lambda: render(self.root)):
+        render_registry = builder.render_site_registry
+        render_styles = builder.render_site_styles
+        # The functions bind the repository root as a default; supply this fixture.
+        with patch.object(builder, "ROOT", self.root), patch.object(builder, "render", lambda *_: render(self.root)), patch.object(builder, "render_site_registry", lambda *_: render_registry(self.root)), patch.object(builder, "render_site_styles", lambda *_: render_styles(self.root)):
             with patch.object(sys, "argv", ["build_site.py", *arguments]), redirect_stdout(stdout), redirect_stderr(stderr):
                 status = builder.main()
         return status, stdout.getvalue(), stderr.getvalue()
+
+    def write_outputs(self) -> dict[str, Path]:
+        return {
+            "index": self.write("index.html", builder.render(self.root)),
+            "registry": self.write("assets/js/site-registry.js", builder.render_site_registry(self.root)),
+            "styles": self.write("assets/css/one-page.css", builder.render_site_styles(self.root)),
+        }
 
     def test_render_preserves_content_and_relative_indentation(self) -> None:
         self.write("desktop/page.html", '<!DOCTYPE html>\n<body>\n\t<!-- include: sites/hobbies/content.html -->\n  <!-- include: sites/portfolio/content.html -->\n</body>\n')
@@ -95,18 +110,24 @@ class BuildSiteTests(unittest.TestCase):
         with self.assertRaises(FileNotFoundError):
             builder.render(self.root)
 
+    def test_site_without_html_gate_cannot_be_disabled_silently(self) -> None:
+        sites = tuple(replace(site, enabled=False) if site.folder == "hobbies" else site for site in site_config.SITES)
+        with patch.object(site_config, "SITES", sites):
+            with self.assertRaisesRegex(ValueError, "no HTML feature gate"):
+                builder.render(self.root)
+
     def test_check_fresh_output_succeeds_without_rewriting(self) -> None:
-        target = self.write("index.html", builder.render(self.root))
-        before = target.stat()
-        content = target.read_bytes()
+        targets = self.write_outputs()
+        before = {name: (path.stat().st_mtime_ns, path.read_bytes()) for name, path in targets.items()}
         status, stdout, stderr = self.run_main("--check")
         self.assertEqual(status, 0)
         self.assertIn("up to date", stdout)
         self.assertEqual(stderr, "")
-        self.assertEqual(target.read_bytes(), content)
-        self.assertEqual(target.stat().st_mtime_ns, before.st_mtime_ns)
+        for name, path in targets.items():
+            self.assertEqual((path.stat().st_mtime_ns, path.read_bytes()), before[name])
 
     def test_check_stale_output_fails_without_rewriting(self) -> None:
+        targets = self.write_outputs()
         target = self.write("index.html", "Previously published content\n")
         before = target.stat()
         content = target.read_bytes()
@@ -115,6 +136,21 @@ class BuildSiteTests(unittest.TestCase):
         self.assertIn("out of date", stderr)
         self.assertEqual(target.read_bytes(), content)
         self.assertEqual(target.stat().st_mtime_ns, before.st_mtime_ns)
+        self.assertTrue(targets["registry"].exists())
+        self.assertTrue(targets["styles"].exists())
+
+    def test_check_detects_stale_generated_assets_without_rewriting(self) -> None:
+        targets = self.write_outputs()
+        for name in ("registry", "styles"):
+            with self.subTest(name=name):
+                target = targets[name]
+                target.write_text("Stale generated asset\n", encoding="utf-8")
+                before = (target.stat().st_mtime_ns, target.read_bytes())
+                status, _, stderr = self.run_main("--check")
+                self.assertEqual(status, 1)
+                self.assertIn("out of date", stderr)
+                self.assertEqual((target.stat().st_mtime_ns, target.read_bytes()), before)
+                target.write_text(builder.render_site_registry(self.root) if name == "registry" else builder.render_site_styles(self.root), encoding="utf-8")
 
     def test_check_missing_output_fails_without_creating_it(self) -> None:
         status, _, stderr = self.run_main("--check")
@@ -124,11 +160,15 @@ class BuildSiteTests(unittest.TestCase):
 
     def test_build_writes_complete_rendered_page(self) -> None:
         expected = builder.render(self.root)
+        expected_registry = builder.render_site_registry(self.root)
+        expected_styles = builder.render_site_styles(self.root)
         self.write("index.html", "Old content")
         status, _, stderr = self.run_main()
         self.assertEqual(status, 0)
         self.assertEqual(stderr, "")
         self.assertEqual((self.root / "index.html").read_text(encoding="utf-8"), expected)
+        self.assertEqual((self.root / "assets/js/site-registry.js").read_text(encoding="utf-8"), expected_registry)
+        self.assertEqual((self.root / "assets/css/one-page.css").read_text(encoding="utf-8"), expected_styles)
 
     def test_failed_build_keeps_previous_output(self) -> None:
         target = self.write("index.html", "Previously published content\n")
@@ -139,7 +179,7 @@ class BuildSiteTests(unittest.TestCase):
         self.assertEqual(target.read_text(encoding="utf-8"), "Previously published content\n")
 
     def add_catalogue(self) -> dict:
-        data = json.loads((REPOSITORY_ROOT / "sites/projects/projects.json").read_text(encoding="utf-8"))
+        data = json.loads((REPOSITORY_ROOT / "sites/archieve/projects/projects.json").read_text(encoding="utf-8"))
         self.write("desktop/page.html", '<!DOCTYPE html>\n<body>\n  <!-- include: sites/projects/content.html -->\n</body>\n')
         self.write("sites/projects/content.html", '<section id="project-lab">\n  <!-- project-catalogue -->\n</section>\n')
         self.write("sites/projects/projects.json", json.dumps(data))
@@ -157,7 +197,7 @@ class BuildSiteTests(unittest.TestCase):
 
     def test_json_change_makes_check_fail_without_rewriting(self) -> None:
         data = self.add_catalogue()
-        target = self.write("index.html", builder.render(self.root))
+        target = self.write_outputs()["index"]
         before = target.read_bytes()
         data["projects"][0]["currentFocus"] = "Changed focus supplied by the author."
         self.write("sites/projects/projects.json", json.dumps(data))
@@ -187,7 +227,7 @@ class BuildSiteTests(unittest.TestCase):
 
     def test_invalid_json_preserves_last_successful_build(self) -> None:
         self.add_catalogue()
-        target = self.write("index.html", builder.render(self.root))
+        target = self.write_outputs()["index"]
         before = target.read_bytes()
         self.write("sites/projects/projects.json", "{")
         status, _, stderr = self.run_main()
@@ -217,7 +257,7 @@ class BuildSiteTests(unittest.TestCase):
 
     def test_website_data_change_makes_check_fail_without_rewriting(self) -> None:
         data = self.add_website_shortcuts()
-        target = self.write("index.html", builder.render(self.root))
+        target = self.write_outputs()["index"]
         before = target.read_bytes()
         data.append({"name": "Another Website", "target": "#another-website"})
         self.write("sites/my-websites/websites.json", json.dumps(data))
@@ -247,7 +287,7 @@ class BuildSiteTests(unittest.TestCase):
 
     def test_invalid_website_catalogue_preserves_last_successful_build(self) -> None:
         self.add_website_shortcuts()
-        target = self.write("index.html", builder.render(self.root))
+        target = self.write_outputs()["index"]
         before = target.read_bytes()
         for source in ("{", '[{"name": "Unsafe", "target": "javascript:alert(1)"}]'):
             with self.subTest(source=source):

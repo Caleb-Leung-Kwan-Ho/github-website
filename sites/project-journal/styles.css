@@ -33,7 +33,6 @@
 }
 
 .project-journal-window {
-	--journal-ui-font: "Journal Pixel Sans", Tahoma, Meiryo, "Yu Gothic", "PingFang HK", "Microsoft JhengHei", sans-serif;
 	top: 24px;
 	left: 50%;
 	width: min(1420px, calc(100vw - 100px));
@@ -43,6 +42,7 @@
 
 /* Only the webpage below the shared address bar is restyled. */
 .project-journal-content {
+	--journal-ui-font: "Journal Pixel Sans", Tahoma, Meiryo, "Yu Gothic", "PingFang HK", "Microsoft JhengHei", sans-serif;
 	--journal-ui-size: 11px;
 	--journal-paper: #fffdf2;
 	--journal-burgundy: #8f0035;
@@ -63,6 +63,12 @@
 	overflow-wrap: anywhere;
 	scrollbar-color: #a9bde4 #f5f2e5;
 	scroll-padding-block: 8px;
+}
+
+.project-journal-content :is(a, button, summary),
+.project-journal-content :is(a, button, summary)::before,
+.project-journal-content :is(a, button, summary)::after {
+	transition: none;
 }
 
 /* Match regional glyphs and keep the CJK faces on their native 12px grid. */

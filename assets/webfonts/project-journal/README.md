@@ -27,7 +27,10 @@ Focus labels and NEW badges use the bold face; panel and project headings use
 the regular face at 18px for a smaller, lighter treatment. Explanatory prose,
 including expanded update and milestone details, uses regular Tahoma/Arial with
 the existing CJK system-font fallbacks.
-The page title and shared browser header keep their existing fonts.
+The page title uses bold English pixel lettering at 24px, or 20px on narrow
+layouts, in burgundy. The regular-only CJK faces retain their original glyphs
+without synthesized bold. The subtitle stays regular at 16px, or 14px on narrow
+layouts, in a slightly redder burgundy. The shared browser header keeps its common fonts.
 The English language button uses the regular face at 11px in every locale.
 
 ## Japanese and Hong Kong Traditional Chinese

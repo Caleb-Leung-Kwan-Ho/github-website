@@ -16,6 +16,22 @@
 	font-display: swap;
 }
 
+@font-face {
+	font-family: "Journal Pixel Japanese";
+	src: url("../../assets/webfonts/project-journal/fusion-pixel-12px-proportional-ja.woff2") format("woff2");
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Journal Pixel Hong Kong";
+	src: url("../../assets/webfonts/project-journal/fusion-pixel-12px-proportional-zh_hk.woff2") format("woff2");
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+}
+
 .project-journal-window {
 	--journal-ui-font: "Journal Pixel Sans", Tahoma, Meiryo, "Yu Gothic", "PingFang HK", "Microsoft JhengHei", sans-serif;
 	top: 24px;
@@ -27,6 +43,7 @@
 
 /* Only the webpage below the shared address bar is restyled. */
 .project-journal-content {
+	--journal-ui-size: 11px;
 	--journal-paper: #fffdf2;
 	--journal-burgundy: #8f0035;
 	--journal-red: #aa3b53;
@@ -46,6 +63,17 @@
 	overflow-wrap: anywhere;
 	scrollbar-color: #a9bde4 #f5f2e5;
 	scroll-padding-block: 8px;
+}
+
+/* Match regional glyphs and keep the CJK faces on their native 12px grid. */
+.project-journal-content:lang(ja) {
+	--journal-ui-font: "Journal Pixel Japanese", Meiryo, "Yu Gothic", sans-serif;
+	--journal-ui-size: 12px;
+}
+
+.project-journal-content:lang(zh-HK) {
+	--journal-ui-font: "Journal Pixel Hong Kong", "PingFang HK", "Microsoft JhengHei", sans-serif;
+	--journal-ui-size: 12px;
 }
 
 .project-journal-content .journal-page {
@@ -109,11 +137,10 @@
 .project-journal-content .journal-identity {
 	padding-bottom: 3px;
 }
-.project-journal-content .journal-identity > h2 {
+#project-journal-title {
 	color: var(--journal-burgundy);
-	/* The pixel face is drawn on an 11px grid; keep its display sizes in whole multiples. */
-	font-family: var(--journal-ui-font);
-	font-size: 33px;
+	font-family: Tahoma, Arial, Meiryo, "Yu Gothic", "PingFang HK", "Microsoft JhengHei", sans-serif;
+	font-size: 28px;
 	font-weight: 700;
 	letter-spacing: 0;
 	line-height: 1.2;
@@ -130,7 +157,7 @@
 	gap: 5px 0;
 	margin-top: 15px;
 	font-family: var(--journal-ui-font);
-	font-size: 11px;
+	font-size: var(--journal-ui-size);
 	line-height: 18px;
 }
 .project-journal-content .journal-nav a {
@@ -185,7 +212,7 @@
 	background: var(--window-gray);
 	box-shadow: inset 1px 1px #f8f7f1, inset -1px -1px #aca899;
 	color: #202027 !important;
-	font: 400 11px/16px var(--journal-ui-font);
+	font: 400 var(--journal-ui-size)/16px var(--journal-ui-font);
 	letter-spacing: 0;
 	text-transform: none;
 	white-space: normal;
@@ -296,7 +323,7 @@
 .project-journal-content .journal-status {
 	color: #403849;
 	font-family: var(--journal-ui-font);
-	font-size: 11px;
+	font-size: var(--journal-ui-size);
 	font-weight: 400;
 	line-height: 1.35;
 	text-decoration: none;
@@ -315,7 +342,7 @@
 .project-journal-content .journal-filters label {
 	margin: 0;
 	color: #202027;
-	font: 400 11px/16px var(--journal-ui-font);
+	font: 400 var(--journal-ui-size)/16px var(--journal-ui-font);
 	font-weight: 400;
 	letter-spacing: 0;
 	text-transform: none;
@@ -377,7 +404,7 @@
 	padding: 0 8px 8px;
 	color: #625766;
 	font-family: var(--journal-ui-font);
-	font-size: 11px;
+	font-size: var(--journal-ui-size);
 }
 .project-journal-content .journal-filter-meta button {
 	min-height: 22px;
@@ -386,7 +413,7 @@
 	background: none;
 	box-shadow: none;
 	color: #0000ee !important;
-	font-size: 11px;
+	font-size: var(--journal-ui-size);
 	text-decoration: underline;
 }
 .project-journal-content :is(.journal-empty, .journal-outside) {
@@ -612,7 +639,9 @@
 .project-journal-content .journal-homepage > span {
 	width: 78px;
 	color: #0527b8;
-	font: 700 11px/14px var(--journal-ui-font);
+	font: 700 var(--journal-ui-size)/14px var(--journal-ui-font);
+	/* CJK faces have no bold master; retain their drawn pixel shapes. */
+	font-synthesis: none;
 	text-align: center;
 	text-decoration: underline;
 	overflow-wrap: anywhere;
@@ -693,7 +722,7 @@
 	.project-journal-content .journal-page {
 		padding-inline: 7px;
 	}
-	.project-journal-content .journal-identity > h2 {
+	#project-journal-title {
 		font-size: 22px;
 	}
 	.project-journal-content .journal-identity > p {

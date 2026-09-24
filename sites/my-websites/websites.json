@@ -10,6 +10,7 @@
     "name": "Project Lab",
     "target": "#project-journal",
     "description": "Personal projects and development notes.",
+    "thumbnail": "images/websites/project-lab.png",
     "topics": ["Projects", "Development notes", "Development progress"]
   },
   {

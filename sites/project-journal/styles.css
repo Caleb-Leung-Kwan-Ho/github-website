@@ -759,9 +759,14 @@
 	gap: 3px;
 	min-height: 40px;
 	padding: 2px 4px;
-	border: 1px solid #1d274a;
-	background: #eef2ff;
-	box-shadow: inset 1px 1px #fff, inset -1px -1px #9da9c0, 2px 2px 0 #9a9fac;
+	border: 1px solid #33343f;
+	background:
+		radial-gradient(ellipse at 18% 82%, #f2fcff 0%, transparent 34%),
+		radial-gradient(ellipse at 70% 12%, #dfeaff 0%, transparent 38%),
+		radial-gradient(ellipse at 93% 78%, #f5f6ff 0%, transparent 30%),
+		radial-gradient(ellipse at 42% 46%, #c8ddff 0%, transparent 42%),
+		linear-gradient(165deg, #8caaf3 0%, #b6cefa 48%, #e5f5ff 76%, #c8d9f8 100%);
+	box-shadow: inset 1px 1px #fff, inset -1px -1px #8d93ad, inset 2px 2px #dfe5fa, inset -2px -2px #eff6ff, 2px 2px 0 #a5a5aa;
 	font-weight: 700;
 }
 .project-journal-content .journal-homepage img {

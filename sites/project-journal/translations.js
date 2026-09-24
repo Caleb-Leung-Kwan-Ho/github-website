@@ -616,6 +616,7 @@ export const JOURNAL_PROJECTS = [
       {
         "id": "current-research-focus",
         "date": null,
+        "isNew": true,
         "text": "The current priority is understanding retrieval bottlenecks and preparing an embedding-model comparison with hybrid fusion. Model selection and experimental results are pending."
       }
     ],

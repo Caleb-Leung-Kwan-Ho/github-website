@@ -22,7 +22,13 @@ Downloaded on 2026-09-24 from these 98.css paths:
 - `fonts/src/ms-sans-serif-bold/{license,readme}.txt`
 
 The English journal uses these faces at their native 11px size for compact
-interface labels. The page title and body copy keep their ordinary system fonts.
+interface labels, project-list names, update and roadmap rows, and filter values.
+Focus labels and NEW badges use the bold face; panel and project headings use
+the regular face at 18px for a smaller, lighter treatment. Explanatory prose,
+including expanded update and milestone details, uses regular Tahoma/Arial with
+the existing CJK system-font fallbacks.
+The page title and shared browser header keep their existing fonts.
+The English language button uses the regular face at 11px in every locale.
 
 ## Japanese and Hong Kong Traditional Chinese
 
@@ -30,9 +36,15 @@ interface labels. The page title and body copy keep their ordinary system fonts.
 `fusion-pixel-12px-proportional-zh_hk.woff2` are unmodified
 [Fusion Pixel Font](https://github.com/TakWolf/fusion-pixel-font) binaries by
 TakWolf and contributors. The Japanese and Hong Kong variants use their respective
-regional glyph shapes. Compact interface labels use the active language's face
-at its native 12px size; English keeps its existing 11px face. The homepage badge
-does not synthesize a bold weight for these regular-only CJK fonts.
+regional glyph shapes. Compact interface text uses the active language's face
+at its native 12px size, and panel and project headings use it at 18px.
+These regular-only CJK fonts do not synthesize a bold weight.
+The Japanese and Hong Kong Chinese language buttons each use their own regional
+face at 12px, regardless of the active page language.
+
+Heading sizes deliberately soften the pixel appearance instead of enlarging
+the native grid by a whole multiple. NEW badges keep the English bold face at
+11px in every locale.
 
 These are official demo snapshots downloaded on 2026-09-24, not the 2026.09.01
 release (which does not contain the Hong Kong variant). The demo was built from
@@ -53,8 +65,9 @@ are `LICENSE-OFL`, `assets/fonts/ark-pixel/OFL.txt`,
 commit above. They are separate from the website's custom-artwork terms.
 
 All four font binaries are served locally. CJK faces are selected by the
-journal content's existing `lang` attribute and load on demand, without a new
-runtime origin, script, or package. `font-display: swap` keeps labels readable
+journal content's existing `lang` attribute and each language button's own
+`lang` attribute, so both CJK fonts can load when the language buttons appear.
+No new runtime origin, script, or package is required. `font-display: swap` keeps labels readable
 while a font loads; existing system fonts remain the fallback if it fails.
 Future upgrades should replace the relevant binaries and license notices
 together and update this source revision, file sizes, and checksums.

@@ -115,6 +115,8 @@ def validate_projects(data: object) -> list[dict]:
                 expected = {"id", "title", "status"} if kind == "milestones" else {"id", "date", "text"}
                 if kind == "milestones" and "description" in entry:
                     expected.add("description")
+                if kind == "updates" and "isNew" in entry:
+                    expected.add("isNew")
                 record(entry, f"{project_id}.{kind}", expected)
                 entry_id = slug(entry["id"], f"{project_id}.{kind}.id")
                 if entry_id in seen:
@@ -129,6 +131,8 @@ def validate_projects(data: object) -> list[dict]:
                         text(entry["description"], f"{project_id}.{kind}.{entry_id}.description")
                 else:
                     text(entry["text"], f"{project_id}.{kind}.{entry_id}.text")
+                    if "isNew" in entry and type(entry["isNew"]) is not bool:
+                        raise ValueError(f"{project_id}.{kind}.{entry_id}.isNew must be boolean")
                     stamp = entry["date"]
                     if stamp is not None:
                         try:
@@ -337,9 +341,10 @@ def render_journal(root: Path) -> str:
             update_list.append('              <ol class="journal-update-list">')
             for update in project["updates"]:
                 stamp = f'<time datetime="{update["date"]}">{update["date"]}</time> ' if update["date"] else ""
+                badge = '<span class="journal-new" lang="en">NEW</span> ' if update.get("isNew", False) else ""
                 update_list += [f'                <li id="{base}-update-{update["id"]}">',
                                 '                  <details class="journal-update">',
-                                f'                    <summary>{stamp}{excerpt(project, "update", update)}</summary>',
+                                f'                    <summary>{badge}{stamp}{excerpt(project, "update", update)}</summary>',
                                 f'                    <p>{field(project, "text", kind="update", item=update)}</p>',
                                 '                  </details>', '                </li>']
             update_list.append('              </ol>')

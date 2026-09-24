@@ -276,15 +276,16 @@
 	text-decoration: none;
 }
 
-/* The nested detail grid keeps project selection separate from its two content columns. */
+/* The nested detail grid keeps project selection separate from its two content columns.
+   Columns stretch to one shared bottom edge, like the table layouts this page imitates. */
 .project-journal-content .journal-workspace {
 	display: grid;
 	grid-template-columns: minmax(200px, 24fr) minmax(0, 76fr);
-	align-items: start;
+	align-items: stretch;
 	gap: 10px;
 	margin-top: 8px;
 }
-.project-journal-content :is(.journal-library, .journal-summary, .journal-updates, .journal-roadmap, .journal-blocker, .journal-links, .journal-related) {
+.project-journal-content :is(.journal-library, .journal-main, .journal-summary, .journal-updates, .journal-roadmap, .journal-blocker, .journal-links, .journal-related) {
 	min-width: 0;
 	border: 1px solid var(--journal-rule);
 	background: #fffef8;
@@ -307,18 +308,56 @@
 	font-family: var(--journal-reading-font);
 	font-weight: 400;
 }
+/* The project list is drawn as a sunken listbox with a classic scrollbar. */
 .project-journal-content .journal-project-list {
-	margin: 0;
-	padding: 5px;
+	margin: 6px 8px 0;
+	padding: 3px;
+	border: 1px solid;
+	border-color: #7f7f7f #fff #fff #7f7f7f;
+	background: #fff;
+	box-shadow: inset 1px 1px #444, inset -1px -1px #dfdfdf;
 	list-style: none;
-	scrollbar-color: #a9bde4 #f3f0e6;
-	scrollbar-width: thin;
+	/* Firefox cannot draw scrollbar arrows; it keeps these colours. */
+	scrollbar-color: #aca899 #f5f2e5;
 }
 .project-journal-content.is-enhanced .journal-project-list {
 	max-height: 224px;
-	overflow-y: auto;
+	overflow-y: scroll;
 	overscroll-behavior: contain;
 	scroll-padding-block: 4px;
+}
+/* Chromium ignores ::-webkit-scrollbar while scrollbar-color is non-auto, including
+   the value inherited from .project-journal-content, so reset it where supported. */
+@supports selector(::-webkit-scrollbar) {
+	.project-journal-content .journal-project-list {
+		scrollbar-color: auto;
+	}
+	.project-journal-content .journal-project-list::-webkit-scrollbar {
+		width: 18px;
+	}
+	.project-journal-content .journal-project-list::-webkit-scrollbar-track {
+		background: repeating-conic-gradient(#ece9d8 0 25%, #fff 0 50%) 0 0 / 2px 2px;
+	}
+	.project-journal-content .journal-project-list::-webkit-scrollbar-thumb {
+		border: 1px solid;
+		border-color: #fff #716f64 #716f64 #fff;
+		background: #ece9d8;
+	}
+	/* Position selectors, not :single-button, because macOS has no native scrollbar buttons. */
+	.project-journal-content .journal-project-list::-webkit-scrollbar-button:vertical:start:increment,
+	.project-journal-content .journal-project-list::-webkit-scrollbar-button:vertical:end:decrement {
+		display: none;
+	}
+	.project-journal-content .journal-project-list::-webkit-scrollbar-button:vertical:start:decrement,
+	.project-journal-content .journal-project-list::-webkit-scrollbar-button:vertical:end:increment {
+		display: block;
+		width: 18px;
+		height: 18px;
+		background: url("../../images/project-journal/controls/scroll-up.svg") center / 18px 18px no-repeat;
+	}
+	.project-journal-content .journal-project-list::-webkit-scrollbar-button:vertical:end:increment {
+		background-image: url("../../images/project-journal/controls/select-arrow.svg");
+	}
 }
 .project-journal-content .journal-project-list li {
 	margin: 0;
@@ -447,19 +486,36 @@
 	font-size: 12px;
 }
 .project-journal-content .journal-details {
-	display: grid;
+	display: flex;
+	flex-direction: column;
 	gap: 14px;
 }
 .project-journal-content .journal-project {
 	display: grid;
+	flex: 1 0 auto;
 	grid-template-columns: minmax(0, 47fr) minmax(190px, 29fr);
-	align-items: start;
+	align-items: stretch;
 	gap: 10px;
 	scroll-margin-block: 8px;
 }
-.project-journal-content :is(.journal-main, .journal-support) {
+/* Current work frames the summary, updates, and roadmap as inset boxes. */
+.project-journal-content .journal-main {
 	display: grid;
+	align-content: start;
 	gap: 8px;
+	padding-bottom: 6px;
+}
+.project-journal-content .journal-main > :not(.journal-current-work) {
+	margin-inline: 6px;
+}
+/* The last support panel absorbs the remaining column height. */
+.project-journal-content .journal-support {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+.project-journal-content .journal-support > :last-child {
+	flex-grow: 1;
 }
 .project-journal-content .journal-current-work {
 	padding: 4px 8px;
@@ -475,9 +531,10 @@
 	align-items: baseline;
 	flex-wrap: wrap;
 	gap: 3px 8px;
-	padding: 3px 6px;
-	border: 1px solid var(--journal-rule);
+	padding: 4px 8px;
+	border-bottom: 1px solid var(--journal-rule);
 	background: var(--journal-lavender);
+	box-shadow: inset 1px 1px #f3efff;
 }
 .project-journal-content .journal-summary .journal-project-title {
 	padding: 0;
@@ -489,7 +546,7 @@
 	display: inline-block;
 }
 .project-journal-content .journal-summary-text {
-	padding: 4px 0 6px;
+	padding: 0 0 6px;
 }
 .project-journal-content .journal-focus {
 	margin: 0;
@@ -522,6 +579,26 @@
 }
 .project-journal-content summary {
 	cursor: pointer;
+}
+/* Text [+]/[−]-style markers replace the modern disclosure triangles. */
+.project-journal-content :is(.journal-full-description, .journal-update, .journal-milestone, .journal-credits) > summary {
+	list-style: none;
+}
+.project-journal-content :is(.journal-full-description, .journal-update, .journal-milestone, .journal-credits) > summary::-webkit-details-marker {
+	display: none;
+}
+.project-journal-content :is(.journal-full-description, .journal-update, .journal-milestone, .journal-credits) > summary::after {
+	content: "+";
+	content: "+" / "";
+	display: inline-block;
+	margin-inline-start: 4px;
+	color: #0000ee;
+	font-weight: 700;
+	text-decoration: none;
+}
+.project-journal-content :is(.journal-full-description, .journal-update, .journal-milestone, .journal-credits)[open] > summary::after {
+	content: "−";
+	content: "−" / "";
 }
 .project-journal-content :is(.journal-full-description, .journal-update, .journal-milestone) > summary {
 	color: #0000ee;
@@ -591,17 +668,6 @@
 	font: 700 11px/14px "Journal Pixel Sans", Tahoma, sans-serif;
 	white-space: nowrap;
 }
-.project-journal-content .journal-update > summary::-webkit-details-marker {
-	display: none;
-}
-.project-journal-content .journal-update > summary::after {
-	content: " +";
-	color: #0000ee;
-	font-weight: 700;
-}
-.project-journal-content .journal-update[open] > summary::after {
-	content: " −";
-}
 .project-journal-content .journal-update > p {
 	margin-top: 5px;
 }
@@ -620,7 +686,10 @@
 }
 .project-journal-content .journal-roadmap thead {
 	border: 0;
-	background: #ede8f5;
+	background: none;
+}
+.project-journal-content .journal-roadmap thead th {
+	border-bottom-color: var(--journal-rule);
 }
 .project-journal-content .journal-roadmap :is(th, td) {
 	padding: 4px 7px;
@@ -744,8 +813,9 @@
 		grid-template-columns: minmax(0, 1fr);
 	}
 	.project-journal-content .journal-support {
+		display: grid;
 		grid-template-columns: repeat(2, minmax(0, 1fr));
-		align-items: start;
+		align-items: stretch;
 	}
 }
 @container site-window (max-width: 736px) {

@@ -133,10 +133,11 @@
 	min-width: 0;
 }
 
+/* A larger photo strip beside a vertically centred title follows the reference header. */
 .project-journal-content .journal-header {
 	display: grid;
-	grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr);
-	align-items: end;
+	grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+	align-items: center;
 	gap: 16px;
 	padding: 0 0 7px;
 	border-bottom: 2px solid var(--journal-burgundy);
@@ -172,16 +173,18 @@
 }
 .project-journal-content .journal-nav a {
 	padding-block: 3px;
-	padding-inline: 10px;
-	border-left: 1px solid #5e5761;
 }
-.project-journal-content .journal-nav a:first-child {
-	padding-left: 0;
-	border-left: 0;
+/* Typed-style pipe separators; the empty alternative keeps them silent. */
+.project-journal-content .journal-nav a + a::before {
+	content: "|";
+	content: "|" / "";
+	display: inline-block;
+	margin-inline: 10px;
+	color: #202027;
+	text-decoration: none;
 }
 .project-journal-content .journal-header-media {
 	width: 100%;
-	max-width: 530px;
 	justify-self: end;
 }
 .project-journal-content .journal-photos {
@@ -197,15 +200,19 @@
 	display: block;
 	width: 100%;
 	height: auto;
-	aspect-ratio: 4 / 3;
+	aspect-ratio: 5 / 4;
 	border: 1px solid #9f98a5;
 	object-fit: cover;
 	object-position: 50% 50%;
 }
+/* Captions stay available to assistive technology; place names are also in the alt text and credits. */
 .project-journal-content .journal-photo figcaption {
-	margin-top: 3px;
-	color: #62525f;
-	font: 400 var(--journal-ui-size)/16px var(--journal-ui-font);
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
 }
 
 /* Undo the theme's uppercase, fixed-height controls inside the journal. */
@@ -853,11 +860,8 @@
 	.project-journal-content .journal-identity > p {
 		font-size: 14px;
 	}
-	.project-journal-content .journal-nav a {
-		padding-inline: 8px;
-	}
-	.project-journal-content .journal-nav a:first-child {
-		padding-left: 0;
+	.project-journal-content .journal-nav a + a::before {
+		margin-inline: 8px;
 	}
 	.project-journal-content .journal-languages button {
 		padding-inline: 2px;

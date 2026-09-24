@@ -140,6 +140,21 @@ export function createProjectJournalSite() {
 		var remembered = window.localStorage.getItem('project-journal-language');
 		if (Object.prototype.hasOwnProperty.call(JOURNAL_LOCALES, remembered)) { language = remembered; }
 	} catch (error) { /* English remains available when browser storage is blocked. */ }
+
+	// The opt-in CRT effect is drawn by styles.css over this window's page area only.
+	var crtToggle = content.querySelector('[data-journal-crt]');
+	function setCrt(enabled) {
+		element.classList.toggle('is-crt', enabled);
+		crtToggle.setAttribute('aria-pressed', String(enabled));
+	}
+	crtToggle.addEventListener('click', function () {
+		var enabled = !element.classList.contains('is-crt');
+		setCrt(enabled);
+		try { window.localStorage.setItem('project-journal-crt', enabled ? 'on' : 'off'); } catch (error) { /* Storage is optional. */ }
+	});
+	try {
+		setCrt(window.localStorage.getItem('project-journal-crt') === 'on');
+	} catch (error) { /* The effect stays off when browser storage is blocked. */ }
 	content.querySelectorAll('[data-journal-enhancement]').forEach(function (node) { node.hidden = false; });
 	selectLanguage(language);
 	selectProject(selected);

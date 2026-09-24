@@ -21,7 +21,7 @@ search status allStatuses clearFilters resultCount noResults noResultsFor select
 noBlocker noLinks noUpdates noMilestones dateNotRecorded milestone personalHomepage backToPortfolio
 myWebsites photoCredits photoSource photoLicense photoBy photoChanges language projectNavigation
 sectionNavigation projectResults selectedProject photoStrip skipToProjects skipToCurrentWork
-showDetails featured""".split())
+showDetails featured crtEffect""".split())
 SLUG = re.compile(r"[a-z][a-z0-9]*(?:-[a-z0-9]+)*\Z")
 PHOTO_PATH = re.compile(r"images/project-journal/[a-z0-9-]+\.jpg\Z")
 PROJECT_KEYS = set(TEXT_FIELDS) | {"id", "status", "featured", "relatedProjectIds", "milestones", "updates", "links"}

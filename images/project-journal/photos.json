@@ -17,14 +17,14 @@
       "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Walking_around_Kabukicho%2C_Shinjuku_at_night._%2829362470401%29.jpg",
       "license": "CC BY 2.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
-      "width": 5472,
-      "height": 3078,
+      "width": 320,
+      "height": 180,
       "suggestedObjectPosition": "50% 50%",
       "file": "assets/photos/shinjuku-rain-2016.jpg",
       "suggestedRepoPath": "images/project-journal/shinjuku-rain-2016.jpg",
       "sourceCheckedOn": "2026-09-24",
-      "modifications": "Downloaded JPEG bytes unchanged; displayed with a CSS 4:3 crop.",
-      "displayAspectRatio": "4 / 3",
+      "modifications": "Downscaled to 180 pixels tall and re-saved as a quality-45 JPEG with macOS sips for an early-2000s web look. No objects were added or removed. The header uses a CSS 5:4 crop.",
+      "displayAspectRatio": "5 / 4",
       "localized": {
         "en": {
           "caption": "Shinjuku · rainy night",
@@ -39,8 +39,14 @@
           "alt": "新宿歌舞伎町雨夜，行人撐着雨傘走在濕潤的街道上，兩旁亮起密集的日文招牌。"
         }
       },
-      "sha256": "c170ff3e64297d1a11a06678e5f5807dd3fc4841aaf81f97aa6859fd327457c0",
-      "bytes": 5747376
+      "sha256": "d36b17ba3299791335ae71f2a856273eb5959a82cadba810451a6e47a7c0a83e",
+      "bytes": 19376,
+      "sourceOriginalFacts": {
+        "sha256": "c170ff3e64297d1a11a06678e5f5807dd3fc4841aaf81f97aa6859fd327457c0",
+        "bytes": 5747376,
+        "width": 5472,
+        "height": 3078
+      }
     },
     {
       "id": "yamanote-shibuya-2008-graded",
@@ -57,19 +63,21 @@
       "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/60/Shibuya_Station_Yamanote_Line_Platform_20080522.jpg",
       "license": "CC BY-SA 4.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
-      "width": 1500,
-      "height": 1125,
+      "width": 240,
+      "height": 180,
       "suggestedObjectPosition": "50% 50%",
       "file": "assets/photos/yamanote-shibuya-2008-graded.jpg",
       "suggestedRepoPath": "images/project-journal/yamanote-shibuya-2008-graded.jpg",
       "sourceOriginalFile": "assets/photos/sources/yamanote-shibuya-2008-original.jpg",
       "sourceOriginalFacts": {
         "sha256": "4cf9d200328c93c39f2bd872837674d9aa1edded00cca078abb89f2a2b08c3df",
-        "bytes": 232893
+        "bytes": 232893,
+        "width": 1500,
+        "height": 1125
       },
       "sourceCheckedOn": "2026-09-24",
-      "modifications": "Color graded the original photograph: lower brightness, slightly higher contrast, cooler tones, lower saturation, and light grain. No objects were intentionally added or removed. The header uses a CSS 4:3 crop. The adapted photo remains CC BY-SA 4.0.",
-      "displayAspectRatio": "4 / 3",
+      "modifications": "Color graded the original photograph: lower brightness, slightly higher contrast, cooler tones, lower saturation, and light grain. The graded image was then downscaled to 180 pixels tall and re-saved as a quality-45 JPEG with macOS sips for an early-2000s web look. No objects were intentionally added or removed. The header uses a CSS 5:4 crop. The adapted photo remains CC BY-SA 4.0.",
+      "displayAspectRatio": "5 / 4",
       "localized": {
         "en": {
           "caption": "Yamanote Line · Shibuya",
@@ -84,8 +92,14 @@
           "alt": "一列帶綠色橫紋的山手線列車駛經澀谷站室內月台；2008年相片經色調處理。"
         }
       },
-      "sha256": "ae15f07bee3d1c51def0891ad509884a05df1a3df3935eac7798ff67d79ef1aa",
-      "bytes": 329806
+      "sha256": "febc7cf32f9d47f52e15e95fa2b7d1b37b979c293e0c33feed338888f63e1d2d",
+      "bytes": 11819,
+      "gradedFileFacts": {
+        "sha256": "ae15f07bee3d1c51def0891ad509884a05df1a3df3935eac7798ff67d79ef1aa",
+        "bytes": 329806,
+        "width": 1500,
+        "height": 1125
+      }
     },
     {
       "id": "mong-kok-portland-night",
@@ -104,14 +118,14 @@
       "license": "CC BY-SA 2.5",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/",
       "licenseSelection": "Use the CC BY-SA 2.5 option on the source page; the GFDL and other Creative Commons options are not used by this kit.",
-      "width": 1408,
-      "height": 1056,
+      "width": 240,
+      "height": 180,
       "suggestedObjectPosition": "50% 50%",
       "file": "assets/photos/mong-kok-portland-street.jpg",
       "suggestedRepoPath": "images/project-journal/mong-kok-portland-street.jpg",
       "sourceCheckedOn": "2026-09-24",
-      "modifications": "Downloaded JPEG bytes unchanged; displayed with a CSS 4:3 crop. The 2007 date is the original upload date, not a verified capture date.",
-      "displayAspectRatio": "4 / 3",
+      "modifications": "Downscaled to 180 pixels tall and re-saved as a quality-45 JPEG with macOS sips for an early-2000s web look. No objects were added or removed. The header uses a CSS 5:4 crop. The 2007 date is the original upload date, not a verified capture date. The adapted photo remains CC BY-SA 2.5.",
+      "displayAspectRatio": "5 / 4",
       "localized": {
         "en": {
           "caption": "Mong Kok · Portland Street",
@@ -126,8 +140,14 @@
           "alt": "旺角砵蘭街夜景，霓虹招牌密佈，街道由畫面中央向遠處延伸。"
         }
       },
-      "sha256": "5f258e002fb40ac4d9450feda25757cce46a898badf2a79dbdd4afacc62ec75c",
-      "bytes": 866188
+      "sha256": "a6be221922e1b82cb37bc417a589a9b0b9c3959b25251b9da23e99f1b82e8b88",
+      "bytes": 13316,
+      "sourceOriginalFacts": {
+        "sha256": "5f258e002fb40ac4d9450feda25757cce46a898badf2a79dbdd4afacc62ec75c",
+        "bytes": 866188,
+        "width": 1408,
+        "height": 1056
+      }
     }
   ]
 }

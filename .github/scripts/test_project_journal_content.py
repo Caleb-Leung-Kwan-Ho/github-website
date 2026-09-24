@@ -301,7 +301,7 @@ class JournalTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "must stay inside"):
             journal.load_journal(self.root)
 
-    def test_photos_have_original_supplied_hashes_local_paths_and_visible_credits(self) -> None:
+    def test_photos_match_manifest_hashes_local_paths_and_visible_credits(self) -> None:
         source = journal.render_journal(ROOT)
         for photo in self.photos:
             image = ROOT / photo["suggestedRepoPath"]
@@ -309,6 +309,7 @@ class JournalTests(unittest.TestCase):
             for field in ("creator", "license"):
                 self.assertIn(photo[field], source)
         self.assertIn("color and tone edited", source)
+        self.assertIn("downscaled to 180 pixels tall", source)
         self.assertIn("adapted photo remains CC BY-SA 4.0", source)
         images = [attrs for tag, attrs in JournalHTML(source).elements if tag == "img" and "data-journal-photo" in attrs]
         self.assertEqual([attrs["src"] for attrs in images], [photo["suggestedRepoPath"] for photo in self.photos])

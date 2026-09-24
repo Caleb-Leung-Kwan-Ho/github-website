@@ -23,18 +23,17 @@ Downloaded on 2026-09-24 from these 98.css paths:
 
 The English journal uses these faces at their native 11px size for compact
 interface labels, project-list names, update and roadmap rows, and filter values.
-Focus labels and NEW badges use the bold face; panel and project headings use
-the regular face at 18px for a smaller, lighter treatment. The “Show project details”
-toggle remains 13px with 20px line height. Full descriptions, expanded focus
+Focus labels and NEW badges use the bold face. The “Show project details”
+toggle uses the native size with 20px line height. Full descriptions, expanded focus
 values, and update and milestone details use the photo captions' regular local
 pixel face at 11px in English or 12px in Japanese and Hong Kong Traditional
 Chinese, with 16px line height and no synthesized font styles.
 Remaining explanatory prose uses regular Tahoma/Arial with the existing CJK
 system-font fallbacks.
-The page title uses bold English pixel lettering at 24px, or 20px on narrow
-layouts, in burgundy. The regular-only CJK faces retain their original glyphs
-without synthesized bold. The subtitle stays regular at 16px, or 14px on narrow
-layouts, in a slightly redder burgundy. The shared browser header keeps its common fonts.
+The page title (bold, 28px or 24px on narrow layouts), subtitle (regular, 16px
+or 14px), and panel and project headings (bold, 16px) use smooth Tahoma with
+regional CJK system fallbacks instead of these faces, because pixel lettering
+only stays sharp at its native size. The shared browser header keeps its common fonts.
 The English language button uses the regular face at 11px in every locale.
 
 ## Japanese and Hong Kong Traditional Chinese
@@ -44,14 +43,11 @@ The English language button uses the regular face at 11px in every locale.
 [Fusion Pixel Font](https://github.com/TakWolf/fusion-pixel-font) binaries by
 TakWolf and contributors. The Japanese and Hong Kong variants use their respective
 regional glyph shapes. Compact interface text uses the active language's face
-at its native 12px size, and panel and project headings use it at 18px.
-These regular-only CJK fonts do not synthesize a bold weight.
+at its native 12px size. These regular-only CJK fonts do not synthesize a bold weight.
 The Japanese and Hong Kong Chinese language buttons each use their own regional
 face at 12px, regardless of the active page language.
 
-Heading sizes deliberately soften the pixel appearance instead of enlarging
-the native grid by a whole multiple. NEW badges keep the English bold face at
-11px in every locale.
+NEW badges keep the English bold face at 11px in every locale.
 
 These are official demo snapshots downloaded on 2026-09-24, not the 2026.09.01
 release (which does not contain the Hong Kong variant). The demo was built from

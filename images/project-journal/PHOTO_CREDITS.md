@@ -9,7 +9,7 @@ The Project Lab footer links to a Photo credits disclosure with the three title,
 - File: `shinjuku-rain-2016.jpg`
 - Captured: 2016-06-16, as recorded by the source. The website's early-2000s look is a design style, not the photo's capture date.
 - Original source: https://www.flickr.com/photos/danramarch/29362470401/
-- Changes in this kit: none to the downloaded JPEG; the header uses CSS display cropping.
+- Changes: the downloaded JPEG was downscaled to 180 pixels tall and re-saved as a quality-45 JPEG for an early-2000s web look (see `PHOTO_PROCESSING.md`); the header uses CSS display cropping. The unmodified download's SHA-256, size, and dimensions are retained in `photos.json` as `sourceOriginalFacts`.
 
 ### T01 — Yamanote Line · Shibuya
 
@@ -18,7 +18,7 @@ The Project Lab footer links to a Photo credits disclosure with the three title,
 - Display file: `yamanote-shibuya-2008-graded.jpg`
 - Unmodified source retained in the original handoff kit, not deployed here: `assets/photos/sources/yamanote-shibuya-2008-original.jpg`. Its SHA-256 is retained in `photos.json`.
 - Captured: 2008-05-22, as recorded by the source. This is an indoor platform, not a dusk outdoor shot.
-- Changes in this kit: the display JPEG was made from the original photo with lower brightness, slightly higher contrast, cooler tones, lower saturation, and light grain; the header also uses CSS display cropping. No scene objects were intentionally added or removed.
+- Changes: the original photo was graded with lower brightness, slightly higher contrast, cooler tones, lower saturation, and light grain, then downscaled to 180 pixels tall and re-saved as a quality-45 JPEG for an early-2000s web look (see `PHOTO_PROCESSING.md`); the header also uses CSS display cropping. No scene objects were intentionally added or removed. The full-size graded file's facts are retained in `photos.json` as `gradedFileFacts`.
 - **Use the source link, Rukin credit, license link, and an explicit “color and tone edited” notice in the site's visible credits. The adapted display photo remains CC BY-SA 4.0.** Do not substitute the generative preview from the conversation.
 
 ### H01 — Mong Kok · Portland Street
@@ -27,12 +27,12 @@ The Project Lab footer links to a Photo credits disclosure with the three title,
 
 - File: `mong-kok-portland-street.jpg`
 - Original upload: 2007-01-13. The exact capture date is unrecorded; do not caption this as a verified 2007 photo.
-- Changes in this kit: none to the downloaded JPEG; the header uses CSS display cropping.
+- Changes: the downloaded JPEG was downscaled to 180 pixels tall and re-saved as a quality-45 JPEG for an early-2000s web look (see `PHOTO_PROCESSING.md`); the header uses CSS display cropping. The unmodified download's facts are retained in `photos.json` as `sourceOriginalFacts`. The adapted display photo remains CC BY-SA 2.5.
 - The source offers several license options. This kit chooses CC BY-SA 2.5.
 
 ## Implementation requirements
 
-- Serve the three display JPEGs locally. Do not hotlink Wikimedia/Flickr, use remote embeds, or load remote photos in CSS. Keep the unmodified T01 source file in this kit as a provenance reference; the live page only needs the graded display file.
+- Serve the three display JPEGs locally. Do not hotlink Wikimedia/Flickr, use remote embeds, or load remote photos in CSS. Keep the unmodified source files in the original kit as provenance references; the live page only needs the downscaled display files.
 - Retain each photo's title, creator, source link, license link, and accurate changes notice. The site templates and locale dictionaries contain translated labels, alt text, captions, and a photo-change notice.
 - The two adapted/ShareAlike source licenses apply to their individual photos. Do not apply a blanket code license to third-party photographs or imply the photographers endorse the website. Merely collecting photos in a kit does not relicense the rest of the site.
 - If later changing the image files or their displayed crop, keep each credit and update its changes notice. Each photographer's file page provides the authoritative reuse terms.

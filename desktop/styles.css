@@ -907,6 +907,159 @@ b {
 	}
 }
 
+/* The journal opts into pixel-era chrome; other shared browser windows keep their presentation. */
+.os-window.project-journal-window {
+	border-radius: 5px 5px 0 0;
+	box-shadow: 3px 3px 0 rgba(8, 31, 73, 0.35);
+}
+
+.project-journal-window :is(a, button, summary),
+.project-journal-window :is(a, button, summary)::before,
+.project-journal-window :is(a, button, summary)::after {
+	transition: none;
+}
+
+.project-journal-window .window-title h2 {
+	font-family: var(--journal-ui-font);
+	font-size: 11px;
+	line-height: 16px;
+	text-shadow: 1px 1px 0 #003078;
+}
+
+.project-journal-window :is(.window-menubar, .browser-toolbar-button, .browser-address, .window-menu-panel > a, .window-menu-panel > button) {
+	font-family: var(--journal-ui-font);
+	font-size: 11px;
+}
+
+.project-journal-window .window-controls button {
+	border-radius: 2px;
+	box-shadow: inset 1px 1px 0 #a6d6ff, inset -1px -1px 0 #003b9d;
+	text-shadow: none;
+}
+
+.project-journal-window .window-controls .close-control {
+	box-shadow: inset 1px 1px 0 #ffc5a9, inset -1px -1px 0 #9a290e;
+}
+
+.project-journal-window .window-controls button:active {
+	box-shadow: inset 1px 1px 0 #003078;
+}
+
+.project-journal-window .window-controls .close-control:active {
+	box-shadow: inset 1px 1px 0 #9a290e;
+}
+
+.project-journal-window .window-controls span {
+	position: relative;
+	width: 12px;
+	height: 12px;
+	font-size: 0;
+}
+
+.project-journal-window [data-window-action="minimize"] span::before {
+	content: "";
+	position: absolute;
+	left: 1px;
+	bottom: 1px;
+	width: 8px;
+	height: 2px;
+	background: #fff;
+}
+
+.project-journal-window [data-window-action="maximize"] span::before {
+	content: "";
+	position: absolute;
+	inset: 1px 0;
+	border: 1px solid #fff;
+	border-top-width: 2px;
+}
+
+.project-journal-window.is-maximized [data-window-action="maximize"] span::before {
+	inset: 0 0 3px 3px;
+}
+
+.project-journal-window.is-maximized [data-window-action="maximize"] span::after {
+	content: "";
+	position: absolute;
+	inset: 3px 3px 0 0;
+	border: 1px solid #fff;
+	border-top-width: 2px;
+	background: #075bdc;
+}
+
+.project-journal-window .close-control span {
+	background: url("../images/project-journal/controls/close.svg") center / 12px 12px no-repeat;
+}
+
+.project-journal-window .window-menu > summary {
+	border-radius: 0;
+}
+
+.project-journal-window .window-menu-panel {
+	box-shadow: 2px 2px 0 #7f7f7f;
+}
+
+.project-journal-window .browser-toolbar-button {
+	border-radius: 0;
+}
+
+.project-journal-window .browser-toolbar-button:hover:not(:disabled):where(:not([aria-expanded="true"], [aria-pressed="true"])) {
+	border-color: #fff #aca899 #aca899 #fff;
+	background: #f5f3e9;
+}
+
+.project-journal-window .browser-toolbar-button:active:not(:disabled),
+.project-journal-window .browser-toolbar-button[aria-expanded="true"],
+.project-journal-window .browser-toolbar-button[aria-pressed="true"] {
+	border-color: #7f7f7f #fff #fff #7f7f7f;
+	background: #dedacb;
+	box-shadow: inset 1px 1px 0 #aca899;
+}
+
+.project-journal-window .browser-toolbar :is(.browser-history-icon, .browser-home-icon, .browser-favorites-icon) {
+	display: block;
+	width: 24px;
+	height: 24px;
+	flex: 0 0 24px;
+	border: 0;
+	border-radius: 0;
+	background: transparent center / 24px 24px no-repeat;
+	box-shadow: none;
+	font-size: 0;
+	text-shadow: none;
+	image-rendering: pixelated;
+}
+
+.project-journal-window .browser-toolbar :is(.browser-home-icon, .browser-favorites-icon)::before {
+	content: none;
+}
+
+.project-journal-window .browser-toolbar .browser-history-icon {
+	background-image: url("../images/project-journal/controls/back.svg");
+}
+
+.project-journal-window .browser-history-icon.is-forward {
+	transform: scaleX(-1);
+}
+
+.project-journal-window .browser-toolbar-button:disabled .browser-history-icon {
+	filter: grayscale(1);
+	opacity: 0.55;
+}
+
+.project-journal-window .browser-toolbar .browser-home-icon {
+	background-image: url("../images/project-journal/controls/home.svg");
+}
+
+.project-journal-window .browser-toolbar .browser-favorites-icon {
+	background-image: url("../images/project-journal/controls/favorites.svg");
+}
+
+.project-journal-window .browser-address-field {
+	border-color: #7f7f7f #fff #fff #7f7f7f;
+	box-shadow: inset 1px 1px 0 #444;
+}
+
 /* Shared folder artwork used by title bars, task buttons, and portfolio content. */
 .folder-icon {
 	position: relative;

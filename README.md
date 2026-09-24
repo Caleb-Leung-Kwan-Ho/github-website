@@ -58,6 +58,8 @@ The HTML5 UP Dimension base theme is retained under [its license](LICENSE.txt). 
 
 Project Lab's three photographs are served locally with visible photo credits and a [credit and license record](images/project-journal/PHOTO_CREDITS.md). Preserve the individual licenses and the Yamanote photo's “color and tone edited” notice. The site's early-2000s design is not a claim about the photographs' capture dates.
 
+Project Lab's pixel lettering uses two local, CC BY-SA 3.0 font recreations by lou; retain their [font notices](assets/webfonts/project-journal/README.md). Its [pixel control artwork](images/project-journal/controls/README.md) is local SVG drawn on fixed pixel grids. The journal's chrome overrides live in `desktop/styles.css` and apply only to its window; body copy and the other sites keep their existing fonts. There is no monitor overlay or added runtime dependency.
+
 Internet Explorer icons use a local SVG reconstruction of Microsoft's XP-era design. Microsoft retains ownership of the underlying logo and original artwork; this project is not affiliated with or endorsed by Microsoft. See the [artwork provenance](images/internet-explorer-6.source.md) and [third-party notices](THIRD_PARTY_NOTICES.md). Attribution is not permission to reuse the artwork.
 
 The only automatically loaded external origins are `fonts.googleapis.com`, `fonts.gstatic.com`, `drive.google.com`, and the resume-thumbnail redirect `lh3.googleusercontent.com`. Other external links load when clicked.

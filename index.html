@@ -556,6 +556,7 @@
 					</aside>
 					<div class="browser-page">
 						<div class="project-journal-content" id="project-journal" lang="en" role="document" tabindex="-1">
+						  <div class="journal-page">
 						  <a class="journal-skip" href="#project-journal-projects"><span data-journal-text="skipToProjects">Skip to projects</span></a>
 						  <a class="journal-skip" href="#project-journal-current-work"><span data-journal-text="skipToCurrentWork">Skip to current work</span></a>
 						  <header class="journal-header">
@@ -594,20 +595,6 @@
 						  <div class="journal-workspace">
 						    <aside class="journal-library" id="project-journal-projects" aria-labelledby="project-journal-projects-title" tabindex="-1">
 						      <h3 class="journal-panel-title" id="project-journal-projects-title"><span data-journal-text="projects">Projects</span></h3>
-						      <div class="journal-filters" data-journal-enhancement hidden>
-						        <label for="project-journal-search"><span data-journal-text="searchProjects">Search projects</span></label>
-						        <input id="project-journal-search" type="search" placeholder="Project name or keyword" data-journal-placeholder="searchPlaceholder" data-journal-search />
-						        <label for="project-journal-status"><span data-journal-text="status">Status</span></label>
-						        <select id="project-journal-status" data-journal-filter>
-						          <option value="all" data-journal-text="allStatuses">All</option>
-						          <option value="in-progress" data-journal-status="in-progress">In progress</option>
-						          <option value="planned" data-journal-status="planned">Planned</option>
-						          <option value="paused" data-journal-status="paused">Paused</option>
-						          <option value="completed" data-journal-status="completed">Completed</option>
-						        </select>
-						        <button type="button" data-journal-reset><span data-journal-text="clearFilters">Clear filters</span></button>
-						      </div>
-						      <p class="journal-result-count" data-journal-count aria-live="polite" data-journal-enhancement hidden>4 projects found</p>
 						      <ul class="journal-project-list" tabindex="0" aria-label="Project search results" data-journal-aria="projectResults">
 						        <li data-journal-row="anime-mcp">
 						          <a class="journal-project-link" href="#project-journal-anime-mcp" data-journal-select="anime-mcp">
@@ -638,6 +625,27 @@
 						        <p data-journal-empty-text>No projects match your search.</p>
 						        <button type="button" data-journal-reset><span data-journal-text="clearFilters">Clear filters</span></button>
 						      </div>
+						      <div class="journal-filters" data-journal-enhancement hidden>
+						        <label for="project-journal-search"><span data-journal-text="searchProjects">Search projects</span></label>
+						        <div class="journal-search-controls">
+						          <input id="project-journal-search" type="search" placeholder="Project name or keyword" data-journal-placeholder="searchPlaceholder" data-journal-search />
+						          <button type="button" data-journal-search-submit><span data-journal-text="search">Search</span></button>
+						        </div>
+						        <div class="journal-status-control">
+						          <label for="project-journal-status"><span data-journal-text="status">Status</span></label>
+						          <select id="project-journal-status" data-journal-filter>
+						            <option value="all" data-journal-text="allStatuses">All</option>
+						          <option value="in-progress" data-journal-status="in-progress">In progress</option>
+						          <option value="planned" data-journal-status="planned">Planned</option>
+						          <option value="paused" data-journal-status="paused">Paused</option>
+						          <option value="completed" data-journal-status="completed">Completed</option>
+						          </select>
+						        </div>
+						        <div class="journal-filter-meta">
+						          <p class="journal-result-count" data-journal-count aria-live="polite">4 projects found</p>
+						          <button type="button" data-journal-reset><span data-journal-text="clearFilters">Clear filters</span></button>
+						        </div>
+						      </div>
 						    </aside>
 						    <div class="journal-details" id="project-journal-current-work" tabindex="-1">
 						      <p class="journal-outside" data-journal-outside hidden><span data-journal-text="selectedOutsideResults">The selected project is outside the current results.</span> <button type="button" data-journal-reset><span data-journal-text="clearFilters">Clear filters</span></button></p>
@@ -646,13 +654,23 @@
 						          <section class="journal-summary journal-panel">
 						            <h3 class="journal-panel-title journal-current-work" id="project-journal-anime-mcp-current-work-title"><span data-journal-text="currentWork">Current work</span></h3>
 						            <div class="journal-panel-body">
-						              <h4 class="journal-project-title" id="project-journal-anime-mcp-title"><span data-journal-project="anime-mcp" data-journal-field="title">Anime MCP</span></h4>
-						              <span class="journal-status" data-journal-status="in-progress">In progress</span>
-						              <p class="journal-summary-text"><span data-journal-project="anime-mcp" data-journal-field="summary">Building an MCP server for anime-character search, with a focus on retrieval quality and combining lexical and embedding scores.</span></p>
+						              <div class="journal-project-heading">
+						                <h4 class="journal-project-title" id="project-journal-anime-mcp-title"><span data-journal-project="anime-mcp" data-journal-field="title">Anime MCP</span></h4>
+						                <span class="journal-status" data-journal-status="in-progress">In progress</span>
+						              </div>
+						              <p class="journal-summary-text"><span data-journal-project="anime-mcp" data-journal-excerpt="summary">Developing an anime-character search MCP server with hybrid retrieval.</span></p>
 						              <dl class="journal-focus">
-						                <div><dt><span data-journal-text="currentFocus">Current focus</span></dt><dd><span data-journal-project="anime-mcp" data-journal-field="currentFocus">Identify retrieval bottlenecks and select embedding models for hybrid-fusion experiments.</span></dd></div>
-						                <div><dt><span data-journal-text="nextStep">Next step</span></dt><dd><span data-journal-project="anime-mcp" data-journal-field="nextStep">Select the embedding models, run hybrid-fusion experiments, and compare the results with published findings.</span></dd></div>
+						                <div><dt><span data-journal-text="currentFocus">Current focus</span></dt><dd><span data-journal-project="anime-mcp" data-journal-excerpt="currentFocus">Find retrieval bottlenecks and choose embedding models.</span></dd></div>
+						                <div><dt><span data-journal-text="nextStep">Next step</span></dt><dd><span data-journal-project="anime-mcp" data-journal-excerpt="nextStep">Run hybrid-fusion experiments and compare findings with published research.</span></dd></div>
 						              </dl>
+						              <details class="journal-full-description">
+						                <summary><span data-journal-text="showDetails">Show project details</span></summary>
+						                <p><span data-journal-project="anime-mcp" data-journal-field="summary">Building an MCP server for anime-character search, with a focus on retrieval quality and combining lexical and embedding scores.</span></p>
+						                <dl class="journal-focus">
+						                  <div><dt><span data-journal-text="currentFocus">Current focus</span></dt><dd><span data-journal-project="anime-mcp" data-journal-field="currentFocus">Identify retrieval bottlenecks and select embedding models for hybrid-fusion experiments.</span></dd></div>
+						                  <div><dt><span data-journal-text="nextStep">Next step</span></dt><dd><span data-journal-project="anime-mcp" data-journal-field="nextStep">Select the embedding models, run hybrid-fusion experiments, and compare the results with published findings.</span></dd></div>
+						                </dl>
+						              </details>
 						            </div>
 						          </section>
 						          <section class="journal-updates journal-panel" id="project-journal-anime-mcp-updates" aria-labelledby="project-journal-anime-mcp-updates-title" tabindex="-1">
@@ -660,8 +678,10 @@
 						            <div class="journal-panel-body">
 						              <ol class="journal-update-list">
 						                <li id="project-journal-anime-mcp-update-current-research-focus">
-						                  <p class="journal-update-date"><span data-journal-text="dateNotRecorded">Date not recorded</span></p>
-						                  <p><span data-journal-project="anime-mcp" data-journal-field="text" data-journal-update="current-research-focus">The current priority is understanding retrieval bottlenecks and preparing an embedding-model comparison with hybrid fusion. Model selection and experimental results are pending.</span></p>
+						                  <details class="journal-update">
+						                    <summary><span data-journal-project="anime-mcp" data-journal-excerpt="update" data-journal-update="current-research-focus">Preparing a model comparison; selection and results are pending.</span></summary>
+						                    <p><span data-journal-project="anime-mcp" data-journal-field="text" data-journal-update="current-research-focus">The current priority is understanding retrieval bottlenecks and preparing an embedding-model comparison with hybrid fusion. Model selection and experimental results are pending.</span></p>
+						                  </details>
 						                </li>
 						              </ol>
 						            </div>
@@ -672,10 +692,10 @@
 						              <table class="journal-roadmap-table">
 						                <thead><tr><th scope="col"><span data-journal-text="milestone">Milestone</span></th><th scope="col"><span data-journal-text="status">Status</span></th></tr></thead>
 						                <tbody>
-						                  <tr id="project-journal-anime-mcp-milestone-evaluation-and-lexical-foundation"><th scope="row"><span data-journal-project="anime-mcp" data-journal-field="title" data-journal-milestone="evaluation-and-lexical-foundation">Develop the evaluation and lexical-retrieval foundation</span><p><span data-journal-project="anime-mcp" data-journal-field="description" data-journal-milestone="evaluation-and-lexical-foundation">Build the evaluation setup and lexical-retrieval baseline for comparing retrieval approaches.</span></p></th><td><span class="journal-status" data-journal-status="in-progress">In progress</span></td></tr>
-						                  <tr id="project-journal-anime-mcp-milestone-select-embedding-models"><th scope="row"><span data-journal-project="anime-mcp" data-journal-field="title" data-journal-milestone="select-embedding-models">Select embedding models</span><p><span data-journal-project="anime-mcp" data-journal-field="description" data-journal-milestone="select-embedding-models">Model names and the final comparison set are pending.</span></p></th><td><span class="journal-status" data-journal-status="planned">Planned</span></td></tr>
-						                  <tr id="project-journal-anime-mcp-milestone-run-hybrid-fusion-experiments"><th scope="row"><span data-journal-project="anime-mcp" data-journal-field="title" data-journal-milestone="run-hybrid-fusion-experiments">Run hybrid-fusion experiments</span><p><span data-journal-project="anime-mcp" data-journal-field="description" data-journal-milestone="run-hybrid-fusion-experiments">Evaluate retrieval performance and investigate where bottlenecks appear.</span></p></th><td><span class="journal-status" data-journal-status="planned">Planned</span></td></tr>
-						                  <tr id="project-journal-anime-mcp-milestone-interpret-experiment-results"><th scope="row"><span data-journal-project="anime-mcp" data-journal-field="title" data-journal-milestone="interpret-experiment-results">Compare findings with published research</span><p><span data-journal-project="anime-mcp" data-journal-field="description" data-journal-milestone="interpret-experiment-results">Examine whether the findings extend to anime retrieval and document differences supported by the experiments. Results are not yet available.</span></p></th><td><span class="journal-status" data-journal-status="planned">Planned</span></td></tr>
+						                  <tr id="project-journal-anime-mcp-milestone-evaluation-and-lexical-foundation"><th scope="row"><details class="journal-milestone"><summary><span data-journal-project="anime-mcp" data-journal-field="title" data-journal-milestone="evaluation-and-lexical-foundation">Develop the evaluation and lexical-retrieval foundation</span></summary><p><span data-journal-project="anime-mcp" data-journal-field="description" data-journal-milestone="evaluation-and-lexical-foundation">Build the evaluation setup and lexical-retrieval baseline for comparing retrieval approaches.</span></p></details></th><td><span class="journal-status" data-journal-status="in-progress">In progress</span></td></tr>
+						                  <tr id="project-journal-anime-mcp-milestone-select-embedding-models"><th scope="row"><details class="journal-milestone"><summary><span data-journal-project="anime-mcp" data-journal-field="title" data-journal-milestone="select-embedding-models">Select embedding models</span></summary><p><span data-journal-project="anime-mcp" data-journal-field="description" data-journal-milestone="select-embedding-models">Model names and the final comparison set are pending.</span></p></details></th><td><span class="journal-status" data-journal-status="planned">Planned</span></td></tr>
+						                  <tr id="project-journal-anime-mcp-milestone-run-hybrid-fusion-experiments"><th scope="row"><details class="journal-milestone"><summary><span data-journal-project="anime-mcp" data-journal-field="title" data-journal-milestone="run-hybrid-fusion-experiments">Run hybrid-fusion experiments</span></summary><p><span data-journal-project="anime-mcp" data-journal-field="description" data-journal-milestone="run-hybrid-fusion-experiments">Evaluate retrieval performance and investigate where bottlenecks appear.</span></p></details></th><td><span class="journal-status" data-journal-status="planned">Planned</span></td></tr>
+						                  <tr id="project-journal-anime-mcp-milestone-interpret-experiment-results"><th scope="row"><details class="journal-milestone"><summary><span data-journal-project="anime-mcp" data-journal-field="title" data-journal-milestone="interpret-experiment-results">Compare findings with published research</span></summary><p><span data-journal-project="anime-mcp" data-journal-field="description" data-journal-milestone="interpret-experiment-results">Examine whether the findings extend to anime retrieval and document differences supported by the experiments. Results are not yet available.</span></p></details></th><td><span class="journal-status" data-journal-status="planned">Planned</span></td></tr>
 						                </tbody>
 						              </table>
 						            </div>
@@ -703,13 +723,23 @@
 						          <section class="journal-summary journal-panel">
 						            <h3 class="journal-panel-title journal-current-work" id="project-journal-gba-website-current-work-title"><span data-journal-text="currentWork">Current work</span></h3>
 						            <div class="journal-panel-body">
-						              <h4 class="journal-project-title" id="project-journal-gba-website-title"><span data-journal-project="gba-website" data-journal-field="title">GBA-style personal website</span></h4>
-						              <span class="journal-status" data-journal-status="in-progress">In progress</span>
-						              <p class="journal-summary-text"><span data-journal-project="gba-website" data-journal-field="summary">A nearly finished personal website with a Game Boy Advance-style experience and A/B controls, running in the browser.</span></p>
+						              <div class="journal-project-heading">
+						                <h4 class="journal-project-title" id="project-journal-gba-website-title"><span data-journal-project="gba-website" data-journal-field="title">GBA-style personal website</span></h4>
+						                <span class="journal-status" data-journal-status="in-progress">In progress</span>
+						              </div>
+						              <p class="journal-summary-text"><span data-journal-project="gba-website" data-journal-excerpt="summary">A nearly finished GBA-style browser website with A/B controls.</span></p>
 						              <dl class="journal-focus">
-						                <div><dt><span data-journal-text="currentFocus">Current focus</span></dt><dd><span data-journal-project="gba-website" data-journal-field="currentFocus">Finish the remaining houses, correct character spawning, and improve the existing gameplay.</span></dd></div>
-						                <div><dt><span data-journal-text="nextStep">Next step</span></dt><dd><span data-journal-project="gba-website" data-journal-field="nextStep">Add friends&#x27; houses, fix incorrect spawn locations, and refine the current gameplay.</span></dd></div>
+						                <div><dt><span data-journal-text="currentFocus">Current focus</span></dt><dd><span data-journal-project="gba-website" data-journal-excerpt="currentFocus">Finish houses, spawning fixes, and gameplay refinements.</span></dd></div>
+						                <div><dt><span data-journal-text="nextStep">Next step</span></dt><dd><span data-journal-project="gba-website" data-journal-excerpt="nextStep">Add friends&#x27; houses and correct spawn locations.</span></dd></div>
 						              </dl>
+						              <details class="journal-full-description">
+						                <summary><span data-journal-text="showDetails">Show project details</span></summary>
+						                <p><span data-journal-project="gba-website" data-journal-field="summary">A nearly finished personal website with a Game Boy Advance-style experience and A/B controls, running in the browser.</span></p>
+						                <dl class="journal-focus">
+						                  <div><dt><span data-journal-text="currentFocus">Current focus</span></dt><dd><span data-journal-project="gba-website" data-journal-field="currentFocus">Finish the remaining houses, correct character spawning, and improve the existing gameplay.</span></dd></div>
+						                  <div><dt><span data-journal-text="nextStep">Next step</span></dt><dd><span data-journal-project="gba-website" data-journal-field="nextStep">Add friends&#x27; houses, fix incorrect spawn locations, and refine the current gameplay.</span></dd></div>
+						                </dl>
+						              </details>
 						            </div>
 						          </section>
 						          <section class="journal-updates journal-panel" id="project-journal-gba-website-updates" aria-labelledby="project-journal-gba-website-updates-title" tabindex="-1">
@@ -717,8 +747,10 @@
 						            <div class="journal-panel-body">
 						              <ol class="journal-update-list">
 						                <li id="project-journal-gba-website-update-website-final-additions">
-						                  <p class="journal-update-date"><span data-journal-text="dateNotRecorded">Date not recorded</span></p>
-						                  <p><span data-journal-project="gba-website" data-journal-field="text" data-journal-update="website-final-additions">The website is nearly finished. Remaining work includes friends&#x27; houses, spawn-location fixes, and improvements to the current gameplay. The related browser game builds on this work.</span></p>
+						                  <details class="journal-update">
+						                    <summary><span data-journal-project="gba-website" data-journal-excerpt="update" data-journal-update="website-final-additions">Final additions: friends&#x27; houses, spawning fixes, and gameplay.</span></summary>
+						                    <p><span data-journal-project="gba-website" data-journal-field="text" data-journal-update="website-final-additions">The website is nearly finished. Remaining work includes friends&#x27; houses, spawn-location fixes, and improvements to the current gameplay. The related browser game builds on this work.</span></p>
+						                  </details>
 						                </li>
 						              </ol>
 						            </div>
@@ -729,9 +761,9 @@
 						              <table class="journal-roadmap-table">
 						                <thead><tr><th scope="col"><span data-journal-text="milestone">Milestone</span></th><th scope="col"><span data-journal-text="status">Status</span></th></tr></thead>
 						                <tbody>
-						                  <tr id="project-journal-gba-website-milestone-finish-website-experience"><th scope="row"><span data-journal-project="gba-website" data-journal-field="title" data-journal-milestone="finish-website-experience">Finish the browser-based website experience</span><p><span data-journal-project="gba-website" data-journal-field="description" data-journal-milestone="finish-website-experience">The existing experience is nearly complete, with a small set of additions and fixes remaining.</span></p></th><td><span class="journal-status" data-journal-status="in-progress">In progress</span></td></tr>
+						                  <tr id="project-journal-gba-website-milestone-finish-website-experience"><th scope="row"><details class="journal-milestone"><summary><span data-journal-project="gba-website" data-journal-field="title" data-journal-milestone="finish-website-experience">Finish the browser-based website experience</span></summary><p><span data-journal-project="gba-website" data-journal-field="description" data-journal-milestone="finish-website-experience">The existing experience is nearly complete, with a small set of additions and fixes remaining.</span></p></details></th><td><span class="journal-status" data-journal-status="in-progress">In progress</span></td></tr>
 						                  <tr id="project-journal-gba-website-milestone-add-friends-houses"><th scope="row"><span data-journal-project="gba-website" data-journal-field="title" data-journal-milestone="add-friends-houses">Add friends&#x27; houses</span></th><td><span class="journal-status" data-journal-status="planned">Planned</span></td></tr>
-						                  <tr id="project-journal-gba-website-milestone-fix-spawn-locations"><th scope="row"><span data-journal-project="gba-website" data-journal-field="title" data-journal-milestone="fix-spawn-locations">Correct character spawn locations</span><p><span data-journal-project="gba-website" data-journal-field="description" data-journal-milestone="fix-spawn-locations">Ensure characters do not appear at the wrong location.</span></p></th><td><span class="journal-status" data-journal-status="planned">Planned</span></td></tr>
+						                  <tr id="project-journal-gba-website-milestone-fix-spawn-locations"><th scope="row"><details class="journal-milestone"><summary><span data-journal-project="gba-website" data-journal-field="title" data-journal-milestone="fix-spawn-locations">Correct character spawn locations</span></summary><p><span data-journal-project="gba-website" data-journal-field="description" data-journal-milestone="fix-spawn-locations">Ensure characters do not appear at the wrong location.</span></p></details></th><td><span class="journal-status" data-journal-status="planned">Planned</span></td></tr>
 						                  <tr id="project-journal-gba-website-milestone-refine-current-gameplay"><th scope="row"><span data-journal-project="gba-website" data-journal-field="title" data-journal-milestone="refine-current-gameplay">Improve the existing gameplay</span></th><td><span class="journal-status" data-journal-status="planned">Planned</span></td></tr>
 						                </tbody>
 						              </table>
@@ -762,13 +794,23 @@
 						          <section class="journal-summary journal-panel">
 						            <h3 class="journal-panel-title journal-current-work" id="project-journal-browser-game-current-work-title"><span data-journal-text="currentWork">Current work</span></h3>
 						            <div class="journal-panel-body">
-						              <h4 class="journal-project-title" id="project-journal-browser-game-title"><span data-journal-project="browser-game" data-journal-field="title">Browser game</span></h4>
-						              <span class="journal-status" data-journal-status="in-progress">In progress</span>
-						              <p class="journal-summary-text"><span data-journal-project="browser-game" data-journal-field="summary">A game growing out of the GBA-style website, with plans for expanded gameplay, NPC behavior, character classes, and offline play with local saves.</span></p>
+						              <div class="journal-project-heading">
+						                <h4 class="journal-project-title" id="project-journal-browser-game-title"><span data-journal-project="browser-game" data-journal-field="title">Browser game</span></h4>
+						                <span class="journal-status" data-journal-status="in-progress">In progress</span>
+						              </div>
+						              <p class="journal-summary-text"><span data-journal-project="browser-game" data-journal-excerpt="summary">A browser game growing out of the GBA-style website.</span></p>
 						              <dl class="journal-focus">
-						                <div><dt><span data-journal-text="currentFocus">Current focus</span></dt><dd><span data-journal-project="browser-game" data-journal-field="currentFocus">Design the first version of NPC logic. Its actions are not currently organized as a state machine.</span></dd></div>
-						                <div><dt><span data-journal-text="nextStep">Next step</span></dt><dd><span data-journal-project="browser-game" data-journal-field="nextStep">Continue developing the NPC logic independently before deciding on the broader implementation approach.</span></dd></div>
+						                <div><dt><span data-journal-text="currentFocus">Current focus</span></dt><dd><span data-journal-project="browser-game" data-journal-excerpt="currentFocus">Design NPC logic v1; it is not yet a state machine.</span></dd></div>
+						                <div><dt><span data-journal-text="nextStep">Next step</span></dt><dd><span data-journal-project="browser-game" data-journal-excerpt="nextStep">Develop NPC logic before choosing the broader implementation approach.</span></dd></div>
 						              </dl>
+						              <details class="journal-full-description">
+						                <summary><span data-journal-text="showDetails">Show project details</span></summary>
+						                <p><span data-journal-project="browser-game" data-journal-field="summary">A game growing out of the GBA-style website, with plans for expanded gameplay, NPC behavior, character classes, and offline play with local saves.</span></p>
+						                <dl class="journal-focus">
+						                  <div><dt><span data-journal-text="currentFocus">Current focus</span></dt><dd><span data-journal-project="browser-game" data-journal-field="currentFocus">Design the first version of NPC logic. Its actions are not currently organized as a state machine.</span></dd></div>
+						                  <div><dt><span data-journal-text="nextStep">Next step</span></dt><dd><span data-journal-project="browser-game" data-journal-field="nextStep">Continue developing the NPC logic independently before deciding on the broader implementation approach.</span></dd></div>
+						                </dl>
+						              </details>
 						            </div>
 						          </section>
 						          <section class="journal-updates journal-panel" id="project-journal-browser-game-updates" aria-labelledby="project-journal-browser-game-updates-title" tabindex="-1">
@@ -776,8 +818,10 @@
 						            <div class="journal-panel-body">
 						              <ol class="journal-update-list">
 						                <li id="project-journal-browser-game-update-npc-design-underway">
-						                  <p class="journal-update-date"><span data-journal-text="dateNotRecorded">Date not recorded</span></p>
-						                  <p><span data-journal-project="browser-game" data-journal-field="text" data-journal-update="npc-design-underway">NPC logic design has started. The first version uses actions that are not yet a state machine. Offline play, character classes, expanded gameplay, and save-file import/export remain planned work.</span></p>
+						                  <details class="journal-update">
+						                    <summary><span data-journal-project="browser-game" data-journal-excerpt="update" data-journal-update="npc-design-underway">NPC logic underway; expanded gameplay, classes, offline play, and saves planned.</span></summary>
+						                    <p><span data-journal-project="browser-game" data-journal-field="text" data-journal-update="npc-design-underway">NPC logic design has started. The first version uses actions that are not yet a state machine. Offline play, character classes, expanded gameplay, and save-file import/export remain planned work.</span></p>
+						                  </details>
 						                </li>
 						              </ol>
 						            </div>
@@ -788,11 +832,11 @@
 						              <table class="journal-roadmap-table">
 						                <thead><tr><th scope="col"><span data-journal-text="milestone">Milestone</span></th><th scope="col"><span data-journal-text="status">Status</span></th></tr></thead>
 						                <tbody>
-						                  <tr id="project-journal-browser-game-milestone-design-npc-logic-v1"><th scope="row"><span data-journal-project="browser-game" data-journal-field="title" data-journal-milestone="design-npc-logic-v1">Design NPC logic v1</span><p><span data-journal-project="browser-game" data-journal-field="description" data-journal-milestone="design-npc-logic-v1">Initial action logic is being designed. The current version is not a state machine.</span></p></th><td><span class="journal-status" data-journal-status="in-progress">In progress</span></td></tr>
-						                  <tr id="project-journal-browser-game-milestone-develop-typescript-gameplay"><th scope="row"><span data-journal-project="browser-game" data-journal-field="title" data-journal-milestone="develop-typescript-gameplay">Develop expanded gameplay in TypeScript</span><p><span data-journal-project="browser-game" data-journal-field="description" data-journal-milestone="develop-typescript-gameplay">Build on the website&#x27;s browser-based foundation and GBA-style controls.</span></p></th><td><span class="journal-status" data-journal-status="planned">Planned</span></td></tr>
+						                  <tr id="project-journal-browser-game-milestone-design-npc-logic-v1"><th scope="row"><details class="journal-milestone"><summary><span data-journal-project="browser-game" data-journal-field="title" data-journal-milestone="design-npc-logic-v1">Design NPC logic v1</span></summary><p><span data-journal-project="browser-game" data-journal-field="description" data-journal-milestone="design-npc-logic-v1">Initial action logic is being designed. The current version is not a state machine.</span></p></details></th><td><span class="journal-status" data-journal-status="in-progress">In progress</span></td></tr>
+						                  <tr id="project-journal-browser-game-milestone-develop-typescript-gameplay"><th scope="row"><details class="journal-milestone"><summary><span data-journal-project="browser-game" data-journal-field="title" data-journal-milestone="develop-typescript-gameplay">Develop expanded gameplay in TypeScript</span></summary><p><span data-journal-project="browser-game" data-journal-field="description" data-journal-milestone="develop-typescript-gameplay">Build on the website&#x27;s browser-based foundation and GBA-style controls.</span></p></details></th><td><span class="journal-status" data-journal-status="planned">Planned</span></td></tr>
 						                  <tr id="project-journal-browser-game-milestone-add-character-classes"><th scope="row"><span data-journal-project="browser-game" data-journal-field="title" data-journal-milestone="add-character-classes">Add a character class system</span></th><td><span class="journal-status" data-journal-status="planned">Planned</span></td></tr>
-						                  <tr id="project-journal-browser-game-milestone-enable-offline-play"><th scope="row"><span data-journal-project="browser-game" data-journal-field="title" data-journal-milestone="enable-offline-play">Enable offline play</span><p><span data-journal-project="browser-game" data-journal-field="description" data-journal-milestone="enable-offline-play">The goal is a free game playable locally without a game server.</span></p></th><td><span class="journal-status" data-journal-status="planned">Planned</span></td></tr>
-						                  <tr id="project-journal-browser-game-milestone-add-save-file-import-export"><th scope="row"><span data-journal-project="browser-game" data-journal-field="title" data-journal-milestone="add-save-file-import-export">Add local saves and save-file import/export</span><p><span data-journal-project="browser-game" data-journal-field="description" data-journal-milestone="add-save-file-import-export">Players should be able to keep their progress and load it again. The storage method and file format have not been selected.</span></p></th><td><span class="journal-status" data-journal-status="planned">Planned</span></td></tr>
+						                  <tr id="project-journal-browser-game-milestone-enable-offline-play"><th scope="row"><details class="journal-milestone"><summary><span data-journal-project="browser-game" data-journal-field="title" data-journal-milestone="enable-offline-play">Enable offline play</span></summary><p><span data-journal-project="browser-game" data-journal-field="description" data-journal-milestone="enable-offline-play">The goal is a free game playable locally without a game server.</span></p></details></th><td><span class="journal-status" data-journal-status="planned">Planned</span></td></tr>
+						                  <tr id="project-journal-browser-game-milestone-add-save-file-import-export"><th scope="row"><details class="journal-milestone"><summary><span data-journal-project="browser-game" data-journal-field="title" data-journal-milestone="add-save-file-import-export">Add local saves and save-file import/export</span></summary><p><span data-journal-project="browser-game" data-journal-field="description" data-journal-milestone="add-save-file-import-export">Players should be able to keep their progress and load it again. The storage method and file format have not been selected.</span></p></details></th><td><span class="journal-status" data-journal-status="planned">Planned</span></td></tr>
 						                </tbody>
 						              </table>
 						            </div>
@@ -822,13 +866,23 @@
 						          <section class="journal-summary journal-panel">
 						            <h3 class="journal-panel-title journal-current-work" id="project-journal-gluonagent-current-work-title"><span data-journal-text="currentWork">Current work</span></h3>
 						            <div class="journal-panel-body">
-						              <h4 class="journal-project-title" id="project-journal-gluonagent-title"><span data-journal-project="gluonagent" data-journal-field="title">GluonAgent</span></h4>
-						              <span class="journal-status" data-journal-status="paused">Paused</span>
-						              <p class="journal-summary-text"><span data-journal-project="gluonagent" data-journal-field="summary">An agent project paused while its complexity and research needs are reassessed.</span></p>
+						              <div class="journal-project-heading">
+						                <h4 class="journal-project-title" id="project-journal-gluonagent-title"><span data-journal-project="gluonagent" data-journal-field="title">GluonAgent</span></h4>
+						                <span class="journal-status" data-journal-status="paused">Paused</span>
+						              </div>
+						              <p class="journal-summary-text"><span data-journal-project="gluonagent" data-journal-excerpt="summary">An agent project paused for more research.</span></p>
 						              <dl class="journal-focus">
-						                <div><dt><span data-journal-text="currentFocus">Current focus</span></dt><dd><span data-journal-project="gluonagent" data-journal-field="currentFocus">Paused pending further research.</span></dd></div>
-						                <div><dt><span data-journal-text="nextStep">Next step</span></dt><dd><span data-journal-project="gluonagent" data-journal-field="nextStep">Do further research before deciding how to resume the project.</span></dd></div>
+						                <div><dt><span data-journal-text="currentFocus">Current focus</span></dt><dd><span data-journal-project="gluonagent" data-journal-excerpt="currentFocus">Reassess the project&#x27;s complexity and research needs.</span></dd></div>
+						                <div><dt><span data-journal-text="nextStep">Next step</span></dt><dd><span data-journal-project="gluonagent" data-journal-excerpt="nextStep">Research further before deciding how to resume.</span></dd></div>
 						              </dl>
+						              <details class="journal-full-description">
+						                <summary><span data-journal-text="showDetails">Show project details</span></summary>
+						                <p><span data-journal-project="gluonagent" data-journal-field="summary">An agent project paused while its complexity and research needs are reassessed.</span></p>
+						                <dl class="journal-focus">
+						                  <div><dt><span data-journal-text="currentFocus">Current focus</span></dt><dd><span data-journal-project="gluonagent" data-journal-field="currentFocus">Paused pending further research.</span></dd></div>
+						                  <div><dt><span data-journal-text="nextStep">Next step</span></dt><dd><span data-journal-project="gluonagent" data-journal-field="nextStep">Do further research before deciding how to resume the project.</span></dd></div>
+						                </dl>
+						              </details>
 						            </div>
 						          </section>
 						          <section class="journal-updates journal-panel" id="project-journal-gluonagent-updates" aria-labelledby="project-journal-gluonagent-updates-title" tabindex="-1">
@@ -836,8 +890,10 @@
 						            <div class="journal-panel-body">
 						              <ol class="journal-update-list">
 						                <li id="project-journal-gluonagent-update-project-paused">
-						                  <p class="journal-update-date"><span data-journal-text="dateNotRecorded">Date not recorded</span></p>
-						                  <p><span data-journal-project="gluonagent" data-journal-field="text" data-journal-update="project-paused">Development is paused because the project is too complex to continue without additional research.</span></p>
+						                  <details class="journal-update">
+						                    <summary><span data-journal-project="gluonagent" data-journal-excerpt="update" data-journal-update="project-paused">Development paused: further research needed.</span></summary>
+						                    <p><span data-journal-project="gluonagent" data-journal-field="text" data-journal-update="project-paused">Development is paused because the project is too complex to continue without additional research.</span></p>
+						                  </details>
 						                </li>
 						              </ol>
 						            </div>
@@ -848,7 +904,7 @@
 						              <table class="journal-roadmap-table">
 						                <thead><tr><th scope="col"><span data-journal-text="milestone">Milestone</span></th><th scope="col"><span data-journal-text="status">Status</span></th></tr></thead>
 						                <tbody>
-						                  <tr id="project-journal-gluonagent-milestone-further-research"><th scope="row"><span data-journal-project="gluonagent" data-journal-field="title" data-journal-milestone="further-research">Research the unresolved complexity</span><p><span data-journal-project="gluonagent" data-journal-field="description" data-journal-milestone="further-research">Further research is needed before the project resumes.</span></p></th><td><span class="journal-status" data-journal-status="planned">Planned</span></td></tr>
+						                  <tr id="project-journal-gluonagent-milestone-further-research"><th scope="row"><details class="journal-milestone"><summary><span data-journal-project="gluonagent" data-journal-field="title" data-journal-milestone="further-research">Research the unresolved complexity</span></summary><p><span data-journal-project="gluonagent" data-journal-field="description" data-journal-milestone="further-research">Further research is needed before the project resumes.</span></p></details></th><td><span class="journal-status" data-journal-status="planned">Planned</span></td></tr>
 						                </tbody>
 						              </table>
 						            </div>
@@ -871,10 +927,8 @@
 						    </div>
 						  </div>
 						  <footer class="journal-footer">
-						    <span><span data-journal-text="personalHomepage">Personal homepage</span></span>
-						    <a href="#work"><span data-journal-text="backToPortfolio">Back to portfolio</span></a>
-						    <a href="#websites"><span data-journal-text="myWebsites">My Websites</span></a>
-						    <a href="#project-journal-credits"><span data-journal-text="photoCredits">Photo credits</span></a>
+						    <a class="journal-homepage" href="#work"><img src="images/project-journal/homepage-house.svg" alt="" aria-hidden="true" width="32" height="32" /><span data-journal-text="personalHomepage">Personal homepage</span><img src="images/project-journal/homepage-tree.svg" alt="" aria-hidden="true" width="24" height="32" /></a>
+						    <span class="journal-footer-links"><a href="#websites"><span data-journal-text="myWebsites">My Websites</span></a><a href="#project-journal-credits"><span data-journal-text="photoCredits">Photo credits</span></a></span>
 						  </footer>
 						  <details class="journal-credits" id="project-journal-credits" aria-labelledby="project-journal-credits-title" tabindex="-1">
 						    <summary class="journal-panel-title" id="project-journal-credits-title"><span data-journal-text="photoCredits">Photo credits</span></summary>
@@ -885,6 +939,7 @@
 						      <li><a href="https://commons.wikimedia.org/wiki/File:HK_Portland_Street_Night.jpg" target="_blank" rel="noopener noreferrer">HK Portland Street Night</a> — <span data-journal-text="photoBy">Photo by</span> <a href="https://en.wikipedia.org/wiki/User:UCLARodent" target="_blank" rel="noopener noreferrer">UCLARodent</a> · <span data-journal-text="photoLicense">License</span>: <a href="https://creativecommons.org/licenses/by-sa/2.5/" target="_blank" rel="noopener noreferrer">CC BY-SA 2.5</a></li>
 						    </ul>
 						  </details>
+						  </div>
 						</div>
 					</div>
 				</div>

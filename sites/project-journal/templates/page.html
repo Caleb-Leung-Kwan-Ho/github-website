@@ -1,4 +1,5 @@
 <div class="project-journal-content" id="project-journal" lang="en" role="document" tabindex="-1">
+  <div class="journal-page">
   <a class="journal-skip" href="#project-journal-projects">${skipToProjects}</a>
   <a class="journal-skip" href="#project-journal-current-work">${skipToCurrentWork}</a>
   <header class="journal-header">
@@ -24,23 +25,30 @@ ${languageButtons}
   <div class="journal-workspace">
     <aside class="journal-library" id="project-journal-projects" aria-labelledby="project-journal-projects-title" tabindex="-1">
       <h3 class="journal-panel-title" id="project-journal-projects-title">${projects}</h3>
-      <div class="journal-filters" data-journal-enhancement hidden>
-        <label for="project-journal-search">${searchProjects}</label>
-        <input id="project-journal-search" type="search" placeholder="${searchPlaceholderAttribute}" data-journal-placeholder="searchPlaceholder" data-journal-search />
-        <label for="project-journal-status">${status}</label>
-        <select id="project-journal-status" data-journal-filter>
-          <option value="all" data-journal-text="allStatuses">${allStatusesAttribute}</option>
-${statusOptions}
-        </select>
-        <button type="button" data-journal-reset>${clearFilters}</button>
-      </div>
-      <p class="journal-result-count" data-journal-count aria-live="polite" data-journal-enhancement hidden>${resultCountText}</p>
       <ul class="journal-project-list" tabindex="0" aria-label="${projectResultsAttribute}" data-journal-aria="projectResults">
 ${projectList}
       </ul>
       <div class="journal-empty" data-journal-empty hidden>
         <p data-journal-empty-text>${noResultsAttribute}</p>
         <button type="button" data-journal-reset>${clearFilters}</button>
+      </div>
+      <div class="journal-filters" data-journal-enhancement hidden>
+        <label for="project-journal-search">${searchProjects}</label>
+        <div class="journal-search-controls">
+          <input id="project-journal-search" type="search" placeholder="${searchPlaceholderAttribute}" data-journal-placeholder="searchPlaceholder" data-journal-search />
+          <button type="button" data-journal-search-submit>${search}</button>
+        </div>
+        <div class="journal-status-control">
+          <label for="project-journal-status">${status}</label>
+          <select id="project-journal-status" data-journal-filter>
+            <option value="all" data-journal-text="allStatuses">${allStatusesAttribute}</option>
+${statusOptions}
+          </select>
+        </div>
+        <div class="journal-filter-meta">
+          <p class="journal-result-count" data-journal-count aria-live="polite">${resultCountText}</p>
+          <button type="button" data-journal-reset>${clearFilters}</button>
+        </div>
       </div>
     </aside>
     <div class="journal-details" id="project-journal-current-work" tabindex="-1">
@@ -49,10 +57,8 @@ ${projectDetails}
     </div>
   </div>
   <footer class="journal-footer">
-    <span>${personalHomepage}</span>
-    <a href="#work">${backToPortfolio}</a>
-    <a href="#websites">${myWebsites}</a>
-    <a href="#project-journal-credits">${photoCredits}</a>
+    <a class="journal-homepage" href="#work"><img src="images/project-journal/homepage-house.svg" alt="" aria-hidden="true" width="32" height="32" />${personalHomepage}<img src="images/project-journal/homepage-tree.svg" alt="" aria-hidden="true" width="24" height="32" /></a>
+    <span class="journal-footer-links"><a href="#websites">${myWebsites}</a><a href="#project-journal-credits">${photoCredits}</a></span>
   </footer>
   <details class="journal-credits" id="project-journal-credits" aria-labelledby="project-journal-credits-title" tabindex="-1">
     <summary class="journal-panel-title" id="project-journal-credits-title">${photoCredits}</summary>
@@ -61,4 +67,5 @@ ${projectDetails}
 ${photoCreditsList}
     </ul>
   </details>
+  </div>
 </div>

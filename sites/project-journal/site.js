@@ -1,4 +1,4 @@
-import { JOURNAL_LOCALES, JOURNAL_PROJECTS } from './translations.js';
+import { JOURNAL_LOCALES, JOURNAL_PROJECTS, JOURNAL_EXCERPTS } from './translations.js';
 
 export function createProjectJournalSite() {
 	var element = document.querySelector('[data-window="project-journal"]');
@@ -80,9 +80,14 @@ export function createProjectJournalSite() {
 			node.textContent = locale.statuses[node.getAttribute('data-journal-status')];
 		});
 		content.querySelectorAll('[data-journal-project]').forEach(function (node) {
-			var copy = locale.projects[node.getAttribute('data-journal-project')];
+			var projectId = node.getAttribute('data-journal-project');
+			var copy = locale.projects[projectId];
 			var field = node.getAttribute('data-journal-field');
-			if (node.hasAttribute('data-journal-link')) {
+			var excerpt = node.getAttribute('data-journal-excerpt');
+			if (excerpt) {
+				var compact = JOURNAL_EXCERPTS[id][projectId];
+				node.textContent = excerpt === 'update' ? compact.updates[node.getAttribute('data-journal-update')] : compact[excerpt];
+			} else if (node.hasAttribute('data-journal-link')) {
 				node.textContent = copy.linkLabels[node.getAttribute('data-journal-link')];
 			} else if (field) {
 				if (node.hasAttribute('data-journal-milestone')) { copy = copy.milestones[node.getAttribute('data-journal-milestone')]; }
@@ -118,6 +123,7 @@ export function createProjectJournalSite() {
 		if (!event.isComposing) { updateResults(); }
 	});
 	search.addEventListener('compositionend', updateResults);
+	content.querySelector('[data-journal-search-submit]').addEventListener('click', updateResults);
 	filter.addEventListener('change', updateResults);
 	content.querySelectorAll('[data-journal-reset]').forEach(function (button) {
 		button.addEventListener('click', function () {
@@ -155,7 +161,13 @@ export function createProjectJournalSite() {
 			var panel = target.closest('[data-journal-project-panel]');
 			if (panel) { selectProject(panel.getAttribute('data-journal-project-panel')); }
 			var disclosure = target.closest('details');
-			if (disclosure) { disclosure.open = true; }
+			while (disclosure && content.contains(disclosure)) {
+				disclosure.open = true;
+				disclosure = disclosure.parentElement.closest('details');
+			}
+			// Stable update/milestone anchors reveal their complete text on direct navigation.
+			var rowDetails = target.querySelector(':scope > details, :scope > th > details');
+			if (rowDetails) { rowDetails.open = true; }
 			// Scroll only this site's pane; scrollIntoView would also move the desktop.
 			var top = target.getBoundingClientRect().top - content.getBoundingClientRect().top;
 			content.scrollTo({ top: content.scrollTop + top - content.clientTop });

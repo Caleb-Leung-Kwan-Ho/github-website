@@ -43,7 +43,7 @@ class JournalTests(unittest.TestCase):
         self.root = Path(temporary.name)
         self.folder = self.root / "sites/project-journal"
         (self.folder / "locales").mkdir(parents=True)
-        for name in ("projects.json", "content.html", "locales/en.json", "locales/ja.json", "locales/zh-HK.json"):
+        for name in ("projects.json", "excerpts.json", "content.html", "locales/en.json", "locales/ja.json", "locales/zh-HK.json"):
             shutil.copy2(ROOT / "sites/project-journal" / name, self.folder / name)
         shutil.copytree(ROOT / "sites/project-journal/templates", self.folder / "templates")
         photos = self.root / "images/project-journal"
@@ -53,10 +53,12 @@ class JournalTests(unittest.TestCase):
         for photo in self.photos:
             (self.root / photo["suggestedRepoPath"]).write_bytes(b"local fixture")
         self.data = json.loads((self.folder / "projects.json").read_text())
+        self.excerpts = json.loads((self.folder / "excerpts.json").read_text())
         self.locales = {locale: json.loads((self.folder / f"locales/{locale}.json").read_text()) for locale in journal.LOCALES}
 
     def save(self) -> None:
         (self.folder / "projects.json").write_text(json.dumps(self.data), encoding="utf-8")
+        (self.folder / "excerpts.json").write_text(json.dumps(self.excerpts), encoding="utf-8")
         for locale, data in self.locales.items():
             (self.folder / f"locales/{locale}.json").write_text(json.dumps(data), encoding="utf-8")
 
@@ -83,18 +85,23 @@ class JournalTests(unittest.TestCase):
         for project in self.data["projects"]:
             base = f'project-journal-{project["id"]}'
             self.assertIn(base, ids)
+            for key in journal.EXCERPT_FIELDS:
+                self.assertIn(project[key], "".join(document.text))
             for kind in ("milestones", "updates"):
                 for entry in project[kind]:
                     self.assertIn(f'{base}-{"milestone" if kind == "milestones" else "update"}-{entry["id"]}', ids)
                     self.assertIn(entry["title" if kind == "milestones" else "text"], "".join(document.text))
         self.assertEqual(source.count('data-journal-text="noBlocker"'), 2)
-        self.assertEqual(source.count('data-journal-text="dateNotRecorded"'), 4)
+        self.assertNotIn('data-journal-text="dateNotRecorded"', source)
+        self.assertEqual(source.count('class="journal-full-description"'), len(self.data["projects"]))
 
     def test_project_updates_stay_with_their_own_project_in_authored_order(self) -> None:
         project = self.data["projects"][0]
         project["updates"].append({"id": "second-note", "date": None, "text": "A second undated note."})
         for locale in self.locales.values():
             locale["projects"][project["id"]]["updates"]["second-note"] = {"text": "A second undated note."}
+        for excerpts in self.excerpts.values():
+            excerpts[project["id"]]["updates"]["second-note"] = "Second note."
         self.save()
         source = journal.render_journal(self.root)
         first = source.index('id="project-journal-anime-mcp"')
@@ -106,8 +113,10 @@ class JournalTests(unittest.TestCase):
         module = journal.render_translations(self.root)
         prefix = "export const JOURNAL_LOCALES = "
         locales, projects = module.split(prefix, 1)[1].split(";\n\nexport const JOURNAL_PROJECTS = ", 1)
+        projects, excerpts = projects.split(";\n\nexport const JOURNAL_EXCERPTS = ", 1)
         self.assertEqual(json.loads(locales), self.locales)
-        self.assertEqual(json.loads(projects.removesuffix(";\n")), self.data["projects"])
+        self.assertEqual(json.loads(projects), self.data["projects"])
+        self.assertEqual(json.loads(excerpts.removesuffix(";\n")), self.excerpts)
         self.assertNotIn("fetch(", module)
 
     def test_markup_and_attributes_are_escaped_while_translation_data_stays_plain_text(self) -> None:
@@ -118,6 +127,8 @@ class JournalTests(unittest.TestCase):
         for locale in self.locales.values():
             for field in journal.TEXT_FIELDS:
                 locale["projects"][project["id"]][field] = payload
+        for excerpts in self.excerpts.values():
+            excerpts[project["id"]]["summary"] = payload
         project["milestones"][0]["title"] = payload
         milestone_id = project["milestones"][0]["id"]
         for locale in self.locales.values():
@@ -125,7 +136,7 @@ class JournalTests(unittest.TestCase):
         self.save()
         source = journal.render_journal(self.root)
         document = JournalHTML(source)
-        self.assertEqual(sum(tag == "img" for tag, _ in document.elements), 3)
+        self.assertEqual(sum(tag == "img" and "data-journal-photo" in attrs for tag, attrs in document.elements), 3)
         self.assertIn(payload, "".join(document.text))
         self.assertFalse(any(key.startswith("on") for _, attrs in document.elements for key in attrs))
         module = journal.render_translations(self.root)
@@ -201,7 +212,46 @@ class JournalTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 journal.validate_locales(locales, self.data["projects"], self.photos)
 
-    def test_fifty_projects_need_only_canonical_and_translated_records(self) -> None:
+    def test_excerpts_require_exact_locale_project_update_coverage_and_plain_text(self) -> None:
+        mutations = [
+            lambda excerpts: excerpts.pop("ja"),
+            lambda excerpts: excerpts["en"].pop("anime-mcp"),
+            lambda excerpts: excerpts["ja"]["anime-mcp"].pop("currentFocus"),
+            lambda excerpts: excerpts["zh-HK"]["anime-mcp"].update(currentBlocker="Extra field"),
+            lambda excerpts: excerpts["en"]["anime-mcp"]["updates"].pop("current-research-focus"),
+            lambda excerpts: excerpts["ja"]["anime-mcp"]["updates"].update(unknown="Unknown update"),
+            lambda excerpts: excerpts["en"]["anime-mcp"].update(summary=""),
+            lambda excerpts: excerpts["en"]["anime-mcp"].update(summary=" whitespace "),
+            lambda excerpts: excerpts["en"]["anime-mcp"]["updates"].update({"current-research-focus": "\x00control"}),
+        ]
+        for mutation in mutations:
+            excerpts = deepcopy(self.excerpts)
+            mutation(excerpts)
+            with self.assertRaises(ValueError):
+                journal.validate_excerpts(excerpts, self.data["projects"])
+
+    def test_compact_rows_retain_full_text_and_only_emit_recorded_dates(self) -> None:
+        self.data["projects"][0]["updates"][0]["date"] = "2024-02-29"
+        self.save()
+        output = journal.render_journal(self.root)
+        self.assertEqual(output.count("<time "), 1)
+        self.assertIn('<time datetime="2024-02-29">2024-02-29</time>', output)
+        self.assertNotIn("Date not recorded", output)
+        self.assertLess(output.index('class="journal-project-list"'), output.index('class="journal-filters"'))
+        document = JournalHTML(output)
+        body = "".join(document.text)
+        for project in self.data["projects"]:
+            for key in journal.EXCERPT_FIELDS:
+                self.assertIn(project[key], body)
+                self.assertIn(self.excerpts["en"][project["id"]][key], body)
+            for entry in project["milestones"]:
+                if "description" in entry:
+                    self.assertIn(entry["description"], body)
+            for entry in project["updates"]:
+                self.assertIn(entry["text"], body)
+                self.assertIn(self.excerpts["en"][project["id"]]["updates"][entry["id"]], body)
+
+    def test_fifty_projects_need_only_data_records(self) -> None:
         source = deepcopy(self.data["projects"][0])
         for number in range(46):
             project = deepcopy(source)
@@ -209,6 +259,8 @@ class JournalTests(unittest.TestCase):
             self.data["projects"].append(project)
             for locale in self.locales.values():
                 locale["projects"][project["id"]] = journal.project_overlay(project)
+            for excerpts in self.excerpts.values():
+                excerpts[project["id"]] = deepcopy(excerpts[source["id"]])
         self.save()
         output = journal.render_journal(self.root)
         self.assertEqual(output.count("data-journal-project-panel="), 50)
@@ -222,6 +274,8 @@ class JournalTests(unittest.TestCase):
         project.update(currentBlocker=None, updates=[], milestones=[], links=[], relatedProjectIds=[])
         for locale in self.locales.values():
             locale["projects"][project["id"]] = journal.project_overlay(project)
+        for excerpts in self.excerpts.values():
+            excerpts[project["id"]]["updates"] = {}
         self.save()
         output = journal.render_journal(self.root)
         self.assertIn('data-journal-text="noUpdates"', output)
@@ -256,7 +310,7 @@ class JournalTests(unittest.TestCase):
                 self.assertIn(photo[field], source)
         self.assertIn("color and tone edited", source)
         self.assertIn("adapted photo remains CC BY-SA 4.0", source)
-        images = [attrs for tag, attrs in JournalHTML(source).elements if tag == "img"]
+        images = [attrs for tag, attrs in JournalHTML(source).elements if tag == "img" and "data-journal-photo" in attrs]
         self.assertEqual([attrs["src"] for attrs in images], [photo["suggestedRepoPath"] for photo in self.photos])
 
     def test_journal_assembly_marker_is_narrow_and_requires_one_exact_marker(self) -> None:

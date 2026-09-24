@@ -3,13 +3,23 @@
           <section class="journal-summary journal-panel">
             <h3 class="journal-panel-title journal-current-work" id="${base}-current-work-title">${currentWork}</h3>
             <div class="journal-panel-body">
-              <h4 class="journal-project-title" id="${base}-title">${projectTitle}</h4>
-              ${projectStatus}
-              <p class="journal-summary-text">${projectSummary}</p>
+              <div class="journal-project-heading">
+                <h4 class="journal-project-title" id="${base}-title">${projectTitle}</h4>
+                ${projectStatus}
+              </div>
+              <p class="journal-summary-text">${summaryExcerpt}</p>
               <dl class="journal-focus">
-                <div><dt>${currentFocus}</dt><dd>${projectFocus}</dd></div>
-                <div><dt>${nextStep}</dt><dd>${projectNextStep}</dd></div>
+                <div><dt>${currentFocus}</dt><dd>${focusExcerpt}</dd></div>
+                <div><dt>${nextStep}</dt><dd>${nextStepExcerpt}</dd></div>
               </dl>
+              <details class="journal-full-description">
+                <summary>${showDetails}</summary>
+                <p>${projectSummary}</p>
+                <dl class="journal-focus">
+                  <div><dt>${currentFocus}</dt><dd>${projectFocus}</dd></div>
+                  <div><dt>${nextStep}</dt><dd>${projectNextStep}</dd></div>
+                </dl>
+              </details>
             </div>
           </section>
           <section class="journal-updates journal-panel" id="${base}-updates" aria-labelledby="${base}-updates-title" tabindex="-1">

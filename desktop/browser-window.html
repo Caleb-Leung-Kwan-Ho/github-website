@@ -1,0 +1,55 @@
+<section class="os-window browser-window ${window_id}-window" data-window="${window_id}" role="dialog" aria-modal="false" aria-labelledby="${window_id}-window-title" tabindex="-1" hidden>
+	<header class="window-titlebar" data-titlebar>
+		<div class="window-title"><img class="window-app-icon" src="images/internet-explorer-6.svg" width="20" height="20" alt="" /><h2 id="${window_id}-window-title">${title} - Microsoft Internet Explorer</h2></div>
+		<div class="window-controls" aria-label="${title} window controls"><button type="button" data-window-action="minimize" aria-label="Minimize ${title} window"><span aria-hidden="true">—</span></button><button type="button" data-window-action="maximize" aria-label="Maximize ${title} window"><span aria-hidden="true">□</span></button><button class="close-control" type="button" data-window-action="close" aria-label="Close ${title} window"><span aria-hidden="true">×</span></button></div>
+	</header>
+	<div class="window-menubar">
+		<details class="window-menu"><summary>File</summary><div class="window-menu-panel"><a href="#websites">Open My Websites</a><a href="#work">Back to portfolio</a><button type="button" data-window-action="close">Close window</button></div></details>
+		<details class="window-menu"><summary>Edit</summary><div class="window-menu-panel"><button type="button" data-menu-action="copy-link">Copy page link</button></div></details>
+		<details class="window-menu">
+			<summary>View</summary>
+			<div class="window-menu-panel">
+				<button type="button" data-menu-action="maximize">Maximize window</button>
+				<button type="button" data-menu-action="move">Move window</button>
+				<button type="button" data-menu-action="resize">Resize window</button>
+				<button type="button" data-menu-action="top">Back to top</button>
+				<div data-browser-language-menu hidden></div>
+				<div data-browser-display-menu hidden></div>
+			</div>
+		</details>
+		<details class="window-menu"><summary>Favorites</summary><div class="window-menu-panel" data-browser-favorites-menu><button type="button" data-browser-favorites-toggle data-browser-favorites-label aria-expanded="false" aria-controls="${window_id}-favorites">Show Favorites panel</button></div></details>
+		<details class="window-menu"><summary>Tools</summary><div class="window-menu-panel"><button type="button" data-menu-action="reset-position">Reset window size and position</button></div></details>
+		<details class="window-menu">
+			<summary>Help</summary>
+			<div class="window-menu-panel window-help-panel">
+				<p>Home opens My Websites. Favorites shows the same website collection in a compact list. Back and Forward follow your browsing history on this desktop.</p>
+				<p>Drag the title bar to move this window, or drag an edge or corner to resize it. For keyboard controls, choose View → Move window or Resize window, use the arrow keys, then Enter to finish or Escape to cancel.</p>
+				<p>On a phone, drag the window down to reveal the desktop. Maximize it or choose Tools → Reset window size and position to bring the full page back.</p>
+				<p>Use Tab and Enter to browse menus. Escape dismisses an open menu. Back to portfolio returns to my AI and software engineering work.</p>
+			</div>
+		</details>
+		<span class="window-menu-status" role="status" aria-live="polite"></span>
+	</div>
+	<nav class="browser-toolbar" aria-label="Website browsing controls">
+		<button class="browser-toolbar-button" type="button" data-browser-back aria-label="Go to the previous page" disabled><span class="browser-history-icon" aria-hidden="true">←</span><span>Back</span></button>
+		<button class="browser-toolbar-button" type="button" data-browser-forward aria-label="Go to the next page" disabled><span class="browser-history-icon is-forward" aria-hidden="true">→</span><span>Forward</span></button>
+		<a class="browser-toolbar-button" href="#websites"><span class="browser-home-icon icon solid fa-home" aria-hidden="true"></span><span>Home</span></a>
+		<button class="browser-toolbar-button" type="button" data-browser-favorites-toggle aria-expanded="false" aria-controls="${window_id}-favorites"><span class="browser-favorites-icon icon solid fa-star" aria-hidden="true"></span><span>Favorites</span></button>
+	</nav>
+	<div class="browser-address"><span>Address</span><div class="browser-address-field"><img src="images/internet-explorer-6.svg" width="16" height="16" alt="" /><span data-browser-address>caleb-leung-kwan-ho.github.io/#${home_id}</span></div><a class="browser-go" data-browser-go href="#${home_id}" aria-label="Go to ${title}">Go <span aria-hidden="true">→</span></a></div>
+	<div class="browser-layout">
+		<aside id="${window_id}-favorites" class="browser-favorites" aria-labelledby="${window_id}-favorites-title" hidden>
+			<div class="browser-favorites-heading"><h2 id="${window_id}-favorites-title">Favorites</h2><button type="button" data-browser-favorites-close aria-label="Close Favorites">×</button></div>
+			<nav aria-label="Favorite websites"><ul class="browser-favorites-list" data-browser-favorites-list></ul></nav>
+			<a class="browser-return" href="#work">Back to portfolio</a>
+		</aside>
+		<div class="browser-page">
+			<!-- include: sites/${site_folder}/content.html -->
+		</div>
+	</div>
+	<footer class="window-statusbar browser-statusbar">
+		<span><img src="images/internet-explorer-6.svg" width="16" height="16" alt="" />Done</span>
+		<span class="browser-status-icons" data-browser-status-icons hidden></span>
+		<span><img src="images/internet-zone.svg" width="16" height="16" alt="" />Internet</span>
+	</footer>
+</section>

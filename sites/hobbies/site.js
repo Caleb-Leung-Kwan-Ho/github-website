@@ -53,6 +53,13 @@ export function createHobbiesSite() {
 		acceptsTarget: function (target) { return Boolean(target && hobbiesSite.contains(target)); },
 		focus: function () { element.focus({ preventScroll: true }); },
 		getLinkId: function () { return 'hobby-top'; },
+		languages: Array.prototype.map.call(languageButtons, function (button) {
+			return {
+				id: button.getAttribute('data-hobby-language'),
+				label: button.textContent,
+				selected: button.getAttribute('aria-pressed') === 'true'
+			};
+		}),
 		navigate: function (target) {
 			// scrollIntoView would also move the simulated desktop.
 			var top = target.getBoundingClientRect().top - content.getBoundingClientRect().top;

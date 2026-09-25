@@ -7,6 +7,13 @@
     "topics": ["Anime", "Games", "Hong Kong"]
   },
   {
+    "name": "Project Lab",
+    "target": "#project-journal",
+    "description": "Personal projects and development notes.",
+    "thumbnail": "images/websites/project-lab.png",
+    "topics": ["Projects", "Development notes", "Development progress"]
+  },
+  {
     "name": "DVD Project Lab",
     "target": "#project-lab",
     "feature": "project-lab"

@@ -1,0 +1,194 @@
+{
+  "locale": "zh-HK",
+  "languageName": "繁體中文（香港）",
+  "ui": {
+    "siteTitle": "Caleb的項目研究室",
+    "windowTitle": "項目研究室",
+    "subtitle": "個人項目與開發日誌",
+    "home": "主頁",
+    "projects": "項目",
+    "updates": "開發日誌",
+    "roadmap": "開發計劃",
+    "currentWork": "目前的工作",
+    "currentFocus": "目前重點",
+    "nextStep": "下一步",
+    "currentBlocker": "目前遇到的問題",
+    "links": "連結",
+    "relatedProjects": "相關項目",
+    "searchProjects": "搜尋項目",
+    "searchPlaceholder": "項目名稱或關鍵字",
+    "search": "搜尋",
+    "status": "狀態",
+    "allStatuses": "全部",
+    "clearFilters": "清除篩選條件",
+    "resultCount": "找到 {count} 個項目",
+    "noResults": "沒有符合搜尋條件的項目。",
+    "noResultsFor": "找不到與「{query}」相符的項目。",
+    "selectedOutsideResults": "目前選取的項目不在搜尋結果之內。",
+    "noBlocker": "暫未有問題報告。",
+    "noLinks": "暫未加入連結。",
+    "noUpdates": "暫未加入開發日誌。",
+    "noMilestones": "暫未加入開發計劃。",
+    "dateNotRecorded": "未有記錄日期",
+    "milestone": "工作項目",
+    "personalHomepage": "個人主頁",
+    "backToPortfolio": "返回作品集",
+    "myWebsites": "我的網站",
+    "photoCredits": "相片鳴謝",
+    "retroScreenNotice": "此頁面使用了復古屏幕效果。如文字難以閱讀，請按此關閉。",
+    "retroScreenOff": "已關閉復古屏幕效果。如要重新開啟，請使用 View → Retro screen effect，或狀態列中的屏幕圖示。",
+    "retroScreenDismiss": "關閉此通知",
+    "photoSource": "來源",
+    "photoLicense": "授權條款",
+    "photoBy": "攝影",
+    "photoChanges": "三張相片均縮細至180像素高，並以較低畫質重新儲存為JPEG，營造2000年代初的網頁感覺。澀谷列車相片另經色彩及明暗調整：降低亮度、略增對比、偏冷色調、降低飽和度，並加入輕微顆粒；修改後的澀谷相片仍採用CC BY-SA 4.0授權，旺角相片仍採用CC BY-SA 2.5授權。頁首三張相片均以5:4裁切顯示。",
+    "language": "語言",
+    "projectNavigation": "項目導覽",
+    "sectionNavigation": "項目研究室導覽",
+    "projectResults": "項目搜尋結果",
+    "selectedProject": "已選取的項目",
+    "photoStrip": "東京及香港的街景與列車相片",
+    "skipToProjects": "跳至項目列表",
+    "skipToCurrentWork": "跳至目前的工作",
+    "showDetails": "查看項目詳情",
+    "featured": "精選"
+  },
+  "statuses": {
+    "in-progress": "進行中",
+    "planned": "計劃中",
+    "paused": "已暫停",
+    "completed": "已完成"
+  },
+  "photos": {
+    "shinjuku-rain-2016": {
+      "caption": "新宿・雨夜",
+      "alt": "新宿歌舞伎町雨夜，行人撐着雨傘走在濕潤的街道上，兩旁亮起密集的日文招牌。"
+    },
+    "yamanote-shibuya-2008-graded": {
+      "caption": "山手線・澀谷站",
+      "alt": "一列帶綠色橫紋的山手線列車駛經澀谷站室內月台；2008年相片經色調處理。"
+    },
+    "mong-kok-portland-night": {
+      "caption": "旺角・砵蘭街",
+      "alt": "旺角砵蘭街夜景，霓虹招牌密佈，街道由畫面中央向遠處延伸。"
+    }
+  },
+  "projects": {
+    "anime-mcp": {
+      "title": "Anime MCP",
+      "summary": "正在開發搜尋動畫角色的MCP伺服器，重點是改善檢索質素，以及結合詞彙檢索與嵌入模型的評分。",
+      "currentFocus": "找出檢索瓶頸，並選擇用於混合檢索評分融合實驗的嵌入模型。",
+      "nextStep": "選擇嵌入模型、進行混合檢索評分融合實驗，並將結果與已發表的研究比較。",
+      "currentBlocker": "尚未找出檢索瓶頸，需要先選擇模型並進行比較實驗，以查明原因。",
+      "milestones": {
+        "evaluation-and-lexical-foundation": {
+          "title": "建立評估環境與詞彙檢索基礎",
+          "description": "建立評估環境和詞彙檢索基準，以比較不同的檢索方法。"
+        },
+        "select-embedding-models": {
+          "title": "選擇嵌入模型",
+          "description": "模型名稱及最終比較名單尚未確定。"
+        },
+        "run-hybrid-fusion-experiments": {
+          "title": "進行混合檢索評分融合實驗",
+          "description": "評估檢索表現，並找出瓶頸出現的位置。"
+        },
+        "interpret-experiment-results": {
+          "title": "將實驗結果與已發表研究比較",
+          "description": "研究既有發現是否同樣適用於動畫檢索，並記錄有實驗支持的差異。目前尚未有結果。"
+        }
+      },
+      "updates": {
+        "current-research-focus": {
+          "text": "目前首要工作是了解檢索瓶頸，並準備以混合檢索評分融合方式比較嵌入模型。模型選擇及實驗結果仍未確定。"
+        }
+      },
+      "linkLabels": {
+        "https://github.com/Caleb-Leung-Kwan-Ho/Caleb-Leung-Kwan-Ho": "公開研究筆記",
+        "https://arxiv.org/abs/2210.11934": "參考論文：An Analysis of Fusion Functions for Hybrid Retrieval"
+      }
+    },
+    "gba-website": {
+      "title": "GBA風格個人網站",
+      "summary": "一個接近完成、在瀏覽器運行的個人網站，採用Game Boy Advance風格，並提供A/B按鈕操作。",
+      "currentFocus": "完成餘下的房屋、修正角色生成位置，並改善現有遊戲體驗。",
+      "nextStep": "加入朋友的房屋、修正錯誤的生成位置，並調整現有遊戲體驗。",
+      "currentBlocker": null,
+      "milestones": {
+        "finish-website-experience": {
+          "title": "完成瀏覽器內的網站體驗",
+          "description": "現有體驗已接近完成，只剩下少量新增內容和修正。"
+        },
+        "add-friends-houses": {
+          "title": "加入朋友的房屋"
+        },
+        "fix-spawn-locations": {
+          "title": "修正角色生成位置",
+          "description": "確保角色不會在錯誤的位置出現。"
+        },
+        "refine-current-gameplay": {
+          "title": "改善現有遊戲體驗"
+        }
+      },
+      "updates": {
+        "website-final-additions": {
+          "text": "網站已接近完成。餘下工作包括加入朋友的房屋、修正角色生成位置，以及改善現有遊戲體驗。相關的瀏覽器遊戲會以這些工作為基礎繼續開發。"
+        }
+      },
+      "linkLabels": {}
+    },
+    "browser-game": {
+      "title": "瀏覽器遊戲",
+      "summary": "由GBA風格網站延伸的遊戲，計劃擴展玩法、NPC行為、角色職業，以及支援本機存檔的離線遊玩功能。",
+      "currentFocus": "設計第一版NPC邏輯。目前的動作邏輯尚未以狀態機方式組織。",
+      "nextStep": "先獨立推進NPC邏輯的設計，再決定整體實作方向。",
+      "currentBlocker": null,
+      "milestones": {
+        "design-npc-logic-v1": {
+          "title": "設計NPC邏輯v1",
+          "description": "正在設計初步的動作邏輯。目前版本並非狀態機。"
+        },
+        "develop-typescript-gameplay": {
+          "title": "以TypeScript擴展遊戲玩法",
+          "description": "以網站的瀏覽器基礎及GBA風格操作為基礎繼續開發。"
+        },
+        "add-character-classes": {
+          "title": "加入角色職業系統"
+        },
+        "enable-offline-play": {
+          "title": "支援離線遊玩",
+          "description": "目標是製作可在本機遊玩、毋須遊戲伺服器的免費遊戲。"
+        },
+        "add-save-file-import-export": {
+          "title": "加入本機存檔及存檔匯入／匯出功能",
+          "description": "讓玩家保留遊戲進度並再次載入。儲存方式及檔案格式尚未決定。"
+        }
+      },
+      "updates": {
+        "npc-design-underway": {
+          "text": "NPC邏輯設計已開始。第一版採用的動作邏輯尚未構成狀態機。離線遊玩、角色職業、擴展玩法，以及存檔匯入／匯出仍屬計劃中的工作。"
+        }
+      },
+      "linkLabels": {}
+    },
+    "gluonagent": {
+      "title": "GluonAgent",
+      "summary": "一個已暫停開發的智能代理項目，目前正重新評估其複雜程度及研究需要。",
+      "currentFocus": "已暫停，等待進一步研究。",
+      "nextStep": "先進行更多研究，再決定如何恢復開發。",
+      "currentBlocker": "項目的複雜程度較高，需要進一步研究才能繼續開發。",
+      "milestones": {
+        "further-research": {
+          "title": "研究尚未解決的複雜問題",
+          "description": "項目恢復開發前，需要進行更多研究。"
+        }
+      },
+      "updates": {
+        "project-paused": {
+          "text": "項目過於複雜，未經進一步研究難以繼續，因此已暫停開發。"
+        }
+      },
+      "linkLabels": {}
+    }
+  }
+}

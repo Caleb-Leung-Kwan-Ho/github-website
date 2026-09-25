@@ -1,0 +1,194 @@
+{
+  "locale": "ja",
+  "languageName": "日本語",
+  "ui": {
+    "siteTitle": "Calebのプロジェクト研究室",
+    "windowTitle": "プロジェクト研究室",
+    "subtitle": "個人プロジェクトと開発の記録",
+    "home": "ホーム",
+    "projects": "プロジェクト",
+    "updates": "開発日誌",
+    "roadmap": "開発計画",
+    "currentWork": "現在の取り組み",
+    "currentFocus": "現在の重点",
+    "nextStep": "次のステップ",
+    "currentBlocker": "現在の課題",
+    "links": "リンク",
+    "relatedProjects": "関連プロジェクト",
+    "searchProjects": "プロジェクトを検索",
+    "searchPlaceholder": "プロジェクト名・キーワード",
+    "search": "検索",
+    "status": "進捗状況",
+    "allStatuses": "すべて",
+    "clearFilters": "絞り込みを解除",
+    "resultCount": "{count}件のプロジェクト",
+    "noResults": "条件に一致するプロジェクトはありません。",
+    "noResultsFor": "「{query}」に一致するプロジェクトはありません。",
+    "selectedOutsideResults": "選択中のプロジェクトは、現在の検索結果に含まれていません。",
+    "noBlocker": "課題の報告はありません。",
+    "noLinks": "リンクはまだありません。",
+    "noUpdates": "開発日誌はまだありません。",
+    "noMilestones": "開発計画はまだありません。",
+    "dateNotRecorded": "日付未記録",
+    "milestone": "開発項目",
+    "personalHomepage": "個人ホームページ",
+    "backToPortfolio": "ポートフォリオに戻る",
+    "myWebsites": "制作したウェブサイト",
+    "photoCredits": "写真クレジット",
+    "retroScreenNotice": "このページにはレトロな画面効果がかかっています。文字が読みにくい場合は、ここをクリックしてオフにしてください。",
+    "retroScreenOff": "レトロな画面効果をオフにしました。オンに戻すには、View → Retro screen effect、またはステータスバーの画面アイコンを使ってください。",
+    "retroScreenDismiss": "このお知らせを閉じる",
+    "photoSource": "出典",
+    "photoLicense": "ライセンス",
+    "photoBy": "撮影",
+    "photoChanges": "3枚とも、2000年代初頭のウェブらしい見た目にするため、高さ180ピクセルに縮小し、低めの画質のJPEGで保存し直しています。渋谷の列車写真はさらに色調と明暗を編集し、明るさを下げ、コントラストを少し高め、寒色寄りにし、彩度を下げ、薄い粒子を加えています。編集後の渋谷の写真にはCC BY-SA 4.0、旺角の写真にはCC BY-SA 2.5が引き続き適用されます。ヘッダーでは3枚とも5:4にトリミングして表示しています。",
+    "language": "言語",
+    "projectNavigation": "プロジェクト一覧",
+    "sectionNavigation": "プロジェクト研究室のメニュー",
+    "projectResults": "プロジェクトの検索結果",
+    "selectedProject": "選択中のプロジェクト",
+    "photoStrip": "東京と香港の街並み・電車の写真",
+    "skipToProjects": "プロジェクト一覧へ移動",
+    "skipToCurrentWork": "現在の取り組みへ移動",
+    "showDetails": "プロジェクトの詳細を表示",
+    "featured": "注目"
+  },
+  "statuses": {
+    "in-progress": "進行中",
+    "planned": "予定",
+    "paused": "一時停止中",
+    "completed": "完了"
+  },
+  "photos": {
+    "shinjuku-rain-2016": {
+      "caption": "新宿・雨の夜",
+      "alt": "雨の夜の新宿・歌舞伎町。傘をさした人々が、看板の並ぶ濡れた通りを歩いている。"
+    },
+    "yamanote-shibuya-2008-graded": {
+      "caption": "山手線・渋谷駅",
+      "alt": "渋谷駅の屋内ホームを通る緑の帯の山手線。2008年の写真を色調補正したもの。"
+    },
+    "mong-kok-portland-night": {
+      "caption": "旺角・砵蘭街",
+      "alt": "香港・旺角の砵蘭街。道路が画面の中央へと続き、夜空にネオンサインが密集している。"
+    }
+  },
+  "projects": {
+    "anime-mcp": {
+      "title": "Anime MCP",
+      "summary": "アニメキャラクターを検索するMCPサーバーを開発中。検索品質の向上と、語彙検索・埋め込み検索のスコアを組み合わせる手法に取り組んでいます。",
+      "currentFocus": "検索のボトルネックを特定し、ハイブリッド検索のスコア融合実験に使う埋め込みモデルを選定する。",
+      "nextStep": "埋め込みモデルを選定してスコア融合実験を行い、既存研究の知見と結果を比較する。",
+      "currentBlocker": "検索のボトルネックはまだ特定できていません。原因を調べるため、モデルの選定と比較実験が必要です。",
+      "milestones": {
+        "evaluation-and-lexical-foundation": {
+          "title": "評価環境と語彙検索の基盤を整える",
+          "description": "検索手法を比較するための評価環境と、語彙検索のベースラインを構築する。"
+        },
+        "select-embedding-models": {
+          "title": "埋め込みモデルを選定する",
+          "description": "モデル名と最終的な比較対象は未定です。"
+        },
+        "run-hybrid-fusion-experiments": {
+          "title": "ハイブリッド検索のスコア融合実験を行う",
+          "description": "検索性能を評価し、どこにボトルネックがあるかを調べる。"
+        },
+        "interpret-experiment-results": {
+          "title": "実験結果を既存研究と比較する",
+          "description": "既存研究の知見がアニメ検索にも当てはまるかを検討し、実験で確認できた違いを記録する。結果はまだ出ていません。"
+        }
+      },
+      "updates": {
+        "current-research-focus": {
+          "text": "現在の優先事項は、検索のボトルネックを理解し、ハイブリッド検索のスコア融合を用いた埋め込みモデルの比較を準備することです。モデルの選定と実験結果はまだ確定していません。"
+        }
+      },
+      "linkLabels": {
+        "https://github.com/Caleb-Leung-Kwan-Ho/Caleb-Leung-Kwan-Ho": "公開リサーチノート",
+        "https://arxiv.org/abs/2210.11934": "参考論文：An Analysis of Fusion Functions for Hybrid Retrieval"
+      }
+    },
+    "gba-website": {
+      "title": "GBA風の個人ウェブサイト",
+      "summary": "ブラウザーで動作する、ゲームボーイアドバンス風の個人ウェブサイト。A/Bボタンで操作でき、完成間近です。",
+      "currentFocus": "残りの家を追加し、キャラクターの出現位置を修正して、現在のゲームプレイを改善する。",
+      "nextStep": "友人の家を追加し、誤った出現位置を修正して、現在のゲームプレイを調整する。",
+      "currentBlocker": null,
+      "milestones": {
+        "finish-website-experience": {
+          "title": "ブラウザー上のウェブサイト体験を仕上げる",
+          "description": "現在の体験はほぼ完成しており、残っているのは少数の追加と修正です。"
+        },
+        "add-friends-houses": {
+          "title": "友人の家を追加する"
+        },
+        "fix-spawn-locations": {
+          "title": "キャラクターの出現位置を修正する",
+          "description": "キャラクターが誤った場所に出現しないようにする。"
+        },
+        "refine-current-gameplay": {
+          "title": "現在のゲームプレイを改善する"
+        }
+      },
+      "updates": {
+        "website-final-additions": {
+          "text": "ウェブサイトは完成間近です。残りの作業は、友人の家の追加、出現位置の修正、現在のゲームプレイの改善です。関連するブラウザーゲームは、この取り組みを土台にしています。"
+        }
+      },
+      "linkLabels": {}
+    },
+    "browser-game": {
+      "title": "ブラウザーゲーム",
+      "summary": "GBA風ウェブサイトを発展させたゲーム。ゲームプレイの拡張、NPCの行動、キャラクターのクラス、ローカルセーブ付きのオフラインプレイを計画しています。",
+      "currentFocus": "NPCロジックの最初のバージョンを設計する。現時点では、その行動はステートマシンとして構成されていません。",
+      "nextStep": "全体の実装方針を決める前に、NPCロジックの設計を単独で進める。",
+      "currentBlocker": null,
+      "milestones": {
+        "design-npc-logic-v1": {
+          "title": "NPCロジックv1を設計する",
+          "description": "初期の行動ロジックを設計中です。現在のバージョンはステートマシンではありません。"
+        },
+        "develop-typescript-gameplay": {
+          "title": "TypeScriptでゲームプレイを拡張する",
+          "description": "ウェブサイトのブラウザー基盤とGBA風の操作を土台に開発する。"
+        },
+        "add-character-classes": {
+          "title": "キャラクターのクラスシステムを追加する"
+        },
+        "enable-offline-play": {
+          "title": "オフラインプレイに対応する",
+          "description": "ゲームサーバーなしでローカルに遊べる無料ゲームを目指しています。"
+        },
+        "add-save-file-import-export": {
+          "title": "ローカルセーブとセーブファイルの入出力を追加する",
+          "description": "プレイヤーが進行状況を保存し、再び読み込めるようにする。保存方式とファイル形式は未定です。"
+        }
+      },
+      "updates": {
+        "npc-design-underway": {
+          "text": "NPCロジックの設計を開始しました。最初のバージョンの行動は、まだステートマシンにはなっていません。オフラインプレイ、キャラクターのクラス、ゲームプレイの拡張、セーブファイルの入出力は今後の計画です。"
+        }
+      },
+      "linkLabels": {}
+    },
+    "gluonagent": {
+      "title": "GluonAgent",
+      "summary": "複雑さと必要な調査内容を見直すため、開発を一時停止しているエージェントプロジェクトです。",
+      "currentFocus": "追加調査のため一時停止中。",
+      "nextStep": "再開の進め方を決める前に、さらに調査する。",
+      "currentBlocker": "プロジェクトが複雑なため、開発を続けるには追加の調査が必要です。",
+      "milestones": {
+        "further-research": {
+          "title": "未解決の複雑な課題を調査する",
+          "description": "プロジェクトを再開する前に、さらに調査する必要があります。"
+        }
+      },
+      "updates": {
+        "project-paused": {
+          "text": "追加調査なしで進めるには複雑すぎるため、開発を一時停止しています。"
+        }
+      },
+      "linkLabels": {}
+    }
+  }
+}

@@ -14,7 +14,7 @@
 
 	.window-controls,
 	.window-menubar,
-	.websites-toolbar,
+	.browser-toolbar,
 	.desktop-shortcut[type="button"],
 	.start-menu,
 	.taskbar,
@@ -54,8 +54,7 @@
 	}
 
 	/* Keep every auxiliary document readable without simulated-window behavior. */
-	.hobbies-window[hidden],
-	.websites-window[hidden],
+	.browser-window[hidden],
 	.projects-window[hidden] {
 		position: relative;
 		display: flex !important;
@@ -74,7 +73,20 @@
 		overflow: visible;
 	}
 
-	.websites-layout,
-	.websites-content {
+	.browser-layout,
+	.browser-page,
+	.websites-content,
+	.project-journal-content {
 		overflow: visible;
+	}
+
+	/* Natural document height replaces the journal's constrained window scroller. */
+	.project-journal-window .browser-layout,
+	.project-journal-window .browser-page {
+		display: block;
+		flex: none;
+	}
+
+	.project-journal-window .project-journal-content {
+		flex: none;
 	}

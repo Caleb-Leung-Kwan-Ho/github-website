@@ -259,8 +259,8 @@ class JavaScriptModuleTests(unittest.TestCase):
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(source, encoding="utf-8")
 
-    def test_my_websites_module_requires_its_exact_approved_directory(self) -> None:
-        for site, approved in (("my-websites", True), ("my-websites-extra", False)):
+    def test_new_site_modules_require_their_exact_approved_directories(self) -> None:
+        for site, approved in (("my-websites", True), ("my-websites-extra", False), ("project-journal", True), ("project-journal-extra", False)):
             with self.subTest(site=site), tempfile.TemporaryDirectory() as directory:
                 root = Path(directory).resolve()
                 module = f"sites/{site}/site.js"
@@ -275,23 +275,35 @@ class JavaScriptModuleTests(unittest.TestCase):
                 else:
                     self.assertTrue(any("unapproved" in error for error in errors))
 
-    def test_project_site_helpers_are_audited_without_allowing_other_sites(self) -> None:
+    def test_generated_registry_and_site_helpers_are_audited_without_allowing_other_sites(self) -> None:
+        for site in ("hobbies", "project-journal"):
+            with self.subTest(site=site), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory).resolve()
+                self.write_modules(root, {
+                    "assets/js/main.js": "import './site-registry.js';\n",
+                    "assets/js/site-registry.js": f"import '../../sites/{site}/site.js';\n",
+                    f"sites/{site}/site.js": "import './translations.js';\n",
+                    f"sites/{site}/translations.js": "export const translations = {};\n",
+                })
+                modules, errors = checker.javascript_modules(root)
+                self.assertEqual(errors, [])
+                self.assertIn(root / f"sites/{site}/translations.js", modules)
+                (root / f"sites/{site}/translations.js").write_text("import('./unreviewed.js');\n", encoding="utf-8")
+                _, errors = checker.javascript_modules(root)
+                self.assertTrue(errors)
+                self.write_modules(root, {
+                    "assets/js/main.js": "import '../../sites/projects-extra/site.js';\n",
+                    "sites/projects-extra/site.js": "export const value = 1;\n",
+                })
+                _, errors = checker.javascript_modules(root)
+                self.assertTrue(any("unapproved" in error for error in errors))
+
+    def test_archived_site_cannot_be_imported_without_explicit_review(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory).resolve()
             self.write_modules(root, {
-                "assets/js/main.js": "import '../../sites/projects/site.js';\n",
-                "sites/projects/site.js": "import './dvd.js';\n",
-                "sites/projects/dvd.js": "export function setupDvdMotion() {}\n",
-            })
-            modules, errors = checker.javascript_modules(root)
-            self.assertEqual(errors, [])
-            self.assertIn(root / "sites/projects/dvd.js", modules)
-            (root / "sites/projects/dvd.js").write_text("import('./unreviewed.js');\n", encoding="utf-8")
-            _, errors = checker.javascript_modules(root)
-            self.assertTrue(errors)
-            self.write_modules(root, {
-                "assets/js/main.js": "import '../../sites/projects-extra/site.js';\n",
-                "sites/projects-extra/site.js": "export const value = 1;\n",
+                "assets/js/main.js": "import '../../sites/archieve/projects/site.js';\n",
+                "sites/archieve/projects/site.js": "export function createProjectsSite() {}\n",
             })
             _, errors = checker.javascript_modules(root)
             self.assertTrue(any("unapproved" in error for error in errors))

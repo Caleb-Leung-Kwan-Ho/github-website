@@ -19,7 +19,8 @@ from urllib.parse import urlsplit
 REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
 # These are repository conventions, not claims that other architectures are unsafe.
 EXPECTED_SCRIPT = "assets/js/main.js"
-MODULE_DIRECTORIES = {"desktop", "sites/portfolio", "sites/hobbies", "sites/projects", "sites/my-websites"}
+GENERATED_SITE_REGISTRY = "assets/js/site-registry.js"
+MODULE_DIRECTORIES = {"desktop", "sites/portfolio", "sites/hobbies", "sites/my-websites", "sites/project-journal"}
 
 # Deliberately small module grammar: one static import/re-export per line, with
 # ordinary quoted relative paths. Unsupported syntax needs a checker update.
@@ -483,7 +484,7 @@ def javascript_modules(root: Path) -> tuple[list[Path], list[str]]:
             errors.append("repository rule: JavaScript module resolves outside the repository")
             continue
         relative = path.relative_to(root)
-        if str(relative) != EXPECTED_SCRIPT and (
+        if relative.as_posix() not in {EXPECTED_SCRIPT, GENERATED_SITE_REGISTRY} and (
             relative.parent.as_posix() not in MODULE_DIRECTORIES or path.suffix != ".js"
         ):
             errors.append(f"repository rule: unapproved JavaScript module location: {relative}")

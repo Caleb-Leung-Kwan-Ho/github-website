@@ -43,7 +43,14 @@ class ProjectFeatureTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         # Exercise the real integration points and canonical records, not a second catalogue.
-        cls.data = json.loads((REPOSITORY_ROOT / "sites/projects/projects.json").read_text(encoding="utf-8"))
+        cls.data = json.loads((REPOSITORY_ROOT / "sites/archieve/projects/projects.json").read_text(encoding="utf-8"))
+        fixture = tempfile.TemporaryDirectory()
+        cls.addClassCleanup(fixture.cleanup)
+        cls.enabled_root = Path(fixture.name)
+        shutil.copytree(REPOSITORY_ROOT / "desktop", cls.enabled_root / "desktop")
+        shutil.copytree(REPOSITORY_ROOT / "sites", cls.enabled_root / "sites")
+        shutil.copytree(REPOSITORY_ROOT / "sites/archieve/projects", cls.enabled_root / "sites/projects")
+        shutil.copytree(REPOSITORY_ROOT / "images/project-journal", cls.enabled_root / "images/project-journal")
 
     def assert_lab_absent(self, output: str) -> None:
         document = FeatureHTML(output)
@@ -58,20 +65,19 @@ class ProjectFeatureTests(unittest.TestCase):
             self.assertNotIn("projects-site", classes)
         text = "".join(document.text)
         self.assertNotIn("DVD Project Lab", text)
-        for project in self.data["projects"]:
-            self.assertNotIn(project["summary"], text)
+        # The independent journal starts with the same factual project snapshot.
+        # Absence of DVD routes, controls, and panels identifies the disabled site.
 
-    def test_default_render_follows_configured_flag(self) -> None:
-        for enabled in (False, True):
-            with self.subTest(enabled=enabled), patch.object(builder, "PROJECT_LAB_ENABLED", enabled):
-                output = builder.render(REPOSITORY_ROOT)
-                self.assertEqual(output, builder.render(REPOSITORY_ROOT, project_lab_enabled=enabled))
-                if enabled:
-                    document = FeatureHTML(output)
-                    self.assertEqual(len(document.matching("data-window", "projects")), 1)
-                    self.assertTrue(document.matching("href", "#project-lab"))
-                else:
-                    self.assert_lab_absent(output)
+    def test_default_render_disables_archived_lab(self) -> None:
+        output = builder.render(REPOSITORY_ROOT)
+        self.assertEqual(output, builder.render(REPOSITORY_ROOT, project_lab_enabled=False))
+        self.assert_lab_absent(output)
+
+    def test_disabled_build_needs_no_active_project_folder(self) -> None:
+        self.assertFalse((REPOSITORY_ROOT / "sites/projects").exists())
+        self.assert_lab_absent(builder.render(REPOSITORY_ROOT))
+        self.assertNotIn("sites/projects/", builder.render_site_registry(REPOSITORY_ROOT))
+        self.assertNotIn("sites/projects/", builder.render_site_styles(REPOSITORY_ROOT))
 
     def test_disabled_render_removes_all_markup_instead_of_hiding_it(self) -> None:
         output = builder.render(REPOSITORY_ROOT, project_lab_enabled=False)
@@ -79,13 +85,16 @@ class ProjectFeatureTests(unittest.TestCase):
         document = FeatureHTML(output)
         self.assertEqual(len(document.matching("data-window", "portfolio")), 1)
         self.assertEqual(len(document.matching("data-window", "hobbies")), 1)
+        self.assertEqual(len(document.matching("data-window", "project-journal")), 1)
+        self.assertEqual(len(document.matching("id", "project-journal")), 1)
+        self.assertTrue(document.matching("href", "#project-journal"))
         self.assertTrue(document.matching("href", "#hobby-top"))
         self.assertTrue(document.matching("id", "websites"))
         self.assertIn("My Websites", "".join(document.text))
         self.assertIn("Anime MCP", "".join(document.text))
 
     def test_enabled_render_restores_catalogue_and_each_entry_point(self) -> None:
-        output = builder.render(REPOSITORY_ROOT, project_lab_enabled=True)
+        output = builder.render(self.enabled_root, project_lab_enabled=True)
         document = FeatureHTML(output)
         for name in ("data-window", "data-open-window", "data-task-window"):
             self.assertEqual(len(document.matching(name, "projects")), 1, name)
@@ -108,7 +117,7 @@ class ProjectFeatureTests(unittest.TestCase):
         normalized = "\n".join(line.strip() for line in expected.group().splitlines())
         for enabled in (False, True):
             with self.subTest(enabled=enabled):
-                output = builder.render(REPOSITORY_ROOT, project_lab_enabled=enabled)
+                output = builder.render(self.enabled_root, project_lab_enabled=enabled)
                 section = pattern.search(output)
                 self.assertIsNotNone(section)
                 self.assertEqual("\n".join(line.strip() for line in section.group().splitlines()), normalized)
@@ -141,16 +150,16 @@ class ProjectFeatureTests(unittest.TestCase):
                                 builder.render(root, project_lab_enabled=enabled)
 
     def test_flag_changes_leave_authored_lab_files_intact(self) -> None:
-        paths = sorted(path for path in (REPOSITORY_ROOT / "sites/projects").rglob("*") if path.is_file())
+        paths = sorted(path for path in (REPOSITORY_ROOT / "sites/archieve/projects").rglob("*") if path.is_file())
         self.assertTrue(paths)
         for filename in ("content.html", "styles.css", "site.js", "dvd.js", "projects.json"):
-            self.assertIn(REPOSITORY_ROOT / "sites/projects" / filename, paths)
+            self.assertIn(REPOSITORY_ROOT / "sites/archieve/projects" / filename, paths)
         paths.append(REPOSITORY_ROOT / "images/projects/dvd-video.svg")
         before = {path: path.read_bytes() for path in paths}
         builder.render(REPOSITORY_ROOT, project_lab_enabled=False)
-        builder.render(REPOSITORY_ROOT, project_lab_enabled=True)
+        builder.render(self.enabled_root, project_lab_enabled=True)
         self.assertEqual({path: path.read_bytes() for path in paths}, before)
-        self.assertEqual(sorted(path for path in (REPOSITORY_ROOT / "sites/projects").rglob("*.json")), [REPOSITORY_ROOT / "sites/projects/projects.json"])
+        self.assertEqual(sorted(path for path in (REPOSITORY_ROOT / "sites/archieve/projects").rglob("*.json")), [REPOSITORY_ROOT / "sites/archieve/projects/projects.json"])
 
     def test_disabled_region_skips_missing_include_but_enabled_build_fails(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -172,22 +181,39 @@ class ProjectFeatureTests(unittest.TestCase):
             root = Path(directory)
             shutil.copytree(REPOSITORY_ROOT / "desktop", root / "desktop")
             shutil.copytree(REPOSITORY_ROOT / "sites", root / "sites")
+            shutil.copytree(REPOSITORY_ROOT / "sites/archieve/projects", root / "sites/projects")
+            shutil.copytree(REPOSITORY_ROOT / "images/project-journal", root / "images/project-journal")
             target = root / "index.html"
             render = builder.render
+            render_registry = builder.render_site_registry
+            render_styles = builder.render_site_styles
             for published_enabled in (False, True):
                 with self.subTest(published_enabled=published_enabled):
                     target.write_text(render(root, project_lab_enabled=published_enabled), encoding="utf-8")
+                    registry = root / "assets/js/site-registry.js"
+                    styles = root / "assets/css/one-page.css"
+                    registry.parent.mkdir(parents=True, exist_ok=True)
+                    styles.parent.mkdir(parents=True, exist_ok=True)
+                    registry.write_text(render_registry(root, project_lab_enabled=published_enabled), encoding="utf-8")
+                    styles.write_text(render_styles(root, project_lab_enabled=published_enabled), encoding="utf-8")
+                    translations = root / "sites/project-journal/translations.js"
+                    translations.write_text(builder.render_translations(root), encoding="utf-8")
                     previous = target.read_bytes()
                     modified = target.stat().st_mtime_ns
+                    registry_previous = registry.read_bytes()
+                    styles_previous = styles.read_bytes()
+                    translations_previous = translations.read_bytes()
                     stdout, stderr = io.StringIO(), io.StringIO()
-                    with patch.object(builder, "PROJECT_LAB_ENABLED", not published_enabled), patch.object(builder, "ROOT", root):
-                        with patch.object(builder, "render", lambda: render(root)), patch.object(sys, "argv", ["build_site.py", "--check"]):
-                            with redirect_stdout(stdout), redirect_stderr(stderr):
-                                result = builder.main()
+                    with patch.object(builder, "ROOT", root), patch.object(builder, "render", lambda *_: render(root, project_lab_enabled=not published_enabled)), patch.object(builder, "render_site_registry", lambda *_: render_registry(root, project_lab_enabled=not published_enabled)), patch.object(builder, "render_site_styles", lambda *_: render_styles(root, project_lab_enabled=not published_enabled)), patch.object(sys, "argv", ["build_site.py", "--check"]):
+                        with redirect_stdout(stdout), redirect_stderr(stderr):
+                            result = builder.main()
                     self.assertEqual(result, 1)
                     self.assertIn("out of date", stderr.getvalue())
                     self.assertEqual(target.read_bytes(), previous)
                     self.assertEqual(target.stat().st_mtime_ns, modified)
+                    self.assertEqual(registry.read_bytes(), registry_previous)
+                    self.assertEqual(styles.read_bytes(), styles_previous)
+                    self.assertEqual(translations.read_bytes(), translations_previous)
 
 
 if __name__ == "__main__":

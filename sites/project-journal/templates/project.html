@@ -1,0 +1,51 @@
+      <article class="journal-project" id="${base}" data-journal-project-panel="${projectId}" aria-labelledby="${base}-title" tabindex="-1">
+        <section class="journal-main" aria-labelledby="${base}-current-work-title">
+          <h3 class="journal-panel-title journal-current-work" id="${base}-current-work-title">${currentWork}</h3>
+          <section class="journal-summary journal-panel">
+            <div class="journal-project-heading">
+              <h4 class="journal-project-title" id="${base}-title">${projectTitle}</h4>
+              ${projectStatus}
+            </div>
+            <div class="journal-panel-body">
+              <p class="journal-summary-text">${summaryExcerpt}</p>
+              <dl class="journal-focus">
+                <div><dt>${currentFocus}</dt><dd>${focusExcerpt}</dd></div>
+                <div><dt>${nextStep}</dt><dd>${nextStepExcerpt}</dd></div>
+              </dl>
+              <details class="journal-full-description">
+                <summary>${showDetails}</summary>
+                <p>${projectSummary}</p>
+                <dl class="journal-focus">
+                  <div><dt>${currentFocus}</dt><dd>${projectFocus}</dd></div>
+                  <div><dt>${nextStep}</dt><dd>${projectNextStep}</dd></div>
+                </dl>
+              </details>
+            </div>
+          </section>
+          <section class="journal-updates journal-panel" id="${base}-updates" aria-labelledby="${base}-updates-title" tabindex="-1">
+            <h4 class="journal-panel-title" id="${base}-updates-title">${updates}</h4>
+            <div class="journal-panel-body">
+${updateList}
+            </div>
+          </section>
+          <section class="journal-roadmap journal-panel" id="${base}-roadmap" aria-labelledby="${base}-roadmap-title" tabindex="-1">
+            <h4 class="journal-panel-title" id="${base}-roadmap-title">${roadmap}</h4>
+            <div class="journal-panel-body">
+${roadmapContent}
+            </div>
+          </section>
+        </section>
+        <aside class="journal-support">
+          <section class="journal-blocker journal-panel" aria-labelledby="${base}-blocker-title">
+            <h3 class="journal-panel-title" id="${base}-blocker-title">${currentBlocker}</h3>
+            <div class="journal-panel-body"><p>${projectBlocker}</p></div>
+          </section>
+          <section class="journal-links journal-panel" aria-labelledby="${base}-links-title">
+            <h3 class="journal-panel-title" id="${base}-links-title">${links}</h3>
+            <div class="journal-panel-body">
+${projectLinks}
+            </div>
+          </section>
+${relatedProjectsContent}
+        </aside>
+      </article>

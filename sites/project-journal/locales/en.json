@@ -1,0 +1,194 @@
+{
+  "locale": "en",
+  "languageName": "English",
+  "ui": {
+    "siteTitle": "Caleb’s Project Lab",
+    "windowTitle": "Project Lab",
+    "subtitle": "Personal projects and development notes",
+    "home": "Home",
+    "projects": "Projects",
+    "updates": "Updates",
+    "roadmap": "Roadmap",
+    "currentWork": "Current work",
+    "currentFocus": "Current focus",
+    "nextStep": "Next step",
+    "currentBlocker": "Current blocker",
+    "links": "Links",
+    "relatedProjects": "Related projects",
+    "searchProjects": "Search projects",
+    "searchPlaceholder": "Project name or keyword",
+    "search": "Search",
+    "status": "Status",
+    "allStatuses": "All",
+    "clearFilters": "Clear filters",
+    "resultCount": "{count} projects found",
+    "noResults": "No projects match your search.",
+    "noResultsFor": "No projects found for “{query}”.",
+    "selectedOutsideResults": "The selected project is outside the current results.",
+    "noBlocker": "No blocker reported.",
+    "noLinks": "No links added yet.",
+    "noUpdates": "No updates added yet.",
+    "noMilestones": "No milestones added yet.",
+    "dateNotRecorded": "Date not recorded",
+    "milestone": "Milestone",
+    "personalHomepage": "Personal homepage",
+    "backToPortfolio": "Back to portfolio",
+    "myWebsites": "My Websites",
+    "photoCredits": "Photo credits",
+    "retroScreenNotice": "This page uses a retro screen effect. If the text is hard to read, click here to turn it off.",
+    "retroScreenOff": "The retro screen effect is off. To turn it back on, use View → Retro screen effect or the screen icon in the status bar.",
+    "retroScreenDismiss": "Close this notice",
+    "photoSource": "Source",
+    "photoLicense": "License",
+    "photoBy": "Photo by",
+    "photoChanges": "All three photos were downscaled to 180 pixels tall and re-saved as lower-quality JPEGs for an early-2000s web look. The Shibuya train photo has also had its color and tone edited: lower brightness, slightly higher contrast, cooler tones, lower saturation, and light grain; the adapted photo remains CC BY-SA 4.0. The adapted Mong Kok photo remains CC BY-SA 2.5. The header displays all three with a 5:4 crop.",
+    "language": "Language",
+    "projectNavigation": "Project navigation",
+    "sectionNavigation": "Project Lab sections",
+    "projectResults": "Project search results",
+    "selectedProject": "Selected project",
+    "photoStrip": "Street and train photographs from Tokyo and Hong Kong",
+    "skipToProjects": "Skip to projects",
+    "skipToCurrentWork": "Skip to current work",
+    "showDetails": "Show project details",
+    "featured": "Featured"
+  },
+  "statuses": {
+    "in-progress": "In progress",
+    "planned": "Planned",
+    "paused": "Paused",
+    "completed": "Completed"
+  },
+  "photos": {
+    "shinjuku-rain-2016": {
+      "caption": "Shinjuku · rainy night",
+      "alt": "Umbrellas and bright Japanese signs along a wet Kabukicho street at night."
+    },
+    "yamanote-shibuya-2008-graded": {
+      "caption": "Yamanote Line · Shibuya",
+      "alt": "Green-striped Yamanote Line train passing the indoor Shibuya Station platform; color-graded 2008 photograph."
+    },
+    "mong-kok-portland-night": {
+      "caption": "Mong Kok · Portland Street",
+      "alt": "Dense neon signs above Portland Street at night, with the road receding through the center of the scene."
+    }
+  },
+  "projects": {
+    "anime-mcp": {
+      "title": "Anime MCP",
+      "summary": "Building an MCP server for anime-character search, with a focus on retrieval quality and combining lexical and embedding scores.",
+      "currentFocus": "Identify retrieval bottlenecks and select embedding models for hybrid-fusion experiments.",
+      "nextStep": "Select the embedding models, run hybrid-fusion experiments, and compare the results with published findings.",
+      "currentBlocker": "The retrieval bottleneck has not yet been identified. Model selection and comparative experiments are needed to investigate it.",
+      "milestones": {
+        "evaluation-and-lexical-foundation": {
+          "title": "Develop the evaluation and lexical-retrieval foundation",
+          "description": "Build the evaluation setup and lexical-retrieval baseline for comparing retrieval approaches."
+        },
+        "select-embedding-models": {
+          "title": "Select embedding models",
+          "description": "Model names and the final comparison set are pending."
+        },
+        "run-hybrid-fusion-experiments": {
+          "title": "Run hybrid-fusion experiments",
+          "description": "Evaluate retrieval performance and investigate where bottlenecks appear."
+        },
+        "interpret-experiment-results": {
+          "title": "Compare findings with published research",
+          "description": "Examine whether the findings extend to anime retrieval and document differences supported by the experiments. Results are not yet available."
+        }
+      },
+      "updates": {
+        "current-research-focus": {
+          "text": "The current priority is understanding retrieval bottlenecks and preparing an embedding-model comparison with hybrid fusion. Model selection and experimental results are pending."
+        }
+      },
+      "linkLabels": {
+        "https://github.com/Caleb-Leung-Kwan-Ho/Caleb-Leung-Kwan-Ho": "Public research notes",
+        "https://arxiv.org/abs/2210.11934": "Research reference: An Analysis of Fusion Functions for Hybrid Retrieval"
+      }
+    },
+    "gba-website": {
+      "title": "GBA-style personal website",
+      "summary": "A nearly finished personal website with a Game Boy Advance-style experience and A/B controls, running in the browser.",
+      "currentFocus": "Finish the remaining houses, correct character spawning, and improve the existing gameplay.",
+      "nextStep": "Add friends' houses, fix incorrect spawn locations, and refine the current gameplay.",
+      "currentBlocker": null,
+      "milestones": {
+        "finish-website-experience": {
+          "title": "Finish the browser-based website experience",
+          "description": "The existing experience is nearly complete, with a small set of additions and fixes remaining."
+        },
+        "add-friends-houses": {
+          "title": "Add friends' houses"
+        },
+        "fix-spawn-locations": {
+          "title": "Correct character spawn locations",
+          "description": "Ensure characters do not appear at the wrong location."
+        },
+        "refine-current-gameplay": {
+          "title": "Improve the existing gameplay"
+        }
+      },
+      "updates": {
+        "website-final-additions": {
+          "text": "The website is nearly finished. Remaining work includes friends' houses, spawn-location fixes, and improvements to the current gameplay. The related browser game builds on this work."
+        }
+      },
+      "linkLabels": {}
+    },
+    "browser-game": {
+      "title": "Browser game",
+      "summary": "A game growing out of the GBA-style website, with plans for expanded gameplay, NPC behavior, character classes, and offline play with local saves.",
+      "currentFocus": "Design the first version of NPC logic. Its actions are not currently organized as a state machine.",
+      "nextStep": "Continue developing the NPC logic independently before deciding on the broader implementation approach.",
+      "currentBlocker": null,
+      "milestones": {
+        "design-npc-logic-v1": {
+          "title": "Design NPC logic v1",
+          "description": "Initial action logic is being designed. The current version is not a state machine."
+        },
+        "develop-typescript-gameplay": {
+          "title": "Develop expanded gameplay in TypeScript",
+          "description": "Build on the website's browser-based foundation and GBA-style controls."
+        },
+        "add-character-classes": {
+          "title": "Add a character class system"
+        },
+        "enable-offline-play": {
+          "title": "Enable offline play",
+          "description": "The goal is a free game playable locally without a game server."
+        },
+        "add-save-file-import-export": {
+          "title": "Add local saves and save-file import/export",
+          "description": "Players should be able to keep their progress and load it again. The storage method and file format have not been selected."
+        }
+      },
+      "updates": {
+        "npc-design-underway": {
+          "text": "NPC logic design has started. The first version uses actions that are not yet a state machine. Offline play, character classes, expanded gameplay, and save-file import/export remain planned work."
+        }
+      },
+      "linkLabels": {}
+    },
+    "gluonagent": {
+      "title": "GluonAgent",
+      "summary": "An agent project paused while its complexity and research needs are reassessed.",
+      "currentFocus": "Paused pending further research.",
+      "nextStep": "Do further research before deciding how to resume the project.",
+      "currentBlocker": "The project's complexity requires more research before development can continue.",
+      "milestones": {
+        "further-research": {
+          "title": "Research the unresolved complexity",
+          "description": "Further research is needed before the project resumes."
+        }
+      },
+      "updates": {
+        "project-paused": {
+          "text": "Development is paused because the project is too complex to continue without additional research."
+        }
+      },
+      "linkLabels": {}
+    }
+  }
+}

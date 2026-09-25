@@ -1,0 +1,104 @@
+{
+  "en": {
+    "anime-mcp": {
+      "summary": "Developing an anime-character search MCP server with hybrid retrieval.",
+      "currentFocus": "Find retrieval bottlenecks and choose embedding models.",
+      "nextStep": "Run hybrid-fusion experiments and compare findings with published research.",
+      "updates": {
+        "current-research-focus": "Preparing a model comparison; selection and results are pending."
+      }
+    },
+    "gba-website": {
+      "summary": "A nearly finished GBA-style browser website with A/B controls.",
+      "currentFocus": "Finish houses, spawning fixes, and gameplay refinements.",
+      "nextStep": "Add friends' houses and correct spawn locations.",
+      "updates": {
+        "website-final-additions": "Final additions: friends' houses, spawning fixes, and gameplay."
+      }
+    },
+    "browser-game": {
+      "summary": "A browser game growing out of the GBA-style website.",
+      "currentFocus": "Design NPC logic v1; it is not yet a state machine.",
+      "nextStep": "Develop NPC logic before choosing the broader implementation approach.",
+      "updates": {
+        "npc-design-underway": "NPC logic underway; expanded gameplay, classes, offline play, and saves planned."
+      }
+    },
+    "gluonagent": {
+      "summary": "An agent project paused for more research.",
+      "currentFocus": "Reassess the project's complexity and research needs.",
+      "nextStep": "Research further before deciding how to resume.",
+      "updates": {
+        "project-paused": "Development paused: further research needed."
+      }
+    }
+  },
+  "ja": {
+    "anime-mcp": {
+      "summary": "ハイブリッド検索でアニメキャラクターを探すMCPサーバーを開発中。",
+      "currentFocus": "検索のボトルネックを特定し、埋め込みモデルを選定する。",
+      "nextStep": "スコア融合実験を行い、結果を既存研究と比較する。",
+      "updates": {
+        "current-research-focus": "モデル比較を準備中。モデルの選定と結果は未確定。"
+      }
+    },
+    "gba-website": {
+      "summary": "A/Bボタンで操作するGBA風の個人ウェブサイト。完成間近です。",
+      "currentFocus": "家の追加、出現位置の修正、ゲームプレイの改善。",
+      "nextStep": "友人の家を追加し、誤った出現位置を修正する。",
+      "updates": {
+        "website-final-additions": "完成に向けて、友人の家・出現位置・ゲームプレイを調整。"
+      }
+    },
+    "browser-game": {
+      "summary": "GBA風ウェブサイトを発展させたブラウザーゲーム。",
+      "currentFocus": "NPCロジックv1を設計中。まだステートマシンではありません。",
+      "nextStep": "全体の実装方針を決める前に、NPCロジックの設計を進める。",
+      "updates": {
+        "npc-design-underway": "NPCロジックを設計中。ゲーム拡張・クラス・オフライン・セーブは計画段階。"
+      }
+    },
+    "gluonagent": {
+      "summary": "追加調査のため、開発を一時停止したエージェントプロジェクト。",
+      "currentFocus": "プロジェクトの複雑さと調査の必要性を見直す。",
+      "nextStep": "再開方法を決める前に、さらに調査する。",
+      "updates": {
+        "project-paused": "追加調査が必要なため、開発を一時停止中。"
+      }
+    }
+  },
+  "zh-HK": {
+    "anime-mcp": {
+      "summary": "正在開發以混合檢索搜尋動畫角色的MCP伺服器。",
+      "currentFocus": "找出檢索瓶頸，並選擇嵌入模型。",
+      "nextStep": "進行評分融合實驗，並與已發表的研究比較結果。",
+      "updates": {
+        "current-research-focus": "準備模型比較；模型選擇及結果仍未確定。"
+      }
+    },
+    "gba-website": {
+      "summary": "接近完成的GBA風格瀏覽器個人網站，提供A/B按鈕操作。",
+      "currentFocus": "完成房屋、修正生成位置，並改善遊戲體驗。",
+      "nextStep": "加入朋友的房屋，並修正錯誤的生成位置。",
+      "updates": {
+        "website-final-additions": "最後新增與修正：朋友的房屋、生成位置及遊戲體驗。"
+      }
+    },
+    "browser-game": {
+      "summary": "由GBA風格網站延伸的瀏覽器遊戲。",
+      "currentFocus": "正在設計NPC邏輯v1；目前並非狀態機。",
+      "nextStep": "先推進NPC邏輯設計，再決定整體實作方向。",
+      "updates": {
+        "npc-design-underway": "NPC邏輯設計中；擴展玩法、職業、離線遊玩及存檔仍屬計劃。"
+      }
+    },
+    "gluonagent": {
+      "summary": "為進一步研究而暫停開發的智能代理項目。",
+      "currentFocus": "重新評估項目的複雜程度及研究需要。",
+      "nextStep": "先進行更多研究，再決定如何恢復開發。",
+      "updates": {
+        "project-paused": "需要進一步研究，開發已暫停。"
+      }
+    }
+  }
+}

@@ -20,7 +20,7 @@
 		<meta name="twitter:card" content="summary" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!-- Keep this order: site-specific styles intentionally override the base theme. -->
-		<link rel="stylesheet" href="assets/css/one-page.css?v=20260923-my-websites" />
+		<link rel="stylesheet" href="assets/css/one-page.css?v=20260924-active-sites" />
 		<link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
@@ -267,7 +267,7 @@
 				<footer class="window-statusbar"><span id="status-text">1 item</span><span id="portfolio-location">My Portfolio / Work</span></footer>
 			</section>
 
-			<section class="os-window websites-window" data-window="websites" role="dialog" aria-modal="false" aria-labelledby="websites-window-title" tabindex="-1" hidden>
+			<section class="os-window browser-window websites-window" data-window="websites" role="dialog" aria-modal="false" aria-labelledby="websites-window-title" tabindex="-1" hidden>
 				<header class="window-titlebar" data-titlebar>
 					<div class="window-title"><img class="window-app-icon" src="images/internet-explorer-6.svg" width="20" height="20" alt="" /><h2 id="websites-window-title">My Websites - Microsoft Internet Explorer</h2></div>
 					<div class="window-controls" aria-label="My Websites window controls"><button type="button" data-window-action="minimize" aria-label="Minimize My Websites window"><span aria-hidden="true">—</span></button><button type="button" data-window-action="maximize" aria-label="Maximize My Websites window"><span aria-hidden="true">□</span></button><button class="close-control" type="button" data-window-action="close" aria-label="Close My Websites window"><span aria-hidden="true">×</span></button></div>
@@ -275,210 +275,696 @@
 				<div class="window-menubar">
 					<details class="window-menu"><summary>File</summary><div class="window-menu-panel"><a href="#websites">Open My Websites</a><a href="#work">Back to portfolio</a><button type="button" data-window-action="close">Close window</button></div></details>
 					<details class="window-menu"><summary>Edit</summary><div class="window-menu-panel"><button type="button" data-menu-action="copy-link">Copy page link</button></div></details>
-					<details class="window-menu"><summary>View</summary><div class="window-menu-panel"><button type="button" data-menu-action="maximize">Maximize window</button><button type="button" data-menu-action="move">Move window</button><button type="button" data-menu-action="resize">Resize window</button></div></details>
-					<details class="window-menu"><summary>Favorites</summary><div class="window-menu-panel" data-websites-favorites-menu><button type="button" data-websites-favorites-toggle data-websites-favorites-label aria-expanded="false" aria-controls="websites-favorites">Show Favorites panel</button></div></details>
-					<details class="window-menu"><summary>Tools</summary><div class="window-menu-panel"><button type="button" data-menu-action="reset-position">Reset window size and position</button></div></details>
-					<details class="window-menu"><summary>Help</summary><div class="window-menu-panel window-help-panel"><p>Click a website once to open its existing window, or use Tab and Enter.</p><p>Favorites shows the same collection in a compact list. Home returns to this directory; Back and Forward follow your browsing history on this desktop.</p><p>Use Back to portfolio to return to my AI and software engineering work.</p></div></details>
-					<span class="window-menu-status" role="status" aria-live="polite"></span>
-				</div>
-				<nav class="websites-toolbar" aria-label="Website browsing controls">
-					<button class="websites-toolbar-button" type="button" data-websites-back aria-label="Go to the previous page" disabled><span class="browser-history-icon" aria-hidden="true">←</span><span>Back</span></button>
-					<button class="websites-toolbar-button" type="button" data-websites-forward aria-label="Go to the next page" disabled><span class="browser-history-icon is-forward" aria-hidden="true">→</span><span>Forward</span></button>
-					<a class="websites-toolbar-button" href="#websites"><span class="browser-home-icon icon solid fa-home" aria-hidden="true"></span><span>Home</span></a>
-					<button class="websites-toolbar-button" type="button" data-websites-favorites-toggle aria-expanded="false" aria-controls="websites-favorites"><span class="browser-favorites-icon icon solid fa-star" aria-hidden="true"></span><span>Favorites</span></button>
-				</nav>
-				<div class="websites-address"><span>Address</span><div class="websites-address-field"><img src="images/internet-explorer-6.svg" width="16" height="16" alt="" /><span data-websites-address>caleb-leung-kwan-ho.github.io/#websites</span></div><a class="websites-go" href="#websites" aria-label="Go to My Websites">Go <span aria-hidden="true">→</span></a></div>
-				<div class="websites-layout">
-					<aside id="websites-favorites" class="websites-favorites" aria-labelledby="websites-favorites-title" hidden>
-						<div class="websites-favorites-heading"><h2 id="websites-favorites-title">Favorites</h2><button type="button" data-websites-favorites-close aria-label="Close Favorites">×</button></div>
-						<nav aria-label="Favorite websites"><ul class="websites-favorites-list" data-websites-favorites-list></ul></nav>
-						<a class="websites-return" href="#work">Back to portfolio</a>
-					</aside>
-					<section id="websites" class="websites-content" tabindex="-1" aria-labelledby="websites-title">
-						<!-- Preserve old fragment links in the readable no-JavaScript document too. -->
-						<span id="my-folder" aria-hidden="true"></span><span id="hobbies" aria-hidden="true"></span>
-						<header class="websites-heading"><div><h2 id="websites-title">My Websites</h2><p>A little more about me, outside my AI work.</p></div><a class="websites-return" href="#work">Back to portfolio</a></header>
-						<div class="websites-list-heading"><h3>Around the web</h3><p data-websites-count>Website collection</p></div>
-						<ul class="websites-directory-list">
-							<li class="website-entry">
-							  <a class="website-shortcut" href="#hobby-top" data-website-name="Personal Hobbies" aria-label="Open Personal Hobbies website">
-							    <img class="website-thumbnail" src="images/websites/personal-hobbies.png" width="320" height="180" alt="" />
-							    <div class="website-summary">
-							      <h3 class="website-entry-title">Personal Hobbies</h3>
-							      <p class="website-description">Anime, manga, games &amp; a little Hong Kong.</p>
-							      <p class="website-topics">Anime · Games · Hong Kong</p>
-							      <span class="website-visit">Visit website <span aria-hidden="true">→</span></span>
-							    </div>
-							  </a>
-							</li>
-						</ul>
-						<p class="websites-growth">More sites will appear here as I build them.</p>
-					</section>
-				</div>
-				<footer class="window-statusbar"><span data-websites-count>Website collection</span><span>Internet</span></footer>
-			</section>
-
-			<section class="os-window hobbies-window" data-window="hobbies" role="dialog" aria-modal="false" aria-labelledby="hobbies-window-title" tabindex="-1" hidden>
-				<header class="window-titlebar" data-titlebar>
-					<div class="window-title"><span class="titlebar-document icon solid fa-gamepad" aria-hidden="true"></span><h2 id="hobbies-window-title">Personal Hobbies Website</h2></div>
-					<div class="window-controls" aria-label="Hobbies window controls"><button type="button" data-window-action="minimize" aria-label="Minimize hobbies window"><span aria-hidden="true">—</span></button><button type="button" data-window-action="maximize" aria-label="Maximize hobbies window"><span aria-hidden="true">□</span></button><button class="close-control" type="button" data-window-action="close" aria-label="Close hobbies window"><span aria-hidden="true">×</span></button></div>
-				</header>
-				<div class="window-menubar">
-					<details class="window-menu">
-						<summary>File</summary>
-						<div class="window-menu-panel">
-							<a href="#intro">Open Portfolio</a>
-							<a href="#projects">Open Projects &amp; Research</a>
-							<a href="#websites">Open My Websites</a>
-							<button type="button" data-window-action="close">Close window</button>
-						</div>
-					</details>
-					<details class="window-menu">
-						<summary>Edit</summary>
-						<div class="window-menu-panel">
-							<button type="button" data-menu-action="copy-link">Copy page link</button>
-						</div>
-					</details>
 					<details class="window-menu">
 						<summary>View</summary>
 						<div class="window-menu-panel">
 							<button type="button" data-menu-action="maximize">Maximize window</button>
 							<button type="button" data-menu-action="move">Move window</button>
 							<button type="button" data-menu-action="resize">Resize window</button>
-							<button type="button" data-menu-action="reset-position">Reset size and position</button>
 							<button type="button" data-menu-action="top">Back to top</button>
-							<p class="window-menu-caption">Hobbies language</p>
-							<button type="button" data-menu-language="en" lang="en" aria-pressed="true">English</button>
-							<button type="button" data-menu-language="ja" lang="ja" aria-pressed="false">日本語</button>
-							<button type="button" data-menu-language="zh-HK" lang="zh-HK" aria-pressed="false">繁體中文（香港）</button>
+							<div data-browser-language-menu hidden></div>
+							<div data-browser-display-menu hidden></div>
 						</div>
 					</details>
+					<details class="window-menu"><summary>Favorites</summary><div class="window-menu-panel" data-browser-favorites-menu><button type="button" data-browser-favorites-toggle data-browser-favorites-label aria-expanded="false" aria-controls="websites-favorites">Show Favorites panel</button></div></details>
+					<details class="window-menu"><summary>Tools</summary><div class="window-menu-panel"><button type="button" data-menu-action="reset-position">Reset window size and position</button></div></details>
 					<details class="window-menu">
 						<summary>Help</summary>
 						<div class="window-menu-panel window-help-panel">
-							<p>A personal corner for anime, manga, games, training, and Hong Kong.</p>
-							<p>Drag the title bar with a mouse or finger to move this window. Or choose View → Move window, use the arrow keys, then Enter to finish or Escape to cancel.</p>
-							<p>Drag any edge or corner to resize this window. Or choose View → Resize window and use the arrow keys, then Enter to finish or Escape to cancel.</p>
-							<p>On a phone, drag the window down to reveal the desktop. Maximize it or choose View → Reset size and position to bring the full page back. Show desktop minimizes all windows; tap a taskbar button to reopen one.</p>
-							<p>Use Tab and Enter to browse menus. Escape dismisses an open menu.</p>
-							<a href="#contact">Contact Caleb</a>
+							<p>Home opens My Websites. Favorites shows the same website collection in a compact list. Back and Forward follow your browsing history on this desktop.</p>
+							<p>Drag the title bar to move this window, or drag an edge or corner to resize it. For keyboard controls, choose View → Move window or Resize window, use the arrow keys, then Enter to finish or Escape to cancel.</p>
+							<p>On a phone, drag the window down to reveal the desktop. Maximize it or choose Tools → Reset window size and position to bring the full page back.</p>
+							<p>Use Tab and Enter to browse menus. Escape dismisses an open menu. Back to portfolio returns to my AI and software engineering work.</p>
 						</div>
 					</details>
 					<span class="window-menu-status" role="status" aria-live="polite"></span>
 				</div>
-				<div class="hobbies-window-body">
-					<div class="hobbies-site" lang="en" role="document">
-						<header id="hobby-top" class="hobby-masthead" tabindex="-1">
-							<img class="hobby-computer" src="images/hobbies/decorations/03_computer_mascot.png" width="1254" height="1254" alt="" loading="lazy" />
-							<img class="hobby-branch hobby-branch-left" src="images/hobbies/decorations/04_blossom_branch.png" width="1774" height="887" alt="" loading="lazy" />
-							<div class="hobby-brand"><h2>Caleb’s Personal<br />Hobbies Website</h2><p data-hobby-text="subtitle">Anime, manga, games &amp; a little Hong Kong.</p></div>
-							<img class="hobby-branch hobby-branch-right" src="images/hobbies/decorations/04_blossom_branch.png" width="1774" height="887" alt="" loading="lazy" />
-						</header>
-						<div class="hobbies-language-controls" role="group" aria-label="Page language" data-hobby-aria="languageLabel" hidden>
-							<button type="button" lang="en" data-hobby-language="en" aria-pressed="true">English</button><span aria-hidden="true">|</span><button type="button" lang="ja" data-hobby-language="ja" aria-pressed="false">日本語</button><span aria-hidden="true">|</span><button type="button" lang="zh-HK" data-hobby-language="zh-HK" aria-pressed="false">繁體中文（香港）</button>
-						</div>
-						<nav class="hobby-top-nav" aria-label="Hobby sections" data-hobby-aria="navLabel">
-							<a href="#hobby-anime" data-hobby-text="navAnime">Anime</a><a href="#hobby-manga" data-hobby-text="navManga">Manga</a><a href="#hobby-games" data-hobby-text="navGames">Games</a><a href="#hobby-anticipated" data-hobby-text="navAnticipated">Looking forward</a><a href="#hobby-training" data-hobby-text="navTraining">Training</a><a href="#hobby-hong-kong" data-hobby-text="navHongKong">Hong Kong</a><a href="#hobby-notes" data-hobby-text="navNotes">Student advice</a>
-						</nav>
-						<div class="hobby-star-divider" aria-hidden="true"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-						<div class="hobby-layout">
-							<aside class="hobby-sidebar">
-								<nav class="hobby-side-nav" aria-label="Hobbies menu" data-hobby-aria="sideNavLabel">
-									<a href="#hobby-anime"><img src="images/hobbies/decorations/17_icon_television.png" width="1254" height="1254" alt="" loading="lazy" /><span data-hobby-text="navAnime">Anime</span></a>
-									<a href="#hobby-manga"><img src="images/hobbies/decorations/18_icon_book.png" width="1254" height="1254" alt="" loading="lazy" /><span data-hobby-text="navManga">Manga</span></a>
-									<a href="#hobby-games"><img src="images/hobbies/decorations/19_icon_controller.png" width="1254" height="1254" alt="" loading="lazy" /><span data-hobby-text="navGames">Games</span></a>
-									<a href="#hobby-training"><img src="images/hobbies/decorations/20_icon_dumbbell.png" width="1254" height="1254" alt="" loading="lazy" /><span data-hobby-text="navTraining">Training</span></a>
-									<a href="#hobby-hong-kong"><img src="images/hobbies/decorations/21_icon_teacup.png" width="1254" height="1254" alt="" loading="lazy" /><span data-hobby-text="navHongKong">Hong Kong</span></a>
-									<a href="#hobby-anticipated"><img src="images/hobbies/decorations/22_icon_star.png" width="1254" height="1254" alt="" loading="lazy" /><span data-hobby-text="navAnticipated">Looking forward</span></a>
-									<a href="#hobby-notes"><img src="images/hobbies/decorations/23_icon_notepad.png" width="1254" height="1254" alt="" loading="lazy" /><span data-hobby-text="navNotes">Student advice</span></a>
-								</nav>
-								<span class="hobby-crop hobby-sidebar-sprig" aria-hidden="true"><img src="images/hobbies/decorations/10_sidebar_flower_sprig.png" width="1254" height="1254" loading="lazy" alt="" /></span>
-							</aside>
-							<div class="hobby-content">
-								<section class="hobby-panel hobby-welcome" aria-labelledby="hobby-welcome-title">
-									<header class="hobby-panel-heading"><img src="images/hobbies/decorations/24_icon_flower.png" width="1254" height="1254" alt="" loading="lazy" /><span class="hobby-japanese" lang="ja" aria-hidden="true">ようこそ</span><h3 id="hobby-welcome-title" data-hobby-text="welcomeLabel">Welcome!</h3></header>
-									<div class="hobby-panel-body"><p data-hobby-text="welcomeText">Hi, I’m Caleb. Welcome to my little corner for the things I enjoy.</p><span class="hobby-crop hobby-welcome-cat" aria-hidden="true"><img src="images/hobbies/decorations/08_welcome_cat.png" width="1774" height="887" alt="" loading="lazy" /></span></div>
-								</section>
-								<section id="hobby-anime" class="hobby-panel hobby-anime" aria-labelledby="hobby-anime-title" tabindex="-1">
-									<header class="hobby-panel-heading"><img src="images/hobbies/decorations/22_icon_star.png" width="1254" height="1254" alt="" loading="lazy" /><span class="hobby-japanese" lang="ja" aria-hidden="true">好きなアニメ ベスト5</span><h3 id="hobby-anime-title" data-hobby-text="animeLabel">Top 5 anime</h3></header>
-									<ol class="hobby-anime-list">
-										<li><img src="images/hobbies/thumbnails/end-of-evangelion.jpg" width="1920" height="1080" alt="The End of Evangelion" loading="lazy" /><a href="https://gkids.com/films/end-of-evangelion/" target="_blank" rel="noopener noreferrer">The End of Evangelion</a></li>
-										<li><img src="images/hobbies/thumbnails/kara-no-kyoukai-chapter-1.jpg" width="608" height="857" alt="空の境界 第一章「俯瞰風景」" loading="lazy" /><a href="https://www.karanokyoukai.com/archive/index.html" target="_blank" rel="noopener noreferrer" lang="ja">空の境界 第一章「俯瞰風景」</a></li>
-										<li><img src="images/hobbies/thumbnails/chainsaw-man-reze-arc.jpg" width="2048" height="2896" alt="Chainsaw Man Reze arc" loading="lazy" /><a href="https://chainsawman.dog/movie_reze/" target="_blank" rel="noopener noreferrer">Chainsaw Man Reze arc</a></li>
-										<li><img src="images/hobbies/thumbnails/gundam-thunderbolt.png" width="900" height="1260" alt="Gundam Thunderbolt" loading="lazy" /><a href="https://gundam-official.com/series/thunderbolt" target="_blank" rel="noopener noreferrer">Gundam Thunderbolt</a></li>
-										<li><img src="images/hobbies/thumbnails/fate-zero.jpg" width="1006" height="1439" alt="Fate/Zero" loading="lazy" /><a href="https://www.fate-zero.jp/" target="_blank" rel="noopener noreferrer">Fate/Zero</a></li>
-									</ol>
-
-								</section>
-								<div class="hobby-features">
-									<section id="hobby-manga" class="hobby-panel hobby-manga" aria-labelledby="hobby-manga-title" tabindex="-1">
-										<header class="hobby-panel-heading"><img src="images/hobbies/decorations/18_icon_book.png" width="1254" height="1254" alt="" loading="lazy" /><span class="hobby-japanese" lang="ja" aria-hidden="true">いちばん好きな漫画</span><h3 id="hobby-manga-title" data-hobby-text="mangaLabel">Favorite manga</h3></header>
-										<div class="hobby-feature"><img class="hobby-thumbnail" src="images/hobbies/thumbnails/berserk.png" width="640" height="640" alt="Berserk" loading="lazy" /><div><h4><a href="https://magazine.younganimal.com/berserk/" target="_blank" rel="noopener noreferrer">Berserk</a></h4><p data-hobby-text="favoriteManga">My favorite manga is Berserk.</p></div></div>
-									</section>
-									<section id="hobby-gem" class="hobby-panel hobby-gem" aria-labelledby="hobby-gem-title" tabindex="-1">
-										<header class="hobby-panel-heading"><img src="images/hobbies/decorations/25_icon_diamond.png" width="1254" height="1254" alt="" loading="lazy" /><span class="hobby-japanese" lang="ja" aria-hidden="true">もっと知られてほしい作品</span><h3 id="hobby-gem-title" data-hobby-text="gemLabel">Hidden gem</h3></header>
-										<div class="hobby-feature"><img class="hobby-thumbnail" src="images/hobbies/thumbnails/gundam-thunderbolt-hidden-gem.jpg" width="2880" height="1620" alt="Gundam Thunderbolt" loading="lazy" /><div><h4><a href="https://gundam-official.com/series/thunderbolt" target="_blank" rel="noopener noreferrer">Gundam Thunderbolt</a></h4><p class="hobby-small" data-hobby-text="hiddenGem">My hidden gem pick: Gundam Thunderbolt.</p></div></div>
-									</section>
-								</div>
-								<section id="hobby-games" class="hobby-panel hobby-games" aria-labelledby="hobby-games-title" tabindex="-1">
-									<header class="hobby-panel-heading"><img src="images/hobbies/decorations/19_icon_controller.png" width="1254" height="1254" alt="" loading="lazy" /><span class="hobby-japanese" lang="ja" aria-hidden="true">ゲーム</span><h3 id="hobby-games-title" data-hobby-text="gamesLabel">Games</h3></header>
-									<div class="hobby-panel-body"><p class="hobby-small" data-hobby-text="gamesNote">I played these games between May and November 2025. I’m too busy to play at the moment, but they’re all games I enjoyed and would recommend trying. I hope to get back to gaming someday.</p>
-										<ul class="hobby-game-list"><li><img src="images/hobbies/thumbnails/monster-hunter-rise-sunbreak.png" width="400" height="225" alt="Monster Hunter Rise: Sunbreak" loading="lazy" /><a href="https://www.monsterhunter.com/rise-sunbreak/" target="_blank" rel="noopener noreferrer">Monster Hunter Rise: Sunbreak</a></li><li><img src="images/hobbies/thumbnails/monster-hunter-wilds.png" width="800" height="450" alt="Monster Hunter Wilds" loading="lazy" /><a href="https://www.monsterhunter.com/wilds/" target="_blank" rel="noopener noreferrer">Monster Hunter Wilds</a></li><li><img src="images/hobbies/thumbnails/gundam-maxiboost-on.jpg" width="2160" height="1215" alt="Gundam Extreme Maxiboost ON" loading="lazy" /><a href="https://en.bandainamcoent.eu/gundam/mobile-suit-gundam-extreme-vs-maxiboost" target="_blank" rel="noopener noreferrer">Mobile Suit Gundam Extreme VS. Maxiboost ON</a></li><li><img src="images/hobbies/thumbnails/cyberpunk-2077.jpg" width="640" height="360" alt="Cyberpunk" loading="lazy" /><a href="https://www.cyberpunk.net/us/en/cyberpunk-2077" target="_blank" rel="noopener noreferrer">Cyberpunk</a></li></ul>
-									</div>
-								</section>
-
-							</div>
-							<div class="hobby-aside">
-								<section id="hobby-watching" class="hobby-panel hobby-watching" aria-labelledby="hobby-watching-title" tabindex="-1">
-									<header class="hobby-panel-heading"><img src="images/hobbies/decorations/17_icon_television.png" width="1254" height="1254" alt="" loading="lazy" /><span class="hobby-japanese" lang="ja" aria-hidden="true">近況</span><h3 id="hobby-watching-title" data-hobby-text="watchingLabel">Currently watching</h3></header>
-									<ul class="hobby-watch-list"><li><img src="images/hobbies/thumbnails/nier-automata.jpg" width="707" height="999" loading="lazy" alt="NieR:Automata" /><a href="https://nierautomata-anime.com/" target="_blank" rel="noopener noreferrer" data-hobby-text="nierTitle">NieR:Automata — Season 2</a></li><li><img src="images/hobbies/thumbnails/grand-blue-season-3.jpg" width="700" height="990" loading="lazy" alt="Grand Blue" /><a href="https://grandblue-anime.com/" target="_blank" rel="noopener noreferrer" data-hobby-text="grandBlueTitle">Grand Blue — Season 3</a></li><li><img src="images/hobbies/thumbnails/yomi-no-tsugai.webp" width="1920" height="1080" loading="lazy" alt="黄泉のツガイ" /><a href="https://yominotsugai.com/" target="_blank" rel="noopener noreferrer" lang="ja">黄泉のツガイ</a></li></ul>
-								</section>
-								<section class="hobby-panel hobby-lately" aria-labelledby="hobby-lately-title"><header class="hobby-panel-heading"><img src="images/hobbies/decorations/27_icon_sprout.png" width="1254" height="1254" alt="" loading="lazy" /><h3 id="hobby-lately-title" data-hobby-text="latelyLabel">Lately</h3></header><div class="hobby-panel-body"><p data-hobby-text="latelyNote">I’ve been busy working on Anime MCP lately.</p></div></section>
-								<section id="hobby-anticipated" class="hobby-panel hobby-anticipated" aria-labelledby="hobby-anticipated-title" tabindex="-1"><header class="hobby-panel-heading"><img src="images/hobbies/decorations/26_icon_music_note.png" width="1254" height="1254" alt="" loading="lazy" /><span class="hobby-japanese" lang="ja" aria-hidden="true">楽しみにしているアニメ</span><h3 id="hobby-anticipated-title" data-hobby-text="anticipatedLabel">Looking forward to</h3></header><ul class="hobby-watch-list"><li><img src="images/hobbies/thumbnails/cyberpunk-edgerunners-2.jpg" width="715" height="500" loading="lazy" alt="Cyberpunk: Edgerunners" /><a href="https://www.cyberpunk.net/en/edgerunners2" target="_blank" rel="noopener noreferrer" data-hobby-text="edgerunnersTitle">Cyberpunk: Edgerunners — Season 2</a></li><li><img src="images/hobbies/thumbnails/fate-strange-fake.jpg" width="2560" height="1440" loading="lazy" alt="Fate/strange Fake" /><a href="https://fatesf-anime.com/" target="_blank" rel="noopener noreferrer" data-hobby-text="strangeFakeTitle">Fate/strange Fake — Season 2</a></li></ul><p class="hobby-pending" data-hobby-text="musicNote">I’m looking forward to these two anime, and I love the music from both series.</p><p class="hobby-pending" data-hobby-text="animeNotesPending">More thoughts to come.</p></section>
-								<section id="hobby-training" class="hobby-panel hobby-training" aria-labelledby="hobby-training-title" tabindex="-1">
-										<header class="hobby-panel-heading"><img src="images/hobbies/decorations/20_icon_dumbbell.png" width="1254" height="1254" loading="lazy" alt="" /><span class="hobby-japanese" lang="ja" aria-hidden="true">トレーニングメニュー</span><h3 id="hobby-training-title" data-hobby-text="trainingLabel">Training</h3></header>
-										<div class="hobby-panel-body">
-											<p class="hobby-small" data-hobby-text="trainingIntro">I train for upper-body development and better jumping. My week includes five lifting sessions, Sunday jump practice, and a Wednesday rest day.</p>
-											<p class="hobby-small" data-hobby-text="trainingInjury">I’m temporarily adjusting my training around an elbow injury, so some movements are currently limited.</p>
-											<details class="hobby-routine"><summary data-hobby-text="trainingDetails">View my weekly routine</summary><dl><div><dt><span data-hobby-text="dayMonday">Monday</span> · <span data-hobby-text="workoutMonday">Short upper-body session</span></dt><dd data-hobby-text="exerciseMonday">Machine shoulder press, machine chest press, chest-supported machine row, seated dumbbell lateral raise, reverse pec deck.</dd></div>
-												<div><dt><span data-hobby-text="dayTuesday">Tuesday</span> · <span data-hobby-text="workoutTuesday">Lower-body maintenance</span></dt><dd data-hobby-text="exerciseTuesday">Front squat, Bulgarian split squat, back extension, single-leg press, single-leg seated hamstring curl, calf raise.</dd></div>
-												<div><dt><span data-hobby-text="dayWednesday">Wednesday</span> · <span data-hobby-text="workoutWednesday">Rest</span></dt><dd data-hobby-text="exerciseWednesday">Rest day.</dd></div>
-												<div><dt><span data-hobby-text="dayThursday">Thursday</span> · <span data-hobby-text="workoutThursday">Medium upper-body session</span></dt><dd data-hobby-text="exerciseThursday">Machine chest and shoulder presses, Gironda-style and seated dumbbell lateral raises, single-arm incline machine press, pec deck, reverse pec deck.</dd></div>
-												<div><dt><span data-hobby-text="dayFriday">Friday</span> · <span data-hobby-text="workoutFriday">Back</span></dt><dd data-hobby-text="exerciseFriday">Chest-supported machine row, angled pulldown / high row, reverse pec deck.</dd></div>
-												<div><dt><span data-hobby-text="daySaturday">Saturday</span> · <span data-hobby-text="workoutSaturday">Longer upper-body session</span></dt><dd data-hobby-text="exerciseSaturday">Machine shoulder and chest presses, Gironda-style lateral raise, single-arm incline machine press, pec deck, reverse pec deck, machine ab crunch.</dd></div>
-												<div><dt><span data-hobby-text="daySunday">Sunday</span> · <span data-hobby-text="workoutSunday">Jump and dunk practice</span></dt><dd data-hobby-text="exerciseSunday">One-foot jump progression.</dd></div></dl></details>
-											<p class="hobby-small" data-hobby-text="trainingDescription">More routine details to come.</p>
-										</div>
-									</section>
-								<img class="hobby-desktop-garden" src="images/hobbies/decorations/11_garden_desktop.png" width="1983" height="793" loading="lazy" alt="" />
-							</div>
-							<div class="hobby-bottom">
-								<section id="hobby-hong-kong" class="hobby-panel hobby-hong-kong" aria-labelledby="hobby-hong-kong-title" tabindex="-1">
-									<header class="hobby-panel-heading"><img src="images/hobbies/decorations/24_icon_flower.png" width="1254" height="1254" alt="" loading="lazy" /><span class="hobby-japanese" lang="ja" aria-hidden="true">地元・香港のこと</span><h3 id="hobby-hong-kong-title" data-hobby-text="hongKongLabel">Hong Kong</h3></header>
-									<div class="hobby-hong-kong-content"><picture><source media="(max-width: 980px)" srcset="images/hobbies/decorations/14_hong_kong_harbour.png" /><img class="hobby-harbour" src="images/hobbies/decorations/13_hong_kong_cafe.png" width="1672" height="941" loading="lazy" alt="" /></picture><div><p class="hobby-small" data-hobby-text="hongKongNote">I’m from Sha Tin, Hong Kong, and haven’t been back since 2019. I love 芝士鮮魷, 大排檔, and 茶餐廳.</p><a class="hobby-small" href="mailto:caleb.leungkwanho@gmail.com" data-hobby-text="hongKongEmail">Have a favorite 大排檔 or 茶餐廳? Email me your recommendations!</a></div><picture class="hobby-crop hobby-drink"><source media="(max-width: 980px)" srcset="images/hobbies/decorations/16_tea_and_toast.png" /><img src="images/hobbies/decorations/15_iced_milk_tea.png" width="1254" height="1254" loading="lazy" alt="" /></picture></div>
-								</section>
-								<section id="hobby-notes" class="hobby-panel hobby-notes" aria-labelledby="hobby-notes-title" tabindex="-1">
-										<header class="hobby-panel-heading"><img src="images/hobbies/decorations/23_icon_notepad.png" width="1254" height="1254" loading="lazy" alt="" /><span class="hobby-japanese" lang="ja" aria-hidden="true">留学生へのアドバイス</span><h3 id="hobby-notes-title" data-hobby-text="notesLabel">Advice for International Students</h3></header>
-										<div class="hobby-panel-body">
-											<p class="hobby-small" data-hobby-text="notesIntro">What I would prepare differently for studying and building a career in America. These are personal suggestions; your goals and budget may differ.</p><details class="hobby-advice"><summary><span aria-hidden="true">1. </span><span data-hobby-text="adviceOneTitle">Choose a degree with a career plan</span></summary><p data-hobby-text="adviceOneBody">If your goal is working in the U.S., I would consider a STEM-eligible program that fits your interests and target jobs. Check the exact program’s STEM OPT eligibility with the school, and plan for OPT and possible employer-sponsored H-1B early. Eligible students can apply for a 24-month STEM OPT extension after the initial post-completion OPT period of up to 12 months, allowing up to 36 months in total if approved. Those two extra years can give a sponsoring employer more opportunities to register you for the annual H-1B selection process (lottery), depending on timing and continued eligibility; selection is not guaranteed. Neither a degree nor STEM OPT guarantees a job or long-term status.</p></details>
-											<details class="hobby-advice"><summary><span aria-hidden="true">2. </span><span data-hobby-text="adviceDegreeTitle">Plan the full path for a theoretical degree</span></summary>
-												<p data-hobby-text="adviceDegreeBody">With a theoretical subject such as pure mathematics, I would plan beyond the degree title. Proof-based study can involve a long learning curve before you are ready for independent research, and an undergraduate degree alone may not prepare you for a specific job. Look at actual entry-level roles and the coding, statistics, applied knowledge, or experience they require. Do not assume the degree by itself will lead to U.S. employment or sponsorship.</p>
-												<p data-hobby-text="adviceGraduateBody">Before committing, decide whether you want to work after your bachelor’s or pursue a master’s or PhD, and whether you are prepared for the academic demands and extra years. For an academic research career, plan for doctoral study. Work out the full cost: tuition, living expenses, funding conditions, and income you would forgo. Keep an alternative plan if funding, admission, or your interests change.</p>
-												<p data-hobby-text="adviceBudgetBody">One route worth comparing is an affordable undergraduate degree outside the U.S., followed by a U.S. master’s. I would compare specific programs in Japan, Taiwan, the UK, or Australia, including the option of studying at home. None is automatically cheaper: compare total costs, scholarships, course length, language requirements, and whether the degree meets the U.S. graduate program’s admissions prerequisites.</p>
-											</details>
-											<details class="hobby-advice"><summary><span aria-hidden="true">3. </span><span data-hobby-text="adviceTwoTitle">Be clear about why you are going</span></summary><p data-hobby-text="adviceTwoBody">A year of cultural exchange can be worthwhile on its own. If learning English is the main goal, I would compare options in the UK and Australia before paying for a U.S. program. Compare tuition, housing and course length rather than assume one country is always cheaper. If building an overseas career is the goal, research the programs, job market and work-authorization requirements before enrolling.</p></details>
-											<details class="hobby-advice"><summary><span aria-hidden="true">4. </span><span data-hobby-text="adviceThreeTitle">Start preparing before you arrive</span></summary><p data-hobby-text="adviceThreeBody">I would build practical coding skills before university—perhaps through an affordable short coding bootcamp at home, even for physics, chemistry or math. Compare cost and quality; a certificate is not a degree or job guarantee. Open LinkedIn early, build projects, meet people and learn internship recruiting timelines instead of waiting until graduation.</p></details>
-											<p class="hobby-small hobby-advice-sources"><span data-hobby-text="notesSourcesLabel">Check current requirements</span>: <a href="https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-extension-for-stem-students-stem-opt" target="_blank" rel="noopener noreferrer" data-hobby-text="optSourceLabel">STEM OPT</a> · <a href="https://travel.state.gov/content/travel/en/us-visas/employment/temporary-worker-visas.html" target="_blank" rel="noopener noreferrer" data-hobby-text="h1bSourceLabel">H-1B</a></p>
-											<p class="hobby-small" data-hobby-text="notesPending">More advice coming soon.</p>
-										</div>
-									</section>
-							</div>
-						</div>
-						<footer class="hobby-footer"><span class="hobby-crop hobby-footer-flowers" aria-hidden="true"><img src="images/hobbies/decorations/09_footer_flowers_left.png" width="2172" height="724" loading="lazy" alt="" /></span><div><p data-hobby-text="thanks">Thank you for visiting!</p><nav aria-label="Return links" data-hobby-aria="returnNavLabel"><a href="#intro" data-hobby-return data-hobby-text="return">Back to my main website</a><a href="#hobby-top" data-hobby-text="top">Back to top</a></nav></div><span class="hobby-crop hobby-mobile-garden" aria-hidden="true"><img src="images/hobbies/decorations/12_garden_mobile.png" width="1983" height="793" loading="lazy" alt="" /></span></footer>
-						<p class="hobby-art-note"><span data-hobby-text="artReuseNote">You’re welcome to share and reuse this site’s custom pixel artwork—just email me to let me know where it appears and credit Caleb Leung.</span> <a href="ARTWORK_TERMS.md" target="_blank" rel="noopener noreferrer" data-hobby-text="artTermsLabel">Artwork sharing policy</a></p>
-						<p class="hobby-art-note" data-hobby-text="artNote">Artwork belongs to its respective owners. Unofficial fan page; not approved or endorsed by CD PROJEKT RED.</p>
+				<nav class="browser-toolbar" aria-label="Website browsing controls">
+					<button class="browser-toolbar-button" type="button" data-browser-back aria-label="Go to the previous page" disabled><span class="browser-history-icon" aria-hidden="true">←</span><span>Back</span></button>
+					<button class="browser-toolbar-button" type="button" data-browser-forward aria-label="Go to the next page" disabled><span class="browser-history-icon is-forward" aria-hidden="true">→</span><span>Forward</span></button>
+					<a class="browser-toolbar-button" href="#websites"><span class="browser-home-icon icon solid fa-home" aria-hidden="true"></span><span>Home</span></a>
+					<button class="browser-toolbar-button" type="button" data-browser-favorites-toggle aria-expanded="false" aria-controls="websites-favorites"><span class="browser-favorites-icon icon solid fa-star" aria-hidden="true"></span><span>Favorites</span></button>
+				</nav>
+				<div class="browser-address"><span>Address</span><div class="browser-address-field"><img src="images/internet-explorer-6.svg" width="16" height="16" alt="" /><span data-browser-address>caleb-leung-kwan-ho.github.io/#websites</span></div><a class="browser-go" data-browser-go href="#websites" aria-label="Go to My Websites">Go <span aria-hidden="true">→</span></a></div>
+				<div class="browser-layout">
+					<aside id="websites-favorites" class="browser-favorites" aria-labelledby="websites-favorites-title" hidden>
+						<div class="browser-favorites-heading"><h2 id="websites-favorites-title">Favorites</h2><button type="button" data-browser-favorites-close aria-label="Close Favorites">×</button></div>
+						<nav aria-label="Favorite websites"><ul class="browser-favorites-list" data-browser-favorites-list></ul></nav>
+						<a class="browser-return" href="#work">Back to portfolio</a>
+					</aside>
+					<div class="browser-page">
+						<section id="websites" class="websites-content" tabindex="-1" aria-labelledby="websites-title">
+							<!-- Preserve old fragment links in the readable no-JavaScript document too. -->
+							<span id="my-folder" aria-hidden="true"></span><span id="hobbies" aria-hidden="true"></span>
+							<header class="websites-heading"><div><h2 id="websites-title">My Websites</h2><p>A little more about me, outside my AI work.</p></div><a class="websites-return" href="#work">Back to portfolio</a></header>
+							<div class="websites-list-heading"><h3>Around the web</h3><p data-websites-count>Website collection</p></div>
+							<ul class="websites-directory-list">
+								<li class="website-entry">
+								  <a class="website-shortcut" href="#hobby-top" data-website-name="Personal Hobbies" aria-label="Open Personal Hobbies website">
+								    <img class="website-thumbnail" src="images/websites/personal-hobbies.png" width="320" height="180" alt="" />
+								    <div class="website-summary">
+								      <h3 class="website-entry-title">Personal Hobbies</h3>
+								      <p class="website-description">Anime, manga, games &amp; a little Hong Kong.</p>
+								      <p class="website-topics">Anime · Games · Hong Kong</p>
+								      <span class="website-visit">Visit website <span aria-hidden="true">→</span></span>
+								    </div>
+								  </a>
+								</li>
+								<li class="website-entry">
+								  <a class="website-shortcut" href="#project-journal" data-website-name="Project Lab" aria-label="Open Project Lab website">
+								    <img class="website-thumbnail" src="images/websites/project-lab.png" width="320" height="180" alt="" />
+								    <div class="website-summary">
+								      <h3 class="website-entry-title">Project Lab</h3>
+								      <p class="website-description">Personal projects and development notes.</p>
+								      <p class="website-topics">Projects · Development notes · Development progress</p>
+								      <span class="website-visit">Visit website <span aria-hidden="true">→</span></span>
+								    </div>
+								  </a>
+								</li>
+							</ul>
+							<p class="websites-growth">More sites will appear here as I build them.</p>
+						</section>
 					</div>
 				</div>
+				<footer class="window-statusbar browser-statusbar">
+					<span><img src="images/internet-explorer-6.svg" width="16" height="16" alt="" />Done</span>
+					<span class="browser-status-icons" data-browser-status-icons hidden></span>
+					<span><img src="images/internet-zone.svg" width="16" height="16" alt="" />Internet</span>
+				</footer>
+			</section>
+
+			<section class="os-window browser-window hobbies-window" data-window="hobbies" role="dialog" aria-modal="false" aria-labelledby="hobbies-window-title" tabindex="-1" hidden>
+				<header class="window-titlebar" data-titlebar>
+					<div class="window-title"><img class="window-app-icon" src="images/internet-explorer-6.svg" width="20" height="20" alt="" /><h2 id="hobbies-window-title">Personal Hobbies - Microsoft Internet Explorer</h2></div>
+					<div class="window-controls" aria-label="Personal Hobbies window controls"><button type="button" data-window-action="minimize" aria-label="Minimize Personal Hobbies window"><span aria-hidden="true">—</span></button><button type="button" data-window-action="maximize" aria-label="Maximize Personal Hobbies window"><span aria-hidden="true">□</span></button><button class="close-control" type="button" data-window-action="close" aria-label="Close Personal Hobbies window"><span aria-hidden="true">×</span></button></div>
+				</header>
+				<div class="window-menubar">
+					<details class="window-menu"><summary>File</summary><div class="window-menu-panel"><a href="#websites">Open My Websites</a><a href="#work">Back to portfolio</a><button type="button" data-window-action="close">Close window</button></div></details>
+					<details class="window-menu"><summary>Edit</summary><div class="window-menu-panel"><button type="button" data-menu-action="copy-link">Copy page link</button></div></details>
+					<details class="window-menu">
+						<summary>View</summary>
+						<div class="window-menu-panel">
+							<button type="button" data-menu-action="maximize">Maximize window</button>
+							<button type="button" data-menu-action="move">Move window</button>
+							<button type="button" data-menu-action="resize">Resize window</button>
+							<button type="button" data-menu-action="top">Back to top</button>
+							<div data-browser-language-menu hidden></div>
+							<div data-browser-display-menu hidden></div>
+						</div>
+					</details>
+					<details class="window-menu"><summary>Favorites</summary><div class="window-menu-panel" data-browser-favorites-menu><button type="button" data-browser-favorites-toggle data-browser-favorites-label aria-expanded="false" aria-controls="hobbies-favorites">Show Favorites panel</button></div></details>
+					<details class="window-menu"><summary>Tools</summary><div class="window-menu-panel"><button type="button" data-menu-action="reset-position">Reset window size and position</button></div></details>
+					<details class="window-menu">
+						<summary>Help</summary>
+						<div class="window-menu-panel window-help-panel">
+							<p>Home opens My Websites. Favorites shows the same website collection in a compact list. Back and Forward follow your browsing history on this desktop.</p>
+							<p>Drag the title bar to move this window, or drag an edge or corner to resize it. For keyboard controls, choose View → Move window or Resize window, use the arrow keys, then Enter to finish or Escape to cancel.</p>
+							<p>On a phone, drag the window down to reveal the desktop. Maximize it or choose Tools → Reset window size and position to bring the full page back.</p>
+							<p>Use Tab and Enter to browse menus. Escape dismisses an open menu. Back to portfolio returns to my AI and software engineering work.</p>
+						</div>
+					</details>
+					<span class="window-menu-status" role="status" aria-live="polite"></span>
+				</div>
+				<nav class="browser-toolbar" aria-label="Website browsing controls">
+					<button class="browser-toolbar-button" type="button" data-browser-back aria-label="Go to the previous page" disabled><span class="browser-history-icon" aria-hidden="true">←</span><span>Back</span></button>
+					<button class="browser-toolbar-button" type="button" data-browser-forward aria-label="Go to the next page" disabled><span class="browser-history-icon is-forward" aria-hidden="true">→</span><span>Forward</span></button>
+					<a class="browser-toolbar-button" href="#websites"><span class="browser-home-icon icon solid fa-home" aria-hidden="true"></span><span>Home</span></a>
+					<button class="browser-toolbar-button" type="button" data-browser-favorites-toggle aria-expanded="false" aria-controls="hobbies-favorites"><span class="browser-favorites-icon icon solid fa-star" aria-hidden="true"></span><span>Favorites</span></button>
+				</nav>
+				<div class="browser-address"><span>Address</span><div class="browser-address-field"><img src="images/internet-explorer-6.svg" width="16" height="16" alt="" /><span data-browser-address>caleb-leung-kwan-ho.github.io/#hobby-top</span></div><a class="browser-go" data-browser-go href="#hobby-top" aria-label="Go to Personal Hobbies">Go <span aria-hidden="true">→</span></a></div>
+				<div class="browser-layout">
+					<aside id="hobbies-favorites" class="browser-favorites" aria-labelledby="hobbies-favorites-title" hidden>
+						<div class="browser-favorites-heading"><h2 id="hobbies-favorites-title">Favorites</h2><button type="button" data-browser-favorites-close aria-label="Close Favorites">×</button></div>
+						<nav aria-label="Favorite websites"><ul class="browser-favorites-list" data-browser-favorites-list></ul></nav>
+						<a class="browser-return" href="#work">Back to portfolio</a>
+					</aside>
+					<div class="browser-page">
+						<div class="hobbies-window-body">
+							<div class="hobbies-site" lang="en" role="document">
+								<header id="hobby-top" class="hobby-masthead" tabindex="-1">
+									<img class="hobby-computer" src="images/hobbies/decorations/03_computer_mascot.png" width="1254" height="1254" alt="" loading="lazy" />
+									<img class="hobby-branch hobby-branch-left" src="images/hobbies/decorations/04_blossom_branch.png" width="1774" height="887" alt="" loading="lazy" />
+									<div class="hobby-brand"><h2>Caleb’s Personal<br />Hobbies Website</h2><p data-hobby-text="subtitle">Anime, manga, games &amp; a little Hong Kong.</p></div>
+									<img class="hobby-branch hobby-branch-right" src="images/hobbies/decorations/04_blossom_branch.png" width="1774" height="887" alt="" loading="lazy" />
+								</header>
+								<div class="hobbies-language-controls" role="group" aria-label="Page language" data-hobby-aria="languageLabel" hidden>
+									<button type="button" lang="en" data-hobby-language="en" aria-pressed="true">English</button><span aria-hidden="true">|</span><button type="button" lang="ja" data-hobby-language="ja" aria-pressed="false">日本語</button><span aria-hidden="true">|</span><button type="button" lang="zh-HK" data-hobby-language="zh-HK" aria-pressed="false">繁體中文（香港）</button>
+								</div>
+								<nav class="hobby-top-nav" aria-label="Hobby sections" data-hobby-aria="navLabel">
+									<a href="#hobby-anime" data-hobby-text="navAnime">Anime</a><a href="#hobby-manga" data-hobby-text="navManga">Manga</a><a href="#hobby-games" data-hobby-text="navGames">Games</a><a href="#hobby-anticipated" data-hobby-text="navAnticipated">Looking forward</a><a href="#hobby-training" data-hobby-text="navTraining">Training</a><a href="#hobby-hong-kong" data-hobby-text="navHongKong">Hong Kong</a><a href="#hobby-notes" data-hobby-text="navNotes">Student advice</a>
+								</nav>
+								<div class="hobby-star-divider" aria-hidden="true"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+								<div class="hobby-layout">
+									<aside class="hobby-sidebar">
+										<nav class="hobby-side-nav" aria-label="Hobbies menu" data-hobby-aria="sideNavLabel">
+											<a href="#hobby-anime"><img src="images/hobbies/decorations/17_icon_television.png" width="1254" height="1254" alt="" loading="lazy" /><span data-hobby-text="navAnime">Anime</span></a>
+											<a href="#hobby-manga"><img src="images/hobbies/decorations/18_icon_book.png" width="1254" height="1254" alt="" loading="lazy" /><span data-hobby-text="navManga">Manga</span></a>
+											<a href="#hobby-games"><img src="images/hobbies/decorations/19_icon_controller.png" width="1254" height="1254" alt="" loading="lazy" /><span data-hobby-text="navGames">Games</span></a>
+											<a href="#hobby-training"><img src="images/hobbies/decorations/20_icon_dumbbell.png" width="1254" height="1254" alt="" loading="lazy" /><span data-hobby-text="navTraining">Training</span></a>
+											<a href="#hobby-hong-kong"><img src="images/hobbies/decorations/21_icon_teacup.png" width="1254" height="1254" alt="" loading="lazy" /><span data-hobby-text="navHongKong">Hong Kong</span></a>
+											<a href="#hobby-anticipated"><img src="images/hobbies/decorations/22_icon_star.png" width="1254" height="1254" alt="" loading="lazy" /><span data-hobby-text="navAnticipated">Looking forward</span></a>
+											<a href="#hobby-notes"><img src="images/hobbies/decorations/23_icon_notepad.png" width="1254" height="1254" alt="" loading="lazy" /><span data-hobby-text="navNotes">Student advice</span></a>
+										</nav>
+										<span class="hobby-crop hobby-sidebar-sprig" aria-hidden="true"><img src="images/hobbies/decorations/10_sidebar_flower_sprig.png" width="1254" height="1254" loading="lazy" alt="" /></span>
+									</aside>
+									<div class="hobby-content">
+										<section class="hobby-panel hobby-welcome" aria-labelledby="hobby-welcome-title">
+											<header class="hobby-panel-heading"><img src="images/hobbies/decorations/24_icon_flower.png" width="1254" height="1254" alt="" loading="lazy" /><span class="hobby-japanese" lang="ja" aria-hidden="true">ようこそ</span><h3 id="hobby-welcome-title" data-hobby-text="welcomeLabel">Welcome!</h3></header>
+											<div class="hobby-panel-body"><p data-hobby-text="welcomeText">Hi, I’m Caleb. Welcome to my little corner for the things I enjoy.</p><span class="hobby-crop hobby-welcome-cat" aria-hidden="true"><img src="images/hobbies/decorations/08_welcome_cat.png" width="1774" height="887" alt="" loading="lazy" /></span></div>
+										</section>
+										<section id="hobby-anime" class="hobby-panel hobby-anime" aria-labelledby="hobby-anime-title" tabindex="-1">
+											<header class="hobby-panel-heading"><img src="images/hobbies/decorations/22_icon_star.png" width="1254" height="1254" alt="" loading="lazy" /><span class="hobby-japanese" lang="ja" aria-hidden="true">好きなアニメ ベスト5</span><h3 id="hobby-anime-title" data-hobby-text="animeLabel">Top 5 anime</h3></header>
+											<ol class="hobby-anime-list">
+												<li><img src="images/hobbies/thumbnails/end-of-evangelion.jpg" width="1920" height="1080" alt="The End of Evangelion" loading="lazy" /><a href="https://gkids.com/films/end-of-evangelion/" target="_blank" rel="noopener noreferrer">The End of Evangelion</a></li>
+												<li><img src="images/hobbies/thumbnails/kara-no-kyoukai-chapter-1.jpg" width="608" height="857" alt="空の境界 第一章「俯瞰風景」" loading="lazy" /><a href="https://www.karanokyoukai.com/archive/index.html" target="_blank" rel="noopener noreferrer" lang="ja">空の境界 第一章「俯瞰風景」</a></li>
+												<li><img src="images/hobbies/thumbnails/chainsaw-man-reze-arc.jpg" width="2048" height="2896" alt="Chainsaw Man Reze arc" loading="lazy" /><a href="https://chainsawman.dog/movie_reze/" target="_blank" rel="noopener noreferrer">Chainsaw Man Reze arc</a></li>
+												<li><img src="images/hobbies/thumbnails/gundam-thunderbolt.png" width="900" height="1260" alt="Gundam Thunderbolt" loading="lazy" /><a href="https://gundam-official.com/series/thunderbolt" target="_blank" rel="noopener noreferrer">Gundam Thunderbolt</a></li>
+												<li><img src="images/hobbies/thumbnails/fate-zero.jpg" width="1006" height="1439" alt="Fate/Zero" loading="lazy" /><a href="https://www.fate-zero.jp/" target="_blank" rel="noopener noreferrer">Fate/Zero</a></li>
+											</ol>
+
+										</section>
+										<div class="hobby-features">
+											<section id="hobby-manga" class="hobby-panel hobby-manga" aria-labelledby="hobby-manga-title" tabindex="-1">
+												<header class="hobby-panel-heading"><img src="images/hobbies/decorations/18_icon_book.png" width="1254" height="1254" alt="" loading="lazy" /><span class="hobby-japanese" lang="ja" aria-hidden="true">いちばん好きな漫画</span><h3 id="hobby-manga-title" data-hobby-text="mangaLabel">Favorite manga</h3></header>
+												<div class="hobby-feature"><img class="hobby-thumbnail" src="images/hobbies/thumbnails/berserk.png" width="640" height="640" alt="Berserk" loading="lazy" /><div><h4><a href="https://magazine.younganimal.com/berserk/" target="_blank" rel="noopener noreferrer">Berserk</a></h4><p data-hobby-text="favoriteManga">My favorite manga is Berserk.</p></div></div>
+											</section>
+											<section id="hobby-gem" class="hobby-panel hobby-gem" aria-labelledby="hobby-gem-title" tabindex="-1">
+												<header class="hobby-panel-heading"><img src="images/hobbies/decorations/25_icon_diamond.png" width="1254" height="1254" alt="" loading="lazy" /><span class="hobby-japanese" lang="ja" aria-hidden="true">もっと知られてほしい作品</span><h3 id="hobby-gem-title" data-hobby-text="gemLabel">Hidden gem</h3></header>
+												<div class="hobby-feature"><img class="hobby-thumbnail" src="images/hobbies/thumbnails/gundam-thunderbolt-hidden-gem.jpg" width="2880" height="1620" alt="Gundam Thunderbolt" loading="lazy" /><div><h4><a href="https://gundam-official.com/series/thunderbolt" target="_blank" rel="noopener noreferrer">Gundam Thunderbolt</a></h4><p class="hobby-small" data-hobby-text="hiddenGem">My hidden gem pick: Gundam Thunderbolt.</p></div></div>
+											</section>
+										</div>
+										<section id="hobby-games" class="hobby-panel hobby-games" aria-labelledby="hobby-games-title" tabindex="-1">
+											<header class="hobby-panel-heading"><img src="images/hobbies/decorations/19_icon_controller.png" width="1254" height="1254" alt="" loading="lazy" /><span class="hobby-japanese" lang="ja" aria-hidden="true">ゲーム</span><h3 id="hobby-games-title" data-hobby-text="gamesLabel">Games</h3></header>
+											<div class="hobby-panel-body"><p class="hobby-small" data-hobby-text="gamesNote">I played these games between May and November 2025. I’m too busy to play at the moment, but they’re all games I enjoyed and would recommend trying. I hope to get back to gaming someday.</p>
+												<ul class="hobby-game-list"><li><img src="images/hobbies/thumbnails/monster-hunter-rise-sunbreak.png" width="400" height="225" alt="Monster Hunter Rise: Sunbreak" loading="lazy" /><a href="https://www.monsterhunter.com/rise-sunbreak/" target="_blank" rel="noopener noreferrer">Monster Hunter Rise: Sunbreak</a></li><li><img src="images/hobbies/thumbnails/monster-hunter-wilds.png" width="800" height="450" alt="Monster Hunter Wilds" loading="lazy" /><a href="https://www.monsterhunter.com/wilds/" target="_blank" rel="noopener noreferrer">Monster Hunter Wilds</a></li><li><img src="images/hobbies/thumbnails/gundam-maxiboost-on.jpg" width="2160" height="1215" alt="Gundam Extreme Maxiboost ON" loading="lazy" /><a href="https://en.bandainamcoent.eu/gundam/mobile-suit-gundam-extreme-vs-maxiboost" target="_blank" rel="noopener noreferrer">Mobile Suit Gundam Extreme VS. Maxiboost ON</a></li><li><img src="images/hobbies/thumbnails/cyberpunk-2077.jpg" width="640" height="360" alt="Cyberpunk" loading="lazy" /><a href="https://www.cyberpunk.net/us/en/cyberpunk-2077" target="_blank" rel="noopener noreferrer">Cyberpunk</a></li></ul>
+											</div>
+										</section>
+
+									</div>
+									<div class="hobby-aside">
+										<section id="hobby-watching" class="hobby-panel hobby-watching" aria-labelledby="hobby-watching-title" tabindex="-1">
+											<header class="hobby-panel-heading"><img src="images/hobbies/decorations/17_icon_television.png" width="1254" height="1254" alt="" loading="lazy" /><span class="hobby-japanese" lang="ja" aria-hidden="true">近況</span><h3 id="hobby-watching-title" data-hobby-text="watchingLabel">Currently watching</h3></header>
+											<ul class="hobby-watch-list"><li><img src="images/hobbies/thumbnails/nier-automata.jpg" width="707" height="999" loading="lazy" alt="NieR:Automata" /><a href="https://nierautomata-anime.com/" target="_blank" rel="noopener noreferrer" data-hobby-text="nierTitle">NieR:Automata — Season 2</a></li><li><img src="images/hobbies/thumbnails/grand-blue-season-3.jpg" width="700" height="990" loading="lazy" alt="Grand Blue" /><a href="https://grandblue-anime.com/" target="_blank" rel="noopener noreferrer" data-hobby-text="grandBlueTitle">Grand Blue — Season 3</a></li><li><img src="images/hobbies/thumbnails/yomi-no-tsugai.webp" width="1920" height="1080" loading="lazy" alt="黄泉のツガイ" /><a href="https://yominotsugai.com/" target="_blank" rel="noopener noreferrer" lang="ja">黄泉のツガイ</a></li></ul>
+										</section>
+										<section class="hobby-panel hobby-lately" aria-labelledby="hobby-lately-title"><header class="hobby-panel-heading"><img src="images/hobbies/decorations/27_icon_sprout.png" width="1254" height="1254" alt="" loading="lazy" /><h3 id="hobby-lately-title" data-hobby-text="latelyLabel">Lately</h3></header><div class="hobby-panel-body"><p data-hobby-text="latelyNote">I’ve been busy working on Anime MCP lately.</p></div></section>
+										<section id="hobby-anticipated" class="hobby-panel hobby-anticipated" aria-labelledby="hobby-anticipated-title" tabindex="-1"><header class="hobby-panel-heading"><img src="images/hobbies/decorations/26_icon_music_note.png" width="1254" height="1254" alt="" loading="lazy" /><span class="hobby-japanese" lang="ja" aria-hidden="true">楽しみにしているアニメ</span><h3 id="hobby-anticipated-title" data-hobby-text="anticipatedLabel">Looking forward to</h3></header><ul class="hobby-watch-list"><li><img src="images/hobbies/thumbnails/cyberpunk-edgerunners-2.jpg" width="715" height="500" loading="lazy" alt="Cyberpunk: Edgerunners" /><a href="https://www.cyberpunk.net/en/edgerunners2" target="_blank" rel="noopener noreferrer" data-hobby-text="edgerunnersTitle">Cyberpunk: Edgerunners — Season 2</a></li><li><img src="images/hobbies/thumbnails/fate-strange-fake.jpg" width="2560" height="1440" loading="lazy" alt="Fate/strange Fake" /><a href="https://fatesf-anime.com/" target="_blank" rel="noopener noreferrer" data-hobby-text="strangeFakeTitle">Fate/strange Fake — Season 2</a></li></ul><p class="hobby-pending" data-hobby-text="musicNote">I’m looking forward to these two anime, and I love the music from both series.</p><p class="hobby-pending" data-hobby-text="animeNotesPending">More thoughts to come.</p></section>
+										<section id="hobby-training" class="hobby-panel hobby-training" aria-labelledby="hobby-training-title" tabindex="-1">
+												<header class="hobby-panel-heading"><img src="images/hobbies/decorations/20_icon_dumbbell.png" width="1254" height="1254" loading="lazy" alt="" /><span class="hobby-japanese" lang="ja" aria-hidden="true">トレーニングメニュー</span><h3 id="hobby-training-title" data-hobby-text="trainingLabel">Training</h3></header>
+												<div class="hobby-panel-body">
+													<p class="hobby-small" data-hobby-text="trainingIntro">I train for upper-body development and better jumping. My week includes five lifting sessions, Sunday jump practice, and a Wednesday rest day.</p>
+													<p class="hobby-small" data-hobby-text="trainingInjury">I’m temporarily adjusting my training around an elbow injury, so some movements are currently limited.</p>
+													<details class="hobby-routine"><summary data-hobby-text="trainingDetails">View my weekly routine</summary><dl><div><dt><span data-hobby-text="dayMonday">Monday</span> · <span data-hobby-text="workoutMonday">Short upper-body session</span></dt><dd data-hobby-text="exerciseMonday">Machine shoulder press, machine chest press, chest-supported machine row, seated dumbbell lateral raise, reverse pec deck.</dd></div>
+														<div><dt><span data-hobby-text="dayTuesday">Tuesday</span> · <span data-hobby-text="workoutTuesday">Lower-body maintenance</span></dt><dd data-hobby-text="exerciseTuesday">Front squat, Bulgarian split squat, back extension, single-leg press, single-leg seated hamstring curl, calf raise.</dd></div>
+														<div><dt><span data-hobby-text="dayWednesday">Wednesday</span> · <span data-hobby-text="workoutWednesday">Rest</span></dt><dd data-hobby-text="exerciseWednesday">Rest day.</dd></div>
+														<div><dt><span data-hobby-text="dayThursday">Thursday</span> · <span data-hobby-text="workoutThursday">Medium upper-body session</span></dt><dd data-hobby-text="exerciseThursday">Machine chest and shoulder presses, Gironda-style and seated dumbbell lateral raises, single-arm incline machine press, pec deck, reverse pec deck.</dd></div>
+														<div><dt><span data-hobby-text="dayFriday">Friday</span> · <span data-hobby-text="workoutFriday">Back</span></dt><dd data-hobby-text="exerciseFriday">Chest-supported machine row, angled pulldown / high row, reverse pec deck.</dd></div>
+														<div><dt><span data-hobby-text="daySaturday">Saturday</span> · <span data-hobby-text="workoutSaturday">Longer upper-body session</span></dt><dd data-hobby-text="exerciseSaturday">Machine shoulder and chest presses, Gironda-style lateral raise, single-arm incline machine press, pec deck, reverse pec deck, machine ab crunch.</dd></div>
+														<div><dt><span data-hobby-text="daySunday">Sunday</span> · <span data-hobby-text="workoutSunday">Jump and dunk practice</span></dt><dd data-hobby-text="exerciseSunday">One-foot jump progression.</dd></div></dl></details>
+													<p class="hobby-small" data-hobby-text="trainingDescription">More routine details to come.</p>
+												</div>
+											</section>
+										<img class="hobby-desktop-garden" src="images/hobbies/decorations/11_garden_desktop.png" width="1983" height="793" loading="lazy" alt="" />
+									</div>
+									<div class="hobby-bottom">
+										<section id="hobby-hong-kong" class="hobby-panel hobby-hong-kong" aria-labelledby="hobby-hong-kong-title" tabindex="-1">
+											<header class="hobby-panel-heading"><img src="images/hobbies/decorations/24_icon_flower.png" width="1254" height="1254" alt="" loading="lazy" /><span class="hobby-japanese" lang="ja" aria-hidden="true">地元・香港のこと</span><h3 id="hobby-hong-kong-title" data-hobby-text="hongKongLabel">Hong Kong</h3></header>
+											<div class="hobby-hong-kong-content"><picture><source media="(max-width: 980px)" srcset="images/hobbies/decorations/14_hong_kong_harbour.png" /><img class="hobby-harbour" src="images/hobbies/decorations/13_hong_kong_cafe.png" width="1672" height="941" loading="lazy" alt="" /></picture><div><p class="hobby-small" data-hobby-text="hongKongNote">I’m from Sha Tin, Hong Kong, and haven’t been back since 2019. I love 芝士鮮魷, 大排檔, and 茶餐廳.</p><a class="hobby-small" href="mailto:caleb.leungkwanho@gmail.com" data-hobby-text="hongKongEmail">Have a favorite 大排檔 or 茶餐廳? Email me your recommendations!</a></div><picture class="hobby-crop hobby-drink"><source media="(max-width: 980px)" srcset="images/hobbies/decorations/16_tea_and_toast.png" /><img src="images/hobbies/decorations/15_iced_milk_tea.png" width="1254" height="1254" loading="lazy" alt="" /></picture></div>
+										</section>
+										<section id="hobby-notes" class="hobby-panel hobby-notes" aria-labelledby="hobby-notes-title" tabindex="-1">
+												<header class="hobby-panel-heading"><img src="images/hobbies/decorations/23_icon_notepad.png" width="1254" height="1254" loading="lazy" alt="" /><span class="hobby-japanese" lang="ja" aria-hidden="true">留学生へのアドバイス</span><h3 id="hobby-notes-title" data-hobby-text="notesLabel">Advice for International Students</h3></header>
+												<div class="hobby-panel-body">
+													<p class="hobby-small" data-hobby-text="notesIntro">What I would prepare differently for studying and building a career in America. These are personal suggestions; your goals and budget may differ.</p><details class="hobby-advice"><summary><span aria-hidden="true">1. </span><span data-hobby-text="adviceOneTitle">Choose a degree with a career plan</span></summary><p data-hobby-text="adviceOneBody">If your goal is working in the U.S., I would consider a STEM-eligible program that fits your interests and target jobs. Check the exact program’s STEM OPT eligibility with the school, and plan for OPT and possible employer-sponsored H-1B early. Eligible students can apply for a 24-month STEM OPT extension after the initial post-completion OPT period of up to 12 months, allowing up to 36 months in total if approved. Those two extra years can give a sponsoring employer more opportunities to register you for the annual H-1B selection process (lottery), depending on timing and continued eligibility; selection is not guaranteed. Neither a degree nor STEM OPT guarantees a job or long-term status.</p></details>
+													<details class="hobby-advice"><summary><span aria-hidden="true">2. </span><span data-hobby-text="adviceDegreeTitle">Plan the full path for a theoretical degree</span></summary>
+														<p data-hobby-text="adviceDegreeBody">With a theoretical subject such as pure mathematics, I would plan beyond the degree title. Proof-based study can involve a long learning curve before you are ready for independent research, and an undergraduate degree alone may not prepare you for a specific job. Look at actual entry-level roles and the coding, statistics, applied knowledge, or experience they require. Do not assume the degree by itself will lead to U.S. employment or sponsorship.</p>
+														<p data-hobby-text="adviceGraduateBody">Before committing, decide whether you want to work after your bachelor’s or pursue a master’s or PhD, and whether you are prepared for the academic demands and extra years. For an academic research career, plan for doctoral study. Work out the full cost: tuition, living expenses, funding conditions, and income you would forgo. Keep an alternative plan if funding, admission, or your interests change.</p>
+														<p data-hobby-text="adviceBudgetBody">One route worth comparing is an affordable undergraduate degree outside the U.S., followed by a U.S. master’s. I would compare specific programs in Japan, Taiwan, the UK, or Australia, including the option of studying at home. None is automatically cheaper: compare total costs, scholarships, course length, language requirements, and whether the degree meets the U.S. graduate program’s admissions prerequisites.</p>
+													</details>
+													<details class="hobby-advice"><summary><span aria-hidden="true">3. </span><span data-hobby-text="adviceTwoTitle">Be clear about why you are going</span></summary><p data-hobby-text="adviceTwoBody">A year of cultural exchange can be worthwhile on its own. If learning English is the main goal, I would compare options in the UK and Australia before paying for a U.S. program. Compare tuition, housing and course length rather than assume one country is always cheaper. If building an overseas career is the goal, research the programs, job market and work-authorization requirements before enrolling.</p></details>
+													<details class="hobby-advice"><summary><span aria-hidden="true">4. </span><span data-hobby-text="adviceThreeTitle">Start preparing before you arrive</span></summary><p data-hobby-text="adviceThreeBody">I would build practical coding skills before university—perhaps through an affordable short coding bootcamp at home, even for physics, chemistry or math. Compare cost and quality; a certificate is not a degree or job guarantee. Open LinkedIn early, build projects, meet people and learn internship recruiting timelines instead of waiting until graduation.</p></details>
+													<p class="hobby-small hobby-advice-sources"><span data-hobby-text="notesSourcesLabel">Check current requirements</span>: <a href="https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-extension-for-stem-students-stem-opt" target="_blank" rel="noopener noreferrer" data-hobby-text="optSourceLabel">STEM OPT</a> · <a href="https://travel.state.gov/content/travel/en/us-visas/employment/temporary-worker-visas.html" target="_blank" rel="noopener noreferrer" data-hobby-text="h1bSourceLabel">H-1B</a></p>
+													<p class="hobby-small" data-hobby-text="notesPending">More advice coming soon.</p>
+												</div>
+											</section>
+									</div>
+								</div>
+								<footer class="hobby-footer"><span class="hobby-crop hobby-footer-flowers" aria-hidden="true"><img src="images/hobbies/decorations/09_footer_flowers_left.png" width="2172" height="724" loading="lazy" alt="" /></span><div><p data-hobby-text="thanks">Thank you for visiting!</p><nav aria-label="Return links" data-hobby-aria="returnNavLabel"><a href="#intro" data-hobby-return data-hobby-text="return">Back to my main website</a><a href="#hobby-top" data-hobby-text="top">Back to top</a></nav></div><span class="hobby-crop hobby-mobile-garden" aria-hidden="true"><img src="images/hobbies/decorations/12_garden_mobile.png" width="1983" height="793" loading="lazy" alt="" /></span></footer>
+								<p class="hobby-art-note"><span data-hobby-text="artReuseNote">You’re welcome to share and reuse this site’s custom pixel artwork—just email me to let me know where it appears and credit Caleb Leung.</span> <a href="ARTWORK_TERMS.md" target="_blank" rel="noopener noreferrer" data-hobby-text="artTermsLabel">Artwork sharing policy</a></p>
+								<p class="hobby-art-note" data-hobby-text="artNote">Artwork belongs to its respective owners. Unofficial fan page; not approved or endorsed by CD PROJEKT RED.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<footer class="window-statusbar browser-statusbar">
+					<span><img src="images/internet-explorer-6.svg" width="16" height="16" alt="" />Done</span>
+					<span class="browser-status-icons" data-browser-status-icons hidden></span>
+					<span><img src="images/internet-zone.svg" width="16" height="16" alt="" />Internet</span>
+				</footer>
+			</section>
+
+			<section class="os-window browser-window project-journal-window" data-window="project-journal" role="dialog" aria-modal="false" aria-labelledby="project-journal-window-title" tabindex="-1" hidden>
+				<header class="window-titlebar" data-titlebar>
+					<div class="window-title"><img class="window-app-icon" src="images/internet-explorer-6.svg" width="20" height="20" alt="" /><h2 id="project-journal-window-title">Project Lab - Microsoft Internet Explorer</h2></div>
+					<div class="window-controls" aria-label="Project Lab window controls"><button type="button" data-window-action="minimize" aria-label="Minimize Project Lab window"><span aria-hidden="true">—</span></button><button type="button" data-window-action="maximize" aria-label="Maximize Project Lab window"><span aria-hidden="true">□</span></button><button class="close-control" type="button" data-window-action="close" aria-label="Close Project Lab window"><span aria-hidden="true">×</span></button></div>
+				</header>
+				<div class="window-menubar">
+					<details class="window-menu"><summary>File</summary><div class="window-menu-panel"><a href="#websites">Open My Websites</a><a href="#work">Back to portfolio</a><button type="button" data-window-action="close">Close window</button></div></details>
+					<details class="window-menu"><summary>Edit</summary><div class="window-menu-panel"><button type="button" data-menu-action="copy-link">Copy page link</button></div></details>
+					<details class="window-menu">
+						<summary>View</summary>
+						<div class="window-menu-panel">
+							<button type="button" data-menu-action="maximize">Maximize window</button>
+							<button type="button" data-menu-action="move">Move window</button>
+							<button type="button" data-menu-action="resize">Resize window</button>
+							<button type="button" data-menu-action="top">Back to top</button>
+							<div data-browser-language-menu hidden></div>
+							<div data-browser-display-menu hidden></div>
+						</div>
+					</details>
+					<details class="window-menu"><summary>Favorites</summary><div class="window-menu-panel" data-browser-favorites-menu><button type="button" data-browser-favorites-toggle data-browser-favorites-label aria-expanded="false" aria-controls="project-journal-favorites">Show Favorites panel</button></div></details>
+					<details class="window-menu"><summary>Tools</summary><div class="window-menu-panel"><button type="button" data-menu-action="reset-position">Reset window size and position</button></div></details>
+					<details class="window-menu">
+						<summary>Help</summary>
+						<div class="window-menu-panel window-help-panel">
+							<p>Home opens My Websites. Favorites shows the same website collection in a compact list. Back and Forward follow your browsing history on this desktop.</p>
+							<p>Drag the title bar to move this window, or drag an edge or corner to resize it. For keyboard controls, choose View → Move window or Resize window, use the arrow keys, then Enter to finish or Escape to cancel.</p>
+							<p>On a phone, drag the window down to reveal the desktop. Maximize it or choose Tools → Reset window size and position to bring the full page back.</p>
+							<p>Use Tab and Enter to browse menus. Escape dismisses an open menu. Back to portfolio returns to my AI and software engineering work.</p>
+						</div>
+					</details>
+					<span class="window-menu-status" role="status" aria-live="polite"></span>
+				</div>
+				<nav class="browser-toolbar" aria-label="Website browsing controls">
+					<button class="browser-toolbar-button" type="button" data-browser-back aria-label="Go to the previous page" disabled><span class="browser-history-icon" aria-hidden="true">←</span><span>Back</span></button>
+					<button class="browser-toolbar-button" type="button" data-browser-forward aria-label="Go to the next page" disabled><span class="browser-history-icon is-forward" aria-hidden="true">→</span><span>Forward</span></button>
+					<a class="browser-toolbar-button" href="#websites"><span class="browser-home-icon icon solid fa-home" aria-hidden="true"></span><span>Home</span></a>
+					<button class="browser-toolbar-button" type="button" data-browser-favorites-toggle aria-expanded="false" aria-controls="project-journal-favorites"><span class="browser-favorites-icon icon solid fa-star" aria-hidden="true"></span><span>Favorites</span></button>
+				</nav>
+				<div class="browser-address"><span>Address</span><div class="browser-address-field"><img src="images/internet-explorer-6.svg" width="16" height="16" alt="" /><span data-browser-address>caleb-leung-kwan-ho.github.io/#project-journal</span></div><a class="browser-go" data-browser-go href="#project-journal" aria-label="Go to Project Lab">Go <span aria-hidden="true">→</span></a></div>
+				<div class="browser-layout">
+					<aside id="project-journal-favorites" class="browser-favorites" aria-labelledby="project-journal-favorites-title" hidden>
+						<div class="browser-favorites-heading"><h2 id="project-journal-favorites-title">Favorites</h2><button type="button" data-browser-favorites-close aria-label="Close Favorites">×</button></div>
+						<nav aria-label="Favorite websites"><ul class="browser-favorites-list" data-browser-favorites-list></ul></nav>
+						<a class="browser-return" href="#work">Back to portfolio</a>
+					</aside>
+					<div class="browser-page">
+						<div class="journal-infobar" lang="en" data-journal-infobar hidden>
+						  <button class="journal-infobar-message" type="button" data-journal-infobar-off><img src="images/project-journal/controls/infobar-info.svg" alt="" width="16" height="16" /><span data-journal-text="retroScreenNotice">This page uses a retro screen effect. If the text is hard to read, click here to turn it off.</span></button>
+						  <p class="journal-infobar-message" tabindex="-1" data-journal-infobar-confirmation hidden><img src="images/project-journal/controls/infobar-info.svg" alt="" width="16" height="16" /><span data-journal-text="retroScreenOff">The retro screen effect is off. To turn it back on, use View → Retro screen effect or the screen icon in the status bar.</span></p>
+						  <button class="journal-infobar-close" type="button" aria-label="Close this notice" data-journal-aria="retroScreenDismiss" data-journal-infobar-close><img src="images/project-journal/controls/close.svg" alt="" width="12" height="12" /></button>
+						</div>
+						<div class="project-journal-content" id="project-journal" lang="en" role="document" tabindex="-1">
+						  <div class="journal-page">
+						  <a class="journal-skip" href="#project-journal-projects"><span data-journal-text="skipToProjects">Skip to projects</span></a>
+						  <a class="journal-skip" href="#project-journal-current-work"><span data-journal-text="skipToCurrentWork">Skip to current work</span></a>
+						  <header class="journal-header">
+						    <div class="journal-identity">
+						      <h2 id="project-journal-title"><span data-journal-text="siteTitle">Caleb’s Project Lab</span></h2>
+						      <p class="journal-subtitle"><span data-journal-text="subtitle">Personal projects and development notes</span></p>
+						      <nav class="journal-nav" aria-label="Project Lab sections" data-journal-aria="sectionNavigation">
+						        <a href="#project-journal" data-journal-nav="home"><span data-journal-text="home">Home</span></a>
+						        <a href="#project-journal-projects" data-journal-nav="projects"><span data-journal-text="projects">Projects</span></a>
+						        <a href="#project-journal-anime-mcp-updates" data-journal-nav="updates" data-journal-section="updates"><span data-journal-text="updates">Updates</span></a>
+						        <a href="#project-journal-anime-mcp-roadmap" data-journal-nav="roadmap" data-journal-section="roadmap"><span data-journal-text="roadmap">Roadmap</span></a>
+						      </nav>
+						    </div>
+						    <div class="journal-header-media">
+						      <div class="journal-photos" role="group" aria-label="Street and train photographs from Tokyo and Hong Kong" data-journal-aria="photoStrip">
+						        <figure class="journal-photo">
+						          <img src="images/project-journal/shinjuku-rain-2016.jpg" width="320" height="180" alt="Umbrellas and bright Japanese signs along a wet Kabukicho street at night." data-journal-photo="shinjuku-rain-2016" loading="lazy" />
+						          <figcaption data-journal-photo-caption="shinjuku-rain-2016">Shinjuku · rainy night</figcaption>
+						        </figure>
+						        <figure class="journal-photo">
+						          <img src="images/project-journal/yamanote-shibuya-2008-graded.jpg" width="240" height="180" alt="Green-striped Yamanote Line train passing the indoor Shibuya Station platform; color-graded 2008 photograph." data-journal-photo="yamanote-shibuya-2008-graded" loading="lazy" />
+						          <figcaption data-journal-photo-caption="yamanote-shibuya-2008-graded">Yamanote Line · Shibuya</figcaption>
+						        </figure>
+						        <figure class="journal-photo">
+						          <img src="images/project-journal/mong-kok-portland-street.jpg" width="240" height="180" alt="Dense neon signs above Portland Street at night, with the road receding through the center of the scene." data-journal-photo="mong-kok-portland-night" loading="lazy" />
+						          <figcaption data-journal-photo-caption="mong-kok-portland-night">Mong Kok · Portland Street</figcaption>
+						        </figure>
+						      </div>
+						      <div class="journal-languages" role="group" aria-label="Language" data-journal-aria="language" data-journal-enhancement hidden>
+						        <button type="button" lang="en" data-journal-language="en" aria-pressed="true">English</button>
+						        <button type="button" lang="ja" data-journal-language="ja" aria-pressed="false">日本語</button>
+						        <button type="button" lang="zh-HK" data-journal-language="zh-HK" aria-pressed="false">繁體中文（香港）</button>
+						      </div>
+						    </div>
+						  </header>
+						  <div class="journal-workspace">
+						    <aside class="journal-library" id="project-journal-projects" aria-labelledby="project-journal-projects-title" tabindex="-1">
+						      <h3 class="journal-panel-title" id="project-journal-projects-title"><span data-journal-text="projects">Projects</span></h3>
+						      <ul class="journal-project-list" tabindex="0" aria-label="Project search results" data-journal-aria="projectResults">
+						        <li data-journal-row="anime-mcp">
+						          <a class="journal-project-link" href="#project-journal-anime-mcp" data-journal-select="anime-mcp">
+						            <span class="journal-project-name"><span data-journal-project="anime-mcp" data-journal-field="title">Anime MCP</span></span>
+						            <span class="journal-status" data-journal-status="in-progress">In progress</span>
+						          </a>
+						        </li>
+						        <li data-journal-row="gba-website">
+						          <a class="journal-project-link" href="#project-journal-gba-website" data-journal-select="gba-website">
+						            <span class="journal-project-name"><span data-journal-project="gba-website" data-journal-field="title">GBA-style personal website</span></span>
+						            <span class="journal-status" data-journal-status="in-progress">In progress</span>
+						          </a>
+						        </li>
+						        <li data-journal-row="browser-game">
+						          <a class="journal-project-link" href="#project-journal-browser-game" data-journal-select="browser-game">
+						            <span class="journal-project-name"><span data-journal-project="browser-game" data-journal-field="title">Browser game</span></span>
+						            <span class="journal-status" data-journal-status="in-progress">In progress</span>
+						          </a>
+						        </li>
+						        <li data-journal-row="gluonagent">
+						          <a class="journal-project-link" href="#project-journal-gluonagent" data-journal-select="gluonagent">
+						            <span class="journal-project-name"><span data-journal-project="gluonagent" data-journal-field="title">GluonAgent</span></span>
+						            <span class="journal-status" data-journal-status="paused">Paused</span>
+						          </a>
+						        </li>
+						      </ul>
+						      <div class="journal-empty" data-journal-empty hidden>
+						        <p data-journal-empty-text>No projects match your search.</p>
+						        <button type="button" data-journal-reset><span data-journal-text="clearFilters">Clear filters</span></button>
+						      </div>
+						      <div class="journal-filters" data-journal-enhancement hidden>
+						        <label for="project-journal-search"><span data-journal-text="searchProjects">Search projects</span></label>
+						        <div class="journal-search-controls">
+						          <input id="project-journal-search" type="search" placeholder="Project name or keyword" data-journal-placeholder="searchPlaceholder" data-journal-search />
+						          <button type="button" data-journal-search-submit><span data-journal-text="search">Search</span></button>
+						        </div>
+						        <div class="journal-status-control">
+						          <label for="project-journal-status"><span data-journal-text="status">Status</span></label>
+						          <select id="project-journal-status" data-journal-filter>
+						            <option value="all" data-journal-text="allStatuses">All</option>
+						          <option value="in-progress" data-journal-status="in-progress">In progress</option>
+						          <option value="planned" data-journal-status="planned">Planned</option>
+						          <option value="paused" data-journal-status="paused">Paused</option>
+						          <option value="completed" data-journal-status="completed">Completed</option>
+						          </select>
+						        </div>
+						        <div class="journal-filter-meta">
+						          <p class="journal-result-count" data-journal-count aria-live="polite">4 projects found</p>
+						          <button type="button" data-journal-reset><span data-journal-text="clearFilters">Clear filters</span></button>
+						        </div>
+						      </div>
+						    </aside>
+						    <div class="journal-details" id="project-journal-current-work" tabindex="-1">
+						      <p class="journal-outside" data-journal-outside hidden><span data-journal-text="selectedOutsideResults">The selected project is outside the current results.</span> <button type="button" data-journal-reset><span data-journal-text="clearFilters">Clear filters</span></button></p>
+						      <article class="journal-project" id="project-journal-anime-mcp" data-journal-project-panel="anime-mcp" aria-labelledby="project-journal-anime-mcp-title" tabindex="-1">
+						        <section class="journal-main" aria-labelledby="project-journal-anime-mcp-current-work-title">
+						          <h3 class="journal-panel-title journal-current-work" id="project-journal-anime-mcp-current-work-title"><span data-journal-text="currentWork">Current work</span></h3>
+						          <section class="journal-summary journal-panel">
+						            <div class="journal-project-heading">
+						              <h4 class="journal-project-title" id="project-journal-anime-mcp-title"><span data-journal-project="anime-mcp" data-journal-field="title">Anime MCP</span></h4>
+						              <span class="journal-status" data-journal-status="in-progress">In progress</span>
+						            </div>
+						            <div class="journal-panel-body">
+						              <p class="journal-summary-text"><span data-journal-project="anime-mcp" data-journal-excerpt="summary">Developing an anime-character search MCP server with hybrid retrieval.</span></p>
+						              <dl class="journal-focus">
+						                <div><dt><span data-journal-text="currentFocus">Current focus</span></dt><dd><span data-journal-project="anime-mcp" data-journal-excerpt="currentFocus">Find retrieval bottlenecks and choose embedding models.</span></dd></div>
+						                <div><dt><span data-journal-text="nextStep">Next step</span></dt><dd><span data-journal-project="anime-mcp" data-journal-excerpt="nextStep">Run hybrid-fusion experiments and compare findings with published research.</span></dd></div>
+						              </dl>
+						              <details class="journal-full-description">
+						                <summary><span data-journal-text="showDetails">Show project details</span></summary>
+						                <p><span data-journal-project="anime-mcp" data-journal-field="summary">Building an MCP server for anime-character search, with a focus on retrieval quality and combining lexical and embedding scores.</span></p>
+						                <dl class="journal-focus">
+						                  <div><dt><span data-journal-text="currentFocus">Current focus</span></dt><dd><span data-journal-project="anime-mcp" data-journal-field="currentFocus">Identify retrieval bottlenecks and select embedding models for hybrid-fusion experiments.</span></dd></div>
+						                  <div><dt><span data-journal-text="nextStep">Next step</span></dt><dd><span data-journal-project="anime-mcp" data-journal-field="nextStep">Select the embedding models, run hybrid-fusion experiments, and compare the results with published findings.</span></dd></div>
+						                </dl>
+						              </details>
+						            </div>
+						          </section>
+						          <section class="journal-updates journal-panel" id="project-journal-anime-mcp-updates" aria-labelledby="project-journal-anime-mcp-updates-title" tabindex="-1">
+						            <h4 class="journal-panel-title" id="project-journal-anime-mcp-updates-title"><span data-journal-text="updates">Updates</span></h4>
+						            <div class="journal-panel-body">
+						              <ol class="journal-update-list">
+						                <li id="project-journal-anime-mcp-update-current-research-focus">
+						                  <details class="journal-update">
+						                    <summary><span class="journal-new" lang="en">NEW</span> <span data-journal-project="anime-mcp" data-journal-excerpt="update" data-journal-update="current-research-focus">Preparing a model comparison; selection and results are pending.</span></summary>
+						                    <p><span data-journal-project="anime-mcp" data-journal-field="text" data-journal-update="current-research-focus">The current priority is understanding retrieval bottlenecks and preparing an embedding-model comparison with hybrid fusion. Model selection and experimental results are pending.</span></p>
+						                  </details>
+						                </li>
+						              </ol>
+						            </div>
+						          </section>
+						          <section class="journal-roadmap journal-panel" id="project-journal-anime-mcp-roadmap" aria-labelledby="project-journal-anime-mcp-roadmap-title" tabindex="-1">
+						            <h4 class="journal-panel-title" id="project-journal-anime-mcp-roadmap-title"><span data-journal-text="roadmap">Roadmap</span></h4>
+						            <div class="journal-panel-body">
+						              <table class="journal-roadmap-table">
+						                <thead><tr><th scope="col"><span data-journal-text="milestone">Milestone</span></th><th scope="col"><span data-journal-text="status">Status</span></th></tr></thead>
+						                <tbody>
+						                  <tr id="project-journal-anime-mcp-milestone-evaluation-and-lexical-foundation"><th scope="row"><details class="journal-milestone"><summary><span data-journal-project="anime-mcp" data-journal-field="title" data-journal-milestone="evaluation-and-lexical-foundation">Develop the evaluation and lexical-retrieval foundation</span></summary><p><span data-journal-project="anime-mcp" data-journal-field="description" data-journal-milestone="evaluation-and-lexical-foundation">Build the evaluation setup and lexical-retrieval baseline for comparing retrieval approaches.</span></p></details></th><td><span class="journal-status" data-journal-status="in-progress">In progress</span></td></tr>
+						                  <tr id="project-journal-anime-mcp-milestone-select-embedding-models"><th scope="row"><details class="journal-milestone"><summary><span data-journal-project="anime-mcp" data-journal-field="title" data-journal-milestone="select-embedding-models">Select embedding models</span></summary><p><span data-journal-project="anime-mcp" data-journal-field="description" data-journal-milestone="select-embedding-models">Model names and the final comparison set are pending.</span></p></details></th><td><span class="journal-status" data-journal-status="planned">Planned</span></td></tr>
+						                  <tr id="project-journal-anime-mcp-milestone-run-hybrid-fusion-experiments"><th scope="row"><details class="journal-milestone"><summary><span data-journal-project="anime-mcp" data-journal-field="title" data-journal-milestone="run-hybrid-fusion-experiments">Run hybrid-fusion experiments</span></summary><p><span data-journal-project="anime-mcp" data-journal-field="description" data-journal-milestone="run-hybrid-fusion-experiments">Evaluate retrieval performance and investigate where bottlenecks appear.</span></p></details></th><td><span class="journal-status" data-journal-status="planned">Planned</span></td></tr>
+						                  <tr id="project-journal-anime-mcp-milestone-interpret-experiment-results"><th scope="row"><details class="journal-milestone"><summary><span data-journal-project="anime-mcp" data-journal-field="title" data-journal-milestone="interpret-experiment-results">Compare findings with published research</span></summary><p><span data-journal-project="anime-mcp" data-journal-field="description" data-journal-milestone="interpret-experiment-results">Examine whether the findings extend to anime retrieval and document differences supported by the experiments. Results are not yet available.</span></p></details></th><td><span class="journal-status" data-journal-status="planned">Planned</span></td></tr>
+						                </tbody>
+						              </table>
+						            </div>
+						          </section>
+						        </section>
+						        <aside class="journal-support">
+						          <section class="journal-blocker journal-panel" aria-labelledby="project-journal-anime-mcp-blocker-title">
+						            <h3 class="journal-panel-title" id="project-journal-anime-mcp-blocker-title"><span data-journal-text="currentBlocker">Current blocker</span></h3>
+						            <div class="journal-panel-body"><p><span data-journal-project="anime-mcp" data-journal-field="currentBlocker">The retrieval bottleneck has not yet been identified. Model selection and comparative experiments are needed to investigate it.</span></p></div>
+						          </section>
+						          <section class="journal-links journal-panel" aria-labelledby="project-journal-anime-mcp-links-title">
+						            <h3 class="journal-panel-title" id="project-journal-anime-mcp-links-title"><span data-journal-text="links">Links</span></h3>
+						            <div class="journal-panel-body">
+						              <ul>
+						                <li><a href="https://github.com/Caleb-Leung-Kwan-Ho/Caleb-Leung-Kwan-Ho" target="_blank" rel="noopener noreferrer" data-journal-project="anime-mcp" data-journal-link="https://github.com/Caleb-Leung-Kwan-Ho/Caleb-Leung-Kwan-Ho">Public research notes</a></li>
+						                <li><a href="https://arxiv.org/abs/2210.11934" target="_blank" rel="noopener noreferrer" data-journal-project="anime-mcp" data-journal-link="https://arxiv.org/abs/2210.11934">Research reference: An Analysis of Fusion Functions for Hybrid Retrieval</a></li>
+						              </ul>
+						            </div>
+						          </section>
+
+						        </aside>
+						      </article>
+						      <article class="journal-project" id="project-journal-gba-website" data-journal-project-panel="gba-website" aria-labelledby="project-journal-gba-website-title" tabindex="-1">
+						        <section class="journal-main" aria-labelledby="project-journal-gba-website-current-work-title">
+						          <h3 class="journal-panel-title journal-current-work" id="project-journal-gba-website-current-work-title"><span data-journal-text="currentWork">Current work</span></h3>
+						          <section class="journal-summary journal-panel">
+						            <div class="journal-project-heading">
+						              <h4 class="journal-project-title" id="project-journal-gba-website-title"><span data-journal-project="gba-website" data-journal-field="title">GBA-style personal website</span></h4>
+						              <span class="journal-status" data-journal-status="in-progress">In progress</span>
+						            </div>
+						            <div class="journal-panel-body">
+						              <p class="journal-summary-text"><span data-journal-project="gba-website" data-journal-excerpt="summary">A nearly finished GBA-style browser website with A/B controls.</span></p>
+						              <dl class="journal-focus">
+						                <div><dt><span data-journal-text="currentFocus">Current focus</span></dt><dd><span data-journal-project="gba-website" data-journal-excerpt="currentFocus">Finish houses, spawning fixes, and gameplay refinements.</span></dd></div>
+						                <div><dt><span data-journal-text="nextStep">Next step</span></dt><dd><span data-journal-project="gba-website" data-journal-excerpt="nextStep">Add friends&#x27; houses and correct spawn locations.</span></dd></div>
+						              </dl>
+						              <details class="journal-full-description">
+						                <summary><span data-journal-text="showDetails">Show project details</span></summary>
+						                <p><span data-journal-project="gba-website" data-journal-field="summary">A nearly finished personal website with a Game Boy Advance-style experience and A/B controls, running in the browser.</span></p>
+						                <dl class="journal-focus">
+						                  <div><dt><span data-journal-text="currentFocus">Current focus</span></dt><dd><span data-journal-project="gba-website" data-journal-field="currentFocus">Finish the remaining houses, correct character spawning, and improve the existing gameplay.</span></dd></div>
+						                  <div><dt><span data-journal-text="nextStep">Next step</span></dt><dd><span data-journal-project="gba-website" data-journal-field="nextStep">Add friends&#x27; houses, fix incorrect spawn locations, and refine the current gameplay.</span></dd></div>
+						                </dl>
+						              </details>
+						            </div>
+						          </section>
+						          <section class="journal-updates journal-panel" id="project-journal-gba-website-updates" aria-labelledby="project-journal-gba-website-updates-title" tabindex="-1">
+						            <h4 class="journal-panel-title" id="project-journal-gba-website-updates-title"><span data-journal-text="updates">Updates</span></h4>
+						            <div class="journal-panel-body">
+						              <ol class="journal-update-list">
+						                <li id="project-journal-gba-website-update-website-final-additions">
+						                  <details class="journal-update">
+						                    <summary><span data-journal-project="gba-website" data-journal-excerpt="update" data-journal-update="website-final-additions">Final additions: friends&#x27; houses, spawning fixes, and gameplay.</span></summary>
+						                    <p><span data-journal-project="gba-website" data-journal-field="text" data-journal-update="website-final-additions">The website is nearly finished. Remaining work includes friends&#x27; houses, spawn-location fixes, and improvements to the current gameplay. The related browser game builds on this work.</span></p>
+						                  </details>
+						                </li>
+						              </ol>
+						            </div>
+						          </section>
+						          <section class="journal-roadmap journal-panel" id="project-journal-gba-website-roadmap" aria-labelledby="project-journal-gba-website-roadmap-title" tabindex="-1">
+						            <h4 class="journal-panel-title" id="project-journal-gba-website-roadmap-title"><span data-journal-text="roadmap">Roadmap</span></h4>
+						            <div class="journal-panel-body">
+						              <table class="journal-roadmap-table">
+						                <thead><tr><th scope="col"><span data-journal-text="milestone">Milestone</span></th><th scope="col"><span data-journal-text="status">Status</span></th></tr></thead>
+						                <tbody>
+						                  <tr id="project-journal-gba-website-milestone-finish-website-experience"><th scope="row"><details class="journal-milestone"><summary><span data-journal-project="gba-website" data-journal-field="title" data-journal-milestone="finish-website-experience">Finish the browser-based website experience</span></summary><p><span data-journal-project="gba-website" data-journal-field="description" data-journal-milestone="finish-website-experience">The existing experience is nearly complete, with a small set of additions and fixes remaining.</span></p></details></th><td><span class="journal-status" data-journal-status="in-progress">In progress</span></td></tr>
+						                  <tr id="project-journal-gba-website-milestone-add-friends-houses"><th scope="row"><span data-journal-project="gba-website" data-journal-field="title" data-journal-milestone="add-friends-houses">Add friends&#x27; houses</span></th><td><span class="journal-status" data-journal-status="planned">Planned</span></td></tr>
+						                  <tr id="project-journal-gba-website-milestone-fix-spawn-locations"><th scope="row"><details class="journal-milestone"><summary><span data-journal-project="gba-website" data-journal-field="title" data-journal-milestone="fix-spawn-locations">Correct character spawn locations</span></summary><p><span data-journal-project="gba-website" data-journal-field="description" data-journal-milestone="fix-spawn-locations">Ensure characters do not appear at the wrong location.</span></p></details></th><td><span class="journal-status" data-journal-status="planned">Planned</span></td></tr>
+						                  <tr id="project-journal-gba-website-milestone-refine-current-gameplay"><th scope="row"><span data-journal-project="gba-website" data-journal-field="title" data-journal-milestone="refine-current-gameplay">Improve the existing gameplay</span></th><td><span class="journal-status" data-journal-status="planned">Planned</span></td></tr>
+						                </tbody>
+						              </table>
+						            </div>
+						          </section>
+						        </section>
+						        <aside class="journal-support">
+						          <section class="journal-blocker journal-panel" aria-labelledby="project-journal-gba-website-blocker-title">
+						            <h3 class="journal-panel-title" id="project-journal-gba-website-blocker-title"><span data-journal-text="currentBlocker">Current blocker</span></h3>
+						            <div class="journal-panel-body"><p><span data-journal-text="noBlocker">No blocker reported.</span></p></div>
+						          </section>
+						          <section class="journal-links journal-panel" aria-labelledby="project-journal-gba-website-links-title">
+						            <h3 class="journal-panel-title" id="project-journal-gba-website-links-title"><span data-journal-text="links">Links</span></h3>
+						            <div class="journal-panel-body">
+						              <p><span data-journal-text="noLinks">No links added yet.</span></p>
+						            </div>
+						          </section>
+						          <section class="journal-related journal-panel" aria-labelledby="project-journal-gba-website-related-title">
+						            <h3 class="journal-panel-title" id="project-journal-gba-website-related-title"><span data-journal-text="relatedProjects">Related projects</span></h3>
+						            <div class="journal-panel-body"><ul>
+						              <li><a href="#project-journal-browser-game" data-journal-select="browser-game"><span data-journal-project="browser-game" data-journal-field="title">Browser game</span></a></li>
+						            </ul></div>
+						          </section>
+						        </aside>
+						      </article>
+						      <article class="journal-project" id="project-journal-browser-game" data-journal-project-panel="browser-game" aria-labelledby="project-journal-browser-game-title" tabindex="-1">
+						        <section class="journal-main" aria-labelledby="project-journal-browser-game-current-work-title">
+						          <h3 class="journal-panel-title journal-current-work" id="project-journal-browser-game-current-work-title"><span data-journal-text="currentWork">Current work</span></h3>
+						          <section class="journal-summary journal-panel">
+						            <div class="journal-project-heading">
+						              <h4 class="journal-project-title" id="project-journal-browser-game-title"><span data-journal-project="browser-game" data-journal-field="title">Browser game</span></h4>
+						              <span class="journal-status" data-journal-status="in-progress">In progress</span>
+						            </div>
+						            <div class="journal-panel-body">
+						              <p class="journal-summary-text"><span data-journal-project="browser-game" data-journal-excerpt="summary">A browser game growing out of the GBA-style website.</span></p>
+						              <dl class="journal-focus">
+						                <div><dt><span data-journal-text="currentFocus">Current focus</span></dt><dd><span data-journal-project="browser-game" data-journal-excerpt="currentFocus">Design NPC logic v1; it is not yet a state machine.</span></dd></div>
+						                <div><dt><span data-journal-text="nextStep">Next step</span></dt><dd><span data-journal-project="browser-game" data-journal-excerpt="nextStep">Develop NPC logic before choosing the broader implementation approach.</span></dd></div>
+						              </dl>
+						              <details class="journal-full-description">
+						                <summary><span data-journal-text="showDetails">Show project details</span></summary>
+						                <p><span data-journal-project="browser-game" data-journal-field="summary">A game growing out of the GBA-style website, with plans for expanded gameplay, NPC behavior, character classes, and offline play with local saves.</span></p>
+						                <dl class="journal-focus">
+						                  <div><dt><span data-journal-text="currentFocus">Current focus</span></dt><dd><span data-journal-project="browser-game" data-journal-field="currentFocus">Design the first version of NPC logic. Its actions are not currently organized as a state machine.</span></dd></div>
+						                  <div><dt><span data-journal-text="nextStep">Next step</span></dt><dd><span data-journal-project="browser-game" data-journal-field="nextStep">Continue developing the NPC logic independently before deciding on the broader implementation approach.</span></dd></div>
+						                </dl>
+						              </details>
+						            </div>
+						          </section>
+						          <section class="journal-updates journal-panel" id="project-journal-browser-game-updates" aria-labelledby="project-journal-browser-game-updates-title" tabindex="-1">
+						            <h4 class="journal-panel-title" id="project-journal-browser-game-updates-title"><span data-journal-text="updates">Updates</span></h4>
+						            <div class="journal-panel-body">
+						              <ol class="journal-update-list">
+						                <li id="project-journal-browser-game-update-npc-design-underway">
+						                  <details class="journal-update">
+						                    <summary><span data-journal-project="browser-game" data-journal-excerpt="update" data-journal-update="npc-design-underway">NPC logic underway; expanded gameplay, classes, offline play, and saves planned.</span></summary>
+						                    <p><span data-journal-project="browser-game" data-journal-field="text" data-journal-update="npc-design-underway">NPC logic design has started. The first version uses actions that are not yet a state machine. Offline play, character classes, expanded gameplay, and save-file import/export remain planned work.</span></p>
+						                  </details>
+						                </li>
+						              </ol>
+						            </div>
+						          </section>
+						          <section class="journal-roadmap journal-panel" id="project-journal-browser-game-roadmap" aria-labelledby="project-journal-browser-game-roadmap-title" tabindex="-1">
+						            <h4 class="journal-panel-title" id="project-journal-browser-game-roadmap-title"><span data-journal-text="roadmap">Roadmap</span></h4>
+						            <div class="journal-panel-body">
+						              <table class="journal-roadmap-table">
+						                <thead><tr><th scope="col"><span data-journal-text="milestone">Milestone</span></th><th scope="col"><span data-journal-text="status">Status</span></th></tr></thead>
+						                <tbody>
+						                  <tr id="project-journal-browser-game-milestone-design-npc-logic-v1"><th scope="row"><details class="journal-milestone"><summary><span data-journal-project="browser-game" data-journal-field="title" data-journal-milestone="design-npc-logic-v1">Design NPC logic v1</span></summary><p><span data-journal-project="browser-game" data-journal-field="description" data-journal-milestone="design-npc-logic-v1">Initial action logic is being designed. The current version is not a state machine.</span></p></details></th><td><span class="journal-status" data-journal-status="in-progress">In progress</span></td></tr>
+						                  <tr id="project-journal-browser-game-milestone-develop-typescript-gameplay"><th scope="row"><details class="journal-milestone"><summary><span data-journal-project="browser-game" data-journal-field="title" data-journal-milestone="develop-typescript-gameplay">Develop expanded gameplay in TypeScript</span></summary><p><span data-journal-project="browser-game" data-journal-field="description" data-journal-milestone="develop-typescript-gameplay">Build on the website&#x27;s browser-based foundation and GBA-style controls.</span></p></details></th><td><span class="journal-status" data-journal-status="planned">Planned</span></td></tr>
+						                  <tr id="project-journal-browser-game-milestone-add-character-classes"><th scope="row"><span data-journal-project="browser-game" data-journal-field="title" data-journal-milestone="add-character-classes">Add a character class system</span></th><td><span class="journal-status" data-journal-status="planned">Planned</span></td></tr>
+						                  <tr id="project-journal-browser-game-milestone-enable-offline-play"><th scope="row"><details class="journal-milestone"><summary><span data-journal-project="browser-game" data-journal-field="title" data-journal-milestone="enable-offline-play">Enable offline play</span></summary><p><span data-journal-project="browser-game" data-journal-field="description" data-journal-milestone="enable-offline-play">The goal is a free game playable locally without a game server.</span></p></details></th><td><span class="journal-status" data-journal-status="planned">Planned</span></td></tr>
+						                  <tr id="project-journal-browser-game-milestone-add-save-file-import-export"><th scope="row"><details class="journal-milestone"><summary><span data-journal-project="browser-game" data-journal-field="title" data-journal-milestone="add-save-file-import-export">Add local saves and save-file import/export</span></summary><p><span data-journal-project="browser-game" data-journal-field="description" data-journal-milestone="add-save-file-import-export">Players should be able to keep their progress and load it again. The storage method and file format have not been selected.</span></p></details></th><td><span class="journal-status" data-journal-status="planned">Planned</span></td></tr>
+						                </tbody>
+						              </table>
+						            </div>
+						          </section>
+						        </section>
+						        <aside class="journal-support">
+						          <section class="journal-blocker journal-panel" aria-labelledby="project-journal-browser-game-blocker-title">
+						            <h3 class="journal-panel-title" id="project-journal-browser-game-blocker-title"><span data-journal-text="currentBlocker">Current blocker</span></h3>
+						            <div class="journal-panel-body"><p><span data-journal-text="noBlocker">No blocker reported.</span></p></div>
+						          </section>
+						          <section class="journal-links journal-panel" aria-labelledby="project-journal-browser-game-links-title">
+						            <h3 class="journal-panel-title" id="project-journal-browser-game-links-title"><span data-journal-text="links">Links</span></h3>
+						            <div class="journal-panel-body">
+						              <p><span data-journal-text="noLinks">No links added yet.</span></p>
+						            </div>
+						          </section>
+						          <section class="journal-related journal-panel" aria-labelledby="project-journal-browser-game-related-title">
+						            <h3 class="journal-panel-title" id="project-journal-browser-game-related-title"><span data-journal-text="relatedProjects">Related projects</span></h3>
+						            <div class="journal-panel-body"><ul>
+						              <li><a href="#project-journal-gba-website" data-journal-select="gba-website"><span data-journal-project="gba-website" data-journal-field="title">GBA-style personal website</span></a></li>
+						            </ul></div>
+						          </section>
+						        </aside>
+						      </article>
+						      <article class="journal-project" id="project-journal-gluonagent" data-journal-project-panel="gluonagent" aria-labelledby="project-journal-gluonagent-title" tabindex="-1">
+						        <section class="journal-main" aria-labelledby="project-journal-gluonagent-current-work-title">
+						          <h3 class="journal-panel-title journal-current-work" id="project-journal-gluonagent-current-work-title"><span data-journal-text="currentWork">Current work</span></h3>
+						          <section class="journal-summary journal-panel">
+						            <div class="journal-project-heading">
+						              <h4 class="journal-project-title" id="project-journal-gluonagent-title"><span data-journal-project="gluonagent" data-journal-field="title">GluonAgent</span></h4>
+						              <span class="journal-status" data-journal-status="paused">Paused</span>
+						            </div>
+						            <div class="journal-panel-body">
+						              <p class="journal-summary-text"><span data-journal-project="gluonagent" data-journal-excerpt="summary">An agent project paused for more research.</span></p>
+						              <dl class="journal-focus">
+						                <div><dt><span data-journal-text="currentFocus">Current focus</span></dt><dd><span data-journal-project="gluonagent" data-journal-excerpt="currentFocus">Reassess the project&#x27;s complexity and research needs.</span></dd></div>
+						                <div><dt><span data-journal-text="nextStep">Next step</span></dt><dd><span data-journal-project="gluonagent" data-journal-excerpt="nextStep">Research further before deciding how to resume.</span></dd></div>
+						              </dl>
+						              <details class="journal-full-description">
+						                <summary><span data-journal-text="showDetails">Show project details</span></summary>
+						                <p><span data-journal-project="gluonagent" data-journal-field="summary">An agent project paused while its complexity and research needs are reassessed.</span></p>
+						                <dl class="journal-focus">
+						                  <div><dt><span data-journal-text="currentFocus">Current focus</span></dt><dd><span data-journal-project="gluonagent" data-journal-field="currentFocus">Paused pending further research.</span></dd></div>
+						                  <div><dt><span data-journal-text="nextStep">Next step</span></dt><dd><span data-journal-project="gluonagent" data-journal-field="nextStep">Do further research before deciding how to resume the project.</span></dd></div>
+						                </dl>
+						              </details>
+						            </div>
+						          </section>
+						          <section class="journal-updates journal-panel" id="project-journal-gluonagent-updates" aria-labelledby="project-journal-gluonagent-updates-title" tabindex="-1">
+						            <h4 class="journal-panel-title" id="project-journal-gluonagent-updates-title"><span data-journal-text="updates">Updates</span></h4>
+						            <div class="journal-panel-body">
+						              <ol class="journal-update-list">
+						                <li id="project-journal-gluonagent-update-project-paused">
+						                  <details class="journal-update">
+						                    <summary><span data-journal-project="gluonagent" data-journal-excerpt="update" data-journal-update="project-paused">Development paused: further research needed.</span></summary>
+						                    <p><span data-journal-project="gluonagent" data-journal-field="text" data-journal-update="project-paused">Development is paused because the project is too complex to continue without additional research.</span></p>
+						                  </details>
+						                </li>
+						              </ol>
+						            </div>
+						          </section>
+						          <section class="journal-roadmap journal-panel" id="project-journal-gluonagent-roadmap" aria-labelledby="project-journal-gluonagent-roadmap-title" tabindex="-1">
+						            <h4 class="journal-panel-title" id="project-journal-gluonagent-roadmap-title"><span data-journal-text="roadmap">Roadmap</span></h4>
+						            <div class="journal-panel-body">
+						              <table class="journal-roadmap-table">
+						                <thead><tr><th scope="col"><span data-journal-text="milestone">Milestone</span></th><th scope="col"><span data-journal-text="status">Status</span></th></tr></thead>
+						                <tbody>
+						                  <tr id="project-journal-gluonagent-milestone-further-research"><th scope="row"><details class="journal-milestone"><summary><span data-journal-project="gluonagent" data-journal-field="title" data-journal-milestone="further-research">Research the unresolved complexity</span></summary><p><span data-journal-project="gluonagent" data-journal-field="description" data-journal-milestone="further-research">Further research is needed before the project resumes.</span></p></details></th><td><span class="journal-status" data-journal-status="planned">Planned</span></td></tr>
+						                </tbody>
+						              </table>
+						            </div>
+						          </section>
+						        </section>
+						        <aside class="journal-support">
+						          <section class="journal-blocker journal-panel" aria-labelledby="project-journal-gluonagent-blocker-title">
+						            <h3 class="journal-panel-title" id="project-journal-gluonagent-blocker-title"><span data-journal-text="currentBlocker">Current blocker</span></h3>
+						            <div class="journal-panel-body"><p><span data-journal-project="gluonagent" data-journal-field="currentBlocker">The project&#x27;s complexity requires more research before development can continue.</span></p></div>
+						          </section>
+						          <section class="journal-links journal-panel" aria-labelledby="project-journal-gluonagent-links-title">
+						            <h3 class="journal-panel-title" id="project-journal-gluonagent-links-title"><span data-journal-text="links">Links</span></h3>
+						            <div class="journal-panel-body">
+						              <p><span data-journal-text="noLinks">No links added yet.</span></p>
+						            </div>
+						          </section>
+
+						        </aside>
+						      </article>
+						    </div>
+						  </div>
+						  <footer class="journal-footer">
+						    <a class="journal-homepage" href="#work"><img src="images/project-journal/homepage-house.svg" alt="" aria-hidden="true" width="32" height="32" /><span data-journal-text="personalHomepage">Personal homepage</span><img src="images/project-journal/homepage-tree.svg" alt="" aria-hidden="true" width="24" height="32" /></a>
+						    <span class="journal-footer-links"><a href="#websites"><span data-journal-text="myWebsites">My Websites</span></a><a href="#project-journal-credits"><span data-journal-text="photoCredits">Photo credits</span></a></span>
+						  </footer>
+						  <details class="journal-credits" id="project-journal-credits" aria-labelledby="project-journal-credits-title" tabindex="-1">
+						    <summary class="journal-panel-title" id="project-journal-credits-title"><span data-journal-text="photoCredits">Photo credits</span></summary>
+						    <p><span data-journal-text="photoChanges">All three photos were downscaled to 180 pixels tall and re-saved as lower-quality JPEGs for an early-2000s web look. The Shibuya train photo has also had its color and tone edited: lower brightness, slightly higher contrast, cooler tones, lower saturation, and light grain; the adapted photo remains CC BY-SA 4.0. The adapted Mong Kok photo remains CC BY-SA 2.5. The header displays all three with a 5:4 crop.</span></p>
+						    <ul>
+						      <li><a href="https://commons.wikimedia.org/wiki/File:Walking_around_Kabukicho,_Shinjuku_at_night._(29362470401).jpg" target="_blank" rel="noopener noreferrer">Walking around Kabukicho, Shinjuku at night. (29362470401)</a> — <span data-journal-text="photoBy">Photo by</span> <a href="https://www.flickr.com/people/21442511@N08" target="_blank" rel="noopener noreferrer">Daniel Ramirez</a> · <span data-journal-text="photoLicense">License</span>: <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener noreferrer">CC BY 2.0</a></li>
+						      <li><a href="https://commons.wikimedia.org/wiki/File:Shibuya_Station_Yamanote_Line_Platform_20080522.jpg" target="_blank" rel="noopener noreferrer">Shibuya Station Yamanote Line Platform 20080522</a> — <span data-journal-text="photoBy">Photo by</span> <a href="https://commons.wikimedia.org/wiki/User:Rukin" target="_blank" rel="noopener noreferrer">Rukin</a> · <span data-journal-text="photoLicense">License</span>: <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a></li>
+						      <li><a href="https://commons.wikimedia.org/wiki/File:HK_Portland_Street_Night.jpg" target="_blank" rel="noopener noreferrer">HK Portland Street Night</a> — <span data-journal-text="photoBy">Photo by</span> <a href="https://en.wikipedia.org/wiki/User:UCLARodent" target="_blank" rel="noopener noreferrer">UCLARodent</a> · <span data-journal-text="photoLicense">License</span>: <a href="https://creativecommons.org/licenses/by-sa/2.5/" target="_blank" rel="noopener noreferrer">CC BY-SA 2.5</a></li>
+						    </ul>
+						  </details>
+						  </div>
+						</div>
+					</div>
+				</div>
+				<footer class="window-statusbar browser-statusbar">
+					<span><img src="images/internet-explorer-6.svg" width="16" height="16" alt="" />Done</span>
+					<span class="browser-status-icons" data-browser-status-icons hidden></span>
+					<span><img src="images/internet-zone.svg" width="16" height="16" alt="" />Internet</span>
+				</footer>
 			</section>
 
 
@@ -492,8 +978,8 @@
 				</nav>
 				<nav id="start-programs" class="start-menu-content start-programs" aria-label="All Programs" hidden>
 					<a href="#projects" data-open-portfolio><span class="icon solid fa-book-open" aria-hidden="true"></span>Projects &amp; Research</a>
+					<!-- Keep individual sites in My Websites so visitors discover the full collection and its count. -->
 					<a href="#websites"><img class="start-shortcut-image" src="images/internet-explorer-6.svg" width="31" height="31" alt="" />My Websites</a>
-					<button type="button" data-open-window="hobbies"><span class="icon solid fa-gamepad" aria-hidden="true"></span>Personal Hobbies</button>
 					<a href="https://github.com/Caleb-Leung-Kwan-Ho" target="_blank" rel="noopener noreferrer"><span class="icon brands fa-github" aria-hidden="true"></span>GitHub</a>
 					<a href="mailto:caleb.leungkwanho@gmail.com"><span class="icon solid fa-envelope" aria-hidden="true"></span>Email Me</a>
 					<button type="button" data-show-desktop><span class="icon solid fa-desktop" aria-hidden="true"></span>Show desktop</button>
@@ -508,6 +994,7 @@
 					<button class="task-button is-active" type="button" data-task-window="portfolio" aria-pressed="true"><span class="folder-icon" aria-hidden="true"></span><span>Caleb Leung — Portfolio</span></button>
 					<button class="task-button" type="button" data-task-window="websites" aria-pressed="false" hidden><img class="window-app-icon" src="images/internet-explorer-6.svg" width="20" height="20" alt="" /><span>My Websites</span></button>
 					<button class="task-button" type="button" data-task-window="hobbies" aria-pressed="false" hidden><span class="icon solid fa-gamepad" aria-hidden="true"></span><span>Personal Hobbies</span></button>
+					<button class="task-button" type="button" data-task-window="project-journal" aria-pressed="false" hidden><img class="window-app-icon" src="images/internet-explorer-6.svg" width="20" height="20" alt="" /><span>Project Lab</span></button>
 				</div>
 				<button id="show-desktop-button" class="show-desktop-button" type="button" data-show-desktop aria-label="Show desktop" title="Show desktop"><span class="icon solid fa-desktop" aria-hidden="true"></span></button>
 				<time id="taskbar-clock">--:--</time>

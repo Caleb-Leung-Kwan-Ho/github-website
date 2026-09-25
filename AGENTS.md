@@ -16,9 +16,9 @@ Preserve the meaning and scope of factual claims when editing copy. Base additio
 
 ## Work in the existing shapes
 
-- `desktop/page.html` owns the page shell and window markup. `sites/*/content.html` owns each site’s content; Project Lab and My Websites also use site-owned data for build-time rendering, and My Websites has a shared shortcut template. Run `python3 scripts/build_site.py` after HTML edits; commit the generated `index.html` with its sources rather than editing it directly.
-- `desktop/styles.css` and `sites/*/styles.css` own their respective styling. `assets/css/one-page.css` imports them in desktop, portfolio, hobbies, projects, my-websites order, after the compiled HTML5 UP theme in `assets/css/main.css`.
-- `assets/js/main.js` connects the sites. `desktop/*.js` owns common windows, menus, dragging, and navigation; each `sites/*/site.js` owns its content behavior. Hobbies translations live in `sites/hobbies/translations.js`.
+- `desktop/page.html` owns the page shell and window placement. Its `browser-window` markers use `desktop/browser-window.html` for the shared Internet Explorer frame, with `BrowserWindow` metadata in `scripts/site_config.py`; Portfolio and archived Project Lab retain their authored frames. Each active site's `content.html` owns its content; archived Project Lab and My Websites also use site-owned data for build-time rendering, and My Websites has a shared shortcut template. `scripts/site_config.py` lists active sites and their source folders. Run `python3 scripts/build_site.py` after HTML or site-configuration edits; commit the generated `index.html`, `assets/js/site-registry.js`, and `assets/css/one-page.css` with their sources rather than editing those outputs directly.
+- `desktop/styles.css` and each active site's `styles.css` own their respective styling. The generated `assets/css/one-page.css` imports desktop styles followed by enabled site styles in configuration order, after the compiled HTML5 UP theme in `assets/css/main.css`.
+- `assets/js/main.js` connects the desktop to the generated `assets/js/site-registry.js`, which imports enabled site factories. `desktop/*.js` owns common windows, menus, dragging, and navigation; each active site's `site.js` owns its content behavior. Hobbies translations live in `sites/hobbies/translations.js`.
 - `assets/sass/` remains the source for the baseline theme CSS. See `README.md` and `docs/MAINTENANCE.md` for the concise file map and workflow.
 - Use `images/` for local visual assets. Keep `LICENSE.txt` and the theme attribution comments intact.
 
@@ -32,11 +32,13 @@ Extract a shared class when multiple elements genuinely share a repeated concept
 
 The website collection will continue to grow. Put every future website in its own `sites/<name>/` folder with `content.html`, `styles.css`, `site.js`, and any site-specific helper modules. Follow the extension workflow in `docs/MAINTENANCE.md`.
 
+Future non-portfolio sites use the shared Internet Explorer frame: title bar, File/Edit/View/Favorites/Tools/Help menus, Back/Forward/Home/Favorites toolbar, address row, and status bar. Register its browser metadata and marker instead of copying the header. Keep browser controls and Favorites behavior in `desktop/browser.js`, shared styling in `desktop/styles.css`, and each site's design below the header in its own folder. Portfolio keeps its separate frame; leave archived Project Lab unchanged unless its migration is requested.
+
 Apply open for extension, closed for modification: keep new site behavior in its own folder and reuse the shared site callbacks and desktop controls. Limit edits to existing code to the documented integration points and genuinely shared requirements. Adding a site should not require changes to unrelated sites or site-specific branches in shared desktop logic. Explain necessary shared interface changes and validate the affected existing behavior; avoid speculative abstractions.
 
 Use build-time rendering selectively for repeated collections expected to keep growing when one data record per item and a shared template prevent copied markup and inconsistent entries. Keep small and stable or one-off content as authored HTML. Reuse the existing Python standard-library build, keep data and templates with the owning site, and add only the renderer code the repetition justifies. Validate and escape generated content.
 
-When implementing or reviewing visitor navigation, account for a growing number of sites, lists, items, and folders. Keep sites discoverable, shortcuts selective, and lists usable beyond today's item count, including keyboard access and narrow layouts. The My Websites directory is the portfolio’s overview of personal sites; add an entry there when adding a website. Keep professional project selection curated separately from casual project updates and website discovery. These principles guide authorized changes; they do not authorize an unrelated UI redesign.
+When implementing or reviewing visitor navigation, account for a growing number of sites, lists, items, and folders. Keep sites discoverable, shortcuts selective, and lists usable beyond today's item count, including keyboard access and narrow layouts. The My Websites directory is the portfolio’s overview of personal sites; add an entry there when adding a website. Do not add individual sites listed in My Websites to the Start menu; keep My Websites as their Start menu entry point so visitors can see the full collection and its site count. Keep professional project selection curated separately from casual project updates and website discovery. These principles guide authorized changes; they do not authorize an unrelated UI redesign.
 
 ## CSS and responsive behavior
 
@@ -44,7 +46,7 @@ For CSS or layout-related HTML work, use the [maintain-site-css skill](.agents/s
 
 Do not add or modify CSS, inline styles, or styling-related markup unless the user explicitly requests a visual or styling change. Content, metadata, crawler, and SEO work must preserve the existing presentation and must not introduce styling-only classes.
 
-Put styling in the owning desktop or site stylesheet, not inline in HTML and not in the unlinked root `style.css`. Preserve the `main.css` then `one-page.css` load order and the manifest's import order.
+Put styling in the owning desktop or site stylesheet, not inline in HTML and not in the unlinked root `style.css`. Preserve the `main.css` then `one-page.css` load order and the site order in `scripts/site_config.py`.
 
 Keep selectors limited to the component or site they belong to. Moving CSS into another file does not isolate it. Shared window controls belong to the desktop; reuse the existing CSS variables for repeated visual values.
 
@@ -54,7 +56,7 @@ Do not directly edit the generated `assets/css/main.css` for ordinary site chang
 
 ## JavaScript, comments, and dependencies
 
-Keep interactions progressively enhanced and dependency-free. Add behavior to the owning local module and keep `assets/js/main.js` as composition only. Use single-line static relative imports supported by the checker; review and update its limited grammar before adopting other module syntax. Do not modify minified vendor files for custom work.
+Keep interactions progressively enhanced and dependency-free. Add behavior to the owning local module, register its factory in `scripts/site_config.py`, and keep `assets/js/main.js` as composition only. The build generates single-line static relative imports in `assets/js/site-registry.js`; review and update the checker's limited grammar before adopting other module syntax. Do not modify minified vendor files for custom work.
 
 Comments should capture a non-obvious contract or reason—such as CSS load order, the navigation/section relationship, a browser workaround, or an accessibility constraint—not narrate obvious code. Update a nearby comment when changing the contract it describes.
 
@@ -75,6 +77,8 @@ GitHub Actions must use minimal permissions and immutable full-commit action ref
 Preserve the visual design, responsiveness, anchors, navigation, keyboard access, skip link, focus styles, image alt text, and external-link safety unless the task explicitly changes them. Keep external links opening in a new tab paired with `rel="noopener noreferrer"`.
 
 For all code changes, run `python3 scripts/build_site.py --check`, `python3 .github/scripts/check_site_security.py`, and `git diff --check`. Run `python3 .github/scripts/check_javascript.py` when JavaScript changes. When assembly, the security checker, or workflow changes, also run `python3 -m unittest discover -s .github/scripts -p 'test_*.py'`.
+
+Know what CI already covers before asking the user about validation. `.github/workflows/security-invariants.yml` runs the unit tests, security checker, build check, JavaScript checker, and whitespace check on pull requests to `main` and pushes to `main`. `check_javascript.py` needs Node.js; if Node.js is unavailable locally, state once in the handoff that it was skipped locally and runs in CI, review the changed JavaScript manually, and move on. Do not ask the user to install Node.js or otherwise resolve a check that CI performs.
 
 Treat security failures and repository-rule failures as blocking. JavaScript review advisories are non-blocking prompts for manual inspection, not confirmed vulnerabilities; text matches can include comments or strings and miss dynamic or aliased operations. Review changed JavaScript even when automated checks pass.
 

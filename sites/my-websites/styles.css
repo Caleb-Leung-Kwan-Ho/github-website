@@ -212,10 +212,6 @@
 	.website-thumbnail {
 		max-width: 320px;
 	}
-
-	.websites-window .window-statusbar span {
-		padding: 0 5px;
-	}
 }
 
 @media (max-width: 736px) {

@@ -525,6 +525,18 @@ b {
 	font-weight: 700;
 }
 
+/* Display options are on/off settings, checked like IE's View menu items. */
+.window-menu-panel > button[data-display-option]::before {
+	content: "";
+	display: inline-block;
+	width: 1.3em;
+}
+
+.window-menu-panel > button[data-display-option][aria-pressed="true"]::before {
+	content: "✓";
+	content: "✓" / "";
+}
+
 .window-menu-panel > button:disabled {
 	opacity: 0.55;
 }
@@ -850,10 +862,6 @@ b {
 	text-underline-offset: 2px;
 }
 
-.browser-page > .window-statusbar {
-	flex-shrink: 0;
-}
-
 /* Browser controls follow the window width independently of the page content. */
 @container site-window (max-width: 736px) {
 	.browser-layout {
@@ -904,6 +912,10 @@ b {
 		gap: 5px;
 		padding: 4px 6px;
 		font-size: 11px;
+	}
+
+	.browser-statusbar > span {
+		padding: 0 5px;
 	}
 }
 
@@ -962,6 +974,73 @@ b {
 	padding: 0 7px;
 	border: 1px solid #d5d2c4;
 	box-shadow: inset 1px 1px #fff;
+}
+
+/* IE status bar below every shared browser window: page state, site display
+   icons, then the security zone. It sits outside the page, so page effects never cover it. */
+.browser-statusbar {
+	flex: 0 0 auto;
+	grid-template-columns: minmax(0, 1fr) auto auto;
+}
+
+.browser-statusbar > span {
+	min-width: 0;
+	gap: 5px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.browser-statusbar img {
+	width: 16px;
+	height: 16px;
+	flex: 0 0 16px;
+	image-rendering: pixelated;
+}
+
+.browser-statusbar > .browser-status-icons {
+	gap: 2px;
+	padding: 0 2px;
+}
+
+.browser-statusbar > .browser-status-icons[hidden] {
+	display: none;
+}
+
+.browser-status-icon {
+	display: grid;
+	width: 22px;
+	min-width: 22px;
+	height: 19px;
+	min-height: 0;
+	place-items: center;
+	padding: 0;
+	border: 1px solid transparent;
+	border-radius: 0;
+	background: transparent;
+	box-shadow: none;
+	cursor: pointer;
+	line-height: 0;
+	transition: none;
+}
+
+.browser-status-icon:hover,
+.browser-status-icon:focus-visible {
+	border-color: #fff #8a877a #8a877a #fff;
+}
+
+.browser-status-icon:focus-visible {
+	outline: 1px dotted #000;
+	outline-offset: -4px;
+}
+
+.browser-status-icon[aria-pressed="true"] {
+	border-color: #8a877a #fff #fff #8a877a;
+	background: #dfdccc;
+}
+
+.browser-status-icon[aria-pressed="false"] img {
+	opacity: 0.55;
+	filter: grayscale(1);
 }
 
 .taskbar {

@@ -105,6 +105,45 @@ export function setupBrowserWindows(sites, navigation) {
 			languageMenu.remove();
 		}
 
+		// A site's on/off display options appear in the View menu and as status-bar
+		// icons. The site owns the state and updates every matching control's
+		// aria-pressed, so both stay in sync however the setting changes.
+		if (site.displayOptions && site.setDisplayOption) {
+			var displayMenu = element.querySelector('[data-browser-display-menu]');
+			var displayPanel = displayMenu.parentElement;
+			var statusIcons = element.querySelector('[data-browser-status-icons]');
+			var displayCaption = document.createElement('p');
+			displayCaption.className = 'window-menu-caption';
+			displayCaption.textContent = 'Display';
+			displayPanel.insertBefore(displayCaption, displayMenu);
+			site.displayOptions.forEach(function (option) {
+				var menuItem = document.createElement('button');
+				menuItem.textContent = option.label;
+				displayPanel.insertBefore(menuItem, displayMenu);
+				var statusIcon = document.createElement('button');
+				statusIcon.className = 'browser-status-icon';
+				statusIcon.setAttribute('aria-label', option.label);
+				statusIcon.setAttribute('title', option.label);
+				var image = document.createElement('img');
+				image.setAttribute('src', option.icon);
+				image.setAttribute('width', '16');
+				image.setAttribute('height', '16');
+				image.setAttribute('alt', '');
+				statusIcon.appendChild(image);
+				statusIcons.appendChild(statusIcon);
+				[menuItem, statusIcon].forEach(function (control) {
+					control.type = 'button';
+					control.setAttribute('data-display-option', option.id);
+					control.setAttribute('aria-pressed', String(option.enabled));
+					control.addEventListener('click', function () {
+						site.setDisplayOption(option.id, control.getAttribute('aria-pressed') !== 'true');
+					});
+				});
+			});
+			statusIcons.hidden = false;
+			displayMenu.remove();
+		}
+
 		navigation.onChange(updateNavigation);
 		updateNavigation();
 	});

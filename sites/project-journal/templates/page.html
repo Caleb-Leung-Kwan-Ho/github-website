@@ -1,3 +1,8 @@
+<div class="journal-infobar" lang="en" data-journal-infobar hidden>
+  <button class="journal-infobar-message" type="button" data-journal-infobar-off><img src="images/project-journal/controls/infobar-info.svg" alt="" width="16" height="16" />${retroScreenNotice}</button>
+  <p class="journal-infobar-message" tabindex="-1" data-journal-infobar-confirmation hidden><img src="images/project-journal/controls/infobar-info.svg" alt="" width="16" height="16" />${retroScreenOff}</p>
+  <button class="journal-infobar-close" type="button" aria-label="${retroScreenDismissAttribute}" data-journal-aria="retroScreenDismiss" data-journal-infobar-close><img src="images/project-journal/controls/close.svg" alt="" width="12" height="12" /></button>
+</div>
 <div class="project-journal-content" id="project-journal" lang="en" role="document" tabindex="-1">
   <div class="journal-page">
   <a class="journal-skip" href="#project-journal-projects">${skipToProjects}</a>
@@ -58,7 +63,7 @@ ${projectDetails}
   </div>
   <footer class="journal-footer">
     <a class="journal-homepage" href="#work"><img src="images/project-journal/homepage-house.svg" alt="" aria-hidden="true" width="32" height="32" />${personalHomepage}<img src="images/project-journal/homepage-tree.svg" alt="" aria-hidden="true" width="24" height="32" /></a>
-    <span class="journal-footer-links"><a href="#websites">${myWebsites}</a><a href="#project-journal-credits">${photoCredits}</a><button class="journal-crt-toggle" type="button" aria-pressed="false" data-journal-crt data-journal-enhancement hidden>${crtEffect}</button></span>
+    <span class="journal-footer-links"><a href="#websites">${myWebsites}</a><a href="#project-journal-credits">${photoCredits}</a></span>
   </footer>
   <details class="journal-credits" id="project-journal-credits" aria-labelledby="project-journal-credits-title" tabindex="-1">
     <summary class="journal-panel-title" id="project-journal-credits-title">${photoCredits}</summary>

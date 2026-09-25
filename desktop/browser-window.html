@@ -14,6 +14,7 @@
 				<button type="button" data-menu-action="resize">Resize window</button>
 				<button type="button" data-menu-action="top">Back to top</button>
 				<div data-browser-language-menu hidden></div>
+				<div data-browser-display-menu hidden></div>
 			</div>
 		</details>
 		<details class="window-menu"><summary>Favorites</summary><div class="window-menu-panel" data-browser-favorites-menu><button type="button" data-browser-favorites-toggle data-browser-favorites-label aria-expanded="false" aria-controls="${window_id}-favorites">Show Favorites panel</button></div></details>
@@ -46,4 +47,9 @@
 			<!-- include: sites/${site_folder}/content.html -->
 		</div>
 	</div>
+	<footer class="window-statusbar browser-statusbar">
+		<span><img src="images/internet-explorer-6.svg" width="16" height="16" alt="" />Done</span>
+		<span class="browser-status-icons" data-browser-status-icons hidden></span>
+		<span><img src="images/internet-zone.svg" width="16" height="16" alt="" />Internet</span>
+	</footer>
 </section>

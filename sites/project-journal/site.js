@@ -14,6 +14,9 @@ export function createProjectJournalSite() {
 	var panels = Array.from(content.querySelectorAll('[data-journal-project-panel]'));
 	var links = Array.from(content.querySelectorAll('[data-journal-select]'));
 	var languageButtons = Array.from(content.querySelectorAll('[data-journal-language]'));
+	var infobar = element.querySelector('[data-journal-infobar]');
+	var infobarAction = infobar.querySelector('[data-journal-infobar-off]');
+	var infobarConfirmation = infobar.querySelector('[data-journal-infobar-confirmation]');
 	var language = 'en';
 	var featured = JOURNAL_PROJECTS.find(function (project) { return project.featured; }) || JOURNAL_PROJECTS[0];
 	var selected = featured.id;
@@ -102,6 +105,14 @@ export function createProjectJournalSite() {
 			node.textContent = locale.photos[node.getAttribute('data-journal-photo-caption')].caption;
 		});
 		content.setAttribute('lang', id);
+		// The notice sits above the scrolling page, outside content, so translate it too.
+		infobar.querySelectorAll('[data-journal-text]').forEach(function (node) {
+			node.textContent = locale.ui[node.getAttribute('data-journal-text')];
+		});
+		infobar.querySelectorAll('[data-journal-aria]').forEach(function (node) {
+			node.setAttribute('aria-label', locale.ui[node.getAttribute('data-journal-aria')]);
+		});
+		infobar.setAttribute('lang', id);
 		languageButtons.forEach(function (button) {
 			button.setAttribute('aria-pressed', String(button.getAttribute('data-journal-language') === id));
 		});
@@ -141,20 +152,43 @@ export function createProjectJournalSite() {
 		if (Object.prototype.hasOwnProperty.call(JOURNAL_LOCALES, remembered)) { language = remembered; }
 	} catch (error) { /* English remains available when browser storage is blocked. */ }
 
-	// The opt-in CRT effect is drawn by styles.css over this window's page area only.
-	var crtToggle = content.querySelector('[data-journal-crt]');
-	function setCrt(enabled) {
-		element.classList.toggle('is-crt', enabled);
-		crtToggle.setAttribute('aria-pressed', String(enabled));
+	// The retro screen effect starts on only once this module runs, so a visitor is
+	// never left with an effect they cannot turn off. styles.css draws it over this
+	// window's page area and hides it for high-contrast and forced-color modes. The
+	// shared browser mirrors the setting in the View menu and the status bar.
+	var retroScreen = 'retro-screen';
+	function remember(key, value) {
+		try { window.localStorage.setItem(key, value); } catch (error) { /* Storage is optional. */ }
 	}
-	crtToggle.addEventListener('click', function () {
-		var enabled = !element.classList.contains('is-crt');
-		setCrt(enabled);
-		try { window.localStorage.setItem('project-journal-crt', enabled ? 'on' : 'off'); } catch (error) { /* Storage is optional. */ }
+	function setRetroScreen(enabled) {
+		element.classList.toggle('is-retro-screen', enabled);
+		element.querySelectorAll('[data-display-option="' + retroScreen + '"]').forEach(function (control) {
+			control.setAttribute('aria-pressed', String(enabled));
+		});
+		remember('project-journal-retro-screen', enabled ? 'on' : 'off');
+	}
+	function closeInfobar() {
+		var restoreFocus = infobar.contains(document.activeElement);
+		infobar.hidden = true;
+		remember('project-journal-retro-screen-notice', 'seen');
+		if (restoreFocus) { content.focus({ preventScroll: true }); }
+	}
+	infobarAction.addEventListener('click', function () {
+		setRetroScreen(false);
+		infobarAction.hidden = true;
+		infobarConfirmation.hidden = false;
+		infobarConfirmation.focus();
+		remember('project-journal-retro-screen-notice', 'seen');
 	});
+	infobar.querySelector('[data-journal-infobar-close]').addEventListener('click', closeInfobar);
+	var storedRetroScreen = null;
+	var noticeSeen = false;
 	try {
-		setCrt(window.localStorage.getItem('project-journal-crt') === 'on');
-	} catch (error) { /* The effect stays off when browser storage is blocked. */ }
+		storedRetroScreen = window.localStorage.getItem('project-journal-retro-screen');
+		noticeSeen = window.localStorage.getItem('project-journal-retro-screen-notice') === 'seen';
+	} catch (error) { /* Without storage, the effect starts on and the notice returns each visit. */ }
+	element.classList.toggle('is-retro-screen', storedRetroScreen !== 'off');
+	infobar.hidden = noticeSeen || storedRetroScreen !== null;
 	content.querySelectorAll('[data-journal-enhancement]').forEach(function (node) { node.hidden = false; });
 	selectLanguage(language);
 	selectProject(selected);
@@ -172,6 +206,17 @@ export function createProjectJournalSite() {
 			return { id: button.getAttribute('data-journal-language'), label: button.textContent, selected: button.getAttribute('aria-pressed') === 'true' };
 		}),
 		selectLanguage: selectLanguage,
+		displayOptions: [{
+			id: retroScreen,
+			label: 'Retro screen effect',
+			icon: 'images/project-journal/controls/retro-screen.svg',
+			enabled: element.classList.contains('is-retro-screen')
+		}],
+		setDisplayOption: function (id, enabled) {
+			if (id !== retroScreen) { return; }
+			setRetroScreen(enabled);
+			if (!infobar.hidden) { closeInfobar(); }
+		},
 		navigate: function (target) {
 			var panel = target.closest('[data-journal-project-panel]');
 			if (panel) { selectProject(panel.getAttribute('data-journal-project-panel')); }

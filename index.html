@@ -283,6 +283,7 @@
 							<button type="button" data-menu-action="resize">Resize window</button>
 							<button type="button" data-menu-action="top">Back to top</button>
 							<div data-browser-language-menu hidden></div>
+							<div data-browser-display-menu hidden></div>
 						</div>
 					</details>
 					<details class="window-menu"><summary>Favorites</summary><div class="window-menu-panel" data-browser-favorites-menu><button type="button" data-browser-favorites-toggle data-browser-favorites-label aria-expanded="false" aria-controls="websites-favorites">Show Favorites panel</button></div></details>
@@ -343,9 +344,13 @@
 							</ul>
 							<p class="websites-growth">More sites will appear here as I build them.</p>
 						</section>
-						<footer class="window-statusbar"><span data-websites-count>Website collection</span><span>Internet</span></footer>
 					</div>
 				</div>
+				<footer class="window-statusbar browser-statusbar">
+					<span><img src="images/internet-explorer-6.svg" width="16" height="16" alt="" />Done</span>
+					<span class="browser-status-icons" data-browser-status-icons hidden></span>
+					<span><img src="images/internet-zone.svg" width="16" height="16" alt="" />Internet</span>
+				</footer>
 			</section>
 
 			<section class="os-window browser-window hobbies-window" data-window="hobbies" role="dialog" aria-modal="false" aria-labelledby="hobbies-window-title" tabindex="-1" hidden>
@@ -364,6 +369,7 @@
 							<button type="button" data-menu-action="resize">Resize window</button>
 							<button type="button" data-menu-action="top">Back to top</button>
 							<div data-browser-language-menu hidden></div>
+							<div data-browser-display-menu hidden></div>
 						</div>
 					</details>
 					<details class="window-menu"><summary>Favorites</summary><div class="window-menu-panel" data-browser-favorites-menu><button type="button" data-browser-favorites-toggle data-browser-favorites-label aria-expanded="false" aria-controls="hobbies-favorites">Show Favorites panel</button></div></details>
@@ -508,6 +514,11 @@
 						</div>
 					</div>
 				</div>
+				<footer class="window-statusbar browser-statusbar">
+					<span><img src="images/internet-explorer-6.svg" width="16" height="16" alt="" />Done</span>
+					<span class="browser-status-icons" data-browser-status-icons hidden></span>
+					<span><img src="images/internet-zone.svg" width="16" height="16" alt="" />Internet</span>
+				</footer>
 			</section>
 
 			<section class="os-window browser-window project-journal-window" data-window="project-journal" role="dialog" aria-modal="false" aria-labelledby="project-journal-window-title" tabindex="-1" hidden>
@@ -526,6 +537,7 @@
 							<button type="button" data-menu-action="resize">Resize window</button>
 							<button type="button" data-menu-action="top">Back to top</button>
 							<div data-browser-language-menu hidden></div>
+							<div data-browser-display-menu hidden></div>
 						</div>
 					</details>
 					<details class="window-menu"><summary>Favorites</summary><div class="window-menu-panel" data-browser-favorites-menu><button type="button" data-browser-favorites-toggle data-browser-favorites-label aria-expanded="false" aria-controls="project-journal-favorites">Show Favorites panel</button></div></details>
@@ -555,6 +567,11 @@
 						<a class="browser-return" href="#work">Back to portfolio</a>
 					</aside>
 					<div class="browser-page">
+						<div class="journal-infobar" lang="en" data-journal-infobar hidden>
+						  <button class="journal-infobar-message" type="button" data-journal-infobar-off><img src="images/project-journal/controls/infobar-info.svg" alt="" width="16" height="16" /><span data-journal-text="retroScreenNotice">This page uses a retro screen effect. If the text is hard to read, click here to turn it off.</span></button>
+						  <p class="journal-infobar-message" tabindex="-1" data-journal-infobar-confirmation hidden><img src="images/project-journal/controls/infobar-info.svg" alt="" width="16" height="16" /><span data-journal-text="retroScreenOff">The retro screen effect is off. To turn it back on, use View → Retro screen effect or the screen icon in the status bar.</span></p>
+						  <button class="journal-infobar-close" type="button" aria-label="Close this notice" data-journal-aria="retroScreenDismiss" data-journal-infobar-close><img src="images/project-journal/controls/close.svg" alt="" width="12" height="12" /></button>
+						</div>
 						<div class="project-journal-content" id="project-journal" lang="en" role="document" tabindex="-1">
 						  <div class="journal-page">
 						  <a class="journal-skip" href="#project-journal-projects"><span data-journal-text="skipToProjects">Skip to projects</span></a>
@@ -928,7 +945,7 @@
 						  </div>
 						  <footer class="journal-footer">
 						    <a class="journal-homepage" href="#work"><img src="images/project-journal/homepage-house.svg" alt="" aria-hidden="true" width="32" height="32" /><span data-journal-text="personalHomepage">Personal homepage</span><img src="images/project-journal/homepage-tree.svg" alt="" aria-hidden="true" width="24" height="32" /></a>
-						    <span class="journal-footer-links"><a href="#websites"><span data-journal-text="myWebsites">My Websites</span></a><a href="#project-journal-credits"><span data-journal-text="photoCredits">Photo credits</span></a><button class="journal-crt-toggle" type="button" aria-pressed="false" data-journal-crt data-journal-enhancement hidden><span data-journal-text="crtEffect">CRT effect</span></button></span>
+						    <span class="journal-footer-links"><a href="#websites"><span data-journal-text="myWebsites">My Websites</span></a><a href="#project-journal-credits"><span data-journal-text="photoCredits">Photo credits</span></a></span>
 						  </footer>
 						  <details class="journal-credits" id="project-journal-credits" aria-labelledby="project-journal-credits-title" tabindex="-1">
 						    <summary class="journal-panel-title" id="project-journal-credits-title"><span data-journal-text="photoCredits">Photo credits</span></summary>
@@ -943,6 +960,11 @@
 						</div>
 					</div>
 				</div>
+				<footer class="window-statusbar browser-statusbar">
+					<span><img src="images/internet-explorer-6.svg" width="16" height="16" alt="" />Done</span>
+					<span class="browser-status-icons" data-browser-status-icons hidden></span>
+					<span><img src="images/internet-zone.svg" width="16" height="16" alt="" />Internet</span>
+				</footer>
 			</section>
 
 

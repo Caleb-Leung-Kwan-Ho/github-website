@@ -32,7 +32,7 @@ Extract a shared class when multiple elements genuinely share a repeated concept
 
 The website collection will continue to grow. Put every future website in its own `sites/<name>/` folder with `content.html`, `styles.css`, `site.js`, and any site-specific helper modules. Follow the extension workflow in `docs/MAINTENANCE.md`.
 
-Future non-portfolio sites use the shared Internet Explorer frame: title bar, File/Edit/View/Favorites/Tools/Help menus, Back/Forward/Home/Favorites toolbar, and address row. Register its browser metadata and marker instead of copying the header. Keep browser controls and Favorites behavior in `desktop/browser.js`, shared styling in `desktop/styles.css`, and each site's design below the header in its own folder. Portfolio keeps its separate frame; leave archived Project Lab unchanged unless its migration is requested.
+Future non-portfolio sites use the shared Internet Explorer frame: title bar, File/Edit/View/Favorites/Tools/Help menus, Back/Forward/Home/Favorites toolbar, address row, and status bar. Register its browser metadata and marker instead of copying the header. Keep browser controls and Favorites behavior in `desktop/browser.js`, shared styling in `desktop/styles.css`, and each site's design below the header in its own folder. Portfolio keeps its separate frame; leave archived Project Lab unchanged unless its migration is requested.
 
 Apply open for extension, closed for modification: keep new site behavior in its own folder and reuse the shared site callbacks and desktop controls. Limit edits to existing code to the documented integration points and genuinely shared requirements. Adding a site should not require changes to unrelated sites or site-specific branches in shared desktop logic. Explain necessary shared interface changes and validate the affected existing behavior; avoid speculative abstractions.
 
@@ -77,6 +77,8 @@ GitHub Actions must use minimal permissions and immutable full-commit action ref
 Preserve the visual design, responsiveness, anchors, navigation, keyboard access, skip link, focus styles, image alt text, and external-link safety unless the task explicitly changes them. Keep external links opening in a new tab paired with `rel="noopener noreferrer"`.
 
 For all code changes, run `python3 scripts/build_site.py --check`, `python3 .github/scripts/check_site_security.py`, and `git diff --check`. Run `python3 .github/scripts/check_javascript.py` when JavaScript changes. When assembly, the security checker, or workflow changes, also run `python3 -m unittest discover -s .github/scripts -p 'test_*.py'`.
+
+Know what CI already covers before asking the user about validation. `.github/workflows/security-invariants.yml` runs the unit tests, security checker, build check, JavaScript checker, and whitespace check on pull requests to `main` and pushes to `main`. `check_javascript.py` needs Node.js; if Node.js is unavailable locally, state once in the handoff that it was skipped locally and runs in CI, review the changed JavaScript manually, and move on. Do not ask the user to install Node.js or otherwise resolve a check that CI performs.
 
 Treat security failures and repository-rule failures as blocking. JavaScript review advisories are non-blocking prompts for manual inspection, not confirmed vulnerabilities; text matches can include comments or strings and miss dynamic or aliased operations. Review changed JavaScript even when automated checks pass.
 
